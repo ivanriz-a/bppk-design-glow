@@ -336,8 +336,8 @@ function Home() {
         </div>
         <div className="container-bppk strip-content-wrapper">
           <div className="pub-text">
-            <h2>Eksplorasi<br />Literasi<br />BPPK.</h2>
-            <div className="accent-line" />
+            <div className="section-eyebrow" style={{ color: "var(--bppk-yellow)" }}><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>LITERASI</div>
+            <h2 className="pub-headline">Eksplorasi<span className="st-italic">literasi BPPK.</span></h2>
             <p>Akses ribuan halaman jurnal, majalah, dan modul pembelajaran resmi dari BPPK.</p>
           </div>
           <div className="pub-cards-wrapper">
