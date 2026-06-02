@@ -85,12 +85,12 @@ const news = [
 
 const synergy = ["Setjen", "Itjen", "Pajak", "Bea Cukai", "Anggaran", "Perbendaharaan", "Kekayaan"];
 const dates: Array<{ d: number; cls?: string }> = [
-  { d: 27, cls: "date-muted" }, { d: 28, cls: "date-muted" }, { d: 29, cls: "date-muted" }, { d: 30, cls: "date-muted" },
-  { d: 1, cls: "date-holiday" }, { d: 2 }, { d: 3, cls: "date-holiday" },
-  { d: 4 }, { d: 5 }, { d: 6 }, { d: 7 }, { d: 8 }, { d: 9 }, { d: 10, cls: "date-holiday" },
-  { d: 11 }, { d: 12 }, { d: 13 }, { d: 14, cls: "date-holiday" }, { d: 15 }, { d: 16 }, { d: 17, cls: "date-holiday" },
-  { d: 18 }, { d: 19 }, { d: 20, cls: "date-today" }, { d: 21 }, { d: 22 }, { d: 23 }, { d: 24, cls: "date-holiday" },
-  { d: 25 }, { d: 26 }, { d: 27 }, { d: 28 }, { d: 29, cls: "date-holiday" }, { d: 30 }, { d: 31, cls: "date-holiday" },
+  { d: 28, cls: "date-muted" }, { d: 29, cls: "date-muted" }, { d: 30, cls: "date-muted" },
+  { d: 1 }, { d: 2 }, { d: 3 }, { d: 4, cls: "date-event" },
+  { d: 5 }, { d: 6 }, { d: 7 }, { d: 8 }, { d: 9 }, { d: 10 }, { d: 11 },
+  { d: 12, cls: "date-event" }, { d: 13 }, { d: 14 }, { d: 15 }, { d: 16 }, { d: 17 }, { d: 18, cls: "date-event" },
+  { d: 19 }, { d: 20 }, { d: 21 }, { d: 22 }, { d: 23 }, { d: 24, cls: "date-today" }, { d: 25 },
+  { d: 26 }, { d: 27 }, { d: 28, cls: "date-event" }, { d: 29 }, { d: 30 }, { d: 31 },
 ];
 
 function Home() {
