@@ -19,21 +19,27 @@ export const Route = createFileRoute("/")({
 
 const heroSlides = [
   {
-    eyebrow: "LAYANAN KONTAK",
-    title: "Lebih simpel dengan\nKemenkeu PRIME",
-    desc: "Layanan Halo BPPK dialihkan ke pusat kontak layanan Kemenkeu PRIME per 1 Juni 2024.",
+    eyebrow: "KEMENTERIAN KEUANGAN RI",
+    pre: "Membangun",
+    italic: "Kompetensi",
+    post: "Keuangan Negara.",
+    desc: "Pusat pengembangan SDM aparatur negara melalui pembelajaran modern, terintegrasi, dan inklusif.",
     image: hero1.url,
   },
   {
-    eyebrow: "INTEGRITAS",
-    title: "Tolak GRATIFIKASI\ndan LAPORKAN",
+    eyebrow: "INTEGRITAS BPPK",
+    pre: "Tolak",
+    italic: "Gratifikasi",
+    post: "Tegakkan Integritas.",
     desc: "BPPK menolak gratifikasi dalam bentuk apapun. Bersama ciptakan wilayah bebas dari korupsi.",
     image: hero3.url,
   },
   {
-    eyebrow: "VISI",
-    title: "Pendidikan\nBerkelas Dunia",
-    desc: "Mencetak SDM pengelola keuangan negara yang unggul dan berintegritas tinggi.",
+    eyebrow: "VISI BPPK",
+    pre: "Pendidikan",
+    italic: "Berkelas",
+    post: "Dunia.",
+    desc: "Mencetak SDM pengelola keuangan negara yang unggul, adaptif, dan berintegritas tinggi.",
     image: hero2.url,
   },
 ];
