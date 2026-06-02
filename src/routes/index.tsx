@@ -54,11 +54,11 @@ const services = [
 ];
 
 const schedules = [
-  { date: "10 Mei 2026", title: "Pelatihan Manajemen Risiko" },
-  { date: "12 Mei 2026", title: "E-Learning Manajemen Risiko" },
-  { date: "15 Mei 2026", title: "Pelatihan Dasar CPNS Gelombang 1" },
-  { date: "20 Mei 2026", title: "Webinar Digital Leadership" },
-  { date: "25 Mei 2026", title: "Sertifikasi Auditor Internal" },
+  { day: "24", month: "Okt", title: "Pelatihan Dasar CPNS Golongan III", unit: "Pusdiklat Keuangan Umum" },
+  { day: "02", month: "Nov", title: "Audit Investigatif Lanjutan", unit: "Pusdiklat Anggaran" },
+  { day: "11", month: "Nov", title: "Workshop Reformasi Birokrasi", unit: "Pusdiklat PSDM" },
+  { day: "11", month: "Nov", title: "Workshop Reformasi Birokrasi", unit: "Pusdiklat PSDM" },
+  { day: "18", month: "Nov", title: "Sertifikasi Bendahara Penerimaan", unit: "LSP BPPK" },
 ];
 
 const trainings = [
