@@ -106,7 +106,7 @@
   background: linear-gradient(110deg, rgba(3, 54, 79, 0.96) 0%, rgba(4, 79, 116, 0.78) 40%, rgba(4, 79, 116, 0.25) 75%, rgba(4, 79, 116, 0) 100%);
   z-index: 2;
 }
-.hero-content-wrapper { position: relative; z-index: 3; height: 340px; }
+.hero-content-wrapper { position: relative; z-index: 3; min-height: 460px; }
 .hero-text-slide {
   position: absolute; top: 40px; left: 0; width: 100%;
   opacity: 0; pointer-events: none; transform: translateY(15px);
