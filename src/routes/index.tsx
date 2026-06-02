@@ -182,43 +182,52 @@ function Home() {
 
           <div className="calendar-grid">
             <div>
-              <h2 className="section-title">Kalender BPPK</h2>
-              <div className="accent-line" />
-              <div className="mock-widget">
+              <div className="section-eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>AGENDA</div>
+              <h2 className="section-title">Jadwal pelatihan<span className="st-italic">terdekat.</span></h2>
+              <div className="mock-widget calendar-widget">
                 <div className="calendar-header">
-                  <button className="cal-nav-btn">‹</button>
-                  <div className="calendar-month">Mei 2026</div>
-                  <button className="cal-nav-btn">›</button>
+                  <div className="calendar-month">Oktober <span className="cal-year">2026</span></div>
+                  <div className="cal-nav-group">
+                    <button className="cal-nav-btn">‹</button>
+                    <button className="cal-nav-btn">›</button>
+                  </div>
                 </div>
                 <div className="calendar-days">
-                  {["Sen","Sel","Rab","Kam","Jum","Sab","Min"].map(d => <div key={d}>{d}</div>)}
+                  {["S","S","R","K","J","S","M"].map((d, i) => <div key={i}>{d}</div>)}
                 </div>
                 <div className="calendar-dates">
-                  {dates.map((d, i) => <div key={i} className={`date-num ${d.cls ?? ""}`}>{d.d}</div>)}
+                  {dates.map((d, i) => <div key={i} className={`date-num ${d.cls ?? ""}`}><span>{d.d}</span></div>)}
+                </div>
+                <div className="calendar-legend">
+                  <span><i className="dot-event" />Ada Agenda</span>
+                  <span><i className="dot-today" />Hari Ini</span>
+                  <span className="legend-count">5 Agenda Bulan Ini</span>
                 </div>
               </div>
             </div>
             <div>
-              <h2 className="section-title" style={{ visibility: "hidden" }}>.</h2>
-              <div className="accent-line" style={{ visibility: "hidden" }} />
-              <div className="mock-widget widget-jadwal" style={{ height: 360 }}>
-                <div className="schedule-list-wrapper">
-                  {schedules.map((s, i) => (
-                    <div key={i} className="schedule-item">
-                      <div>
-                        <div className="sch-date">{s.date}</div>
-                        <h4 className="sch-title">{s.title}</h4>
-                      </div>
-                      <a href="#" className="btn-outline">Detail</a>
+              <p className="section-lead">Agenda pengembangan kompetensi yang akan datang dari seluruh unit di lingkungan BPPK.</p>
+              <div className="schedule-list">
+                {schedules.map((s, i) => (
+                  <a key={i} href="#" className="schedule-row">
+                    <div className="sch-date-block">
+                      <div className="sch-day">{s.day}</div>
+                      <div className="sch-month">{s.month}</div>
                     </div>
-                  ))}
-                </div>
-                <div className="schedule-footer">
-                  <a href="#" className="link-view-all">Lihat jadwal lainnya →</a>
-                </div>
+                    <div className="sch-info">
+                      <h4 className="sch-title">{s.title}</h4>
+                      <div className="sch-unit">{s.unit}</div>
+                    </div>
+                    <svg className="sch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7" /><polyline points="7 7 17 7 17 17" /></svg>
+                  </a>
+                ))}
+              </div>
+              <div className="schedule-footer-link">
+                <a href="#" className="link-view-all">Lihat Kalender Lengkap →</a>
               </div>
             </div>
           </div>
+
 
           {/* LEARNING CENTER */}
           <div style={{ marginTop: 80, marginBottom: 20 }}>
