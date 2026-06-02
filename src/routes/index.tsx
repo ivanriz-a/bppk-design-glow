@@ -148,8 +148,8 @@ function Home() {
           <div className="hero-content-wrapper">
             {heroSlides.map((s, i) => (
               <div key={i} className={`hero-text-slide ${i === slide ? "active" : ""}`}>
-                <div className="hero-eyebrow">{s.eyebrow}</div>
-                <h1 className="hero-title">{s.title.split("\n").map((l, j) => <span key={j}>{l}<br/></span>)}</h1>
+                <div className="hero-eyebrow"><svg className="hero-eyebrow-star" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden><path d="M12 1.5l2.2 6.1 6.3.4-4.9 4.1 1.7 6.2L12 14.9 6.7 18.3l1.7-6.2-4.9-4.1 6.3-.4z"/></svg><span>{s.eyebrow}</span></div>
+                <h1 className="hero-title"><span className="ht-line">{s.pre}</span><span className="ht-italic">{s.italic}</span><span className="ht-line">{s.post}</span></h1>
                 <p className="hero-desc">{s.desc}</p>
                 <a href="#" className="hero-btn">Selengkapnya <span>→</span></a>
               </div>
