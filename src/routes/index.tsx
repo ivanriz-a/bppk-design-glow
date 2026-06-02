@@ -54,11 +54,11 @@ const services = [
 ];
 
 const schedules = [
-  { date: "10 Mei 2026", title: "Pelatihan Manajemen Risiko" },
-  { date: "12 Mei 2026", title: "E-Learning Manajemen Risiko" },
-  { date: "15 Mei 2026", title: "Pelatihan Dasar CPNS Gelombang 1" },
-  { date: "20 Mei 2026", title: "Webinar Digital Leadership" },
-  { date: "25 Mei 2026", title: "Sertifikasi Auditor Internal" },
+  { day: "24", month: "Okt", title: "Pelatihan Dasar CPNS Golongan III", unit: "Pusdiklat Keuangan Umum" },
+  { day: "02", month: "Nov", title: "Audit Investigatif Lanjutan", unit: "Pusdiklat Anggaran" },
+  { day: "11", month: "Nov", title: "Workshop Reformasi Birokrasi", unit: "Pusdiklat PSDM" },
+  { day: "11", month: "Nov", title: "Workshop Reformasi Birokrasi", unit: "Pusdiklat PSDM" },
+  { day: "18", month: "Nov", title: "Sertifikasi Bendahara Penerimaan", unit: "LSP BPPK" },
 ];
 
 const trainings = [
@@ -85,12 +85,12 @@ const news = [
 
 const synergy = ["Setjen", "Itjen", "Pajak", "Bea Cukai", "Anggaran", "Perbendaharaan", "Kekayaan"];
 const dates: Array<{ d: number; cls?: string }> = [
-  { d: 27, cls: "date-muted" }, { d: 28, cls: "date-muted" }, { d: 29, cls: "date-muted" }, { d: 30, cls: "date-muted" },
-  { d: 1, cls: "date-holiday" }, { d: 2 }, { d: 3, cls: "date-holiday" },
-  { d: 4 }, { d: 5 }, { d: 6 }, { d: 7 }, { d: 8 }, { d: 9 }, { d: 10, cls: "date-holiday" },
-  { d: 11 }, { d: 12 }, { d: 13 }, { d: 14, cls: "date-holiday" }, { d: 15 }, { d: 16 }, { d: 17, cls: "date-holiday" },
-  { d: 18 }, { d: 19 }, { d: 20, cls: "date-today" }, { d: 21 }, { d: 22 }, { d: 23 }, { d: 24, cls: "date-holiday" },
-  { d: 25 }, { d: 26 }, { d: 27 }, { d: 28 }, { d: 29, cls: "date-holiday" }, { d: 30 }, { d: 31, cls: "date-holiday" },
+  { d: 28, cls: "date-muted" }, { d: 29, cls: "date-muted" }, { d: 30, cls: "date-muted" },
+  { d: 1 }, { d: 2 }, { d: 3 }, { d: 4, cls: "date-event" },
+  { d: 5 }, { d: 6 }, { d: 7 }, { d: 8 }, { d: 9 }, { d: 10 }, { d: 11 },
+  { d: 12, cls: "date-event" }, { d: 13 }, { d: 14 }, { d: 15 }, { d: 16 }, { d: 17 }, { d: 18, cls: "date-event" },
+  { d: 19 }, { d: 20 }, { d: 21 }, { d: 22 }, { d: 23 }, { d: 24, cls: "date-today" }, { d: 25 },
+  { d: 26 }, { d: 27 }, { d: 28, cls: "date-event" }, { d: 29 }, { d: 30 }, { d: 31 },
 ];
 
 function Home() {
@@ -182,49 +182,59 @@ function Home() {
 
           <div className="calendar-grid">
             <div>
-              <h2 className="section-title">Kalender BPPK</h2>
-              <div className="accent-line" />
-              <div className="mock-widget">
+              <div className="section-eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>AGENDA</div>
+              <h2 className="section-title">Jadwal pelatihan<span className="st-italic">terdekat.</span></h2>
+              <div className="mock-widget calendar-widget">
                 <div className="calendar-header">
-                  <button className="cal-nav-btn">‹</button>
-                  <div className="calendar-month">Mei 2026</div>
-                  <button className="cal-nav-btn">›</button>
+                  <div className="calendar-month">Oktober <span className="cal-year">2026</span></div>
+                  <div className="cal-nav-group">
+                    <button className="cal-nav-btn">‹</button>
+                    <button className="cal-nav-btn">›</button>
+                  </div>
                 </div>
                 <div className="calendar-days">
-                  {["Sen","Sel","Rab","Kam","Jum","Sab","Min"].map(d => <div key={d}>{d}</div>)}
+                  {["S","S","R","K","J","S","M"].map((d, i) => <div key={i}>{d}</div>)}
                 </div>
                 <div className="calendar-dates">
-                  {dates.map((d, i) => <div key={i} className={`date-num ${d.cls ?? ""}`}>{d.d}</div>)}
+                  {dates.map((d, i) => <div key={i} className={`date-num ${d.cls ?? ""}`}><span>{d.d}</span></div>)}
+                </div>
+                <div className="calendar-legend">
+                  <span><i className="dot-event" />Ada Agenda</span>
+                  <span><i className="dot-today" />Hari Ini</span>
+                  <span className="legend-count">5 Agenda Bulan Ini</span>
                 </div>
               </div>
             </div>
             <div>
-              <h2 className="section-title" style={{ visibility: "hidden" }}>.</h2>
-              <div className="accent-line" style={{ visibility: "hidden" }} />
-              <div className="mock-widget widget-jadwal" style={{ height: 360 }}>
-                <div className="schedule-list-wrapper">
-                  {schedules.map((s, i) => (
-                    <div key={i} className="schedule-item">
-                      <div>
-                        <div className="sch-date">{s.date}</div>
-                        <h4 className="sch-title">{s.title}</h4>
-                      </div>
-                      <a href="#" className="btn-outline">Detail</a>
+              <p className="section-lead">Agenda pengembangan kompetensi yang akan datang dari seluruh unit di lingkungan BPPK.</p>
+              <div className="schedule-list">
+                {schedules.map((s, i) => (
+                  <a key={i} href="#" className="schedule-row">
+                    <div className="sch-date-block">
+                      <div className="sch-day">{s.day}</div>
+                      <div className="sch-month">{s.month}</div>
                     </div>
-                  ))}
-                </div>
-                <div className="schedule-footer">
-                  <a href="#" className="link-view-all">Lihat jadwal lainnya →</a>
-                </div>
+                    <div className="sch-info">
+                      <h4 className="sch-title">{s.title}</h4>
+                      <div className="sch-unit">{s.unit}</div>
+                    </div>
+                    <svg className="sch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7" /><polyline points="7 7 17 7 17 17" /></svg>
+                  </a>
+                ))}
+              </div>
+              <div className="schedule-footer-link">
+                <a href="#" className="link-view-all">Lihat Kalender Lengkap →</a>
               </div>
             </div>
           </div>
 
+
           {/* LEARNING CENTER */}
           <div style={{ marginTop: 80, marginBottom: 20 }}>
-            <h2 className="section-title">Learning Center</h2>
-            <div className="accent-line" style={{ marginBottom: 0 }} />
+            <div className="section-eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>PEMBELAJARAN</div>
+            <h2 className="section-title">Pusat pembelajaran<span className="st-italic">unggulan.</span></h2>
           </div>
+
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
             <div className="section-tabs">
               <button className={`section-tab ${tab === "open" ? "active" : ""}`} onClick={() => setTab("open")}>
@@ -284,8 +294,8 @@ function Home() {
       {/* NEWS */}
       <div className="content-layer-2">
         <div className="container-bppk">
-          <h2 className="section-title">Informasi Terbaru</h2>
-          <div className="accent-line" />
+          <div className="section-eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8M15 18h-5M10 6h8v4h-8z"/></svg>BERITA</div>
+          <h2 className="section-title">Informasi<span className="st-italic">terbaru.</span></h2>
           <div className="news-toolbar">
             <div className="search-box">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
@@ -326,8 +336,8 @@ function Home() {
         </div>
         <div className="container-bppk strip-content-wrapper">
           <div className="pub-text">
-            <h2>Eksplorasi<br />Literasi<br />BPPK.</h2>
-            <div className="accent-line" />
+            <div className="section-eyebrow" style={{ color: "var(--bppk-yellow)" }}><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>LITERASI</div>
+            <h2 className="pub-headline">Eksplorasi<span className="st-italic">literasi BPPK.</span></h2>
             <p>Akses ribuan halaman jurnal, majalah, dan modul pembelajaran resmi dari BPPK.</p>
           </div>
           <div className="pub-cards-wrapper">
