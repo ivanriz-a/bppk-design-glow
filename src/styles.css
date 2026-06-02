@@ -677,3 +677,32 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   .learning-toolbar { justify-content: flex-start; }
   .learning-toolbar-right { align-items: flex-start; width: 100%; }
 }
+
+/* HERO TITLE — slightly smaller */
+.hero-title { font-size: clamp(2.8rem, 6vw, 5.2rem); letter-spacing: -2.2px; }
+.hero-title .ht-italic { letter-spacing: -1.6px; }
+
+/* SERVICE LINK — readable color, smaller, pinned to bottom uniformly */
+.service-card { justify-content: space-between; }
+.service-link,
+.content-layer-1 .service-link {
+  margin-top: auto !important;
+  color: var(--bppk-light-blue) !important;
+  background: transparent !important;
+  font-size: 0.62rem !important;
+  letter-spacing: 1.8px;
+  padding: 0;
+  font-weight: 800;
+}
+.service-card:hover .service-link,
+.service-card:hover .service-link span { color: #fff !important; }
+
+/* SECTION TITLE — short yellow underline accent */
+.section-title { position: relative; padding-bottom: 14px; }
+.section-title::after {
+  content: ""; display: block;
+  width: 64px; height: 4px;
+  background: var(--bppk-yellow);
+  border-radius: 2px;
+  margin-top: 12px;
+}
