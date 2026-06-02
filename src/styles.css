@@ -368,7 +368,7 @@
   --shadow-elite-xl: 0 60px 120px -30px rgba(4,79,116,0.40);
   --ink: #0b1f2e;
   --ink-soft: #4a5b6b;
-  --serif: "Playfair Display", "Georgia", serif;
+  --headline: "Amulya", "Georgia", sans-serif;
 }
 
 body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
