@@ -45,7 +45,7 @@
   * { border-color: var(--border-light); box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
   body {
-    font-family: 'Plus Jakarta Sans', 'Inter', 'Segoe UI', system-ui, sans-serif;
+    font-family: 'Poppins', 'Inter', 'Segoe UI', system-ui, sans-serif;
     background-color: var(--bg-gray);
     color: var(--text-dark);
     -webkit-font-smoothing: antialiased;
