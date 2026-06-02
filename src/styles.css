@@ -1,6 +1,7 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap");
 
 @custom-variant dark (&:is(.dark *));
 
@@ -353,4 +354,149 @@
   .pub-card { height: 200px; }
   .pub-card:hover { flex: 1; }
   .footer-container { grid-template-columns: 1fr 1fr; }
+}
+
+/* ============================================================
+   ✦ LEVEL-UP LAYER — editorial / institutional polish
+   ============================================================ */
+
+:root {
+  --shadow-elite-sm: 0 4px 16px rgba(4,79,116,0.06);
+  --shadow-elite-md: 0 18px 40px -12px rgba(4,79,116,0.18);
+  --shadow-elite-lg: 0 36px 70px -20px rgba(4,79,116,0.32);
+  --shadow-elite-xl: 0 60px 120px -30px rgba(4,79,116,0.40);
+  --ink: #0b1f2e;
+  --ink-soft: #4a5b6b;
+  --serif: "Playfair Display", "Georgia", serif;
+}
+
+body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
+
+.container-bppk { max-width: 1280px; padding: 0 32px; }
+
+/* Section titles — bigger, tighter, with serif italic accent */
+.section-title {
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  letter-spacing: -1.4px;
+  line-height: 1.02;
+  font-weight: 800;
+}
+.section-title::first-letter { font-family: var(--serif); font-style: italic; font-weight: 500; padding-right: 2px; }
+.accent-line { width: 56px; height: 3px; background: var(--bppk-yellow); margin-bottom: 36px; border-radius: 0; }
+
+/* NAVBAR — tighter type, refined hover */
+.nav-item > a { font-size: 0.78rem; letter-spacing: 1.6px; text-transform: uppercase; font-weight: 700; }
+.nav-item:last-child > a { background: var(--bppk-yellow); color: var(--bppk-blue); padding: 10px 22px; border-radius: 999px; }
+.nav-item:last-child > a:hover { background: #fff; color: var(--bppk-blue); }
+.top-navbar.scrolled .nav-item:last-child > a { background: var(--bppk-yellow); color: var(--bppk-blue); }
+
+/* HERO — bigger editorial headline */
+.hero-section { padding: 170px 0 340px 0; }
+.hero-overlay { background: linear-gradient(110deg, rgba(3,40,60,0.96) 0%, rgba(4,79,116,0.82) 38%, rgba(4,79,116,0.30) 72%, rgba(4,79,116,0) 100%); }
+.hero-eyebrow { font-size: 0.72rem; letter-spacing: 4px; }
+.hero-title {
+  font-size: clamp(3rem, 6vw, 5.2rem);
+  letter-spacing: -2.4px;
+  line-height: 1.02;
+  font-weight: 800;
+  max-width: 880px;
+}
+.hero-title span:nth-child(2) {
+  font-family: var(--serif); font-style: italic; font-weight: 500;
+  background: linear-gradient(120deg, #fce5a3 0%, var(--bppk-yellow) 60%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  letter-spacing: -1.8px;
+}
+.hero-desc { font-size: 1.1rem; max-width: 520px; opacity: 0.86; font-weight: 300; line-height: 1.7; }
+.hero-btn {
+  padding: 16px 34px; background: var(--bppk-yellow); color: var(--bppk-blue);
+  border: none; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; font-size: 0.78rem;
+  box-shadow: 0 18px 40px -12px rgba(254,206,47,0.55);
+}
+.hero-btn:hover { background: #fff; color: var(--bppk-blue); box-shadow: 0 22px 50px -10px rgba(255,255,255,0.45); }
+.indicator { height: 2px; background: rgba(255,255,255,0.25); }
+.indicator.active { background: var(--bppk-yellow); width: 60px; }
+
+/* SERVICE CARDS — softer radius, generous shadows */
+.floating-services { gap: 18px; height: 300px; margin-bottom: 90px; }
+.service-card {
+  padding: 28px 24px; border-radius: 24px; border-bottom: none;
+  box-shadow: var(--shadow-elite-md);
+  height: 180px; background: #fff;
+}
+.service-card:hover { height: 300px; box-shadow: var(--shadow-elite-xl); transform: translateY(-6px); }
+.service-icon {
+  width: 52px; height: 52px; border-radius: 14px;
+  background: rgba(4,79,116,0.06); display: flex; align-items: center; justify-content: center;
+  margin-bottom: 18px; transition: all 0.4s;
+}
+.service-icon svg { width: 24px; height: 24px; }
+.service-card:hover .service-icon { background: rgba(255,255,255,0.15); }
+.service-title { font-size: 0.98rem; font-weight: 800; letter-spacing: -0.2px; }
+.service-link {
+  font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 800;
+  color: var(--bppk-yellow); padding: 0; background: transparent !important; margin: 0;
+}
+.service-card:hover .service-link { color: var(--bppk-yellow) !important; background: transparent !important; }
+.service-card:hover .service-link span { transform: translateX(4px); }
+.service-link span { transition: transform 0.3s ease; }
+
+/* CALENDAR — bigger rounded card */
+.calendar-grid { gap: 48px; }
+.mock-widget { border-radius: 28px; padding: 36px; border: 1px solid rgba(4,79,116,0.06); box-shadow: var(--shadow-elite-sm); }
+.mock-widget:hover { box-shadow: var(--shadow-elite-md); transform: none; }
+.calendar-month { font-family: var(--serif); font-style: italic; font-weight: 700; font-size: 1.2rem; letter-spacing: 1px; text-transform: none; }
+.date-today { box-shadow: 0 8px 22px -4px rgba(4,79,116,0.55); }
+.schedule-item { padding: 20px 0; }
+.sch-date { color: var(--bppk-yellow); font-weight: 800; letter-spacing: 2.5px; font-size: 0.66rem; }
+.sch-title { font-size: 1.08rem; line-height: 1.35; }
+.btn-outline { border-radius: 999px; border-width: 1.5px; font-size: 0.7rem; letter-spacing: 1.4px; text-transform: uppercase; padding: 9px 18px; }
+
+/* TABS — sharper pill */
+.section-tabs { background: #fff; box-shadow: 0 0 0 1px rgba(4,79,116,0.08); }
+.section-tab { font-size: 0.72rem; letter-spacing: 1.8px; text-transform: uppercase; padding: 11px 24px; }
+.section-tab.active { box-shadow: 0 10px 24px -8px rgba(4,79,116,0.30); background: var(--bppk-blue); color: #fff; }
+.section-tab.active svg { color: var(--bppk-yellow); }
+
+/* LEARNING CENTER + NEWS cards — softer radius, deeper shadow */
+.oa-card, .news-card { border-radius: 28px; box-shadow: var(--shadow-elite-md); }
+.oa-card:hover, .news-card:hover { box-shadow: var(--shadow-elite-lg); transform: translateY(-10px); }
+.oa-img-wrapper, .news-img-wrapper { border-radius: 28px 28px 0 0; }
+.oa-card:hover .oa-img-wrapper, .news-card:hover .news-img-wrapper { border-radius: 28px; }
+.oa-badge { background: var(--bppk-yellow); color: var(--bppk-blue); font-size: 0.62rem; letter-spacing: 1.5px; padding: 6px 14px; border-radius: 999px; }
+.oa-title, .news-title { font-size: 1.12rem; letter-spacing: -0.3px; }
+.btn-view-all { border-radius: 999px; padding: 14px 36px; font-size: 0.74rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 800; border-width: 1.5px; }
+
+/* PUBLIKASI — refined gulungan */
+.floating-strip-section { padding: 160px 0; }
+.blue-strip-bg { background: linear-gradient(135deg, #022538 0%, var(--bppk-blue) 55%, #0a6ea0 100%); height: 380px; border-radius: 0; }
+.pub-text h2 {
+  font-size: clamp(2.6rem, 4vw, 3.8rem);
+  letter-spacing: -2px; line-height: 1.0;
+  font-family: var(--serif); font-style: italic; font-weight: 500;
+}
+.pub-cards-wrapper { gap: 18px; height: 520px; }
+.pub-card { border-radius: 18px; }
+
+/* SYNERGY — big italic marquee word */
+.content-layer-4 { padding: 90px 0 110px; }
+.synergy-wrapper { position: relative; }
+.synergy-wrapper::before {
+  content: "Sinergi"; position: absolute; right: -12px; top: -30px;
+  font-family: var(--serif); font-style: italic; font-weight: 500;
+  font-size: 5.2rem; color: rgba(4,79,116,0.06); letter-spacing: -2px;
+  pointer-events: none;
+}
+
+/* FOOTER — refined */
+.bppk-footer { border-top: none; background: linear-gradient(180deg, var(--bppk-blue) 0%, var(--bppk-blue-dark) 100%); }
+.footer-container { padding-top: 100px; padding-bottom: 60px; gap: 56px; }
+.footer-heading { color: var(--bppk-yellow); font-size: 0.7rem; letter-spacing: 3px; }
+.footer-bottom { font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; }
+
+/* RESPONSIVE refresh */
+@media (max-width: 960px) {
+  .hero-title { font-size: 2.4rem; letter-spacing: -1px; }
+  .section-title { font-size: 2rem; }
+  .synergy-wrapper::before { display: none; }
 }
