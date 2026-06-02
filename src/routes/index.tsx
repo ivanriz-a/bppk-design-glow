@@ -231,9 +231,10 @@ function Home() {
 
           {/* LEARNING CENTER */}
           <div style={{ marginTop: 80, marginBottom: 20 }}>
-            <h2 className="section-title">Learning Center</h2>
-            <div className="accent-line" style={{ marginBottom: 0 }} />
+            <div className="section-eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>PEMBELAJARAN</div>
+            <h2 className="section-title">Pusat pembelajaran<span className="st-italic">unggulan.</span></h2>
           </div>
+
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
             <div className="section-tabs">
               <button className={`section-tab ${tab === "open" ? "active" : ""}`} onClick={() => setTab("open")}>
