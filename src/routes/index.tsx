@@ -86,11 +86,11 @@ const news = [
 const synergy = ["Setjen", "Itjen", "Pajak", "Bea Cukai", "Anggaran", "Perbendaharaan", "Kekayaan"];
 const dates: Array<{ d: number; cls?: string }> = [
   { d: 28, cls: "date-muted" }, { d: 29, cls: "date-muted" }, { d: 30, cls: "date-muted" },
-  { d: 1 }, { d: 2 }, { d: 3 }, { d: 4, cls: "date-event" },
-  { d: 5 }, { d: 6 }, { d: 7 }, { d: 8 }, { d: 9 }, { d: 10 }, { d: 11 },
-  { d: 12, cls: "date-event" }, { d: 13 }, { d: 14 }, { d: 15 }, { d: 16 }, { d: 17 }, { d: 18, cls: "date-event" },
-  { d: 19 }, { d: 20 }, { d: 21 }, { d: 22 }, { d: 23 }, { d: 24, cls: "date-today" }, { d: 25 },
-  { d: 26 }, { d: 27 }, { d: 28, cls: "date-event" }, { d: 29 }, { d: 30 }, { d: 31 },
+  { d: 1 }, { d: 2 }, { d: 3 }, { d: 4, cls: "date-event-pelatihan" },
+  { d: 5 }, { d: 6 }, { d: 7, cls: "date-event-kegiatan" }, { d: 8 }, { d: 9 }, { d: 10 }, { d: 11 },
+  { d: 12, cls: "date-event-pelatihan" }, { d: 13 }, { d: 14 }, { d: 15, cls: "date-event-kegiatan" }, { d: 16 }, { d: 17 }, { d: 18, cls: "date-event-pelatihan" },
+  { d: 19 }, { d: 20 }, { d: 21, cls: "date-event-kegiatan" }, { d: 22 }, { d: 23 }, { d: 24, cls: "date-today" }, { d: 25 },
+  { d: 26 }, { d: 27 }, { d: 28, cls: "date-event-pelatihan" }, { d: 29 }, { d: 30 }, { d: 31 },
 ];
 
 function Home() {
@@ -281,9 +281,10 @@ function Home() {
                   {dates.map((d, i) => <div key={i} className={`date-num ${d.cls ?? ""}`}><span>{d.d}</span></div>)}
                 </div>
                 <div className="calendar-legend">
-                  <span><i className="dot-event" />Ada Agenda</span>
+                  <span><i className="dot-pelatihan" />Pelatihan</span>
+                  <span><i className="dot-kegiatan" />Kegiatan</span>
                   <span><i className="dot-today" />Hari Ini</span>
-                  <span className="legend-count">5 Agenda Bulan Ini</span>
+                  <span className="legend-count">5 Agenda</span>
                 </div>
               </div>
             </div>
@@ -302,6 +303,10 @@ function Home() {
                     <svg className="sch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7" /><polyline points="7 7 17 7 17 17" /></svg>
                   </a>
                 ))}
+                <a href="#" className="agenda-more">
+                  Agenda Lainnya
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+                </a>
               </div>
             </div>
           </div>
