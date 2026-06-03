@@ -521,6 +521,16 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   content: ""; position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%);
   width: 4px; height: 4px; border-radius: 50%; background: var(--bppk-yellow);
 }
+.date-event-pelatihan { background: #f4f7fb; color: var(--bppk-blue); font-weight: 700; position: relative; }
+.date-event-pelatihan::after {
+  content: ""; position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%);
+  width: 5px; height: 5px; border-radius: 50%; background: var(--bppk-yellow);
+}
+.date-event-kegiatan { background: #f4f7fb; color: var(--bppk-blue); font-weight: 700; position: relative; }
+.date-event-kegiatan::after {
+  content: ""; position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%);
+  width: 5px; height: 5px; border-radius: 50%; background: var(--bppk-light-blue);
+}
 .date-today {
   background: var(--bppk-blue) !important; color: #fff !important; font-weight: 800 !important;
   box-shadow: 0 6px 14px -4px rgba(4,79,116,0.45); border-radius: var(--r-xs);
@@ -528,12 +538,14 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
 .date-holiday { color: #dc2626; }
 
 .calendar-legend {
-  display: flex; gap: 18px; align-items: center; flex-wrap: wrap;
+  display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
   margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--border-light);
   font-size: 0.72rem; color: var(--text-gray); font-weight: 600;
 }
 .calendar-legend span { display: inline-flex; align-items: center; gap: 6px; }
-.calendar-legend .dot-event { width: 6px; height: 6px; border-radius: 50%; background: var(--bppk-yellow); display: inline-block; }
+.calendar-legend .dot-event,
+.calendar-legend .dot-pelatihan { width: 7px; height: 7px; border-radius: 50%; background: var(--bppk-yellow); display: inline-block; }
+.calendar-legend .dot-kegiatan { width: 7px; height: 7px; border-radius: 50%; background: var(--bppk-light-blue); display: inline-block; }
 .calendar-legend .dot-today { width: 8px; height: 8px; border-radius: 2px; background: var(--bppk-blue); display: inline-block; }
 .calendar-legend .legend-count { margin-left: auto; color: var(--bppk-blue); font-weight: 700; }
 
