@@ -75,8 +75,8 @@
 .nav-container { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 24px; padding: 10px 28px; max-width: 1320px; margin: 0 auto; transition: padding 0.4s ease; }
 .top-navbar.scrolled .nav-container { padding: 6px 28px; }
 .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; color: #fff; line-height: 1.2; }
-.nav-logo img { height: 54px; width: auto; transition: height 0.4s ease; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.25)); }
-.top-navbar.scrolled .nav-logo img { height: 46px; }
+.nav-logo img { height: 50px; width: auto; transition: height 0.4s ease; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.25)); }
+.top-navbar.scrolled .nav-logo img { height: 42px; }
 
 .nav-links { display: flex; gap: 2px; list-style: none; margin: 0; padding: 0; align-items: center; justify-content: center; }
 .nav-item { position: relative; padding: 10px 2px; }
