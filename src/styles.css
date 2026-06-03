@@ -660,17 +660,33 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   flex: 1;
   background: #fff;
   border: 1px solid rgba(4,79,116,0.10);
+  border-left: 4px solid var(--bppk-yellow);
   border-radius: var(--r-md);
   box-shadow: var(--shadow-elite-sm);
   padding: 14px 22px;
 }
 .schedule-col .schedule-row:hover {
   transform: translateX(3px);
-  border-color: var(--bppk-light-blue);
+  border-color: rgba(4,79,116,0.20);
+  border-left-color: var(--bppk-yellow);
   box-shadow: var(--shadow-elite-md);
 }
 .schedule-col .sch-day { font-size: 1.6rem; }
 .schedule-col .sch-title { font-size: 0.98rem; }
+
+.agenda-more {
+  margin-top: 4px;
+  display: inline-flex; align-self: flex-end; align-items: center; gap: 8px;
+  padding: 10px 16px;
+  font-size: 0.72rem; letter-spacing: 1.8px; text-transform: uppercase; font-weight: 800;
+  color: var(--bppk-blue); text-decoration: none;
+  border-radius: var(--r-sm);
+  border-bottom: 2px solid var(--bppk-yellow);
+  transition: all 0.25s ease;
+}
+.agenda-more:hover { color: var(--bppk-blue); transform: translateX(3px); }
+.agenda-more svg { transition: transform 0.25s ease; }
+.agenda-more:hover svg { transform: translateX(3px); }
 
 /* LEARNING TOOLBAR — tabs + arrows shifted right */
 .learning-toolbar { display: flex; justify-content: flex-end; margin-top: 8px; }
