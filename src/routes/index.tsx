@@ -127,14 +127,90 @@ function Home() {
               <ul className="dropdown-menu">
                 <li><a href="#">Profil Lembaga</a></li>
                 <li><a href="#">Struktur Organisasi</a></li>
-                <li><a href="#">Visi & Misi</a></li>
+                <li><a href="#">Profil Pejabat</a></li>
+                <li><a href="#">Jejak, Karya, dan Transformasi BPPK</a></li>
               </ul>
             </li>
-            <li className="nav-item"><a href="#">Unit</a></li>
-            <li className="nav-item"><a href="#">Layanan</a></li>
-            <li className="nav-item"><a href="#">Publikasi</a></li>
-            <li className="nav-item"><a href="#">Hubungi Kami 134</a></li>
+            <li className="nav-item">
+              <a href="#">Unit <Chevron /></a>
+              <div className="dropdown-mega mega-3">
+                <div className="mega-col">
+                  <div className="mega-title">Unit Pusat</div>
+                  <a href="#">Sekretariat Badan</a>
+                  <a href="#">Pusdiklat Kepemimpinan dan Manajemen</a>
+                  <a href="#">Pusdiklat Anggaran dan Perbendaharaan</a>
+                  <a href="#">Pusdiklat Pajak</a>
+                  <a href="#">Pusdiklat Bea dan Cukai</a>
+                  <a href="#">Pusdiklat Keuangan Publik</a>
+                  <a href="#">Pusat Pembinaan Jabatan Fungsional dan Penjaminan Mutu</a>
+                </div>
+                <div className="mega-col">
+                  <div className="mega-title">Unit Pelaksana Teknis</div>
+                  <a href="#">BDK Medan</a>
+                  <a href="#">BDK Pekanbaru</a>
+                  <a href="#">BDK Palembang</a>
+                  <a href="#">BDK Cimahi</a>
+                  <a href="#">BDK Yogyakarta</a>
+                  <a href="#">BDK Malang</a>
+                  <a href="#">BDK Denpasar</a>
+                  <a href="#">BDK Pontianak</a>
+                  <a href="#">BDK Balikpapan</a>
+                  <a href="#">BDK Makassar</a>
+                  <a href="#">BDK Manado</a>
+                </div>
+                <div className="mega-col">
+                  <div className="mega-title">Badan Layanan Umum</div>
+                  <a href="#">Politeknik Keuangan Negara STAN</a>
+                </div>
+              </div>
+            </li>
+            <li className="nav-item">
+              <a href="#">Layanan <Chevron /></a>
+              <div className="dropdown-mega mega-2">
+                <div className="mega-col">
+                  <a href="#">Kemenkeu Learning Center (KLC)</a>
+                  <a href="#">Manajemen Pengetahuan (KMS)</a>
+                  <a href="#">Sertifikasi</a>
+                  <a href="#">Akreditasi</a>
+                  <a href="#">Lembaga Sertifikasi Profesi</a>
+                  <a href="#">Beasiswa</a>
+                </div>
+                <div className="mega-col">
+                  <a href="#">PENA JFKN</a>
+                  <a href="#">Ujian Online</a>
+                  <a href="#">Kemenkeu Learning Festival</a>
+                  <a href="#">Olimpiade APBN</a>
+                  <a href="#">Kerja Sama Program Pembelajaran</a>
+                  <a href="#">Regional Training Center</a>
+                </div>
+              </div>
+            </li>
+            <li className="nav-item">
+              <a href="#">Publikasi <Chevron /></a>
+              <div className="dropdown-mega mega-2">
+                <div className="mega-col">
+                  <div className="mega-title">Penelitian</div>
+                  <a href="#">Jurnal</a>
+                  <a href="#">Prosiding Kajian Akademis</a>
+                  <a href="#">Simposium Nasional Keuangan Negara (SNKN)</a>
+                </div>
+                <div className="mega-col">
+                  <div className="mega-title">Lainnya</div>
+                  <a href="#">Majalah Edukasi Keuangan</a>
+                  <a href="#">Buku</a>
+                  <a href="#">Laporan-laporan</a>
+                </div>
+              </div>
+            </li>
+            <li className="nav-item">
+              <a href="#">Informasi Publik <Chevron /></a>
+              <ul className="dropdown-menu">
+                <li><a href="#">PPID</a></li>
+                <li><a href="#">Laporan/Informasi Publik Lainnya</a></li>
+              </ul>
+            </li>
           </ul>
+          <a href="#" className="nav-cta">Hubungi Kami 134</a>
         </div>
       </nav>
 
