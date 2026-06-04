@@ -302,10 +302,10 @@ function Home() {
                   </div>
                 </div>
                 <div className="calendar-days">
-                  {["S","S","R","K","J","S","M"].map((d, i) => <div key={i}>{d}</div>)}
+                  {["S","S","R","K","J","S","M"].map((d, i) => <div key={i} className={i === 6 ? "day-sunday" : ""}>{d}</div>)}
                 </div>
                 <div className="calendar-dates">
-                  {dates.map((d, i) => <div key={i} className={`date-num ${d.cls ?? ""}`}><span>{d.d}</span></div>)}
+                  {dates.map((d, i) => <div key={i} className={`date-num ${d.cls ?? ""} ${i % 7 === 6 ? "date-sunday" : ""}`}><span>{d.d}</span></div>)}
                 </div>
                 <div className="calendar-legend">
                   <span><i className="dot-pelatihan" />Pelatihan</span>
@@ -330,22 +330,23 @@ function Home() {
                     <svg className="sch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7" /><polyline points="7 7 17 7 17 17" /></svg>
                   </a>
                 ))}
-                <a href="#" className="agenda-more">
-                  Agenda Lainnya
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
-                </a>
               </div>
             </div>
+          </div>
+          <div className="agenda-more-wrap">
+            <a href="#" className="agenda-more">
+              Agenda Lainnya
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+            </a>
           </div>
 
 
           {/* LEARNING CENTER */}
-          <div style={{ marginTop: 80, marginBottom: 20 }}>
-            <div className="section-eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>PEMBELAJARAN</div>
-            <h2 className="section-title">Pusat pembelajaran<span className="st-italic">unggulan.</span></h2>
-          </div>
-
-          <div className="learning-toolbar">
+          <div className="learning-header-row">
+            <div className="learning-header-left">
+              <div className="section-eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>PEMBELAJARAN</div>
+              <h2 className="section-title">Pusat pembelajaran<span className="st-italic">unggulan.</span></h2>
+            </div>
             <div className="learning-toolbar-right">
               <div className="section-tabs">
                 <button className={`section-tab ${tab === "open" ? "active" : ""}`} onClick={() => setTab("open")}>
