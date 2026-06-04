@@ -413,14 +413,31 @@ function Home() {
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
               <input placeholder="Cari berita atau informasi…" />
             </div>
-            <div className="section-tabs">
-              {["Berita","Pengumuman","Artikel","Podcast"].map((t, i) => (
-                <button key={t} className={`section-tab ${i === 0 ? "active" : ""}`}>{t}</button>
-              ))}
+            <div className="news-toolbar-right">
+              <div className="section-tabs">
+                {newsTabs.map((t) => (
+                  <button
+                    key={t}
+                    type="button"
+                    className={`section-tab ${newsTab === t ? "active" : ""}`}
+                    onClick={() => setNewsTab(t)}
+                  >
+                    {t}
+                  </button>
+                ))}
+              </div>
+              <div className="section-tabs nav-arrows-group" style={{ padding: 4, gap: 4 }}>
+                <button type="button" className="nav-btn-custom" aria-label="Sebelumnya" onClick={() => newsTrackRef.current?.scrollBy({ left: -340, behavior: "smooth" })}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
+                </button>
+                <button type="button" className="nav-btn-custom" aria-label="Berikutnya" onClick={() => newsTrackRef.current?.scrollBy({ left: 340, behavior: "smooth" })}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
+                </button>
+              </div>
             </div>
           </div>
-          <div className="news-grid">
-            {news.map((n, i) => (
+          <div ref={newsTrackRef} className="news-carousel" key={newsTab}>
+            {newsData[newsTab].map((n, i) => (
               <div key={i} className="news-card">
                 <div className="news-img-wrapper">
                   <div className="news-img" style={{ backgroundImage: `url(${n.img})` }} />
