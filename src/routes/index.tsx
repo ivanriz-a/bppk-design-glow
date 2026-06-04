@@ -305,7 +305,7 @@ function Home() {
                   {["S","S","R","K","J","S","M"].map((d, i) => <div key={i} className={i === 6 ? "day-sunday" : ""}>{d}</div>)}
                 </div>
                 <div className="calendar-dates">
-                  {dates.map((d, i) => <div key={i} className={`date-num ${d.cls ?? ""} ${i % 7 === 6 ? "date-sunday" : ""}`}><span>{d.d}</span></div>)}
+                  {dates.map((d, i) => <div key={i} className={`date-num ${d.cls ?? ""} ${i % 7 === 6 ? "date-sunday" : ""}`} data-event-name={d.name ?? undefined} title={d.name ?? undefined}><span>{d.d}</span>{d.name && <span className="date-tooltip">{d.name}</span>}</div>)}
                 </div>
                 <div className="calendar-legend">
                   <span><i className="dot-pelatihan" />Pelatihan</span>
