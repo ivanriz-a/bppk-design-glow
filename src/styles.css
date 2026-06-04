@@ -916,3 +916,57 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
 @media (max-width: 720px) {
   .learning-header-row, .news-header-row { align-items: flex-start; }
 }
+
+/* ============ REVISI ROUND-3 ============ */
+
+/* NAVBAR — CTA outline kuning */
+.nav-cta {
+  background: transparent !important;
+  color: var(--bppk-yellow) !important;
+  border: 1.5px solid var(--bppk-yellow) !important;
+  font-weight: 600 !important;
+}
+.nav-cta:hover {
+  background: var(--bppk-yellow) !important;
+  color: var(--bppk-blue) !important;
+  border-color: var(--bppk-yellow) !important;
+}
+
+/* SERVICE CARD — garis kuning hanya saat hover, judul lebih tipis */
+.service-card { border-bottom: 3px solid transparent !important; transition: all 0.45s cubic-bezier(0.25,1,0.5,1), border-color 0.3s ease; }
+.service-card:hover { border-bottom: 3px solid var(--bppk-yellow) !important; }
+.service-title { font-weight: 600 !important; }
+
+/* KALENDER — kolom Minggu merah gelap opacity 80% */
+.calendar-days .day-sunday { color: rgba(153,27,27,0.8) !important; font-weight: 600 !important; }
+.date-num.date-sunday { color: rgba(153,27,27,0.8) !important; }
+.date-num.date-sunday.date-muted { color: rgba(153,27,27,0.35) !important; }
+.date-num.date-sunday.date-today { color: #fff !important; }
+
+/* PEMBELAJARAN — tabs + panah sejajar dalam satu baris */
+.learning-toolbar-right { flex-direction: row !important; align-items: center !important; gap: 10px !important; }
+.learning-header-row .learning-toolbar-right { align-items: center !important; }
+
+/* OA CARD — judul di bawah gambar, hover image full-bleed */
+.oa-img-wrapper { height: calc(55% - 12px) !important; }
+.oa-body { padding-top: calc(55% + 14px) !important; }
+.oa-card:hover .oa-img-wrapper {
+  top: 0 !important; left: 0 !important; right: 0 !important;
+  height: 100% !important; border-radius: var(--r-lg) !important;
+}
+.oa-card:hover .oa-body { padding-top: 20px !important; justify-content: flex-end !important; }
+
+/* NEWS — search box di atas, lebih panjang ke kiri; headline sejajar dengan tabs */
+.news-search-row { display: flex; justify-content: flex-end; margin-bottom: 14px; }
+.news-search-box { width: 520px !important; max-width: 100%; }
+.news-header-row { align-items: center; }
+.news-header-row .section-title { margin-bottom: 0; }
+
+/* SINERGI — hilangkan watermark, samakan background dengan section di atas */
+.synergy-wrapper::before { display: none !important; }
+.content-layer-4 { background: var(--bg-gray) !important; border-top: none !important; }
+
+@media (max-width: 720px) {
+  .news-search-box { width: 100% !important; }
+  .learning-toolbar-right { flex-wrap: wrap; }
+}
