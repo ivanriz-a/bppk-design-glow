@@ -970,3 +970,90 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   .news-search-box { width: 100% !important; }
   .learning-toolbar-right { flex-wrap: wrap; }
 }
+
+/* ============ REVISI ROUND-4 ============ */
+
+/* Mega dropdown title — lebih kecil */
+.mega-title {
+  font-size: 0.6rem !important;
+  letter-spacing: 1px !important;
+  font-weight: 700 !important;
+  padding: 4px 12px 6px !important;
+}
+
+/* Section eyebrow svg ikut warna teks (currentColor) */
+.section-eyebrow svg { color: inherit !important; }
+
+/* OA card — pastikan judul jelas di bawah gambar (default) */
+.oa-img-wrapper { height: 50% !important; }
+.oa-body {
+  padding-top: calc(50% + 18px) !important;
+  justify-content: flex-start !important;
+}
+.oa-card:hover .oa-img-wrapper {
+  top: 0 !important; left: 0 !important; right: 0 !important;
+  height: 100% !important; border-radius: var(--r-lg) !important;
+}
+.oa-card:hover .oa-body { padding-top: 20px !important; justify-content: flex-end !important; }
+
+/* NEWS — search box di atas tabs+panah pada kolom kanan, lebar mengikuti tabs+panah; headline sejajar */
+.news-search-row { display: none !important; }
+.news-header-row { align-items: flex-start !important; }
+.news-toolbar-right {
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 10px !important;
+  width: auto;
+}
+.news-toolbar-right .news-search-box {
+  width: 100% !important;
+}
+.news-tabs-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+/* LITERASI — grafik latar: garis dengan sudut melingkar (bukan lingkaran penuh) */
+.bppk-texture-1 {
+  width: 460px !important; height: 220px !important;
+  border-radius: 110px !important;
+  transform: rotate(-8deg) !important;
+  top: -60px !important; right: 8% !important;
+  border-color: rgba(255,255,255,0.14) !important;
+}
+.bppk-texture-2 {
+  width: 380px !important; height: 170px !important;
+  border-radius: 90px !important;
+  border-color: rgba(254,206,47,0.28) !important;
+  transform: rotate(-14deg) !important;
+  bottom: -50px !important; left: 6% !important;
+}
+
+/* PUB CARDS — selaras dengan style web (cleaner, brand-aligned) */
+.pub-card {
+  background: #fff !important;
+  border-radius: var(--r-lg) !important;
+  border: 1px solid rgba(4,79,116,0.08) !important;
+  box-shadow: var(--shadow-elite-md) !important;
+}
+.pub-card:hover { box-shadow: var(--shadow-elite-lg) !important; }
+.pub-card .cover-overlay {
+  background: linear-gradient(to top, rgba(4,79,116,0.94) 0%, rgba(4,79,116,0.25) 55%, rgba(4,79,116,0.05) 100%) !important;
+}
+.pub-badge {
+  background: var(--bppk-yellow) !important;
+  color: var(--bppk-blue) !important;
+  border-radius: 999px !important;
+  padding: 5px 12px !important;
+  letter-spacing: 0.8px !important;
+}
+.pub-card .editorial-masthead,
+.pub-card .academic-title,
+.pub-card .book-title,
+.pub-card .pub-title {
+  font-family: var(--headline) !important;
+  letter-spacing: -0.3px;
+}
