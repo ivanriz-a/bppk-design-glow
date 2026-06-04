@@ -454,6 +454,9 @@ function Home() {
               </div>
             ))}
           </div>
+          <div style={{ textAlign: "center", marginTop: 12 }}>
+            <a href="#" className="btn-view-all">Informasi Lainnya <span>→</span></a>
+          </div>
         </div>
       </div>
 
