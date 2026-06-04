@@ -793,3 +793,126 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   border-radius: 2px;
   margin-top: 12px;
 }
+
+/* ============ REVISI: NAVBAR ============ */
+.nav-item > a { font-weight: 500 !important; }
+.nav-cta {
+  background: transparent !important;
+  color: #fff !important;
+  border: 1.5px solid rgba(255,255,255,0.55);
+  font-weight: 600 !important;
+}
+.nav-cta:hover {
+  background: var(--bppk-yellow) !important;
+  color: var(--bppk-blue) !important;
+  border-color: var(--bppk-yellow);
+}
+
+/* ============ REVISI: SERVICE / FLOATING CARD ============ */
+.service-card { border-bottom: 3px solid var(--bppk-yellow) !important; }
+.service-link,
+.content-layer-1 .service-link {
+  font-weight: 600 !important;
+}
+.service-card:hover .service-link,
+.service-card:hover .service-link span {
+  color: var(--bppk-yellow) !important;
+}
+
+/* ============ REVISI: CALENDAR — Sunday red ============ */
+.calendar-days .day-sunday { color: #991b1b; font-weight: 700; }
+.date-num.date-sunday { color: #991b1b; }
+.date-num.date-sunday.date-muted { color: #f3c5c5; }
+.date-num.date-sunday.date-today { color: #fff !important; }
+
+/* Agenda Lainnya — outside the grid, right-aligned */
+.agenda-more-wrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 18px;
+}
+
+/* ============ REVISI: LEARNING HEADER ROW ============ */
+.learning-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+  margin-top: 80px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+.learning-header-left .section-title { margin-bottom: 0; }
+.learning-header-row .learning-toolbar-right { align-items: flex-end; }
+
+/* Close gap between image and title in OA cards */
+.oa-img-wrapper { height: calc(60% - 12px) !important; }
+.oa-body { padding-top: calc(60% + 8px); justify-content: flex-start !important; }
+.oa-card:hover .oa-body { padding-top: 20px; justify-content: flex-end !important; }
+
+/* ============ REVISI: NEWS HEADER ROW ============ */
+.news-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+.news-header-row .section-title { margin-bottom: 0; }
+.news-header-row .search-box { width: 340px; max-width: 100%; }
+
+.news-toolbar { justify-content: flex-end; }
+
+/* News date — gray and thinner */
+.news-date {
+  color: var(--text-gray) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.5px !important;
+}
+.news-card:hover .news-date { color: rgba(255,255,255,0.85) !important; }
+
+/* Keep excerpt visible on hover */
+.news-card:hover .news-excerpt {
+  opacity: 1 !important;
+  max-height: 200px !important;
+  margin-bottom: 16px !important;
+  color: rgba(255,255,255,0.9);
+}
+
+/* JDIH callout (Peraturan tab) */
+.jdih-callout {
+  display: flex; align-items: center; gap: 24px;
+  background: #fff; border: 1px solid rgba(4,79,116,0.10);
+  border-left: 4px solid var(--bppk-yellow);
+  border-radius: var(--r-lg);
+  padding: 28px 32px;
+  box-shadow: var(--shadow-elite-sm);
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+.jdih-icon {
+  width: 64px; height: 64px; border-radius: var(--r-md);
+  background: rgba(4,79,116,0.08);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--bppk-blue); flex: none;
+}
+.jdih-text { flex: 1; min-width: 240px; }
+.jdih-text h3 {
+  font-family: var(--headline);
+  font-size: 1.25rem; color: var(--bppk-blue);
+  margin: 0 0 6px 0; font-weight: 800; letter-spacing: -0.4px;
+}
+.jdih-text p { margin: 0; color: var(--text-gray); font-size: 0.92rem; line-height: 1.55; }
+.jdih-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 22px; background: var(--bppk-blue); color: #fff;
+  border-radius: var(--r-sm); text-decoration: none; font-weight: 700;
+  font-size: 0.78rem; letter-spacing: 1.5px; text-transform: uppercase;
+  transition: all 0.25s ease; flex: none;
+}
+.jdih-btn:hover { background: var(--bppk-yellow); color: var(--bppk-blue); transform: translateX(3px); }
+
+@media (max-width: 720px) {
+  .learning-header-row, .news-header-row { align-items: flex-start; }
+}
