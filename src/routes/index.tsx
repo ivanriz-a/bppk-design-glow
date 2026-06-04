@@ -77,11 +77,36 @@ const knowledge = [
   { badge: "Riset", title: "Evaluasi Pasca Diklat Kemenkeu", subtitle: "pusat kajian", rating: "4.7", peserta: "780", img: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80" },
 ];
 
-const news = [
-  { date: "15 Mei 2026", title: "Pembukaan Pelatihan Teknis di Lingkungan Keuangan Publik", excerpt: "Pusat Pendidikan dan Pelatihan Keuangan Umum menyelenggarakan program strategis peningkatan kapasitas SDM yang diikuti oleh seluruh pegawai.", img: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=600&q=80" },
-  { date: "12 Mei 2026", title: "Rapat Koordinasi Pengembangan Kompetensi Aparatur Berkelanjutan", excerpt: "Dalam rangka memperkuat pengembangan kompetensi SDM, digelar rapat koordinasi lintas unit untuk merumuskan kebijakan strategis yang lebih efektif.", img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=600&q=80" },
-  { date: "10 Mei 2026", title: "Penandatanganan MoU dengan Mitra Akademik Terkemuka", excerpt: "Upaya penguatan kolaborasi antara lembaga pelatihan pemerintah dengan institusi pendidikan tinggi resmi dimulai dengan penandatanganan kesepahaman bersama.", img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80" },
-];
+type NewsItem = { date: string; title: string; excerpt: string; img: string };
+const newsData: Record<"Berita" | "Pengumuman" | "Artikel" | "Peraturan", NewsItem[]> = {
+  Berita: [
+    { date: "15 Mei 2026", title: "Pembukaan Pelatihan Teknis di Lingkungan Keuangan Publik", excerpt: "Pusdiklat Keuangan Umum menyelenggarakan program strategis peningkatan kapasitas SDM yang diikuti oleh seluruh pegawai.", img: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=600&q=80" },
+    { date: "12 Mei 2026", title: "Rapat Koordinasi Pengembangan Kompetensi Aparatur", excerpt: "Memperkuat pengembangan kompetensi SDM melalui rapat koordinasi lintas unit untuk merumuskan kebijakan strategis.", img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=600&q=80" },
+    { date: "10 Mei 2026", title: "Penandatanganan MoU dengan Mitra Akademik Terkemuka", excerpt: "Penguatan kolaborasi antara lembaga pelatihan pemerintah dengan institusi pendidikan tinggi resmi dimulai.", img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80" },
+    { date: "08 Mei 2026", title: "Kunjungan Delegasi Internasional ke Kampus BPPK", excerpt: "Delegasi mitra internasional berbagi praktik terbaik dalam pengembangan kompetensi sektor publik.", img: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=600&q=80" },
+    { date: "05 Mei 2026", title: "Peluncuran Program Akselerasi Talenta Digital", excerpt: "Program akselerasi membekali ASN dengan keterampilan digital terkini untuk transformasi layanan publik.", img: "https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?auto=format&fit=crop&w=600&q=80" },
+  ],
+  Pengumuman: [
+    { date: "20 Mei 2026", title: "Pengumuman Hasil Seleksi Beasiswa S2 Dalam Negeri", excerpt: "Daftar peserta yang lolos tahap akhir seleksi beasiswa pascasarjana telah dipublikasikan.", img: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" },
+    { date: "18 Mei 2026", title: "Jadwal Ujian Sertifikasi Kompetensi Periode Juni", excerpt: "Peserta diharapkan memperhatikan jadwal pelaksanaan ujian sertifikasi yang akan datang.", img: "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?auto=format&fit=crop&w=600&q=80" },
+    { date: "14 Mei 2026", title: "Perubahan Jadwal Pelatihan Manajerial Tingkat Madya", excerpt: "Mohon perhatian peserta pelatihan terkait perubahan jadwal dan lokasi pelaksanaan kelas.", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" },
+    { date: "11 Mei 2026", title: "Pembukaan Pendaftaran Magang Mahasiswa di BPPK", excerpt: "Kesempatan bagi mahasiswa untuk mendapatkan pengalaman langsung di lingkungan kerja BPPK.", img: "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80" },
+  ],
+  Artikel: [
+    { date: "16 Mei 2026", title: "Transformasi Digital pada Manajemen Keuangan Negara", excerpt: "Bagaimana teknologi mengubah lanskap pengelolaan anggaran serta akuntabilitas publik di Indonesia.", img: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80" },
+    { date: "13 Mei 2026", title: "Membangun Budaya Belajar Berkelanjutan di Sektor Publik", excerpt: "Strategi praktis menumbuhkan kebiasaan belajar yang adaptif di kalangan aparatur negara.", img: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=600&q=80" },
+    { date: "09 Mei 2026", title: "Peran Analitik Data dalam Pengambilan Keputusan Kebijakan", excerpt: "Pemanfaatan data analitik menjadi kunci ketepatan kebijakan publik berbasis bukti.", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" },
+    { date: "06 Mei 2026", title: "Kepemimpinan Adaptif di Era Ketidakpastian", excerpt: "Pendekatan kepemimpinan yang fleksibel untuk menghadapi tantangan dinamis sektor publik.", img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=600&q=80" },
+  ],
+  Peraturan: [
+    { date: "19 Mei 2026", title: "Peraturan Kepala BPPK Nomor 3 Tahun 2026", excerpt: "Tentang pedoman penyelenggaraan pelatihan teknis di lingkungan Kementerian Keuangan.", img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80" },
+    { date: "15 Mei 2026", title: "Keputusan Kepala BPPK tentang Standar Akreditasi", excerpt: "Penetapan standar akreditasi lembaga pelatihan internal Kementerian Keuangan.", img: "https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=600&q=80" },
+    { date: "10 Mei 2026", title: "Perka tentang Kurikulum Pelatihan Kepemimpinan", excerpt: "Pemutakhiran kurikulum program pelatihan kepemimpinan untuk pejabat struktural.", img: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80" },
+    { date: "04 Mei 2026", title: "Pedoman Evaluasi Pasca Pelatihan Berbasis Dampak", excerpt: "Mekanisme baru pengukuran efektivitas pelatihan melalui indikator dampak nyata.", img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80" },
+  ],
+};
+const newsTabs = ["Berita", "Pengumuman", "Artikel", "Peraturan"] as const;
+type NewsTab = typeof newsTabs[number];
 
 const synergy = ["Setjen", "Itjen", "Pajak", "Bea Cukai", "Anggaran", "Perbendaharaan", "Kekayaan"];
 const dates: Array<{ d: number; cls?: string }> = [
@@ -98,6 +123,8 @@ function Home() {
   const [slide, setSlide] = useState(0);
   const [tab, setTab] = useState<"open" | "pusat">("open");
   const trackRef = useRef<HTMLDivElement>(null);
+  const newsTrackRef = useRef<HTMLDivElement>(null);
+  const [newsTab, setNewsTab] = useState<NewsTab>("Berita");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -386,14 +413,31 @@ function Home() {
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
               <input placeholder="Cari berita atau informasi…" />
             </div>
-            <div className="section-tabs">
-              {["Berita","Pengumuman","Artikel","Podcast"].map((t, i) => (
-                <button key={t} className={`section-tab ${i === 0 ? "active" : ""}`}>{t}</button>
-              ))}
+            <div className="news-toolbar-right">
+              <div className="section-tabs">
+                {newsTabs.map((t) => (
+                  <button
+                    key={t}
+                    type="button"
+                    className={`section-tab ${newsTab === t ? "active" : ""}`}
+                    onClick={() => setNewsTab(t)}
+                  >
+                    {t}
+                  </button>
+                ))}
+              </div>
+              <div className="section-tabs nav-arrows-group" style={{ padding: 4, gap: 4 }}>
+                <button type="button" className="nav-btn-custom" aria-label="Sebelumnya" onClick={() => newsTrackRef.current?.scrollBy({ left: -340, behavior: "smooth" })}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
+                </button>
+                <button type="button" className="nav-btn-custom" aria-label="Berikutnya" onClick={() => newsTrackRef.current?.scrollBy({ left: 340, behavior: "smooth" })}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
+                </button>
+              </div>
             </div>
           </div>
-          <div className="news-grid">
-            {news.map((n, i) => (
+          <div ref={newsTrackRef} className="news-carousel" key={newsTab}>
+            {newsData[newsTab].map((n, i) => (
               <div key={i} className="news-card">
                 <div className="news-img-wrapper">
                   <div className="news-img" style={{ backgroundImage: `url(${n.img})` }} />
