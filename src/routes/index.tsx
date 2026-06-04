@@ -109,13 +109,13 @@ const newsTabs = ["Berita", "Pengumuman", "Artikel", "Peraturan"] as const;
 type NewsTab = typeof newsTabs[number];
 
 const synergy = ["Setjen", "Itjen", "Pajak", "Bea Cukai", "Anggaran", "Perbendaharaan", "Kekayaan"];
-const dates: Array<{ d: number; cls?: string }> = [
+const dates: Array<{ d: number; cls?: string; name?: string }> = [
   { d: 28, cls: "date-muted" }, { d: 29, cls: "date-muted" }, { d: 30, cls: "date-muted" },
-  { d: 1 }, { d: 2 }, { d: 3 }, { d: 4, cls: "date-event-pelatihan" },
-  { d: 5 }, { d: 6 }, { d: 7, cls: "date-event-kegiatan" }, { d: 8 }, { d: 9 }, { d: 10 }, { d: 11 },
-  { d: 12, cls: "date-event-pelatihan" }, { d: 13 }, { d: 14 }, { d: 15, cls: "date-event-kegiatan" }, { d: 16 }, { d: 17 }, { d: 18, cls: "date-event-pelatihan" },
-  { d: 19 }, { d: 20 }, { d: 21, cls: "date-event-kegiatan" }, { d: 22 }, { d: 23 }, { d: 24, cls: "date-today" }, { d: 25 },
-  { d: 26 }, { d: 27 }, { d: 28, cls: "date-event-pelatihan" }, { d: 29 }, { d: 30 }, { d: 31 },
+  { d: 1 }, { d: 2 }, { d: 3 }, { d: 4 },
+  { d: 5, cls: "date-event-pelatihan", name: "Pelatihan Dasar CPNS Golongan III" }, { d: 6 }, { d: 7, cls: "date-event-kegiatan", name: "Rapat Koordinasi Pengembangan SDM" }, { d: 8 }, { d: 9 }, { d: 10 }, { d: 11 },
+  { d: 12, cls: "date-event-pelatihan", name: "Pelatihan Analisis Keuangan Dasar" }, { d: 13 }, { d: 14 }, { d: 15, cls: "date-event-kegiatan", name: "Workshop Reformasi Birokrasi" }, { d: 16 }, { d: 17, cls: "date-event-pelatihan", name: "Sertifikasi Bendahara Penerimaan" }, { d: 18 },
+  { d: 19 }, { d: 20 }, { d: 21, cls: "date-event-kegiatan", name: "Knowledge Sharing BPPK" }, { d: 22 }, { d: 23 }, { d: 24, cls: "date-today" }, { d: 25 },
+  { d: 26 }, { d: 27 }, { d: 28, cls: "date-event-pelatihan", name: "Audit Investigatif Lanjutan" }, { d: 29 }, { d: 30 }, { d: 31 },
 ];
 
 function Home() {
@@ -305,7 +305,7 @@ function Home() {
                   {["S","S","R","K","J","S","M"].map((d, i) => <div key={i} className={i === 6 ? "day-sunday" : ""}>{d}</div>)}
                 </div>
                 <div className="calendar-dates">
-                  {dates.map((d, i) => <div key={i} className={`date-num ${d.cls ?? ""} ${i % 7 === 6 ? "date-sunday" : ""}`}><span>{d.d}</span></div>)}
+                  {dates.map((d, i) => <div key={i} className={`date-num ${d.cls ?? ""} ${i % 7 === 6 ? "date-sunday" : ""}`} data-event-name={d.name ?? undefined} title={d.name ?? undefined}><span>{d.d}</span>{d.name && <span className="date-tooltip">{d.name}</span>}</div>)}
                 </div>
                 <div className="calendar-legend">
                   <span><i className="dot-pelatihan" />Pelatihan</span>
