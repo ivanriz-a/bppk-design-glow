@@ -409,13 +409,17 @@ function Home() {
       {/* NEWS */}
       <div className="content-layer-2">
         <div className="container-bppk">
-          <div className="section-eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8M15 18h-5M10 6h8v4h-8z"/></svg>BERITA</div>
-          <h2 className="section-title">Informasi<span className="st-italic">terbaru.</span></h2>
-          <div className="news-toolbar">
+          <div className="news-header-row">
+            <div>
+              <div className="section-eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8M15 18h-5M10 6h8v4h-8z"/></svg>BERITA</div>
+              <h2 className="section-title">Informasi<span className="st-italic">terbaru.</span></h2>
+            </div>
             <div className="search-box">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
               <input placeholder="Cari berita atau informasi…" />
             </div>
+          </div>
+          <div className="news-toolbar">
             <div className="news-toolbar-right">
               <div className="section-tabs">
                 {newsTabs.map((t) => (
@@ -439,26 +443,43 @@ function Home() {
               </div>
             </div>
           </div>
-          <div ref={newsTrackRef} className="news-carousel" key={newsTab}>
-            {newsData[newsTab].map((n, i) => (
-              <div key={i} className="news-card">
-                <div className="news-img-wrapper">
-                  <div className="news-img" style={{ backgroundImage: `url(${n.img})` }} />
-                  <div className="news-overlay" />
-                </div>
-                <div className="news-content">
-                  <div className="news-date">{n.date}</div>
-                  <h3 className="news-title">{n.title}</h3>
-                  <p className="news-excerpt">{n.excerpt}</p>
-                  <div className="news-footer">
-                    <a href="#" className="btn-pill-outline">Baca Selengkapnya</a>
+          {newsTab === "Peraturan" ? (
+            <div className="jdih-callout">
+              <div className="jdih-icon">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>
+              </div>
+              <div className="jdih-text">
+                <h3>Informasi terkait Peraturan dapat diakses pada situs web JDIH</h3>
+                <p>Jaringan Dokumentasi dan Informasi Hukum (JDIH) Kementerian Keuangan memuat seluruh peraturan resmi BPPK.</p>
+              </div>
+              <a href="https://jdih.kemenkeu.go.id" target="_blank" rel="noopener noreferrer" className="jdih-btn">Kunjungi Situs JDIH
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7" /><polyline points="7 7 17 7 17 17" /></svg>
+              </a>
+            </div>
+          ) : (
+            <div ref={newsTrackRef} className="news-carousel" key={newsTab}>
+              {newsData[newsTab].map((n, i) => (
+                <div key={i} className="news-card">
+                  <div className="news-img-wrapper">
+                    <div className="news-img" style={{ backgroundImage: `url(${n.img})` }} />
+                    <div className="news-overlay" />
+                  </div>
+                  <div className="news-content">
+                    <div className="news-date">{n.date}</div>
+                    <h3 className="news-title">{n.title}</h3>
+                    <p className="news-excerpt">{n.excerpt}</p>
+                    <div className="news-footer">
+                      <a href="#" className="btn-pill-outline">Baca Selengkapnya</a>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-          <div style={{ textAlign: "center", marginTop: 12 }}>
-            <a href="#" className="btn-view-all">Informasi Lainnya <span>→</span></a>
+              ))}
+            </div>
+          )}
+          <div className="agenda-more-wrap">
+            <a href="#" className="agenda-more">Informasi Lainnya
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+            </a>
           </div>
         </div>
       </div>
