@@ -123,6 +123,8 @@ function Home() {
   const [slide, setSlide] = useState(0);
   const [tab, setTab] = useState<"open" | "pusat">("open");
   const trackRef = useRef<HTMLDivElement>(null);
+  const newsTrackRef = useRef<HTMLDivElement>(null);
+  const [newsTab, setNewsTab] = useState<NewsTab>("Berita");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
