@@ -4,6 +4,7 @@ import hero1 from "@/assets/hero-1.png.asset.json";
 import hero2 from "@/assets/hero-2.png.asset.json";
 import hero3 from "@/assets/hero-3.png.asset.json";
 import logoPutih from "@/assets/logo-bppk-putih.png.asset.json";
+import logoFooter from "@/assets/logo-kemenkeu-bppk-putih.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -113,7 +114,7 @@ const dates: Array<{ d: number; cls?: string; name?: string }> = [
   { d: 28, cls: "date-muted" }, { d: 29, cls: "date-muted" }, { d: 30, cls: "date-muted" },
   { d: 1 }, { d: 2 }, { d: 3 }, { d: 4 },
   { d: 5, cls: "date-event-pelatihan", name: "Pelatihan Dasar CPNS Golongan III" }, { d: 6 }, { d: 7, cls: "date-event-kegiatan", name: "Rapat Koordinasi Pengembangan SDM" }, { d: 8 }, { d: 9 }, { d: 10 }, { d: 11 },
-  { d: 12, cls: "date-event-pelatihan", name: "Pelatihan Analisis Keuangan Dasar" }, { d: 13 }, { d: 14 }, { d: 15, cls: "date-event-kegiatan", name: "Workshop Reformasi Birokrasi" }, { d: 16 }, { d: 17, cls: "date-event-both", name: "Sertifikasi Bendahara · Forum Diskusi Auditor" }, { d: 18 },
+  { d: 12, cls: "date-event-pelatihan", name: "Pelatihan Analisis Keuangan Dasar" }, { d: 13 }, { d: 14 }, { d: 15, cls: "date-event-kegiatan", name: "Workshop Reformasi Birokrasi" }, { d: 16 }, { d: 17, cls: "date-event-both", name: "Sertifikasi Bendahara\nForum Diskusi Auditor" }, { d: 18 },
   { d: 19 }, { d: 20 }, { d: 21, cls: "date-event-kegiatan", name: "Knowledge Sharing BPPK" }, { d: 22 }, { d: 23 }, { d: 24, cls: "date-today" }, { d: 25 },
   { d: 26 }, { d: 27 }, { d: 28, cls: "date-event-pelatihan", name: "Audit Investigatif Lanjutan" }, { d: 29 }, { d: 30 }, { d: 31 },
 ];
@@ -406,6 +407,72 @@ function Home() {
         </div>
       </div>
 
+      {/* PUBLIKASI (Gulungan) */}
+      <div className="floating-strip-section">
+        <div className="blue-strip-bg">
+          <div className="bppk-texture-1" />
+          <div className="bppk-texture-2" />
+        </div>
+        <div className="container-bppk strip-content-wrapper">
+          <div className="pub-text">
+            <div className="section-eyebrow" style={{ color: "var(--bppk-yellow)" }}><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>LITERASI</div>
+            <h2 className="pub-headline">Eksplorasi<span className="st-italic">literasi BPPK.</span></h2>
+            <p>Akses ribuan halaman jurnal, majalah, dan modul pembelajaran resmi dari BPPK.</p>
+          </div>
+          <div className="pub-cards-wrapper">
+            <a href="#" className="pub-card">
+              <div className="sim-cover-img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=800&q=80')" }} />
+              <div className="cover-overlay" />
+              <span className="pub-badge">Baru</span>
+              <div className="pub-content-wrapper">
+                <div className="sim-cover-text">
+                  <div className="eyebrow-mini">Edisi 04 / 2026</div>
+                  <div className="editorial-masthead">EDU<span>KASI</span></div>
+                </div>
+                <div className="pub-info-bottom">
+                  <div className="pub-category-text">Majalah Edukasi</div>
+                  <h3 className="pub-title">Nyala Membara Semangat Jaga Keuangan Negara</h3>
+                  <p className="pub-desc">Liputan Khusus Bela Negara: tren pembelajaran terkini, inovasi pengembangan SDM, dan strategi corporate university.</p>
+                </div>
+              </div>
+            </a>
+            <a href="#" className="pub-card">
+              <div className="sim-cover-img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80')" }} />
+              <div className="cover-overlay" />
+              <span className="pub-badge" style={{ background: "#fff" }}>Akademik</span>
+              <div className="pub-content-wrapper">
+                <div className="sim-cover-text">
+                  <div className="eyebrow-yellow">JURNAL ILMIAH TERAPAN</div>
+                  <div className="academic-title">JURNAL<br />BPPK</div>
+                  <div className="academic-line" />
+                </div>
+                <div className="pub-info-bottom">
+                  <div className="pub-category-text">Jurnal Ilmiah</div>
+                  <h3 className="pub-title">Volume 16 Nomor 2 Tahun 2026</h3>
+                  <p className="pub-desc">Evaluasi pasca diklat dan analisis kebutuhan pelatihan di era transformasi digital Kementerian Keuangan.</p>
+                </div>
+              </div>
+            </a>
+            <a href="#" className="pub-card">
+              <div className="sim-cover-img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1575505586569-646b2ca898fc?auto=format&fit=crop&w=800&q=80')" }} />
+              <div className="cover-overlay" />
+              <span className="pub-badge" style={{ background: "var(--bppk-light-blue)", color: "white" }}>Referensi</span>
+              <div className="pub-content-wrapper">
+                <div className="sim-cover-text">
+                  <div className="eyebrow-mini">Seri Kepemimpinan</div>
+                  <div className="book-title">Sumiyati</div>
+                </div>
+                <div className="pub-info-bottom">
+                  <div className="pub-category-text">Buku & Modul Publikasi</div>
+                  <h3 className="pub-title">Srikandi Perubahan, Inspirasi Bagi Perempuan</h3>
+                  <p className="pub-desc">Akses bebas unduh ke ratusan modul ajar komprehensif untuk mendukung pembelajaran berkelanjutan Anda di Kemenkeu.</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
       {/* NEWS */}
       <div className="content-layer-2">
         <div className="container-bppk">
@@ -484,72 +551,6 @@ function Home() {
         </div>
       </div>
 
-      {/* PUBLIKASI (Gulungan) */}
-      <div className="floating-strip-section">
-        <div className="blue-strip-bg">
-          <div className="bppk-texture-1" />
-          <div className="bppk-texture-2" />
-        </div>
-        <div className="container-bppk strip-content-wrapper">
-          <div className="pub-text">
-            <div className="section-eyebrow" style={{ color: "var(--bppk-yellow)" }}><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>LITERASI</div>
-            <h2 className="pub-headline">Eksplorasi<span className="st-italic">literasi BPPK.</span></h2>
-            <p>Akses ribuan halaman jurnal, majalah, dan modul pembelajaran resmi dari BPPK.</p>
-          </div>
-          <div className="pub-cards-wrapper">
-            <a href="#" className="pub-card">
-              <div className="sim-cover-img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=800&q=80')" }} />
-              <div className="cover-overlay" />
-              <span className="pub-badge">Baru</span>
-              <div className="pub-content-wrapper">
-                <div className="sim-cover-text">
-                  <div className="eyebrow-mini">Edisi 04 / 2026</div>
-                  <div className="editorial-masthead">EDU<span>KASI</span></div>
-                </div>
-                <div className="pub-info-bottom">
-                  <div className="pub-category-text">Majalah Edukasi</div>
-                  <h3 className="pub-title">Nyala Membara Semangat Jaga Keuangan Negara</h3>
-                  <p className="pub-desc">Liputan Khusus Bela Negara: tren pembelajaran terkini, inovasi pengembangan SDM, dan strategi corporate university.</p>
-                </div>
-              </div>
-            </a>
-            <a href="#" className="pub-card">
-              <div className="sim-cover-img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80')" }} />
-              <div className="cover-overlay" />
-              <span className="pub-badge" style={{ background: "#fff" }}>Akademik</span>
-              <div className="pub-content-wrapper">
-                <div className="sim-cover-text">
-                  <div className="eyebrow-yellow">JURNAL ILMIAH TERAPAN</div>
-                  <div className="academic-title">JURNAL<br />BPPK</div>
-                  <div className="academic-line" />
-                </div>
-                <div className="pub-info-bottom">
-                  <div className="pub-category-text">Jurnal Ilmiah</div>
-                  <h3 className="pub-title">Volume 16 Nomor 2 Tahun 2026</h3>
-                  <p className="pub-desc">Evaluasi pasca diklat dan analisis kebutuhan pelatihan di era transformasi digital Kementerian Keuangan.</p>
-                </div>
-              </div>
-            </a>
-            <a href="#" className="pub-card">
-              <div className="sim-cover-img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1575505586569-646b2ca898fc?auto=format&fit=crop&w=800&q=80')" }} />
-              <div className="cover-overlay" />
-              <span className="pub-badge" style={{ background: "var(--bppk-light-blue)", color: "white" }}>Referensi</span>
-              <div className="pub-content-wrapper">
-                <div className="sim-cover-text">
-                  <div className="eyebrow-mini">Seri Kepemimpinan</div>
-                  <div className="book-title">Sumiyati</div>
-                </div>
-                <div className="pub-info-bottom">
-                  <div className="pub-category-text">Buku & Modul Publikasi</div>
-                  <h3 className="pub-title">Srikandi Perubahan, Inspirasi Bagi Perempuan</h3>
-                  <p className="pub-desc">Akses bebas unduh ke ratusan modul ajar komprehensif untuk mendukung pembelajaran berkelanjutan Anda di Kemenkeu.</p>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-
       {/* SYNERGY */}
       <div className="content-layer-4">
         <div className="container-bppk">
@@ -578,34 +579,42 @@ function Home() {
       {/* FOOTER */}
       <footer className="bppk-footer">
         <div className="footer-container">
-          <div>
-            <div className="footer-logo">BPPK</div>
-            <h3 style={{ margin: "0 0 10px 0", fontSize: "1.05rem", lineHeight: 1.4 }}>Badan Pendidikan dan<br />Pelatihan Keuangan</h3>
-            <p style={{ color: "rgba(255,255,255,0.7)", fontSize: "0.85rem", lineHeight: 1.65 }}>Unit Eselon I Kemenkeu yang bertugas menyelenggarakan pendidikan, pelatihan, dan sertifikasi keuangan negara.</p>
+          <div className="footer-brand-col">
+            <img src={logoFooter.url} alt="Logo Kemenkeu BPPK" className="footer-brand-logo" />
+            <h3 className="footer-brand-name">Badan Pendidikan dan<br />Pelatihan Keuangan</h3>
+            <p className="footer-address">Jl. Purnawarman No.99,<br />Kebayoran Baru, Jakarta Selatan</p>
           </div>
           <div>
             <h4 className="footer-heading">Tautan Cepat</h4>
             <ul className="footer-links">
               <li><a href="#">Profil BPPK</a></li>
-              <li><a href="#">Berita & Pengumuman</a></li>
-              <li><a href="#">Reformasi Birokrasi</a></li>
+              <li><a href="#">Kemenkeu Corporate University</a></li>
+              <li><a href="#">Learning Organization</a></li>
             </ul>
           </div>
           <div>
             <h4 className="footer-heading">Layanan</h4>
             <ul className="footer-links">
-              <li><a href="#">Kemenkeu Learning Center</a></li>
-              <li><a href="#">Sertifikasi Kompetensi</a></li>
-              <li><a href="#">Katalog Pelatihan</a></li>
+              <li><a href="#">KLC</a></li>
+              <li><a href="#">KMS</a></li>
             </ul>
           </div>
           <div>
-            <h4 className="footer-heading">Hubungi Kami</h4>
-            <p style={{ color: "rgba(255,255,255,0.78)", fontSize: "0.85rem", lineHeight: 1.7 }}>
-              <strong>Kantor Pusat</strong><br />Jl. Purnawarman No.99,<br />Kebayoran Baru, Jakarta Selatan<br /><br />
-              <strong>Telepon:</strong> (021) 2922 2922<br />
-              <strong>Email:</strong> kemenkeu.corpu@kemenkeu.go.id
-            </p>
+            <h4 className="footer-heading">Ikuti Kami</h4>
+            <div className="footer-socials">
+              <a href="#" aria-label="Instagram" className="footer-social">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </a>
+              <a href="#" aria-label="X (Twitter)" className="footer-social">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21l-6.52 7.45L22 22h-6.84l-4.78-6.26L4.8 22H2.04l6.97-7.97L2 2h6.96l4.33 5.73L18.244 2zm-2.4 18h1.9L7.27 4H5.25l10.594 16z"/></svg>
+              </a>
+              <a href="#" aria-label="Facebook" className="footer-social">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </a>
+              <a href="#" aria-label="YouTube" className="footer-social">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22.54 6.42A2.78 2.78 0 0 0 20.6 4.5C18.88 4 12 4 12 4s-6.88 0-8.6.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-1.92 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+              </a>
+            </div>
           </div>
         </div>
         <div className="footer-bottom">
