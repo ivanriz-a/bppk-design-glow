@@ -113,7 +113,7 @@ const dates: Array<{ d: number; cls?: string; name?: string }> = [
   { d: 28, cls: "date-muted" }, { d: 29, cls: "date-muted" }, { d: 30, cls: "date-muted" },
   { d: 1 }, { d: 2 }, { d: 3 }, { d: 4 },
   { d: 5, cls: "date-event-pelatihan", name: "Pelatihan Dasar CPNS Golongan III" }, { d: 6 }, { d: 7, cls: "date-event-kegiatan", name: "Rapat Koordinasi Pengembangan SDM" }, { d: 8 }, { d: 9 }, { d: 10 }, { d: 11 },
-  { d: 12, cls: "date-event-pelatihan", name: "Pelatihan Analisis Keuangan Dasar" }, { d: 13 }, { d: 14 }, { d: 15, cls: "date-event-kegiatan", name: "Workshop Reformasi Birokrasi" }, { d: 16 }, { d: 17, cls: "date-event-pelatihan", name: "Sertifikasi Bendahara Penerimaan" }, { d: 18 },
+  { d: 12, cls: "date-event-pelatihan", name: "Pelatihan Analisis Keuangan Dasar" }, { d: 13 }, { d: 14 }, { d: 15, cls: "date-event-kegiatan", name: "Workshop Reformasi Birokrasi" }, { d: 16 }, { d: 17, cls: "date-event-both", name: "Sertifikasi Bendahara · Forum Diskusi Auditor" }, { d: 18 },
   { d: 19 }, { d: 20 }, { d: 21, cls: "date-event-kegiatan", name: "Knowledge Sharing BPPK" }, { d: 22 }, { d: 23 }, { d: 24, cls: "date-today" }, { d: 25 },
   { d: 26 }, { d: 27 }, { d: 28, cls: "date-event-pelatihan", name: "Audit Investigatif Lanjutan" }, { d: 29 }, { d: 30 }, { d: 31 },
 ];
