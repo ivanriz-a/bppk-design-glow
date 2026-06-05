@@ -984,10 +984,10 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
 /* Section eyebrow svg ikut warna teks (currentColor) */
 .section-eyebrow svg { color: inherit !important; }
 
-/* OA card — pastikan judul jelas di bawah gambar (default) */
-.oa-img-wrapper { height: 50% !important; }
+/* OA card — gambar di atas, judul di bawah (gunakan nilai px karena padding-top % mengikuti WIDTH container) */
+.oa-img-wrapper { top: 12px !important; left: 12px !important; right: 12px !important; height: 200px !important; }
 .oa-body {
-  padding-top: calc(50% + 18px) !important;
+  padding-top: 226px !important;
   justify-content: flex-start !important;
 }
 .oa-card:hover .oa-img-wrapper {
