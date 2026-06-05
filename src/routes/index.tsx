@@ -407,6 +407,72 @@ function Home() {
         </div>
       </div>
 
+      {/* PUBLIKASI (Gulungan) */}
+      <div className="floating-strip-section">
+        <div className="blue-strip-bg">
+          <div className="bppk-texture-1" />
+          <div className="bppk-texture-2" />
+        </div>
+        <div className="container-bppk strip-content-wrapper">
+          <div className="pub-text">
+            <div className="section-eyebrow" style={{ color: "var(--bppk-yellow)" }}><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>LITERASI</div>
+            <h2 className="pub-headline">Eksplorasi<span className="st-italic">literasi BPPK.</span></h2>
+            <p>Akses ribuan halaman jurnal, majalah, dan modul pembelajaran resmi dari BPPK.</p>
+          </div>
+          <div className="pub-cards-wrapper">
+            <a href="#" className="pub-card">
+              <div className="sim-cover-img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=800&q=80')" }} />
+              <div className="cover-overlay" />
+              <span className="pub-badge">Baru</span>
+              <div className="pub-content-wrapper">
+                <div className="sim-cover-text">
+                  <div className="eyebrow-mini">Edisi 04 / 2026</div>
+                  <div className="editorial-masthead">EDU<span>KASI</span></div>
+                </div>
+                <div className="pub-info-bottom">
+                  <div className="pub-category-text">Majalah Edukasi</div>
+                  <h3 className="pub-title">Nyala Membara Semangat Jaga Keuangan Negara</h3>
+                  <p className="pub-desc">Liputan Khusus Bela Negara: tren pembelajaran terkini, inovasi pengembangan SDM, dan strategi corporate university.</p>
+                </div>
+              </div>
+            </a>
+            <a href="#" className="pub-card">
+              <div className="sim-cover-img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80')" }} />
+              <div className="cover-overlay" />
+              <span className="pub-badge" style={{ background: "#fff" }}>Akademik</span>
+              <div className="pub-content-wrapper">
+                <div className="sim-cover-text">
+                  <div className="eyebrow-yellow">JURNAL ILMIAH TERAPAN</div>
+                  <div className="academic-title">JURNAL<br />BPPK</div>
+                  <div className="academic-line" />
+                </div>
+                <div className="pub-info-bottom">
+                  <div className="pub-category-text">Jurnal Ilmiah</div>
+                  <h3 className="pub-title">Volume 16 Nomor 2 Tahun 2026</h3>
+                  <p className="pub-desc">Evaluasi pasca diklat dan analisis kebutuhan pelatihan di era transformasi digital Kementerian Keuangan.</p>
+                </div>
+              </div>
+            </a>
+            <a href="#" className="pub-card">
+              <div className="sim-cover-img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1575505586569-646b2ca898fc?auto=format&fit=crop&w=800&q=80')" }} />
+              <div className="cover-overlay" />
+              <span className="pub-badge" style={{ background: "var(--bppk-light-blue)", color: "white" }}>Referensi</span>
+              <div className="pub-content-wrapper">
+                <div className="sim-cover-text">
+                  <div className="eyebrow-mini">Seri Kepemimpinan</div>
+                  <div className="book-title">Sumiyati</div>
+                </div>
+                <div className="pub-info-bottom">
+                  <div className="pub-category-text">Buku & Modul Publikasi</div>
+                  <h3 className="pub-title">Srikandi Perubahan, Inspirasi Bagi Perempuan</h3>
+                  <p className="pub-desc">Akses bebas unduh ke ratusan modul ajar komprehensif untuk mendukung pembelajaran berkelanjutan Anda di Kemenkeu.</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
       {/* NEWS */}
       <div className="content-layer-2">
         <div className="container-bppk">
@@ -480,72 +546,6 @@ function Home() {
           <div className="agenda-more-wrap">
             <a href="#" className="agenda-more">Informasi Lainnya
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* PUBLIKASI (Gulungan) */}
-      <div className="floating-strip-section">
-        <div className="blue-strip-bg">
-          <div className="bppk-texture-1" />
-          <div className="bppk-texture-2" />
-        </div>
-        <div className="container-bppk strip-content-wrapper">
-          <div className="pub-text">
-            <div className="section-eyebrow" style={{ color: "var(--bppk-yellow)" }}><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>LITERASI</div>
-            <h2 className="pub-headline">Eksplorasi<span className="st-italic">literasi BPPK.</span></h2>
-            <p>Akses ribuan halaman jurnal, majalah, dan modul pembelajaran resmi dari BPPK.</p>
-          </div>
-          <div className="pub-cards-wrapper">
-            <a href="#" className="pub-card">
-              <div className="sim-cover-img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=800&q=80')" }} />
-              <div className="cover-overlay" />
-              <span className="pub-badge">Baru</span>
-              <div className="pub-content-wrapper">
-                <div className="sim-cover-text">
-                  <div className="eyebrow-mini">Edisi 04 / 2026</div>
-                  <div className="editorial-masthead">EDU<span>KASI</span></div>
-                </div>
-                <div className="pub-info-bottom">
-                  <div className="pub-category-text">Majalah Edukasi</div>
-                  <h3 className="pub-title">Nyala Membara Semangat Jaga Keuangan Negara</h3>
-                  <p className="pub-desc">Liputan Khusus Bela Negara: tren pembelajaran terkini, inovasi pengembangan SDM, dan strategi corporate university.</p>
-                </div>
-              </div>
-            </a>
-            <a href="#" className="pub-card">
-              <div className="sim-cover-img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80')" }} />
-              <div className="cover-overlay" />
-              <span className="pub-badge" style={{ background: "#fff" }}>Akademik</span>
-              <div className="pub-content-wrapper">
-                <div className="sim-cover-text">
-                  <div className="eyebrow-yellow">JURNAL ILMIAH TERAPAN</div>
-                  <div className="academic-title">JURNAL<br />BPPK</div>
-                  <div className="academic-line" />
-                </div>
-                <div className="pub-info-bottom">
-                  <div className="pub-category-text">Jurnal Ilmiah</div>
-                  <h3 className="pub-title">Volume 16 Nomor 2 Tahun 2026</h3>
-                  <p className="pub-desc">Evaluasi pasca diklat dan analisis kebutuhan pelatihan di era transformasi digital Kementerian Keuangan.</p>
-                </div>
-              </div>
-            </a>
-            <a href="#" className="pub-card">
-              <div className="sim-cover-img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1575505586569-646b2ca898fc?auto=format&fit=crop&w=800&q=80')" }} />
-              <div className="cover-overlay" />
-              <span className="pub-badge" style={{ background: "var(--bppk-light-blue)", color: "white" }}>Referensi</span>
-              <div className="pub-content-wrapper">
-                <div className="sim-cover-text">
-                  <div className="eyebrow-mini">Seri Kepemimpinan</div>
-                  <div className="book-title">Sumiyati</div>
-                </div>
-                <div className="pub-info-bottom">
-                  <div className="pub-category-text">Buku & Modul Publikasi</div>
-                  <h3 className="pub-title">Srikandi Perubahan, Inspirasi Bagi Perempuan</h3>
-                  <p className="pub-desc">Akses bebas unduh ke ratusan modul ajar komprehensif untuk mendukung pembelajaran berkelanjutan Anda di Kemenkeu.</p>
-                </div>
-              </div>
             </a>
           </div>
         </div>
