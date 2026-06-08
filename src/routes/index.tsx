@@ -312,10 +312,10 @@ function Home() {
                       {d.name && (
                         <span className="date-tooltip">
                           {d.name.split("\n").map((line, idx, arr) => (
-                            <React.Fragment key={idx}>
+                            <Fragment key={idx}>
                               {line}
                               {idx < arr.length - 1 && <span className="tooltip-divider" />}
-                            </React.Fragment>
+                            </Fragment>
                           ))}
                         </span>
                       )}
