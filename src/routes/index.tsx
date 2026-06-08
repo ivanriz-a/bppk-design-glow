@@ -128,6 +128,7 @@ function Home() {
   const trackRef = useRef<HTMLDivElement>(null);
   const newsTrackRef = useRef<HTMLDivElement>(null);
   const [newsTab, setNewsTab] = useState<NewsTab>("Berita");
+  const [hoveredPub, setHoveredPub] = useState<number | null>(0);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
