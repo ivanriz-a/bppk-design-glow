@@ -599,7 +599,6 @@ function Home() {
             <p className="footer-address">Jl. Purnawarman No.99, Kebayoran Baru, Jakarta Selatan</p>
           </div>
           <div>
-            <h4 className="footer-heading">Tautan Cepat</h4>
             <ul className="footer-links">
               <li><a href="#">Profil BPPK</a></li>
               <li><a href="#">Kemenkeu Corporate University</a></li>
@@ -608,14 +607,12 @@ function Home() {
           </div>
           <div className="footer-right-col">
             <div className="footer-subcol">
-              <h4 className="footer-heading">Layanan</h4>
               <ul className="footer-links">
-                <li><a href="#">KLC</a></li>
-                <li><a href="#">KMS</a></li>
+                <li><a href="#">Kemenkeu Learning Center</a></li>
+                <li><a href="#">Knowledge Management System</a></li>
               </ul>
             </div>
             <div className="footer-subcol">
-              <h4 className="footer-heading">Ikuti Kami</h4>
               <div className="footer-socials">
                 <a href="#" aria-label="Instagram" className="footer-social">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
