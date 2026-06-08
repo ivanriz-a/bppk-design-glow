@@ -5,6 +5,8 @@ import hero2 from "@/assets/hero-2.png.asset.json";
 import hero3 from "@/assets/hero-3.png.asset.json";
 import logoPutih from "@/assets/logo-bppk-putih.png.asset.json";
 import logoFooter from "@/assets/logo-kemenkeu-bppk-putih.png.asset.json";
+import edukasiCover from "@/assets/edukasi-cover.jpg.asset.json";
+import edukasiHalftone from "@/assets/edukasi-halftone.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
