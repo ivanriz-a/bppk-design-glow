@@ -487,30 +487,32 @@ function Home() {
                   >
                     <div className="pub-card-bg" style={{ backgroundImage: `url('${p.halftone}')` }} />
                     <div className="pub-card-tint" />
-                    <div className="pub-card-left">
-                      <span className="pub-year">{p.year}</span>
-                      <h3 className="pub-masthead">
-                        {p.mastheadParts[0]}<br />
-                        <span>{p.mastheadParts[1]}</span><br />
-                        {p.mastheadParts[2]}
-                      </h3>
-                      <div className="pub-bottom">
+                    <div className="pub-card-inner">
+                      <div className="pc-top">
+                        <div className="pc-left">
+                          <span className="pub-year">{p.year}</span>
+                          <h3 className="pub-masthead">
+                            {p.mastheadParts[0]}<br />
+                            <span>{p.mastheadParts[1]}</span><br />
+                            {p.mastheadParts[2]}
+                          </h3>
+                        </div>
+                        <div className="pc-cover">
+                          <img className="pub-cover-real" src={p.cover} alt={p.title} />
+                        </div>
+                      </div>
+                      <div className="pc-default-bottom">
                         <span className="pub-edisi">{p.edisi}</span>
                         <p className="pub-headline-title">{p.title}</p>
                       </div>
-                    </div>
-                    <div className="pub-card-right">
-                      <div className="pub-cover-wrap">
-                        <img className="pub-cover-real" src={p.cover} alt={p.title} />
-                      </div>
-                      <div className="pub-right-bottom">
+                      <div className="pc-text">
                         <span className="pub-edisi">{p.edisi}</span>
                         <h4 className="pub-right-title">{p.title}</h4>
                         <p className="pub-desc-full">{p.desc}</p>
-                        <div className="pub-cta-row">
-                          <span className="btn-read">Baca Selengkapnya</span>
-                          <span className="btn-more">Edisi Lainnya →</span>
-                        </div>
+                      </div>
+                      <div className="pc-cta">
+                        <span className="btn-read">Baca Selengkapnya</span>
+                        <span className="btn-more">Edisi Lainnya →</span>
                       </div>
                     </div>
                   </a>
