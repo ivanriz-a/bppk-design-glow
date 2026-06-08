@@ -5,6 +5,8 @@ import hero2 from "@/assets/hero-2.png.asset.json";
 import hero3 from "@/assets/hero-3.png.asset.json";
 import logoPutih from "@/assets/logo-bppk-putih.png.asset.json";
 import logoFooter from "@/assets/logo-kemenkeu-bppk-putih.png.asset.json";
+import edukasiCover from "@/assets/edukasi-cover.jpg.asset.json";
+import edukasiHalftone from "@/assets/edukasi-halftone.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -126,6 +128,7 @@ function Home() {
   const trackRef = useRef<HTMLDivElement>(null);
   const newsTrackRef = useRef<HTMLDivElement>(null);
   const [newsTab, setNewsTab] = useState<NewsTab>("Berita");
+  const [hoveredPub, setHoveredPub] = useState<number | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -433,57 +436,88 @@ function Home() {
             <h2 className="pub-headline">Eksplorasi<span className="st-italic">literasi BPPK.</span></h2>
             <p>Akses ribuan halaman jurnal, majalah, dan modul pembelajaran resmi dari BPPK.</p>
           </div>
-          <div className="pub-cards-wrapper">
-            <a href="#" className="pub-card">
-              <div className="sim-cover-img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=800&q=80')" }} />
-              <div className="cover-overlay" />
-              <span className="pub-badge">Baru</span>
-              <div className="pub-content-wrapper">
-                <div className="sim-cover-text">
-                  <div className="eyebrow-mini">Edisi 04 / 2026</div>
-                  <div className="editorial-masthead">EDU<span>KASI</span></div>
-                </div>
-                <div className="pub-info-bottom">
-                  <div className="pub-category-text">Majalah Edukasi</div>
-                  <h3 className="pub-title">Nyala Membara Semangat Jaga Keuangan Negara</h3>
-                  <p className="pub-desc">Liputan Khusus Bela Negara: tren pembelajaran terkini, inovasi pengembangan SDM, dan strategi corporate university.</p>
-                </div>
+          {(() => {
+            const pubItems = [
+              {
+                year: "2026",
+                edisi: "Edisi 03",
+                mastheadParts: ["MAJALAH", "EDUKASI", "KEUANGAN"],
+                title: "Nyala Membara Semangat Jaga Keuangan Negara",
+                desc: "Majalah Edukasi Keuangan kembali hadir membawa cerita baru untuk menemani refleksi akhir tahun yang hampir saja selesai dilewati dengan setiap peran kita masing-masing.",
+                cover: edukasiCover.url,
+                halftone: edukasiHalftone.url,
+                category: "Majalah Edukasi",
+              },
+              {
+                year: "2026",
+                edisi: "Vol. 16 No. 2",
+                mastheadParts: ["JURNAL", "ILMIAH", "BPPK"],
+                title: "Evaluasi Pasca Diklat di Era Transformasi Digital",
+                desc: "Kajian akademik tentang efektivitas pelatihan, analisis kebutuhan kompetensi, dan strategi pengembangan SDM keuangan negara berbasis bukti.",
+                cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80",
+                halftone: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80",
+                category: "Jurnal Ilmiah",
+              },
+              {
+                year: "2026",
+                edisi: "Seri Kepemimpinan",
+                mastheadParts: ["BUKU &", "MODUL", "BPPK"],
+                title: "Srikandi Perubahan, Inspirasi Bagi Perempuan",
+                desc: "Akses bebas unduh ke ratusan modul ajar komprehensif untuk mendukung pembelajaran berkelanjutan di lingkungan Kementerian Keuangan.",
+                cover: "https://images.unsplash.com/photo-1575505586569-646b2ca898fc?auto=format&fit=crop&w=600&q=80",
+                halftone: "https://images.unsplash.com/photo-1575505586569-646b2ca898fc?auto=format&fit=crop&w=900&q=80",
+                category: "Buku & Modul",
+              },
+            ];
+            const cols = pubItems
+              .map((_, i) => (hoveredPub === null ? "1fr" : hoveredPub === i ? "2.4fr" : "0.6fr"))
+              .join(" ");
+            return (
+              <div
+                className={`pub-cards-wrapper ${hoveredPub !== null ? "has-active" : ""}`}
+                style={{ gridTemplateColumns: cols }}
+              >
+                {pubItems.map((p, i) => (
+                  <a
+                    href="#"
+                    key={i}
+                    className={`pub-card ${hoveredPub === i ? "is-active" : ""} ${hoveredPub !== null && hoveredPub !== i ? "is-collapsed" : ""}`}
+                    onMouseEnter={() => setHoveredPub(i)}
+                    onFocus={() => setHoveredPub(i)}
+                  >
+                    <div className="pub-card-bg" style={{ backgroundImage: `url('${p.halftone}')` }} />
+                    <div className="pub-card-tint" />
+                    <div className="pub-card-left">
+                      <span className="pub-year">{p.year}</span>
+                      <h3 className="pub-masthead">
+                        {p.mastheadParts[0]}<br />
+                        <span>{p.mastheadParts[1]}</span><br />
+                        {p.mastheadParts[2]}
+                      </h3>
+                      <div className="pub-bottom">
+                        <span className="pub-edisi">{p.edisi}</span>
+                        <p className="pub-headline-title">{p.title}</p>
+                      </div>
+                    </div>
+                    <div className="pub-card-right">
+                      <div className="pub-cover-wrap">
+                        <img className="pub-cover-real" src={p.cover} alt={p.title} />
+                      </div>
+                      <div className="pub-right-bottom">
+                        <span className="pub-edisi">{p.edisi}</span>
+                        <h4 className="pub-right-title">{p.title}</h4>
+                        <p className="pub-desc-full">{p.desc}</p>
+                        <div className="pub-cta-row">
+                          <span className="btn-read">Baca Selengkapnya</span>
+                          <span className="btn-more">Edisi Lainnya →</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                ))}
               </div>
-            </a>
-            <a href="#" className="pub-card">
-              <div className="sim-cover-img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80')" }} />
-              <div className="cover-overlay" />
-              <span className="pub-badge" style={{ background: "#fff" }}>Akademik</span>
-              <div className="pub-content-wrapper">
-                <div className="sim-cover-text">
-                  <div className="eyebrow-yellow">JURNAL ILMIAH TERAPAN</div>
-                  <div className="academic-title">JURNAL<br />BPPK</div>
-                  <div className="academic-line" />
-                </div>
-                <div className="pub-info-bottom">
-                  <div className="pub-category-text">Jurnal Ilmiah</div>
-                  <h3 className="pub-title">Volume 16 Nomor 2 Tahun 2026</h3>
-                  <p className="pub-desc">Evaluasi pasca diklat dan analisis kebutuhan pelatihan di era transformasi digital Kementerian Keuangan.</p>
-                </div>
-              </div>
-            </a>
-            <a href="#" className="pub-card">
-              <div className="sim-cover-img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1575505586569-646b2ca898fc?auto=format&fit=crop&w=800&q=80')" }} />
-              <div className="cover-overlay" />
-              <span className="pub-badge" style={{ background: "var(--bppk-light-blue)", color: "white" }}>Referensi</span>
-              <div className="pub-content-wrapper">
-                <div className="sim-cover-text">
-                  <div className="eyebrow-mini">Seri Kepemimpinan</div>
-                  <div className="book-title">Sumiyati</div>
-                </div>
-                <div className="pub-info-bottom">
-                  <div className="pub-category-text">Buku & Modul Publikasi</div>
-                  <h3 className="pub-title">Srikandi Perubahan, Inspirasi Bagi Perempuan</h3>
-                  <p className="pub-desc">Akses bebas unduh ke ratusan modul ajar komprehensif untuk mendukung pembelajaran berkelanjutan Anda di Kemenkeu.</p>
-                </div>
-              </div>
-            </a>
-          </div>
+            );
+          })()}
         </div>
       </div>
 
