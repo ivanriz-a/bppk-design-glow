@@ -1,19 +1,20 @@
-## Perubahan Footer
+## Perubahan Footer (Revisi)
 
 ### CSS (`src/styles.css`)
-1. **Watermark utuh**: ubah `.footer-watermark` agar logo tampak penuh — `background-size: contain`, posisi center-right dengan ruang cukup, opacity tipis (±0.06). Pastikan tidak terpotong oleh `overflow: hidden` di `.bppk-footer`; kecilkan ukuran watermark jika perlu.
-2. **Radial glow biru muda**: ganti warna radial gradient di `.bppk-footer` ke biru muda (mis. `rgba(125, 200, 255, 0.18)`) di sudut kiri atas.
-3. **Brand name kuning**: `.footer-brand-name` warna jadi kuning aksen BPPK.
-4. **Sosmed kolom vertikal**: `.footer-socials` jadi `flex-direction: column`, gap konsisten, ikon tetap bulat seperti sekarang.
+1. **Hapus watermark**: Hapus blok `.footer-watermark` dan `.footer-watermark img` sepenuhnya.
+2. **Jarak antar kolom**: Naikkan `gap` di `.footer-container` (layout baru) agar kolom tengah dan kanan tidak terlalu mepet — dari `24px` ke `64px`.
+3. **Judul kolom**: Hapus aturan penyembunyian heading; kembalikan gaya `.footer-heading` agar terlihat (kuning, uppercase, tracking lebar). **Kecuali** kolom kanan — `.footer-right-col .footer-heading` tetap disembunyikan.
+4. **Brand name**: Ubah `.footer-brand-name` — `font-size: 0.875rem` (14px), `font-weight: 600`.
 
 ### JSX (`src/routes/index.tsx`)
-1. Hapus `<p class="footer-tagline">…</p>`.
-2. Hapus item telepon & email di `.footer-contact`; sisakan hanya alamat.
-3. **Kolom tengah "Jelajahi"**: gabung semua link navigasi jadi satu daftar vertikal — Profil BPPK, Kemenkeu Corporate University, Learning Organization, Kemenkeu Learning Center, Knowledge Management System.
-4. **Kolom kanan "Terhubung"**: hanya ikon sosial media (Instagram, X, Facebook, YouTube) ditata **satu kolom vertikal** ke bawah. Hapus subcol layanan.
+1. **Hapus elemen watermark**: Hapus `<div className="footer-watermark">…</div>`.
+2. **Judul kolom tengah**: Tambahkan `<h4 className="footer-heading">Jelajahi</h4>` sebelum `<ul className="footer-links">`.
+3. **Alamat 2 baris**: Ubah menjadi `<span>Jl. Purnawarman No.99<br />Kebayoran Baru, Jakarta Selatan 12110</span>`.
 
 ### Yang TIDAK diubah
-- Struktur 3 kolom (brand | tengah | kanan), ukuran logo, top accent kuning, bottom bar copyright, dan judul kolom tetap ditiadakan.
+- Judul kolom kanan "Terhubung" tetap disembunyikan.
+- Struktur 3 kolom, ukuran logo, top accent kuning, bottom bar copyright, warna brand name tetap kuning.
+- Isi link navigasi dan ikon sosial media tetap sama.
 
 ### File yang disentuh
 - `src/routes/index.tsx`
