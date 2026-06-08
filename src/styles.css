@@ -1335,20 +1335,21 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
 .pub-card-bg {
   position: absolute; inset: 0;
   background-size: cover; background-position: center;
-  filter: grayscale(1) contrast(1.1) brightness(0.85);
-  opacity: 0.55;
-  transition: opacity .5s ease, transform .9s ease;
-  z-index: 1;
+  filter: grayscale(1) contrast(1.15) brightness(1.1);
+  opacity: 1;
+  mix-blend-mode: screen;
+  transition: opacity .5s ease, transform .9s ease, filter .5s ease;
+  z-index: 2;
+  pointer-events: none;
 }
 .pub-card-tint {
   position: absolute; inset: 0;
-  background:
-    linear-gradient(180deg, rgba(4,30,56,0.15) 0%, rgba(4,30,56,0.55) 60%, rgba(4,30,56,0.92) 100%),
-    linear-gradient(135deg, #053a6b 0%, #044f74 50%, #0a6ea0 100%);
-  mix-blend-mode: normal;
-  z-index: 2;
+  background: linear-gradient(135deg, #053a6b 0%, #074f7a 50%, #0a3a66 100%);
+  z-index: 1;
 }
-.pub-card.is-active .pub-card-bg { opacity: 0.35; transform: scale(1.04); }
+.pub-card.is-active .pub-card-bg { opacity: 0.55; transform: scale(1.04); }
+.pub-card.is-collapsed .pub-card-bg { opacity: 0.7; }
+
 
 /* Inner grid layout */
 .pub-card-inner {
