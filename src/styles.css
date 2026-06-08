@@ -1138,9 +1138,15 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
 
 /* Tooltip kalender — multiline (stacked) untuk 2+ kegiatan */
 .calendar-dates .date-tooltip {
-  white-space: pre-line !important;
   text-align: center;
   min-width: 140px;
+}
+.tooltip-divider {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: rgba(255,255,255,0.28);
+  margin: 5px 0;
 }
 
 /* OA card — kurangi tinggi untuk hilangkan whitespace */
@@ -1150,13 +1156,19 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
 
 /* Footer — layout baru */
 .footer-container {
-  grid-template-columns: 1.4fr 1fr 0.8fr 1fr !important;
+  grid-template-columns: 1.4fr 1fr auto !important;
   align-items: start;
+  justify-content: space-between;
 }
-.footer-brand-col { display: flex; flex-direction: column; gap: 18px; }
+.footer-brand-col { display: flex; flex-direction: column; gap: 14px; }
 .footer-brand-logo {
-  width: 220px; max-width: 100%; height: auto; display: block;
+  width: 150px; max-width: 100%; height: auto; display: block;
   filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15));
+}
+.footer-right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
 }
 .footer-brand-name {
   margin: 0;
