@@ -476,6 +476,7 @@ function Home() {
               <div
                 className={`pub-cards-wrapper ${hoveredPub !== null ? "has-active" : ""}`}
                 style={{ gridTemplateColumns: cols }}
+                onMouseLeave={() => setHoveredPub(null)}
               >
                 {pubItems.map((p, i) => (
                   <a
@@ -484,6 +485,7 @@ function Home() {
                     className={`pub-card ${hoveredPub === i ? "is-active" : ""} ${hoveredPub !== null && hoveredPub !== i ? "is-collapsed" : ""}`}
                     onMouseEnter={() => setHoveredPub(i)}
                     onFocus={() => setHoveredPub(i)}
+                    onBlur={() => setHoveredPub(null)}
                   >
                     <div className="pub-card-bg" style={{ backgroundImage: `url('${p.halftone}')` }} />
                     <div className="pub-card-tint" />
