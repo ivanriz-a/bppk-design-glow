@@ -1,80 +1,52 @@
-## Redesign Bagian Literasi — Pola Kartu Majalah (Accordion Hover)
+## Perbaikan Bagian Literasi
 
-Mengubah tiga kartu di seksi LITERASI (Majalah, Jurnal, Buku) mengikuti mockup yang dilampirkan.
+Tiga masalah yang akan diperbaiki:
 
-### Perilaku
+### 1. Posisi cover saat hover (kanan dari headline, bukan di bawah)
 
-**Default state (semua 3 kartu rata, ~1fr 1fr 1fr):**
-- Background: gambar sampul publikasi dengan filter duotone biru (sesuai `--bppk-blue`), tekstur halftone.
-- Konten kiri-atas: tahun ("2026") dalam huruf kecil putih.
-- Headline besar putih, dengan satu kata di-highlight kuning (mis. "MAJALAH / **EDUKASI** / KEUANGAN"). Per kartu:
-  - Majalah → "MAJALAH **EDUKASI** KEUANGAN"
-  - Jurnal → "JURNAL **ILMIAH** BPPK"
-  - Buku → "BUKU & **MODUL** BPPK"
-- Konten kiri-bawah: label kuning ("Edisi 03" / "Vol. 16 No. 2" / "Seri Kepemimpinan") + judul publikasi 3 baris putih bold.
+Saat ini `.pub-card-inner` saat `is-active` masih memakai grid-areas `"top cover" / "text text" / "cta cta"` — tapi cover di kolom `cover` cuma menampilkan dirinya, sementara headline tetap dominan di kolom kiri. Yang tampak: gambar muncul di bawah headline karena `.pc-top` di-collapse jadi 1 kolom.
 
-**Hover state (kartu yang di-hover melebar ~2x, dua lainnya mengempis):**
-- Grid berubah jadi accordion: kartu aktif `2.4fr`, lainnya `0.6fr` (transisi ~450ms ease).
-- Kartu mengempis: hanya menampilkan headline vertikal singkat (year + 1 kata kuning) tetap terbaca; judul bawah disembunyikan / dipersempit.
-- Kartu aktif menampilkan blok kanan:
-  - Cover asli publikasi (full color, tanpa duotone) dengan shadow + sedikit float.
-  - Di area bawah: label kuning "Edisi 03", judul (tetap), paragraf deskripsi 3-4 baris (sebelumnya disembunyikan).
-  - Footer: tombol outline kuning "Baca Selengkapnya" (kiri) + link "Edisi Lainnya →" (kanan).
-
-### Implementasi
-
-**File:** `src/routes/index.tsx`
-- Refaktor `.pub-cards-wrapper` jadi grid dengan `gridTemplateColumns` reaktif terhadap kartu yang di-hover (state `hoveredPub: 0 | 1 | 2 | null`). Saat null → `1fr 1fr 1fr`; saat aktif → kolom aktif `2.4fr` dua lainnya `0.6fr`.
-- Tiap `.pub-card` ber-handler `onMouseEnter` / `onMouseLeave`, dan kelas `is-active` / `is-collapsed`.
-- Struktur kartu baru:
+**Solusi (CSS only)** di `src/styles.css`:
+- Ubah layout `.pub-card.is-active .pub-card-inner` jadi 2 kolom utuh tinggi penuh:
   ```
-  <a className="pub-card">
-    <div className="pub-card-bg" style={duotone bg image} />
-    <div className="pub-card-left">
-      <span className="pub-year">2026</span>
-      <h3 className="pub-masthead">MAJALAH <span>EDUKASI</span> KEUANGAN</h3>
-      <div className="pub-bottom">
-        <span className="pub-edisi">Edisi 03</span>
-        <p className="pub-headline-title">Nyala Membara Semangat Jaga Keuangan Negara</p>
-      </div>
-    </div>
-    <div className="pub-card-right">  // hanya tampil saat active
-      <img className="pub-cover-real" />
-      <div className="pub-right-bottom">
-        <span className="pub-edisi">Edisi 03</span>
-        <h4>Nyala Membara…</h4>
-        <p className="pub-desc-full">…</p>
-        <div className="pub-cta-row">
-          <button className="btn-read">Baca Selengkapnya</button>
-          <a className="btn-more">Edisi Lainnya →</a>
-        </div>
-      </div>
-    </div>
-  </a>
+  grid-template-columns: 1.1fr 1fr;
+  grid-template-areas:
+    "top    cover"
+    "text   cover"
+    "cta    cover";
+  grid-template-rows: auto 1fr auto;
   ```
-- Hapus elemen lama (`sim-cover-img`, `cover-overlay`, `pub-badge`, `pub-content-wrapper`, `sim-cover-text`, `editorial-masthead`, `academic-title`, `book-title`, `pub-info-bottom`) di dalam ketiga kartu.
-- Gunakan asset gambar yang sudah diunggah: `user-uploads://Edukasi_Keuangan_82_Page_01.jpg` (cover asli majalah) dan `user-uploads://Halftone_Poster_Photo_Effect.png` (background duotone) — di-mount sebagai `lovable-assets` ke `src/assets/`. Untuk Jurnal & Buku, pakai placeholder cover dari Unsplash yang ada sekarang (atau warna solid + masthead) sampai user beri aset asli.
+- `.pc-cover` jadi `grid-area: cover; align-self: stretch; display:flex; align-items:center; justify-content:center;` — gambar tampil di sisi kanan sejajar headline + deskripsi + CTA.
+- `.pc-top` cukup punya year + masthead (cover dipisah ke kolomnya sendiri).
+- `.pub-cover-real` `max-height: 100%` (bukan kotak kecil) untuk memenuhi sisi kanan.
 
-**File:** `src/styles.css`
-- Tambah blok styles baru untuk pola accordion: `.pub-cards-wrapper` jadi `display: grid; grid-template-columns: 1fr 1fr 1fr; transition: grid-template-columns .45s cubic-bezier(.22,.61,.36,1)`.
-- Saat wrapper punya class `has-active`, set kolom sesuai index aktif (via inline `gridTemplateColumns`).
-- `.pub-card` jadi `aspect-ratio: 3/4` minimum-height, `overflow: hidden`, `position: relative`, border-radius konsisten.
-- `.pub-card-bg`: full-cover image dengan `filter: grayscale(1) contrast(1.1)` + overlay biru (`background-blend-mode: multiply`, warna `var(--bppk-blue)`) untuk efek duotone.
-- `.pub-card-left`: padding 32px, flex column space-between, z-index 2.
-- `.pub-masthead`: font 36-44px, bold, white, line-height tight; `span` di tengah diwarnai `var(--bppk-yellow)`.
-- `.pub-card-right`: `opacity: 0; transform: translateX(20px); pointer-events: none`. Saat `.is-active`, `opacity: 1; transform: none; pointer-events: auto` dengan delay 150ms.
-- `.pub-cover-real`: max-height 60%, drop-shadow elegant, posisi kanan-atas.
-- `.is-collapsed .pub-bottom`: `opacity: 0`. `.is-collapsed .pub-masthead`: ukuran sedikit dikurangi atau di-clamp.
-- Tombol `.btn-read`: outline kuning rounded-pill; `.btn-more`: text + arrow dengan underline animation.
-- Mobile (`@media max-width: 900px`): grid jadi 1 kolom, semua kartu langsung tampil dalam mode "active" (cover + desc + CTA) tanpa accordion.
+### 2. Keterbacaan teks pada state default
 
-### Detail visual
-- Duotone biru: `var(--bppk-blue)` (#0c2f5a estimasi) + blend multiply; tambah gradient overlay vertikal dari transparent → blue 80% di bawah untuk keterbacaan teks.
-- Yellow accent: `var(--bppk-yellow)` (kuning yang sudah dipakai di section eyebrow).
-- Border radius: 18-20px konsisten dengan kartu lain di page.
-- Transisi konten dalam kartu pakai opacity + translate, durasi 300-400ms.
+Saat default, halftone + duotone biru bikin teks putih kurang kontras.
 
-### Yang tidak diubah
-- Header section LITERASI ("Eksplorasi literasi BPPK") tetap.
-- Section lain (Hero, News, Footer, dll) tidak disentuh.
-- Logika data/state app lain tidak berubah.
+**Solusi** di `src/styles.css`:
+- Tambah scrim gradient lebih kuat di `.pub-card-tint`: dari `rgba(5,40,80,0.25)` di atas ke `rgba(5,30,60,0.85)` di bawah, dipadu radial highlight tipis.
+- Tambah `text-shadow: 0 2px 12px rgba(0,0,0,.45)` pada `.pub-masthead` dan `.pub-headline-title`.
+- Turunkan `opacity` halftone default ke ~0.45 (sekarang 1) agar warna biru solid lebih dominan dan teks lebih jelas. Saat `is-active` tetap rendah supaya cover yang dominan.
+- Sedikit naikkan font-weight `.pub-headline-title` ke 700 dan letter-spacing 0.
+
+### 3. Ubah label masthead
+
+Di `src/routes/index.tsx`:
+- Item index 1 (Jurnal): `mastheadParts: ["JURNAL", "BPPK", ""]` — render khusus jadi `JURNAL` (putih) lalu `BPPK` (kuning), tanpa baris ketiga. Sederhanakan: ubah render `<h3>` untuk skip part kosong.
+- Item index 2 (Buku): `mastheadParts: ["BUKU", "BPPK", ""]` — `BUKU` kuning, `BPPK` putih.
+
+Karena pola highlight sekarang fix di middle part (`<span>` index 1), saya akan ubah struktur data jadi mendukung `{ text, accent }[]`:
+```
+masthead: [
+  { text: "JURNAL" },
+  { text: "BPPK", accent: true },
+]
+```
+Lalu render `.map` — yang `accent: true` dibungkus `<span>` kuning. Lebih fleksibel untuk Majalah ("MAJALAH **EDUKASI** KEUANGAN"), Jurnal ("JURNAL **BPPK**"), Buku ("**BUKU** BPPK").
+
+### File yang diubah
+- `src/routes/index.tsx` — ubah data `pubItems` (struktur masthead baru) dan render `<h3 className="pub-masthead">`.
+- `src/styles.css` — grid layout active baru, scrim & text-shadow untuk keterbacaan, opacity halftone default.
+
+Tidak ada perubahan section lain.

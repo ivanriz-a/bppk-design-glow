@@ -441,7 +441,11 @@ function Home() {
               {
                 year: "2026",
                 edisi: "Edisi 03",
-                mastheadParts: ["MAJALAH", "EDUKASI", "KEUANGAN"],
+                masthead: [
+                  { text: "MAJALAH" },
+                  { text: "EDUKASI", accent: true },
+                  { text: "KEUANGAN" },
+                ],
                 title: "Nyala Membara Semangat Jaga Keuangan Negara",
                 desc: "Majalah Edukasi Keuangan kembali hadir membawa cerita baru untuk menemani refleksi akhir tahun yang hampir saja selesai dilewati dengan setiap peran kita masing-masing.",
                 cover: edukasiCover.url,
@@ -451,7 +455,10 @@ function Home() {
               {
                 year: "2026",
                 edisi: "Vol. 16 No. 2",
-                mastheadParts: ["JURNAL", "ILMIAH", "BPPK"],
+                masthead: [
+                  { text: "JURNAL", accent: true },
+                  { text: "BPPK" },
+                ],
                 title: "Evaluasi Pasca Diklat di Era Transformasi Digital",
                 desc: "Kajian akademik tentang efektivitas pelatihan, analisis kebutuhan kompetensi, dan strategi pengembangan SDM keuangan negara berbasis bukti.",
                 cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80",
@@ -461,7 +468,10 @@ function Home() {
               {
                 year: "2026",
                 edisi: "Seri Kepemimpinan",
-                mastheadParts: ["BUKU &", "MODUL", "BPPK"],
+                masthead: [
+                  { text: "BUKU", accent: true },
+                  { text: "BPPK" },
+                ],
                 title: "Srikandi Perubahan, Inspirasi Bagi Perempuan",
                 desc: "Akses bebas unduh ke ratusan modul ajar komprehensif untuk mendukung pembelajaran berkelanjutan di lingkungan Kementerian Keuangan.",
                 cover: "https://images.unsplash.com/photo-1575505586569-646b2ca898fc?auto=format&fit=crop&w=600&q=80",
@@ -494,9 +504,11 @@ function Home() {
                         <div className="pc-left">
                           <span className="pub-year">{p.year}</span>
                           <h3 className="pub-masthead">
-                            {p.mastheadParts[0]}<br />
-                            <span>{p.mastheadParts[1]}</span><br />
-                            {p.mastheadParts[2]}
+                            {p.masthead.map((m, idx) => (
+                              <span key={idx} className={`mh-line${m.accent ? " mh-accent" : ""}`}>
+                                {m.text}
+                              </span>
+                            ))}
                           </h3>
                         </div>
                         <div className="pc-cover">
