@@ -505,8 +505,8 @@ function Home() {
                           <span className="pub-year">{p.year}</span>
                           <h3 className="pub-masthead">
                             {p.masthead.map((m, idx) => (
-                              <span key={idx} style={{ display: "block" }}>
-                                {m.accent ? <span>{m.text}</span> : m.text}
+                              <span key={idx} className={`mh-line${m.accent ? " mh-accent" : ""}`}>
+                                {m.text}
                               </span>
                             ))}
                           </h3>
