@@ -595,8 +595,8 @@ function Home() {
         <div className="footer-container">
           <div className="footer-brand-col">
             <img src={logoFooter.url} alt="Logo Kemenkeu BPPK" className="footer-brand-logo" />
-            <h3 className="footer-brand-name">Badan Pendidikan dan<br />Pelatihan Keuangan</h3>
-            <p className="footer-address">Jl. Purnawarman No.99,<br />Kebayoran Baru, Jakarta Selatan</p>
+            <h3 className="footer-brand-name">Badan Pendidikan dan Pelatihan Keuangan</h3>
+            <p className="footer-address">Jl. Purnawarman No.99, Kebayoran Baru, Jakarta Selatan</p>
           </div>
           <div>
             <h4 className="footer-heading">Tautan Cepat</h4>
