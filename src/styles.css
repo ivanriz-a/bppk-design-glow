@@ -1410,14 +1410,14 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   position: absolute;
   inset: 0 0 0 46%;
   z-index: 3;
-  padding: 36px 32px;
+  padding: 28px 28px 24px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   opacity: 0;
   transform: translateX(24px);
   pointer-events: none;
   transition: opacity .4s ease .1s, transform .5s cubic-bezier(.22,.61,.36,1) .1s;
+  gap: 14px;
 }
 .pub-card.is-active .pub-card-right {
   opacity: 1;
@@ -1425,11 +1425,12 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   pointer-events: auto;
 }
 .pub-cover-wrap {
-  flex: 1;
+  flex: 0 1 auto;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   min-height: 0;
+  max-height: 50%;
 }
 .pub-cover-real {
   max-height: 100%;
@@ -1442,21 +1443,21 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   background: #fff;
 }
 .pub-right-bottom {
-  margin-top: 18px;
-  display: flex; flex-direction: column; gap: 10px;
+  display: flex; flex-direction: column; gap: 8px;
+  flex: 0 0 auto;
 }
 .pub-right-title {
   font-family: var(--headline, 'Amulya', Georgia, serif);
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 800;
   line-height: 1.2;
   color: #fff;
   margin: 0;
 }
 .pub-desc-full {
-  font-size: 0.85rem;
-  line-height: 1.55;
-  color: rgba(255,255,255,0.85);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.82);
   margin: 0;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -1465,28 +1466,31 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
 }
 .pub-cta-row {
   display: flex; align-items: center; justify-content: space-between;
-  gap: 16px;
-  margin-top: 6px;
+  gap: 12px;
+  margin-top: 4px;
+  flex-wrap: nowrap;
 }
 .btn-read {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 9px 18px;
   border: 1.5px solid var(--bppk-yellow);
   color: var(--bppk-yellow);
   border-radius: 999px;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.3px;
   transition: background .25s ease, color .25s ease;
+  white-space: nowrap;
 }
 .btn-read:hover { background: var(--bppk-yellow); color: var(--bppk-blue); }
 .btn-more {
   color: var(--bppk-yellow);
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.5px;
   border-bottom: 1.5px solid transparent;
   transition: border-color .25s ease;
+  white-space: nowrap;
 }
 .btn-more:hover { border-bottom-color: var(--bppk-yellow); }
 
