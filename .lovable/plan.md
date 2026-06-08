@@ -1,43 +1,20 @@
-## Tujuan
-Mengubah footer dari "biru polos + teks" menjadi area penutup yang berbobot, profesional, dan konsisten dengan gaya web (warna biru tua + aksen kuning, sudut membulat lembut).
+## Perubahan Footer
 
-## Perubahan visual (CSS – `src/styles.css`)
+### CSS (`src/styles.css`)
+1. **Watermark utuh**: ubah `.footer-watermark` agar logo tampak penuh — `background-size: contain`, posisi center-right dengan ruang cukup, opacity tipis (±0.06). Pastikan tidak terpotong oleh `overflow: hidden` di `.bppk-footer`; kecilkan ukuran watermark jika perlu.
+2. **Radial glow biru muda**: ganti warna radial gradient di `.bppk-footer` ke biru muda (mis. `rgba(125, 200, 255, 0.18)`) di sudut kiri atas.
+3. **Brand name kuning**: `.footer-brand-name` warna jadi kuning aksen BPPK.
+4. **Sosmed kolom vertikal**: `.footer-socials` jadi `flex-direction: column`, gap konsisten, ikon tetap bulat seperti sekarang.
 
-1. **Background berlapis**
-   - Gradient diagonal: biru tua → biru sedikit lebih gelap di pojok kanan bawah.
-   - Radial glow lembut warna biru-terang di pojok kiri atas footer.
-   - Watermark logo BPPK ukuran besar di sisi kanan, opacity ±0.04, tidak mengganggu keterbacaan.
-   - Pattern dot/grid SVG tipis (opacity rendah) sebagai tekstur halus.
+### JSX (`src/routes/index.tsx`)
+1. Hapus `<p class="footer-tagline">…</p>`.
+2. Hapus item telepon & email di `.footer-contact`; sisakan hanya alamat.
+3. **Kolom tengah "Jelajahi"**: gabung semua link navigasi jadi satu daftar vertikal — Profil BPPK, Kemenkeu Corporate University, Learning Organization, Kemenkeu Learning Center, Knowledge Management System.
+4. **Kolom kanan "Terhubung"**: hanya ikon sosial media (Instagram, X, Facebook, YouTube) ditata **satu kolom vertikal** ke bawah. Hapus subcol layanan.
 
-2. **Top accent**
-   - Garis tipis di atas footer dengan gradient kuning → transparan, lebar penuh, sebagai pemisah tegas dari section di atasnya.
+### Yang TIDAK diubah
+- Struktur 3 kolom (brand | tengah | kanan), ukuran logo, top accent kuning, bottom bar copyright, dan judul kolom tetap ditiadakan.
 
-3. **Bottom bar terpisah**
-   - Garis pembatas horizontal halus (rgba putih rendah).
-   - Baris paling bawah: kiri = "© 2026 Badan Pendidikan dan Pelatihan Keuangan. All rights reserved.", kanan = link kecil "Kebijakan Privasi · Syarat & Ketentuan · Peta Situs".
-
-4. **Detail link & ikon**
-   - Ikon kecil (pin, telepon, email) di depan baris kontak.
-   - Hover link: warna berubah ke kuning + sedikit geser ke kanan (transform translateX).
-   - Ikon sosmed: tambahkan glow tipis saat hover selain efek warna yang sudah ada.
-
-## Perubahan konten (JSX – `src/routes/index.tsx`)
-
-1. **Kolom kiri (brand)**
-   - Tagline singkat di bawah "Badan Pendidikan dan Pelatihan Keuangan": *"Mencetak SDM Keuangan Negara yang Unggul"*.
-   - Tambah baris kontak singkat di bawah alamat: telepon dan email dengan ikon kecil.
-
-2. **Bottom bar**
-   - Tambah baris baru di bawah grid utama berisi copyright + link sekunder.
-
-3. **Ikon kontak**
-   - Tambahkan SVG inline kecil untuk pin lokasi, telepon, dan email.
-
-## Yang TIDAK diubah
-- Struktur 3 kolom yang sudah disepakati (brand | tautan cepat | layanan+sosmed di kanan).
-- Ukuran logo, ukuran teks brand name, dan posisi rapat ke kanan.
-- Daftar link yang sudah ada (Profil BPPK, Kemenkeu CorpU, Learning Organization, KLC penuh, KMS penuh).
-
-## File yang akan disentuh
-- `src/routes/index.tsx` — tambahkan tagline, kontak berikon, bottom bar.
-- `src/styles.css` — background berlapis, top accent, bottom bar, watermark, hover state.
+### File yang disentuh
+- `src/routes/index.tsx`
+- `src/styles.css`
