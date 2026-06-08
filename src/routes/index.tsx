@@ -592,11 +592,29 @@ function Home() {
 
       {/* FOOTER */}
       <footer className="bppk-footer">
+        <div className="footer-top-accent" aria-hidden="true" />
+        <div className="footer-watermark" aria-hidden="true">
+          <img src={logoFooter.url} alt="" />
+        </div>
         <div className="footer-container">
           <div className="footer-brand-col">
             <img src={logoFooter.url} alt="Logo Kemenkeu BPPK" className="footer-brand-logo" />
             <h3 className="footer-brand-name">Badan Pendidikan dan Pelatihan Keuangan</h3>
-            <p className="footer-address">Jl. Purnawarman No.99, Kebayoran Baru, Jakarta Selatan</p>
+            <p className="footer-tagline">Mencetak SDM Keuangan Negara yang Unggul</p>
+            <ul className="footer-contact">
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Jl. Purnawarman No.99, Kebayoran Baru, Jakarta Selatan</span>
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>(021) 7394666</span>
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <span>informasi@bppk.kemenkeu.go.id</span>
+              </li>
+            </ul>
           </div>
           <div>
             <ul className="footer-links">
@@ -631,7 +649,16 @@ function Home() {
           </div>
         </div>
         <div className="footer-bottom">
-          © 2026 Badan Pendidikan dan Pelatihan Keuangan (BPPK) — Kementerian Keuangan Republik Indonesia.
+          <div className="footer-bottom-inner">
+            <span>© 2026 Badan Pendidikan dan Pelatihan Keuangan — Kementerian Keuangan Republik Indonesia.</span>
+            <span className="footer-bottom-links">
+              <a href="#">Kebijakan Privasi</a>
+              <span className="footer-bottom-sep">·</span>
+              <a href="#">Syarat &amp; Ketentuan</a>
+              <span className="footer-bottom-sep">·</span>
+              <a href="#">Peta Situs</a>
+            </span>
+          </div>
         </div>
       </footer>
     </>
