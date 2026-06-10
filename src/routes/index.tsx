@@ -61,12 +61,23 @@ const services = [
   { title: "PKN STAN", desc: "Pendidikan kedinasan unggulan untuk calon pengelola keuangan negara.", bg: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=600&q=80", icon: <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /> },
 ];
 
-const schedules = [
-  { day: "24", month: "Okt", title: "Pelatihan Dasar CPNS Golongan III", unit: "Pusdiklat Keuangan Umum" },
-  { day: "02", month: "Nov", title: "Audit Investigatif Lanjutan", unit: "Pusdiklat Anggaran" },
-  { day: "11", month: "Nov", title: "Workshop Reformasi Birokrasi", unit: "Pusdiklat PSDM" },
-  { day: "11", month: "Nov", title: "Workshop Reformasi Birokrasi", unit: "Pusdiklat PSDM" },
-  { day: "18", month: "Nov", title: "Sertifikasi Bendahara Penerimaan", unit: "LSP BPPK" },
+const pelatihanList = [
+  { day: "05", month: "Nov", title: "Pelatihan Dasar CPNS Golongan III", unit: "Pusdiklat Keuangan Umum" },
+  { day: "08", month: "Nov", title: "Pelatihan Analisis Keuangan Dasar", unit: "Pusdiklat Anggaran" },
+  { day: "12", month: "Nov", title: "Audit Investigatif Lanjutan", unit: "Pusdiklat Pajak" },
+  { day: "15", month: "Nov", title: "Sertifikasi Bendahara Penerimaan", unit: "LSP BPPK" },
+  { day: "19", month: "Nov", title: "Manajemen Proyek Agile Tingkat Lanjut", unit: "Pusdiklat Anggaran" },
+  { day: "22", month: "Nov", title: "Kepemimpinan Strategis di Era Digital", unit: "Pusdiklat Kepemimpinan" },
+  { day: "26", month: "Nov", title: "Analisis Data Makroekonomi Lanjutan", unit: "Pusdiklat Keuangan Umum" },
+];
+const kegiatanList = [
+  { day: "03", month: "Nov", title: "Rapat Koordinasi Pengembangan SDM", unit: "Sekretariat Badan" },
+  { day: "07", month: "Nov", title: "Workshop Reformasi Birokrasi", unit: "Pusdiklat PSDM" },
+  { day: "10", month: "Nov", title: "Forum Diskusi Auditor Internal", unit: "Itjen Kemenkeu" },
+  { day: "14", month: "Nov", title: "Knowledge Sharing BPPK", unit: "Knowledge Management" },
+  { day: "17", month: "Nov", title: "Kunjungan Mitra Akademik", unit: "PKN STAN" },
+  { day: "21", month: "Nov", title: "Seminar Transformasi Digital", unit: "Pusdiklat Pajak" },
+  { day: "25", month: "Nov", title: "Penandatanganan MoU Kerja Sama", unit: "Sekretariat Badan" },
 ];
 
 const trainings = [
