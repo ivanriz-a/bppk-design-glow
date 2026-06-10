@@ -481,8 +481,8 @@ function Home() {
                 ],
                 title: "Evaluasi Pasca Diklat di Era Transformasi Digital",
                 desc: "Kajian akademik tentang efektivitas pelatihan, analisis kebutuhan kompetensi, dan strategi pengembangan SDM keuangan negara berbasis bukti.",
-                cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80",
-                halftone: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80",
+                cover: coverJurnal.url,
+                halftone: bgJurnal.url,
                 category: "Jurnal Ilmiah",
               },
               {
@@ -494,8 +494,8 @@ function Home() {
                 ],
                 title: "Srikandi Perubahan, Inspirasi Bagi Perempuan",
                 desc: "Akses bebas unduh ke ratusan modul ajar komprehensif untuk mendukung pembelajaran berkelanjutan di lingkungan Kementerian Keuangan.",
-                cover: "https://images.unsplash.com/photo-1575505586569-646b2ca898fc?auto=format&fit=crop&w=600&q=80",
-                halftone: "https://images.unsplash.com/photo-1575505586569-646b2ca898fc?auto=format&fit=crop&w=900&q=80",
+                cover: coverBuku.url,
+                halftone: bgBuku.url,
                 category: "Buku & Modul",
               },
             ];
