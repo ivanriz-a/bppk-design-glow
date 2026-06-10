@@ -511,9 +511,9 @@ function Home() {
                             ))}
                           </h3>
                         </div>
-                        <div className="pc-cover">
-                          <img className="pub-cover-real" src={p.cover} alt={p.title} />
-                        </div>
+                      </div>
+                      <div className="pc-cover">
+                        <img className="pub-cover-real" src={p.cover} alt={p.title} />
                       </div>
                       <div className="pc-default-bottom">
                         <span className="pub-edisi">{p.edisi}</span>
