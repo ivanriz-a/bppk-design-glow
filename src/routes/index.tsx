@@ -139,6 +139,8 @@ function Home() {
   const newsTrackRef = useRef<HTMLDivElement>(null);
   const [newsTab, setNewsTab] = useState<NewsTab>("Berita");
   const [hoveredPub, setHoveredPub] = useState<number | null>(null);
+  const [calTab, setCalTab] = useState<"pelatihan" | "kegiatan">("pelatihan");
+
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
