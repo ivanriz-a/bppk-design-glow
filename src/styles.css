@@ -1523,8 +1523,8 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
 .dropdown-menu .submenu a:hover { background: var(--bg-gray); color: var(--bppk-blue); padding-left: 26px; font-weight: 600; }
 
 /* Calendar tabs (replacing lead text) */
-.calendar-tabs { display: inline-flex; gap: 6px; background: rgba(4,79,116,0.06); padding: 5px; border-radius: 999px; }
-.calendar-tab {
+.calendar-tabs { display: inline-flex; gap: 6px; background: rgba(4,79,116,0.06); padding: 4px; border-radius: var(--r-md); }
+.calendar-tab { border-radius: var(--r-sm) !important;
   padding: 9px 22px; border-radius: 999px; border: none; background: transparent;
   color: var(--bppk-blue); font-weight: 700; font-size: 0.82rem; letter-spacing: 0.4px;
   cursor: pointer; transition: all 0.25s ease;
