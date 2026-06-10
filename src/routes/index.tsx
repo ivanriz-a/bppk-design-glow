@@ -97,7 +97,7 @@ const knowledge = [
 ];
 
 type NewsItem = { date: string; title: string; excerpt: string; img: string };
-const newsData: Record<"Berita" | "Pengumuman" | "Artikel" | "Peraturan", NewsItem[]> = {
+const newsData: Record<"Berita" | "Pengumuman" | "Artikel", NewsItem[]> = {
   Berita: [
     { date: "15 Mei 2026", title: "Pembukaan Pelatihan Teknis di Lingkungan Keuangan Publik", excerpt: "Pusdiklat Keuangan Umum menyelenggarakan program strategis peningkatan kapasitas SDM yang diikuti oleh seluruh pegawai.", img: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=600&q=80" },
     { date: "12 Mei 2026", title: "Rapat Koordinasi Pengembangan Kompetensi Aparatur", excerpt: "Memperkuat pengembangan kompetensi SDM melalui rapat koordinasi lintas unit untuk merumuskan kebijakan strategis.", img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=600&q=80" },
@@ -117,14 +117,8 @@ const newsData: Record<"Berita" | "Pengumuman" | "Artikel" | "Peraturan", NewsIt
     { date: "09 Mei 2026", title: "Peran Analitik Data dalam Pengambilan Keputusan Kebijakan", excerpt: "Pemanfaatan data analitik menjadi kunci ketepatan kebijakan publik berbasis bukti.", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" },
     { date: "06 Mei 2026", title: "Kepemimpinan Adaptif di Era Ketidakpastian", excerpt: "Pendekatan kepemimpinan yang fleksibel untuk menghadapi tantangan dinamis sektor publik.", img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=600&q=80" },
   ],
-  Peraturan: [
-    { date: "19 Mei 2026", title: "Peraturan Kepala BPPK Nomor 3 Tahun 2026", excerpt: "Tentang pedoman penyelenggaraan pelatihan teknis di lingkungan Kementerian Keuangan.", img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80" },
-    { date: "15 Mei 2026", title: "Keputusan Kepala BPPK tentang Standar Akreditasi", excerpt: "Penetapan standar akreditasi lembaga pelatihan internal Kementerian Keuangan.", img: "https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=600&q=80" },
-    { date: "10 Mei 2026", title: "Perka tentang Kurikulum Pelatihan Kepemimpinan", excerpt: "Pemutakhiran kurikulum program pelatihan kepemimpinan untuk pejabat struktural.", img: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80" },
-    { date: "04 Mei 2026", title: "Pedoman Evaluasi Pasca Pelatihan Berbasis Dampak", excerpt: "Mekanisme baru pengukuran efektivitas pelatihan melalui indikator dampak nyata.", img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80" },
-  ],
 };
-const newsTabs = ["Berita", "Pengumuman", "Artikel", "Peraturan"] as const;
+const newsTabs = ["Berita", "Pengumuman", "Artikel"] as const;
 type NewsTab = typeof newsTabs[number];
 
 const synergy = ["Setjen", "Itjen", "Pajak", "Bea Cukai", "Anggaran", "Perbendaharaan", "Kekayaan"];
