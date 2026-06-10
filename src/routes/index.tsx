@@ -7,6 +7,11 @@ import logoPutih from "@/assets/logo-bppk-putih.png.asset.json";
 import logoFooter from "@/assets/logo-kemenkeu-bppk-putih.png.asset.json";
 import edukasiCover from "@/assets/edukasi-cover.jpg.asset.json";
 import edukasiHalftone from "@/assets/edukasi-halftone.png.asset.json";
+import coverJurnal from "@/assets/cover-jurnal.jpg.asset.json";
+import bgJurnal from "@/assets/background-jurnal.jpg.asset.json";
+import coverBuku from "@/assets/cover-buku.png.asset.json";
+import bgBuku from "@/assets/background-buku.jpeg.asset.json";
+import logoKemenkeu from "@/assets/logo-kemenkeu.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
