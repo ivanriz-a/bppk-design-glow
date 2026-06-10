@@ -1523,14 +1523,14 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
 .dropdown-menu .submenu a:hover { background: var(--bg-gray); color: var(--bppk-blue); padding-left: 26px; font-weight: 600; }
 
 /* Calendar tabs (replacing lead text) */
-.calendar-tabs { display: inline-flex; gap: 6px; background: rgba(4,79,116,0.06); padding: 5px; border-radius: 999px; }
+.calendar-tabs { display: inline-flex; gap: 4px; background: #fff; box-shadow: 0 0 0 1px rgba(4,79,116,0.08); padding: 4px; border-radius: var(--r-md); align-items: center; }
 .calendar-tab {
-  padding: 9px 22px; border-radius: 999px; border: none; background: transparent;
-  color: var(--bppk-blue); font-weight: 700; font-size: 0.82rem; letter-spacing: 0.4px;
+  padding: 10px 22px; border-radius: var(--r-sm); border: none; background: transparent;
+  color: var(--text-gray); font-weight: 700; font-size: 0.72rem; letter-spacing: 1.8px; text-transform: uppercase;
   cursor: pointer; transition: all 0.25s ease;
 }
 .calendar-tab:hover { color: var(--bppk-blue-dark); }
-.calendar-tab.active { background: var(--bppk-blue); color: #fff; box-shadow: 0 6px 18px rgba(4,79,116,0.25); }
+.calendar-tab.active { background: var(--bppk-blue); color: #fff; box-shadow: 0 10px 24px -8px rgba(4,79,116,0.30); }
 
 /* Schedule scrollable list */
 .schedule-col .schedule-list.schedule-list-scroll {
