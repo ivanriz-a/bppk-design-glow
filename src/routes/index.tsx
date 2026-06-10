@@ -166,7 +166,15 @@ function Home() {
             <li className="nav-item">
               <a href="#">Profil <Chevron /></a>
               <ul className="dropdown-menu">
-                <li><a href="#">Profil Lembaga</a></li>
+                <li className="has-submenu">
+                  <a href="#">Profil Lembaga <span className="submenu-arrow">›</span></a>
+                  <ul className="submenu">
+                    <li><a href="#">Sejarah BPPK</a></li>
+                    <li><a href="#">Visi dan Misi</a></li>
+                    <li><a href="#">Tugas dan Fungsi</a></li>
+                    <li><a href="#">Learning Organization</a></li>
+                  </ul>
+                </li>
                 <li><a href="#">Struktur Organisasi</a></li>
                 <li><a href="#">Profil Pejabat</a></li>
                 <li><a href="#">Jejak, Karya, dan Transformasi BPPK</a></li>
