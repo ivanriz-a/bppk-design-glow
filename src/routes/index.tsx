@@ -358,8 +358,8 @@ function Home() {
               </div>
             </div>
             <div className="schedule-col">
-              <div className="schedule-list">
-                {schedules.map((s, i) => (
+              <div className="schedule-list schedule-list-scroll" key={calTab}>
+                {(calTab === "pelatihan" ? pelatihanList : kegiatanList).map((s, i) => (
                   <a key={i} href="#" className="schedule-row">
                     <div className="sch-date-block">
                       <div className="sch-day">{s.day}</div>
@@ -375,12 +375,8 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="agenda-more-wrap">
-            <a href="#" className="agenda-more">
-              Agenda Lainnya
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
-            </a>
-          </div>
+
+
 
 
           {/* LEARNING CENTER */}
