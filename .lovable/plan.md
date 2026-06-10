@@ -1,52 +1,29 @@
-## Perbaikan Bagian Literasi
+## Perbaikan kartu Literasi — gambar sejajar headline (rata atas)
 
-Tiga masalah yang akan diperbaiki:
+Saat ini struktur grid sudah meletakkan `.pc-cover` di kolom kanan (`grid-area: cover`) membentang 3 baris (top/text/cta), tapi:
 
-### 1. Posisi cover saat hover (kanan dari headline, bukan di bawah)
+- `.pc-cover` memakai `align-items: center; justify-content: center;` → gambar di-center vertikal di seluruh tinggi kartu, sehingga **top gambar tidak sejajar dengan headline** (yang menempel di atas via `padding: 36px 32px 8px`).
+- Animasi muncul-dari-kanan (`translateX(20px) → 0` dengan delay .1s) sudah ada, tinggal dipertegas.
 
-Saat ini `.pub-card-inner` saat `is-active` masih memakai grid-areas `"top cover" / "text text" / "cta cta"` — tapi cover di kolom `cover` cuma menampilkan dirinya, sementara headline tetap dominan di kolom kiri. Yang tampak: gambar muncul di bawah headline karena `.pc-top` di-collapse jadi 1 kolom.
+### Perubahan (CSS only — `src/styles.css`)
 
-**Solusi (CSS only)** di `src/styles.css`:
-- Ubah layout `.pub-card.is-active .pub-card-inner` jadi 2 kolom utuh tinggi penuh:
-  ```
-  grid-template-columns: 1.1fr 1fr;
-  grid-template-areas:
-    "top    cover"
-    "text   cover"
-    "cta    cover";
-  grid-template-rows: auto 1fr auto;
-  ```
-- `.pc-cover` jadi `grid-area: cover; align-self: stretch; display:flex; align-items:center; justify-content:center;` — gambar tampil di sisi kanan sejajar headline + deskripsi + CTA.
-- `.pc-top` cukup punya year + masthead (cover dipisah ke kolomnya sendiri).
-- `.pub-cover-real` `max-height: 100%` (bukan kotak kecil) untuk memenuhi sisi kanan.
+1. **`.pc-cover`** (state aktif): ubah alignment jadi rata atas dan rata kanan.
+   - `align-items: flex-start;` (semula `center`)
+   - `justify-content: flex-end;` (semula `center`) — gambar menempel sisi kanan kartu
+   - `padding: 36px 28px 28px 14px;` — samakan padding-top dengan `.pc-top` (36px) agar top gambar sejajar persis dengan baris pertama headline
+   - Naikkan jarak masuk: `transform: translateX(40px)` (semula 20px), durasi tetap
 
-### 2. Keterbacaan teks pada state default
+2. **`.pub-cover-real`**: batasi tinggi agar tidak overflow ke bawah area cta.
+   - `max-height: calc(100% - 8px);`
+   - Tambah `align-self: flex-start;` (jaga-jaga jika flex container)
 
-Saat default, halftone + duotone biru bikin teks putih kurang kontras.
+3. **`.pub-card.is-active .pub-card-inner`**: perlebar sedikit kolom kanan supaya gambar punya ruang sejajar dengan headline.
+   - `grid-template-columns: 1fr 1.05fr;` (semula `1.1fr 1fr`)
+   - `grid-template-rows: auto auto 1fr auto;` → tetap, tapi pastikan baris pertama (`top`) mengunci tinggi headline; baris kedua (`text`) mengikuti
 
-**Solusi** di `src/styles.css`:
-- Tambah scrim gradient lebih kuat di `.pub-card-tint`: dari `rgba(5,40,80,0.25)` di atas ke `rgba(5,30,60,0.85)` di bawah, dipadu radial highlight tipis.
-- Tambah `text-shadow: 0 2px 12px rgba(0,0,0,.45)` pada `.pub-masthead` dan `.pub-headline-title`.
-- Turunkan `opacity` halftone default ke ~0.45 (sekarang 1) agar warna biru solid lebih dominan dan teks lebih jelas. Saat `is-active` tetap rendah supaya cover yang dominan.
-- Sedikit naikkan font-weight `.pub-headline-title` ke 700 dan letter-spacing 0.
-
-### 3. Ubah label masthead
-
-Di `src/routes/index.tsx`:
-- Item index 1 (Jurnal): `mastheadParts: ["JURNAL", "BPPK", ""]` — render khusus jadi `JURNAL` (putih) lalu `BPPK` (kuning), tanpa baris ketiga. Sederhanakan: ubah render `<h3>` untuk skip part kosong.
-- Item index 2 (Buku): `mastheadParts: ["BUKU", "BPPK", ""]` — `BUKU` kuning, `BPPK` putih.
-
-Karena pola highlight sekarang fix di middle part (`<span>` index 1), saya akan ubah struktur data jadi mendukung `{ text, accent }[]`:
-```
-masthead: [
-  { text: "JURNAL" },
-  { text: "BPPK", accent: true },
-]
-```
-Lalu render `.map` — yang `accent: true` dibungkus `<span>` kuning. Lebih fleksibel untuk Majalah ("MAJALAH **EDUKASI** KEUANGAN"), Jurnal ("JURNAL **BPPK**"), Buku ("**BUKU** BPPK").
+4. **Mobile (`@media max-width: 900px`)**: tidak diubah — gambar tetap di bawah pada layar sempit (perilaku sekarang sudah benar).
 
 ### File yang diubah
-- `src/routes/index.tsx` — ubah data `pubItems` (struktur masthead baru) dan render `<h3 className="pub-masthead">`.
-- `src/styles.css` — grid layout active baru, scrim & text-shadow untuk keterbacaan, opacity halftone default.
+- `src/styles.css` — tiga blok di atas (`.pc-cover`, `.pub-cover-real`, `.pub-card.is-active .pub-card-inner`).
 
-Tidak ada perubahan section lain.
+Tidak ada perubahan JSX/data.
