@@ -1576,4 +1576,4 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
 
 /* Footer — center brand name */
 .footer-brand-col { align-items: flex-start; }
-.footer-brand-name { text-align: center; align-self: stretch; }
+.footer-brand-name { text-align: left; align-self: stretch; }
