@@ -628,14 +628,14 @@ function Home() {
           </div>
           <div className="synergy-wrapper">
             <a href="#" className="parent-area">
-              <div className="kemenkeu-logo">Kemenkeu</div>
+              <div className="kemenkeu-logo"><img src={logoKemenkeu.url} alt="Kemenkeu" /></div>
               <div style={{ fontSize: "0.72rem", color: "var(--text-gray)", fontWeight: 700, textAlign: "center", textTransform: "uppercase" }}>Kementerian<br />Keuangan</div>
             </a>
             <div className="scrolling-area">
               <div className="ticker">
                 {[...synergy, ...synergy].map((label, i) => (
                   <a key={i} href="#" className="ticker-item">
-                    <div className="ticker-logo">{label.slice(0,4)}</div>
+                    <div className="ticker-logo"><img src={logoKemenkeu.url} alt={label} /></div>
                     <span style={{ fontSize: "0.72rem", color: "#888", fontWeight: 700 }}>{label}</span>
                   </a>
                 ))}
