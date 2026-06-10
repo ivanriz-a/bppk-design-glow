@@ -236,26 +236,26 @@ function Home() {
             </li>
             <li className="nav-item">
               <a href="#">Publikasi <Chevron /></a>
-              <div className="dropdown-mega mega-2">
-                <div className="mega-col">
-                  <div className="mega-title">Penelitian</div>
-                  <a href="#">Jurnal</a>
-                  <a href="#">Prosiding Kajian Akademis</a>
-                  <a href="#">Simposium Nasional Keuangan Negara (SNKN)</a>
-                </div>
-                <div className="mega-col">
-                  <div className="mega-title">Lainnya</div>
-                  <a href="#">Majalah Edukasi Keuangan</a>
-                  <a href="#">Buku</a>
-                  <a href="#">Laporan-laporan</a>
-                </div>
-              </div>
+              <ul className="dropdown-menu">
+                <li className="has-submenu">
+                  <a href="#">Penelitian <span className="submenu-arrow">›</span></a>
+                  <ul className="submenu">
+                    <li><a href="#">Jurnal</a></li>
+                    <li><a href="#">Prosiding Kajian Akademis</a></li>
+                    <li><a href="#">Simposium Nasional Keuangan Negara (SNKN)</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Majalah Edukasi Keuangan</a></li>
+                <li><a href="#">Buku</a></li>
+                <li><a href="#">Laporan-laporan</a></li>
+              </ul>
             </li>
             <li className="nav-item">
               <a href="#">Informasi Publik <Chevron /></a>
               <ul className="dropdown-menu">
                 <li><a href="#">PPID</a></li>
                 <li><a href="#">Laporan/Informasi Publik Lainnya</a></li>
+                <li><a href="#">Peraturan</a></li>
               </ul>
             </li>
           </ul>
