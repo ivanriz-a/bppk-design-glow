@@ -611,11 +611,13 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
 }
 
 /* TABS */
-.section-tabs { background: #fff; box-shadow: 0 0 0 1px rgba(4,79,116,0.08); border-radius: var(--r-md); padding: 4px; }
-.section-tab { font-size: 0.72rem; letter-spacing: 1.8px; text-transform: uppercase; padding: 10px 22px; border-radius: var(--r-sm); }
-.section-tab.active { box-shadow: 0 10px 24px -8px rgba(4,79,116,0.30); background: var(--bppk-blue); color: #fff; }
+.section-tabs { background: rgba(4,79,116,0.06); box-shadow: none; border-radius: var(--r-md); padding: 4px; gap: 6px; }
+.section-tab { font-size: 0.82rem; letter-spacing: 0.4px; text-transform: none; font-weight: 700; color: var(--bppk-blue); padding: 9px 22px; border-radius: var(--r-sm); }
+.section-tab:hover:not(.active) { color: var(--bppk-blue-dark); background: transparent; }
+.section-tab.active { background: var(--bppk-blue); color: #fff; box-shadow: 0 6px 18px rgba(4,79,116,0.25); font-weight: 700; }
 .section-tab.active svg { color: var(--bppk-yellow); }
-.nav-btn-custom { border-radius: var(--r-sm); }
+.nav-btn-custom { border-radius: var(--r-sm); color: var(--bppk-blue); }
+.nav-btn-custom:hover { background: var(--bppk-blue); color: #fff; box-shadow: 0 6px 18px rgba(4,79,116,0.25); transform: none; }
 
 /* LEARNING + NEWS cards */
 .oa-card, .news-card { border-radius: var(--r-lg); box-shadow: var(--shadow-elite-md); }
