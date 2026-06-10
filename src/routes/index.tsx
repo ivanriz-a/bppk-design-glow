@@ -7,6 +7,11 @@ import logoPutih from "@/assets/logo-bppk-putih.png.asset.json";
 import logoFooter from "@/assets/logo-kemenkeu-bppk-putih.png.asset.json";
 import edukasiCover from "@/assets/edukasi-cover.jpg.asset.json";
 import edukasiHalftone from "@/assets/edukasi-halftone.png.asset.json";
+import coverJurnal from "@/assets/cover-jurnal.jpg.asset.json";
+import bgJurnal from "@/assets/background-jurnal.jpg.asset.json";
+import coverBuku from "@/assets/cover-buku.png.asset.json";
+import bgBuku from "@/assets/background-buku.jpeg.asset.json";
+import logoKemenkeu from "@/assets/logo-kemenkeu.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -56,12 +61,23 @@ const services = [
   { title: "PKN STAN", desc: "Pendidikan kedinasan unggulan untuk calon pengelola keuangan negara.", bg: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=600&q=80", icon: <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /> },
 ];
 
-const schedules = [
-  { day: "24", month: "Okt", title: "Pelatihan Dasar CPNS Golongan III", unit: "Pusdiklat Keuangan Umum" },
-  { day: "02", month: "Nov", title: "Audit Investigatif Lanjutan", unit: "Pusdiklat Anggaran" },
-  { day: "11", month: "Nov", title: "Workshop Reformasi Birokrasi", unit: "Pusdiklat PSDM" },
-  { day: "11", month: "Nov", title: "Workshop Reformasi Birokrasi", unit: "Pusdiklat PSDM" },
-  { day: "18", month: "Nov", title: "Sertifikasi Bendahara Penerimaan", unit: "LSP BPPK" },
+const pelatihanList = [
+  { day: "05", month: "Nov", title: "Pelatihan Dasar CPNS Golongan III", unit: "Pusdiklat Keuangan Umum" },
+  { day: "08", month: "Nov", title: "Pelatihan Analisis Keuangan Dasar", unit: "Pusdiklat Anggaran" },
+  { day: "12", month: "Nov", title: "Audit Investigatif Lanjutan", unit: "Pusdiklat Pajak" },
+  { day: "15", month: "Nov", title: "Sertifikasi Bendahara Penerimaan", unit: "LSP BPPK" },
+  { day: "19", month: "Nov", title: "Manajemen Proyek Agile Tingkat Lanjut", unit: "Pusdiklat Anggaran" },
+  { day: "22", month: "Nov", title: "Kepemimpinan Strategis di Era Digital", unit: "Pusdiklat Kepemimpinan" },
+  { day: "26", month: "Nov", title: "Analisis Data Makroekonomi Lanjutan", unit: "Pusdiklat Keuangan Umum" },
+];
+const kegiatanList = [
+  { day: "03", month: "Nov", title: "Rapat Koordinasi Pengembangan SDM", unit: "Sekretariat Badan" },
+  { day: "07", month: "Nov", title: "Workshop Reformasi Birokrasi", unit: "Pusdiklat PSDM" },
+  { day: "10", month: "Nov", title: "Forum Diskusi Auditor Internal", unit: "Itjen Kemenkeu" },
+  { day: "14", month: "Nov", title: "Knowledge Sharing BPPK", unit: "Knowledge Management" },
+  { day: "17", month: "Nov", title: "Kunjungan Mitra Akademik", unit: "PKN STAN" },
+  { day: "21", month: "Nov", title: "Seminar Transformasi Digital", unit: "Pusdiklat Pajak" },
+  { day: "25", month: "Nov", title: "Penandatanganan MoU Kerja Sama", unit: "Sekretariat Badan" },
 ];
 
 const trainings = [
@@ -81,7 +97,7 @@ const knowledge = [
 ];
 
 type NewsItem = { date: string; title: string; excerpt: string; img: string };
-const newsData: Record<"Berita" | "Pengumuman" | "Artikel" | "Peraturan", NewsItem[]> = {
+const newsData: Record<"Berita" | "Pengumuman" | "Artikel", NewsItem[]> = {
   Berita: [
     { date: "15 Mei 2026", title: "Pembukaan Pelatihan Teknis di Lingkungan Keuangan Publik", excerpt: "Pusdiklat Keuangan Umum menyelenggarakan program strategis peningkatan kapasitas SDM yang diikuti oleh seluruh pegawai.", img: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=600&q=80" },
     { date: "12 Mei 2026", title: "Rapat Koordinasi Pengembangan Kompetensi Aparatur", excerpt: "Memperkuat pengembangan kompetensi SDM melalui rapat koordinasi lintas unit untuk merumuskan kebijakan strategis.", img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=600&q=80" },
@@ -101,14 +117,8 @@ const newsData: Record<"Berita" | "Pengumuman" | "Artikel" | "Peraturan", NewsIt
     { date: "09 Mei 2026", title: "Peran Analitik Data dalam Pengambilan Keputusan Kebijakan", excerpt: "Pemanfaatan data analitik menjadi kunci ketepatan kebijakan publik berbasis bukti.", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" },
     { date: "06 Mei 2026", title: "Kepemimpinan Adaptif di Era Ketidakpastian", excerpt: "Pendekatan kepemimpinan yang fleksibel untuk menghadapi tantangan dinamis sektor publik.", img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=600&q=80" },
   ],
-  Peraturan: [
-    { date: "19 Mei 2026", title: "Peraturan Kepala BPPK Nomor 3 Tahun 2026", excerpt: "Tentang pedoman penyelenggaraan pelatihan teknis di lingkungan Kementerian Keuangan.", img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80" },
-    { date: "15 Mei 2026", title: "Keputusan Kepala BPPK tentang Standar Akreditasi", excerpt: "Penetapan standar akreditasi lembaga pelatihan internal Kementerian Keuangan.", img: "https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=600&q=80" },
-    { date: "10 Mei 2026", title: "Perka tentang Kurikulum Pelatihan Kepemimpinan", excerpt: "Pemutakhiran kurikulum program pelatihan kepemimpinan untuk pejabat struktural.", img: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80" },
-    { date: "04 Mei 2026", title: "Pedoman Evaluasi Pasca Pelatihan Berbasis Dampak", excerpt: "Mekanisme baru pengukuran efektivitas pelatihan melalui indikator dampak nyata.", img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80" },
-  ],
 };
-const newsTabs = ["Berita", "Pengumuman", "Artikel", "Peraturan"] as const;
+const newsTabs = ["Berita", "Pengumuman", "Artikel"] as const;
 type NewsTab = typeof newsTabs[number];
 
 const synergy = ["Setjen", "Itjen", "Pajak", "Bea Cukai", "Anggaran", "Perbendaharaan", "Kekayaan"];
@@ -129,6 +139,8 @@ function Home() {
   const newsTrackRef = useRef<HTMLDivElement>(null);
   const [newsTab, setNewsTab] = useState<NewsTab>("Berita");
   const [hoveredPub, setHoveredPub] = useState<number | null>(null);
+  const [calTab, setCalTab] = useState<"pelatihan" | "kegiatan">("pelatihan");
+
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -156,7 +168,15 @@ function Home() {
             <li className="nav-item">
               <a href="#">Profil <Chevron /></a>
               <ul className="dropdown-menu">
-                <li><a href="#">Profil Lembaga</a></li>
+                <li className="has-submenu">
+                  <a href="#">Profil Lembaga <span className="submenu-arrow">›</span></a>
+                  <ul className="submenu">
+                    <li><a href="#">Sejarah BPPK</a></li>
+                    <li><a href="#">Visi dan Misi</a></li>
+                    <li><a href="#">Tugas dan Fungsi</a></li>
+                    <li><a href="#">Learning Organization</a></li>
+                  </ul>
+                </li>
                 <li><a href="#">Struktur Organisasi</a></li>
                 <li><a href="#">Profil Pejabat</a></li>
                 <li><a href="#">Jejak, Karya, dan Transformasi BPPK</a></li>
@@ -218,26 +238,26 @@ function Home() {
             </li>
             <li className="nav-item">
               <a href="#">Publikasi <Chevron /></a>
-              <div className="dropdown-mega mega-2">
-                <div className="mega-col">
-                  <div className="mega-title">Penelitian</div>
-                  <a href="#">Jurnal</a>
-                  <a href="#">Prosiding Kajian Akademis</a>
-                  <a href="#">Simposium Nasional Keuangan Negara (SNKN)</a>
-                </div>
-                <div className="mega-col">
-                  <div className="mega-title">Lainnya</div>
-                  <a href="#">Majalah Edukasi Keuangan</a>
-                  <a href="#">Buku</a>
-                  <a href="#">Laporan-laporan</a>
-                </div>
-              </div>
+              <ul className="dropdown-menu">
+                <li className="has-submenu">
+                  <a href="#">Penelitian <span className="submenu-arrow">›</span></a>
+                  <ul className="submenu">
+                    <li><a href="#">Jurnal</a></li>
+                    <li><a href="#">Prosiding Kajian Akademis</a></li>
+                    <li><a href="#">Simposium Nasional Keuangan Negara (SNKN)</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Majalah Edukasi Keuangan</a></li>
+                <li><a href="#">Buku</a></li>
+                <li><a href="#">Laporan-laporan</a></li>
+              </ul>
             </li>
             <li className="nav-item">
               <a href="#">Informasi Publik <Chevron /></a>
               <ul className="dropdown-menu">
                 <li><a href="#">PPID</a></li>
                 <li><a href="#">Laporan/Informasi Publik Lainnya</a></li>
+                <li><a href="#">Peraturan</a></li>
               </ul>
             </li>
           </ul>
@@ -291,9 +311,13 @@ function Home() {
             <div className="section-eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>AGENDA</div>
             <div className="calendar-header-row">
               <h2 className="section-title">Kalender<span className="st-italic">BPPK.</span></h2>
-              <p className="section-lead">Agenda pengembangan kompetensi yang akan datang dari seluruh unit di lingkungan BPPK.</p>
+              <div className="calendar-tabs">
+                <button type="button" className={`calendar-tab ${calTab === "pelatihan" ? "active" : ""}`} onClick={() => setCalTab("pelatihan")}>Pelatihan</button>
+                <button type="button" className={`calendar-tab ${calTab === "kegiatan" ? "active" : ""}`} onClick={() => setCalTab("kegiatan")}>Kegiatan</button>
+              </div>
             </div>
           </div>
+
 
           <div className="calendar-grid">
             <div className="calendar-col">
@@ -334,8 +358,8 @@ function Home() {
               </div>
             </div>
             <div className="schedule-col">
-              <div className="schedule-list">
-                {schedules.map((s, i) => (
+              <div className="schedule-list schedule-list-scroll" key={calTab}>
+                {(calTab === "pelatihan" ? pelatihanList : kegiatanList).map((s, i) => (
                   <a key={i} href="#" className="schedule-row">
                     <div className="sch-date-block">
                       <div className="sch-day">{s.day}</div>
@@ -351,12 +375,8 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="agenda-more-wrap">
-            <a href="#" className="agenda-more">
-              Agenda Lainnya
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
-            </a>
-          </div>
+
+
 
 
           {/* LEARNING CENTER */}
@@ -461,8 +481,8 @@ function Home() {
                 ],
                 title: "Evaluasi Pasca Diklat di Era Transformasi Digital",
                 desc: "Kajian akademik tentang efektivitas pelatihan, analisis kebutuhan kompetensi, dan strategi pengembangan SDM keuangan negara berbasis bukti.",
-                cover: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80",
-                halftone: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80",
+                cover: coverJurnal.url,
+                halftone: bgJurnal.url,
                 category: "Jurnal Ilmiah",
               },
               {
@@ -474,8 +494,8 @@ function Home() {
                 ],
                 title: "Srikandi Perubahan, Inspirasi Bagi Perempuan",
                 desc: "Akses bebas unduh ke ratusan modul ajar komprehensif untuk mendukung pembelajaran berkelanjutan di lingkungan Kementerian Keuangan.",
-                cover: "https://images.unsplash.com/photo-1575505586569-646b2ca898fc?auto=format&fit=crop&w=600&q=80",
-                halftone: "https://images.unsplash.com/photo-1575505586569-646b2ca898fc?auto=format&fit=crop&w=900&q=80",
+                cover: coverBuku.url,
+                halftone: bgBuku.url,
                 category: "Buku & Modul",
               },
             ];
@@ -574,39 +594,24 @@ function Home() {
               </div>
             </div>
           </div>
-          {newsTab === "Peraturan" ? (
-            <div className="jdih-callout">
-              <div className="jdih-icon">
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>
-              </div>
-              <div className="jdih-text">
-                <h3>Informasi terkait Peraturan dapat diakses pada situs web JDIH</h3>
-                <p>Jaringan Dokumentasi dan Informasi Hukum (JDIH) Kementerian Keuangan memuat seluruh peraturan resmi BPPK.</p>
-              </div>
-              <a href="https://jdih.kemenkeu.go.id" target="_blank" rel="noopener noreferrer" className="jdih-btn">Kunjungi Situs JDIH
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7" /><polyline points="7 7 17 7 17 17" /></svg>
-              </a>
-            </div>
-          ) : (
-            <div ref={newsTrackRef} className="news-carousel" key={newsTab}>
-              {newsData[newsTab].map((n, i) => (
-                <div key={i} className="news-card">
-                  <div className="news-img-wrapper">
-                    <div className="news-img" style={{ backgroundImage: `url(${n.img})` }} />
-                    <div className="news-overlay" />
-                  </div>
-                  <div className="news-content">
-                    <div className="news-date">{n.date}</div>
-                    <h3 className="news-title">{n.title}</h3>
-                    <p className="news-excerpt">{n.excerpt}</p>
-                    <div className="news-footer">
-                      <a href="#" className="btn-pill-outline">Baca Selengkapnya</a>
-                    </div>
+          <div ref={newsTrackRef} className="news-carousel" key={newsTab}>
+            {newsData[newsTab].map((n, i) => (
+              <div key={i} className="news-card">
+                <div className="news-img-wrapper">
+                  <div className="news-img" style={{ backgroundImage: `url(${n.img})` }} />
+                  <div className="news-overlay" />
+                </div>
+                <div className="news-content">
+                  <div className="news-date">{n.date}</div>
+                  <h3 className="news-title">{n.title}</h3>
+                  <p className="news-excerpt">{n.excerpt}</p>
+                  <div className="news-footer">
+                    <a href="#" className="btn-pill-outline">Baca Selengkapnya</a>
                   </div>
                 </div>
-              ))}
-            </div>
-          )}
+              </div>
+            ))}
+          </div>
           <div className="agenda-more-wrap">
             <a href="#" className="agenda-more">Informasi Lainnya
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
@@ -623,14 +628,14 @@ function Home() {
           </div>
           <div className="synergy-wrapper">
             <a href="#" className="parent-area">
-              <div className="kemenkeu-logo">Kemenkeu</div>
+              <div className="kemenkeu-logo"><img src={logoKemenkeu.url} alt="Kemenkeu" /></div>
               <div style={{ fontSize: "0.72rem", color: "var(--text-gray)", fontWeight: 700, textAlign: "center", textTransform: "uppercase" }}>Kementerian<br />Keuangan</div>
             </a>
             <div className="scrolling-area">
               <div className="ticker">
                 {[...synergy, ...synergy].map((label, i) => (
                   <a key={i} href="#" className="ticker-item">
-                    <div className="ticker-logo">{label.slice(0,4)}</div>
+                    <div className="ticker-logo"><img src={logoKemenkeu.url} alt={label} /></div>
                     <span style={{ fontSize: "0.72rem", color: "#888", fontWeight: 700 }}>{label}</span>
                   </a>
                 ))}
