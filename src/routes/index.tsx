@@ -499,12 +499,12 @@ function Home() {
               },
               {
                 year: "2026",
-                edisi: "Seri Kepemimpinan",
+                edisi: "Sejarah BPPK",
                 masthead: [
                   { text: "BUKU", accent: true },
                   { text: "BPPK" },
                 ],
-                title: "Srikandi Perubahan, Inspirasi Bagi Perempuan",
+                title: "Jejak, Karya, dan Transformasi BPPK",
                 desc: "Akses bebas unduh ke ratusan modul ajar komprehensif untuk mendukung pembelajaran berkelanjutan di lingkungan Kementerian Keuangan.",
                 cover: coverBuku.url,
                 halftone: bgBuku.url,
