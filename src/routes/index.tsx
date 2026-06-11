@@ -437,7 +437,7 @@ function Home() {
                         </div>
                         <div className="oa-meta-item">
                           <span className="oa-meta-val">{c.peserta}</span>
-                          <span className="oa-meta-label">Peserta</span>
+                          <span className="oa-meta-label">{tab === "pusat" ? "Views" : "Peserta"}</span>
                         </div>
                       </div>
                       <a href="#" className="btn-pill">Detail</a>
