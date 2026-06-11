@@ -184,36 +184,42 @@ function Home() {
             </li>
             <li className="nav-item">
               <a href="#">Unit <Chevron /></a>
-              <div className="dropdown-mega mega-3">
-                <div className="mega-col">
-                  <div className="mega-title">Unit Pusat</div>
-                  <a href="#">Sekretariat Badan</a>
-                  <a href="#">Pusdiklat Kepemimpinan dan Manajemen</a>
-                  <a href="#">Pusdiklat Anggaran dan Perbendaharaan</a>
-                  <a href="#">Pusdiklat Pajak</a>
-                  <a href="#">Pusdiklat Bea dan Cukai</a>
-                  <a href="#">Pusdiklat Keuangan Publik</a>
-                  <a href="#">Pusat Pembinaan Jabatan Fungsional dan Penjaminan Mutu</a>
-                </div>
-                <div className="mega-col">
-                  <div className="mega-title">Unit Pelaksana Teknis</div>
-                  <a href="#">BDK Medan</a>
-                  <a href="#">BDK Pekanbaru</a>
-                  <a href="#">BDK Palembang</a>
-                  <a href="#">BDK Cimahi</a>
-                  <a href="#">BDK Yogyakarta</a>
-                  <a href="#">BDK Malang</a>
-                  <a href="#">BDK Denpasar</a>
-                  <a href="#">BDK Pontianak</a>
-                  <a href="#">BDK Balikpapan</a>
-                  <a href="#">BDK Makassar</a>
-                  <a href="#">BDK Manado</a>
-                </div>
-                <div className="mega-col">
-                  <div className="mega-title">Badan Layanan Umum</div>
-                  <a href="#">Politeknik Keuangan Negara STAN</a>
-                </div>
-              </div>
+              <ul className="dropdown-menu">
+                <li className="has-submenu">
+                  <a href="#">Unit Pusat <span className="submenu-arrow">›</span></a>
+                  <ul className="submenu">
+                    <li><a href="#">Sekretariat Badan</a></li>
+                    <li><a href="#">Pusdiklat Kepemimpinan dan Manajemen</a></li>
+                    <li><a href="#">Pusdiklat Anggaran dan Perbendaharaan</a></li>
+                    <li><a href="#">Pusdiklat Pajak</a></li>
+                    <li><a href="#">Pusdiklat Bea dan Cukai</a></li>
+                    <li><a href="#">Pusdiklat Keuangan Publik</a></li>
+                    <li><a href="#">Pusat Pembinaan Jabatan Fungsional dan Penjaminan Mutu</a></li>
+                  </ul>
+                </li>
+                <li className="has-submenu">
+                  <a href="#">Unit Pelaksana Teknis <span className="submenu-arrow">›</span></a>
+                  <ul className="submenu">
+                    <li><a href="#">BDK Medan</a></li>
+                    <li><a href="#">BDK Pekanbaru</a></li>
+                    <li><a href="#">BDK Palembang</a></li>
+                    <li><a href="#">BDK Cimahi</a></li>
+                    <li><a href="#">BDK Yogyakarta</a></li>
+                    <li><a href="#">BDK Malang</a></li>
+                    <li><a href="#">BDK Denpasar</a></li>
+                    <li><a href="#">BDK Pontianak</a></li>
+                    <li><a href="#">BDK Balikpapan</a></li>
+                    <li><a href="#">BDK Makassar</a></li>
+                    <li><a href="#">BDK Manado</a></li>
+                  </ul>
+                </li>
+                <li className="has-submenu">
+                  <a href="#">Badan Layanan Umum <span className="submenu-arrow">›</span></a>
+                  <ul className="submenu">
+                    <li><a href="#">Politeknik Keuangan Negara STAN</a></li>
+                  </ul>
+                </li>
+              </ul>
             </li>
             <li className="nav-item">
               <a href="#">Layanan <Chevron /></a>
