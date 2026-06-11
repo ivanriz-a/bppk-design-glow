@@ -169,12 +169,13 @@ function Home() {
               <a href="#">Profil <Chevron /></a>
               <ul className="dropdown-menu">
                 <li className="has-submenu">
-                  <a href="#">Profil Lembaga <span className="submenu-arrow">›</span></a>
+                  <Link to="/profil">Profil Lembaga <span className="submenu-arrow">›</span></Link>
                   <ul className="submenu">
-                    <li><a href="#">Sejarah BPPK</a></li>
-                    <li><a href="#">Visi dan Misi</a></li>
-                    <li><a href="#">Tugas dan Fungsi</a></li>
-                    <li><a href="#">Learning Organization</a></li>
+                    <li><Link to="/profil" hash="sejarah">Sejarah BPPK</Link></li>
+                    <li><Link to="/profil" hash="visi-misi">Visi dan Misi</Link></li>
+                    <li><Link to="/profil" hash="tugas-fungsi">Tugas dan Fungsi</Link></li>
+                    <li><Link to="/profil" hash="corpu">Kemenkeu Corpu</Link></li>
+                    <li><Link to="/profil" hash="learning-org">Learning Organization</Link></li>
                   </ul>
                 </li>
                 <li><a href="#">Struktur Organisasi</a></li>
