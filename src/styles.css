@@ -1597,7 +1597,8 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 5;
+  z-index: 20;
+  pointer-events: auto;
   backdrop-filter: blur(6px);
   animation: heroScrollBounce 2.2s ease-in-out infinite;
   transition: background 0.25s ease, transform 0.25s ease;
