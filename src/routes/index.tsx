@@ -575,7 +575,7 @@ function Home() {
           <div className="news-header-row">
             <div>
               <div className="section-eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8M15 18h-5M10 6h8v4h-8z"/></svg>BERITA</div>
-              <h2 className="section-title">Informasi<span className="st-italic">terbaru.</span></h2>
+              <h2 className="section-title">Informasi<span className="st-italic">terkini</span></h2>
             </div>
             <div className="news-toolbar-right">
               <div className="search-box news-search-box">
