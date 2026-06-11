@@ -1576,4 +1576,34 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
 
 /* Footer — center brand name */
 .footer-brand-col { align-items: flex-start; }
-.footer-brand-name { text-align: left; align-self: stretch; }
+.footer-brand-name { text-align: left; align-self: stretch; font-size: 16px !important; }
+.footer-brand-col .footer-socials { flex-direction: row !important; align-items: flex-start !important; margin-top: 14px; gap: 10px; }
+.footer-container { grid-template-columns: 1.6fr auto !important; }
+.section-title-oneline { white-space: nowrap; }
+
+/* Hero scroll-down button */
+.hero-scroll-down {
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.55);
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  backdrop-filter: blur(6px);
+  animation: heroScrollBounce 2.2s ease-in-out infinite;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+.hero-scroll-down:hover { background: var(--bppk-yellow); color: var(--bppk-blue-dark); border-color: var(--bppk-yellow); }
+@keyframes heroScrollBounce {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 8px); }
+}
