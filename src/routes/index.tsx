@@ -121,7 +121,7 @@ const newsData: Record<"Berita" | "Pengumuman" | "Artikel", NewsItem[]> = {
 const newsTabs = ["Berita", "Pengumuman", "Artikel"] as const;
 type NewsTab = typeof newsTabs[number];
 
-const synergy = ["Setjen", "Itjen", "Pajak", "Bea Cukai", "Anggaran", "Perbendaharaan", "Kekayaan"];
+const synergy = ["SETJEN", "ITJEN", "DJP", "DJBC", "DJA", "DJPb", "DJKN", "DJPK", "DJPPR", "DJSEF", "BPPK", "DJSPSK", "BaTII"];
 const dates: Array<{ d: number; cls?: string; name?: string }> = [
   { d: 28, cls: "date-muted" }, { d: 29, cls: "date-muted" }, { d: 30, cls: "date-muted" },
   { d: 1 }, { d: 2 }, { d: 3 }, { d: 4 },
