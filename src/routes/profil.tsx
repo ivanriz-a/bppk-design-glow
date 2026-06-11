@@ -1,0 +1,517 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useRef, useState } from "react";
+import hero1 from "@/assets/hero-1.png.asset.json";
+import hero2 from "@/assets/hero-2.png.asset.json";
+import logoPutih from "@/assets/logo-bppk-putih.png.asset.json";
+import logoFooter from "@/assets/logo-kemenkeu-bppk-putih.png.asset.json";
+import logoKemenkeu from "@/assets/logo-kemenkeu.png.asset.json";
+
+export const Route = createFileRoute("/profil")({
+  head: () => ({
+    meta: [
+      { title: "Profil Lembaga — BPPK Kementerian Keuangan" },
+      { name: "description", content: "Mengenal Badan Pendidikan dan Pelatihan Keuangan: sejarah, visi & misi, tugas & fungsi, Kemenkeu Corpu, dan Learning Organization." },
+      { property: "og:title", content: "Profil Lembaga — BPPK" },
+      { property: "og:description", content: "Mengenal Badan Pendidikan dan Pelatihan Keuangan, Kementerian Keuangan RI." },
+    ],
+  }),
+  component: ProfilPage,
+});
+
+type SectionId = "sejarah" | "visi-misi" | "tugas-fungsi" | "corpu" | "learning-org";
+
+const sections: { id: SectionId; num: string; label: string }[] = [
+  { id: "sejarah", num: "01", label: "Sejarah BPPK" },
+  { id: "visi-misi", num: "02", label: "Visi dan Misi" },
+  { id: "tugas-fungsi", num: "03", label: "Tugas dan Fungsi" },
+  { id: "corpu", num: "04", label: "Kemenkeu Corpu" },
+  { id: "learning-org", num: "05", label: "Learning Organization" },
+];
+
+const milestones = [
+  { year: "1975", title: "Cikal Bakal Pusdiklat Keuangan", desc: "Pendirian unit pendidikan dan pelatihan di lingkungan Departemen Keuangan sebagai fondasi pengembangan SDM keuangan negara." },
+  { year: "1995", title: "Pembentukan BPPK", desc: "Badan Pendidikan dan Pelatihan Keuangan resmi dibentuk untuk mengonsolidasikan pendidikan dan pelatihan di Kementerian Keuangan." },
+  { year: "2007", title: "Reformasi Birokrasi", desc: "Transformasi diklat seiring reformasi birokrasi Kementerian Keuangan: kurikulum berbasis kompetensi dan akreditasi mutu." },
+  { year: "2015", title: "Kemenkeu Corporate University", desc: "Kemenkeu Corpu dicanangkan sebagai pendekatan pembelajaran strategis terintegrasi dengan kinerja organisasi." },
+  { year: "2020", title: "Digital Learning Center", desc: "Akselerasi pembelajaran digital melalui Kemenkeu Learning Center, knowledge management, dan platform sertifikasi daring." },
+  { year: "2025", title: "Menuju Learning Organization", desc: "BPPK bertransformasi menjadi Learning Organization yang adaptif, kolaboratif, dan berorientasi pada dampak." },
+];
+
+const misi = [
+  "Menyelenggarakan pendidikan dan pelatihan berbasis kompetensi yang relevan dengan kebutuhan organisasi.",
+  "Mengembangkan sistem pembelajaran terintegrasi yang inovatif, adaptif, dan inklusif.",
+  "Membangun manajemen pengetahuan dan jejaring pembelajaran sebagai aset strategis Kementerian Keuangan.",
+  "Mewujudkan tata kelola pembelajaran yang akuntabel dan berorientasi pada dampak kinerja.",
+];
+
+const nilai = [
+  { t: "Integritas", d: "Berpikir, berkata, berperilaku, dan bertindak dengan baik dan benar." },
+  { t: "Profesionalisme", d: "Bekerja tuntas dan akurat atas dasar kompetensi terbaik." },
+  { t: "Sinergi", d: "Membangun kerja sama yang produktif dan harmonis." },
+  { t: "Pelayanan", d: "Memberikan layanan terbaik bagi pemangku kepentingan." },
+  { t: "Kesempurnaan", d: "Senantiasa melakukan perbaikan di segala bidang." },
+];
+
+const fungsi = [
+  { t: "Perumusan Kebijakan", d: "Merumuskan kebijakan pengembangan SDM Kementerian Keuangan." },
+  { t: "Penyelenggaraan Diklat", d: "Menyelenggarakan pendidikan dan pelatihan keuangan negara." },
+  { t: "Sertifikasi Kompetensi", d: "Menyelenggarakan sertifikasi profesi bidang keuangan negara." },
+  { t: "Penjaminan Mutu", d: "Menjamin mutu penyelenggaraan pembelajaran dan akreditasi." },
+  { t: "Manajemen Pengetahuan", d: "Mengelola pengetahuan organisasi sebagai aset pembelajaran." },
+  { t: "Pembinaan Jafung", d: "Membina jabatan fungsional bidang keuangan negara." },
+];
+
+const corpuPilars = [
+  { key: "strategy", t: "Learning Strategy", d: "Menyelaraskan strategi pembelajaran dengan prioritas organisasi dan target kinerja Kementerian Keuangan." },
+  { key: "knowledge", t: "Knowledge Management", d: "Mengelola pengetahuan organisasi agar mudah diakses, dibagikan, dan dimanfaatkan kembali." },
+  { key: "talent", t: "Talent Development", d: "Mengembangkan talenta unggul melalui jalur belajar yang terukur dan berbasis kompetensi." },
+  { key: "performance", t: "Performance Excellence", d: "Menghubungkan hasil pembelajaran dengan peningkatan kinerja individu dan organisasi." },
+];
+
+const disiplin = [
+  { key: "pm", t: "Personal Mastery", d: "Penguasaan diri: kemampuan setiap individu untuk terus belajar dan menumbuhkan kapasitas pribadi." },
+  { key: "mm", t: "Mental Models", d: "Menyadari dan menantang asumsi yang membentuk cara kita memahami dunia dan mengambil keputusan." },
+  { key: "sv", t: "Shared Vision", d: "Visi bersama yang menyatukan komitmen dan arah seluruh anggota organisasi." },
+  { key: "tl", t: "Team Learning", d: "Belajar sebagai tim melalui dialog dan kolaborasi yang menghasilkan kecerdasan kolektif." },
+  { key: "st", t: "Systems Thinking", d: "Berpikir sistemik: melihat keterkaitan antar bagian sebagai satu kesatuan yang utuh." },
+];
+
+function ProfilPage() {
+  const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState<SectionId>("sejarah");
+  const [pilar, setPilar] = useState(corpuPilars[0].key);
+  const [disc, setDisc] = useState(disiplin[2].key);
+  const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) setActive(visible.target.id as SectionId);
+      },
+      { rootMargin: "-30% 0px -55% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] }
+    );
+    sections.forEach((s) => {
+      const el = document.getElementById(s.id);
+      if (el) {
+        sectionRefs.current[s.id] = el;
+        obs.observe(el);
+      }
+    });
+    return () => obs.disconnect();
+  }, []);
+
+  // Timeline reveal on scroll
+  useEffect(() => {
+    const items = document.querySelectorAll(".profil-timeline-item");
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) e.target.classList.add("revealed");
+        });
+      },
+      { threshold: 0.2 }
+    );
+    items.forEach((i) => obs.observe(i));
+    return () => obs.disconnect();
+  }, []);
+
+  const activePilar = corpuPilars.find((p) => p.key === pilar)!;
+  const activeDisc = disiplin.find((d) => d.key === disc)!;
+
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      const y = el.getBoundingClientRect().top + window.scrollY - 90;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  };
+
+  return (
+    <>
+      {/* NAVBAR (copy of homepage navbar) */}
+      <nav className={`top-navbar ${scrolled ? "scrolled" : ""}`}>
+        <div className="nav-container">
+          <Link to="/" className="nav-logo">
+            <img src={logoPutih.url} alt="BPPK Kementerian Keuangan" />
+          </Link>
+          <ul className="nav-links">
+            <li className="nav-item">
+              <a href="#" className="nav-active">Profil <Chevron /></a>
+              <ul className="dropdown-menu">
+                <li className="has-submenu">
+                  <a href="#">Profil Lembaga <span className="submenu-arrow">›</span></a>
+                  <ul className="submenu">
+                    <li><Link to="/profil" hash="sejarah">Sejarah BPPK</Link></li>
+                    <li><Link to="/profil" hash="visi-misi">Visi dan Misi</Link></li>
+                    <li><Link to="/profil" hash="tugas-fungsi">Tugas dan Fungsi</Link></li>
+                    <li><Link to="/profil" hash="corpu">Kemenkeu Corpu</Link></li>
+                    <li><Link to="/profil" hash="learning-org">Learning Organization</Link></li>
+                  </ul>
+                </li>
+                <li><a href="#">Struktur Organisasi</a></li>
+                <li><a href="#">Profil Pejabat</a></li>
+                <li><a href="#">Jejak, Karya, dan Transformasi BPPK</a></li>
+              </ul>
+            </li>
+            <li className="nav-item"><Link to="/">Beranda</Link></li>
+          </ul>
+          <a href="#" className="nav-cta">Hubungi Kami 134</a>
+        </div>
+      </nav>
+
+      {/* HERO */}
+      <section className="profil-hero">
+        <div className="profil-hero-bg" style={{ backgroundImage: `url(${hero2.url})` }} />
+        <div className="profil-hero-overlay" />
+        <div className="profil-hero-content container-bppk">
+          <nav className="profil-breadcrumb" aria-label="Breadcrumb">
+            <Link to="/">Beranda</Link>
+            <span className="sep">/</span>
+            <span>Profil Lembaga</span>
+          </nav>
+          <p className="profil-hero-eyebrow">TENTANG BPPK</p>
+          <h1 className="profil-hero-title">
+            Profil <em>Lembaga</em>
+          </h1>
+          <p className="profil-hero-desc">
+            Mengenal Badan Pendidikan dan Pelatihan Keuangan — sejarah, visi, tugas, dan transformasi menuju organisasi pembelajar.
+          </p>
+        </div>
+        <button
+          type="button"
+          className="profil-scroll-down"
+          aria-label="Lihat konten"
+          onClick={() => scrollTo("sejarah")}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9" /></svg>
+        </button>
+      </section>
+
+      {/* CONTENT */}
+      <section className="profil-main">
+        <div className="profil-grid container-bppk">
+          {/* Sidebar */}
+          <aside className="profil-sidebar">
+            <p className="profil-sidebar-label">Daftar Bagian</p>
+            <ul>
+              {sections.map((s) => (
+                <li key={s.id}>
+                  <button
+                    type="button"
+                    onClick={() => scrollTo(s.id)}
+                    className={`profil-nav-item ${active === s.id ? "is-active" : ""}`}
+                    aria-current={active === s.id ? "true" : undefined}
+                  >
+                    <span className="profil-nav-num">{s.num}</span>
+                    <span className="profil-nav-label">{s.label}</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </aside>
+
+          {/* Mobile chip nav */}
+          <div className="profil-chipnav">
+            {sections.map((s) => (
+              <button
+                key={s.id}
+                type="button"
+                onClick={() => scrollTo(s.id)}
+                className={`profil-chip ${active === s.id ? "is-active" : ""}`}
+              >
+                {s.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Content */}
+          <div className="profil-content">
+            {/* SEJARAH */}
+            <section id="sejarah" className="profil-section">
+              <header className="profil-section-head">
+                <span className="profil-section-num">01</span>
+                <div>
+                  <p className="profil-section-eyebrow">Perjalanan Lembaga</p>
+                  <h2 className="profil-section-title">Sejarah <em>BPPK</em></h2>
+                </div>
+              </header>
+              <div className="profil-section-intro">
+                <p>
+                  Badan Pendidikan dan Pelatihan Keuangan (BPPK) memiliki perjalanan panjang sebagai motor pengembangan sumber daya manusia Kementerian Keuangan. Dari unit diklat sederhana hingga menjadi corporate university, BPPK terus beradaptasi mengikuti dinamika tata kelola keuangan negara.
+                </p>
+                <p>
+                  Setiap babak transformasi diiringi penyempurnaan kurikulum, metode pembelajaran, dan tata kelola mutu — semuanya bermuara pada satu tujuan: SDM keuangan negara yang unggul, adaptif, dan berintegritas.
+                </p>
+              </div>
+
+              <div className="profil-timeline">
+                <div className="profil-timeline-line" aria-hidden="true" />
+                {milestones.map((m, i) => (
+                  <article key={m.year} className={`profil-timeline-item ${i % 2 === 0 ? "left" : "right"}`}>
+                    <div className="profil-timeline-node" aria-hidden="true" />
+                    <div className="profil-timeline-card">
+                      <span className="profil-timeline-year">{m.year}</span>
+                      <h3>{m.title}</h3>
+                      <p>{m.desc}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            {/* VISI MISI */}
+            <section id="visi-misi" className="profil-section">
+              <header className="profil-section-head">
+                <span className="profil-section-num">02</span>
+                <div>
+                  <p className="profil-section-eyebrow">Arah dan Komitmen</p>
+                  <h2 className="profil-section-title">Visi dan <em>Misi</em></h2>
+                </div>
+              </header>
+
+              <div className="profil-vm-grid">
+                <div className="profil-vm-card profil-vm-card-dark">
+                  <div className="profil-vm-icon" aria-hidden="true">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"/><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/></svg>
+                  </div>
+                  <p className="profil-vm-label">VISI</p>
+                  <h3 className="profil-vm-text">
+                    Menjadi lembaga pendidikan dan pelatihan keuangan negara <em>berkelas dunia</em> yang menghasilkan SDM unggul dan berintegritas.
+                  </h3>
+                </div>
+
+                <div className="profil-vm-card profil-vm-card-light">
+                  <div className="profil-vm-icon profil-vm-icon-dark" aria-hidden="true">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg>
+                  </div>
+                  <p className="profil-vm-label profil-vm-label-dark">MISI</p>
+                  <ol className="profil-vm-list">
+                    {misi.map((m, i) => (
+                      <li key={i}>
+                        <span className="profil-vm-num">{String(i + 1).padStart(2, "0")}</span>
+                        <span>{m}</span>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              </div>
+
+              <div className="profil-values">
+                <p className="profil-values-label">NILAI-NILAI KEMENKEU SATU</p>
+                <div className="profil-values-grid">
+                  {nilai.map((n, i) => (
+                    <div key={n.t} className="profil-value-card">
+                      <span className="profil-value-num">0{i + 1}</span>
+                      <h4>{n.t}</h4>
+                      <p>{n.d}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* TUGAS FUNGSI */}
+            <section id="tugas-fungsi" className="profil-section">
+              <header className="profil-section-head">
+                <span className="profil-section-num">03</span>
+                <div>
+                  <p className="profil-section-eyebrow">Mandat Organisasi</p>
+                  <h2 className="profil-section-title">Tugas dan <em>Fungsi</em></h2>
+                </div>
+              </header>
+
+              <div className="profil-section-intro">
+                <p>
+                  Berdasarkan Peraturan Menteri Keuangan, BPPK menyelenggarakan pendidikan, pelatihan, dan sertifikasi di bidang keuangan negara bagi aparatur Kementerian Keuangan dan pemangku kepentingan terkait.
+                </p>
+              </div>
+
+              <div className="profil-fungsi-grid">
+                {fungsi.map((f, i) => (
+                  <article key={f.t} className="profil-fungsi-card">
+                    <span className="profil-fungsi-num">{String(i + 1).padStart(2, "0")}</span>
+                    <h3>{f.t}</h3>
+                    <p>{f.d}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            {/* CORPU */}
+            <section id="corpu" className="profil-section">
+              <header className="profil-section-head">
+                <span className="profil-section-num">04</span>
+                <div>
+                  <p className="profil-section-eyebrow">Pembelajaran Strategis</p>
+                  <h2 className="profil-section-title">Kemenkeu <em>Corpu</em></h2>
+                </div>
+              </header>
+
+              <div className="profil-section-intro">
+                <p>
+                  Kementerian Keuangan Corporate University (Kemenkeu Corpu) adalah pendekatan pembelajaran yang menghubungkan strategi organisasi dengan pengembangan kapabilitas SDM. Empat pilar di bawah ini menjadi fondasi penyelenggaraan Corpu di BPPK.
+                </p>
+              </div>
+
+              <div className="profil-corpu">
+                <div className="profil-corpu-diagram" role="group" aria-label="Diagram empat pilar Kemenkeu Corpu">
+                  <svg viewBox="0 0 360 360" className="profil-corpu-svg">
+                    {corpuPilars.map((p, i) => {
+                      const start = (i * 90 - 135) * (Math.PI / 180);
+                      const end = ((i + 1) * 90 - 135) * (Math.PI / 180);
+                      const cx = 180, cy = 180, rOuter = 160, rInner = 78;
+                      const x1 = cx + rOuter * Math.cos(start), y1 = cy + rOuter * Math.sin(start);
+                      const x2 = cx + rOuter * Math.cos(end), y2 = cy + rOuter * Math.sin(end);
+                      const x3 = cx + rInner * Math.cos(end), y3 = cy + rInner * Math.sin(end);
+                      const x4 = cx + rInner * Math.cos(start), y4 = cy + rInner * Math.sin(start);
+                      const mid = (start + end) / 2;
+                      const lx = cx + ((rInner + rOuter) / 2) * Math.cos(mid);
+                      const ly = cy + ((rInner + rOuter) / 2) * Math.sin(mid);
+                      const isActive = pilar === p.key;
+                      return (
+                        <g key={p.key} className={`profil-corpu-seg ${isActive ? "is-active" : ""}`} onMouseEnter={() => setPilar(p.key)} onClick={() => setPilar(p.key)}>
+                          <path d={`M ${x1} ${y1} A ${rOuter} ${rOuter} 0 0 1 ${x2} ${y2} L ${x3} ${y3} A ${rInner} ${rInner} 0 0 0 ${x4} ${y4} Z`} />
+                          <text x={lx} y={ly} textAnchor="middle" dominantBaseline="middle">
+                            {p.t.split(" ").map((w, wi) => (
+                              <tspan key={wi} x={lx} dy={wi === 0 ? "-0.3em" : "1.1em"}>{w}</tspan>
+                            ))}
+                          </text>
+                        </g>
+                      );
+                    })}
+                    <circle cx="180" cy="180" r="70" className="profil-corpu-center" />
+                    <text x="180" y="172" textAnchor="middle" className="profil-corpu-center-text">
+                      <tspan x="180" dy="0">Kemenkeu</tspan>
+                      <tspan x="180" dy="1.2em">Corpu</tspan>
+                    </text>
+                  </svg>
+                </div>
+                <div className="profil-corpu-panel">
+                  <p className="profil-corpu-panel-label">PILAR AKTIF</p>
+                  <h3 className="profil-corpu-panel-title">{activePilar.t}</h3>
+                  <p className="profil-corpu-panel-desc">{activePilar.d}</p>
+                  <div className="profil-corpu-tabs">
+                    {corpuPilars.map((p) => (
+                      <button key={p.key} type="button" className={`profil-corpu-tab ${pilar === p.key ? "is-active" : ""}`} onClick={() => setPilar(p.key)}>
+                        {p.t}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* LEARNING ORG */}
+            <section id="learning-org" className="profil-section">
+              <header className="profil-section-head">
+                <span className="profil-section-num">05</span>
+                <div>
+                  <p className="profil-section-eyebrow">Organisasi Pembelajar</p>
+                  <h2 className="profil-section-title">Learning <em>Organization</em></h2>
+                </div>
+              </header>
+
+              <div className="profil-section-intro">
+                <p>
+                  Learning Organization adalah cita-cita BPPK untuk menjadi organisasi yang terus belajar, beradaptasi, dan menciptakan masa depan bersama. Lima disiplin Peter Senge berikut menjadi kompas transformasi pembelajaran di BPPK.
+                </p>
+              </div>
+
+              <div className="profil-lo">
+                <div className="profil-lo-hex-wrap">
+                  {disiplin.map((d, i) => (
+                    <button
+                      key={d.key}
+                      type="button"
+                      className={`profil-lo-hex hex-${i} ${disc === d.key ? "is-active" : ""}`}
+                      onMouseEnter={() => setDisc(d.key)}
+                      onClick={() => setDisc(d.key)}
+                    >
+                      <span>{d.t}</span>
+                    </button>
+                  ))}
+                </div>
+                <div className="profil-lo-panel">
+                  <p className="profil-lo-panel-label">DISIPLIN</p>
+                  <h3>{activeDisc.t}</h3>
+                  <p>{activeDisc.d}</p>
+                </div>
+              </div>
+
+              <div className="profil-cta-card">
+                <div>
+                  <p className="profil-cta-eyebrow">EKOSISTEM PEMBELAJARAN</p>
+                  <h3>Bergabung dengan ekosistem pembelajaran <em>BPPK</em></h3>
+                  <p>Jelajahi Kemenkeu Learning Center, jalur sertifikasi, dan program pengembangan SDM kami.</p>
+                </div>
+                <a href="#" className="profil-cta-btn">
+                  Kunjungi KLC
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+                </a>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="bppk-footer">
+        <div className="footer-top-accent" aria-hidden="true" />
+        <div className="footer-container">
+          <div className="footer-brand-col">
+            <img src={logoFooter.url} alt="Logo Kemenkeu BPPK" className="footer-brand-logo" />
+            <h3 className="footer-brand-name">Badan Pendidikan dan Pelatihan Keuangan</h3>
+            <ul className="footer-contact">
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Jl. Purnawarman No.99<br />Kebayoran Baru, Jakarta Selatan 12110</span>
+              </li>
+            </ul>
+            <div className="footer-socials">
+              <a href="#" aria-label="Instagram" className="footer-social"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+              <a href="#" aria-label="X (Twitter)" className="footer-social"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21l-6.52 7.45L22 22h-6.84l-4.78-6.26L4.8 22H2.04l6.97-7.97L2 2h6.96l4.33 5.73L18.244 2zm-2.4 18h1.9L7.27 4H5.25l10.594 16z"/></svg></a>
+              <a href="#" aria-label="Facebook" className="footer-social"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+              <a href="#" aria-label="YouTube" className="footer-social"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22.54 6.42A2.78 2.78 0 0 0 20.6 4.5C18.88 4 12 4 12 4s-6.88 0-8.6.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-1.92 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+            </div>
+          </div>
+          <div>
+            <h4 className="footer-heading">Jelajahi</h4>
+            <ul className="footer-links">
+              <li><Link to="/profil">Profil BPPK</Link></li>
+              <li><Link to="/profil" hash="corpu">Kemenkeu Corporate University</Link></li>
+              <li><Link to="/profil" hash="learning-org">Learning Organization</Link></li>
+              <li><a href="#">Kemenkeu Learning Center</a></li>
+              <li><a href="#">Knowledge Management System</a></li>
+            </ul>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <div className="footer-bottom-inner">
+            <span>© 2026 Badan Pendidikan dan Pelatihan Keuangan — Kementerian Keuangan Republik Indonesia.</span>
+            <span className="footer-bottom-links">
+              <a href="#">Kebijakan Privasi</a>
+              <span className="footer-bottom-sep">·</span>
+              <a href="#">Syarat &amp; Ketentuan</a>
+              <span className="footer-bottom-sep">·</span>
+              <a href="#">Peta Situs</a>
+            </span>
+          </div>
+        </div>
+      </footer>
+    </>
+  );
+}
+
+function Chevron() {
+  return <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9" /></svg>;
+}
