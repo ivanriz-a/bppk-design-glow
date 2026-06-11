@@ -397,7 +397,7 @@ function Home() {
           <div className="learning-header-row">
             <div className="learning-header-left">
               <div className="section-eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>PEMBELAJARAN</div>
-              <h2 className="section-title">Pusat pembelajaran<span className="st-italic">unggulan.</span></h2>
+              <h2 className="section-title">Pembelajaran<span className="st-italic">terkini</span></h2>
             </div>
             <div className="learning-toolbar-right">
               <div className="section-tabs">
