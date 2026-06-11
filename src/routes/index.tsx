@@ -90,10 +90,10 @@ const trainings = [
 ];
 
 const knowledge = [
-  { badge: "Jurnal", title: "Jurnal BPPK Vol. 16 Tahun 2026", subtitle: "kajian akademik", rating: "4.7", peserta: "1.2k", img: "https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=600&q=80" },
-  { badge: "Modul", title: "Modul Pengantar Akuntansi Pemerintahan", subtitle: "pusdiklat anggaran", rating: "4.8", peserta: "2.0k", img: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=600&q=80" },
-  { badge: "Artikel", title: "Transformasi Digital Sektor Publik", subtitle: "knowledge management", rating: "4.6", peserta: "3.1k", img: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80" },
-  { badge: "Riset", title: "Evaluasi Pasca Diklat Kemenkeu", subtitle: "pusat kajian", rating: "4.7", peserta: "780", img: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80" },
+  { badge: "Video", title: "Jurnal BPPK Vol. 16 Tahun 2026", subtitle: "kajian akademik", rating: "4.7", peserta: "1.2k", img: "https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=600&q=80" },
+  { badge: "Artikel", title: "Modul Pengantar Akuntansi Pemerintahan", subtitle: "pusdiklat anggaran", rating: "4.8", peserta: "2.0k", img: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=600&q=80" },
+  { badge: "Audio", title: "Transformasi Digital Sektor Publik", subtitle: "knowledge management", rating: "4.6", peserta: "3.1k", img: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80" },
+  { badge: "Video", title: "Evaluasi Pasca Diklat Kemenkeu", subtitle: "pusat kajian", rating: "4.7", peserta: "780", img: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80" },
 ];
 
 type NewsItem = { date: string; title: string; excerpt: string; img: string };
@@ -121,7 +121,7 @@ const newsData: Record<"Berita" | "Pengumuman" | "Artikel", NewsItem[]> = {
 const newsTabs = ["Berita", "Pengumuman", "Artikel"] as const;
 type NewsTab = typeof newsTabs[number];
 
-const synergy = ["Setjen", "Itjen", "Pajak", "Bea Cukai", "Anggaran", "Perbendaharaan", "Kekayaan"];
+const synergy = ["SETJEN", "ITJEN", "DJP", "DJBC", "DJA", "DJPb", "DJKN", "DJPK", "DJPPR", "DJSEF", "BPPK", "DJSPSK", "BaTII"];
 const dates: Array<{ d: number; cls?: string; name?: string }> = [
   { d: 28, cls: "date-muted" }, { d: 29, cls: "date-muted" }, { d: 30, cls: "date-muted" },
   { d: 1 }, { d: 2 }, { d: 3 }, { d: 4 },
@@ -184,36 +184,42 @@ function Home() {
             </li>
             <li className="nav-item">
               <a href="#">Unit <Chevron /></a>
-              <div className="dropdown-mega mega-3">
-                <div className="mega-col">
-                  <div className="mega-title">Unit Pusat</div>
-                  <a href="#">Sekretariat Badan</a>
-                  <a href="#">Pusdiklat Kepemimpinan dan Manajemen</a>
-                  <a href="#">Pusdiklat Anggaran dan Perbendaharaan</a>
-                  <a href="#">Pusdiklat Pajak</a>
-                  <a href="#">Pusdiklat Bea dan Cukai</a>
-                  <a href="#">Pusdiklat Keuangan Publik</a>
-                  <a href="#">Pusat Pembinaan Jabatan Fungsional dan Penjaminan Mutu</a>
-                </div>
-                <div className="mega-col">
-                  <div className="mega-title">Unit Pelaksana Teknis</div>
-                  <a href="#">BDK Medan</a>
-                  <a href="#">BDK Pekanbaru</a>
-                  <a href="#">BDK Palembang</a>
-                  <a href="#">BDK Cimahi</a>
-                  <a href="#">BDK Yogyakarta</a>
-                  <a href="#">BDK Malang</a>
-                  <a href="#">BDK Denpasar</a>
-                  <a href="#">BDK Pontianak</a>
-                  <a href="#">BDK Balikpapan</a>
-                  <a href="#">BDK Makassar</a>
-                  <a href="#">BDK Manado</a>
-                </div>
-                <div className="mega-col">
-                  <div className="mega-title">Badan Layanan Umum</div>
-                  <a href="#">Politeknik Keuangan Negara STAN</a>
-                </div>
-              </div>
+              <ul className="dropdown-menu">
+                <li className="has-submenu">
+                  <a href="#">Unit Pusat <span className="submenu-arrow">›</span></a>
+                  <ul className="submenu">
+                    <li><a href="#">Sekretariat Badan</a></li>
+                    <li><a href="#">Pusdiklat Kepemimpinan dan Manajemen</a></li>
+                    <li><a href="#">Pusdiklat Anggaran dan Perbendaharaan</a></li>
+                    <li><a href="#">Pusdiklat Pajak</a></li>
+                    <li><a href="#">Pusdiklat Bea dan Cukai</a></li>
+                    <li><a href="#">Pusdiklat Keuangan Publik</a></li>
+                    <li><a href="#">Pusat Pembinaan Jabatan Fungsional dan Penjaminan Mutu</a></li>
+                  </ul>
+                </li>
+                <li className="has-submenu">
+                  <a href="#">Unit Pelaksana Teknis <span className="submenu-arrow">›</span></a>
+                  <ul className="submenu">
+                    <li><a href="#">BDK Medan</a></li>
+                    <li><a href="#">BDK Pekanbaru</a></li>
+                    <li><a href="#">BDK Palembang</a></li>
+                    <li><a href="#">BDK Cimahi</a></li>
+                    <li><a href="#">BDK Yogyakarta</a></li>
+                    <li><a href="#">BDK Malang</a></li>
+                    <li><a href="#">BDK Denpasar</a></li>
+                    <li><a href="#">BDK Pontianak</a></li>
+                    <li><a href="#">BDK Balikpapan</a></li>
+                    <li><a href="#">BDK Makassar</a></li>
+                    <li><a href="#">BDK Manado</a></li>
+                  </ul>
+                </li>
+                <li className="has-submenu">
+                  <a href="#">Badan Layanan Umum <span className="submenu-arrow">›</span></a>
+                  <ul className="submenu">
+                    <li><a href="#">Politeknik Keuangan Negara STAN</a></li>
+                  </ul>
+                </li>
+              </ul>
             </li>
             <li className="nav-item">
               <a href="#">Layanan <Chevron /></a>
@@ -288,6 +294,14 @@ function Home() {
             </div>
           </div>
         </div>
+        <button
+          type="button"
+          className="hero-scroll-down"
+          aria-label="Gulir ke kalender"
+          onClick={() => document.getElementById("kalender")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9" /></svg>
+        </button>
       </section>
 
       {/* SERVICES + CALENDAR */}
@@ -307,10 +321,10 @@ function Home() {
             ))}
           </div>
 
-          <div className="calendar-header-block">
+          <div className="calendar-header-block" id="kalender">
             <div className="section-eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>AGENDA</div>
             <div className="calendar-header-row">
-              <h2 className="section-title">Kalender<span className="st-italic">BPPK.</span></h2>
+              <h2 className="section-title section-title-oneline">Kalender<span className="st-italic">BPPK</span></h2>
               <div className="calendar-tabs">
                 <button type="button" className={`calendar-tab ${calTab === "pelatihan" ? "active" : ""}`} onClick={() => setCalTab("pelatihan")}>Pelatihan</button>
                 <button type="button" className={`calendar-tab ${calTab === "kegiatan" ? "active" : ""}`} onClick={() => setCalTab("kegiatan")}>Kegiatan</button>
@@ -383,7 +397,7 @@ function Home() {
           <div className="learning-header-row">
             <div className="learning-header-left">
               <div className="section-eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>PEMBELAJARAN</div>
-              <h2 className="section-title">Pusat pembelajaran<span className="st-italic">unggulan.</span></h2>
+              <h2 className="section-title">Pembelajaran<span className="st-italic">terkini</span></h2>
             </div>
             <div className="learning-toolbar-right">
               <div className="section-tabs">
@@ -423,7 +437,7 @@ function Home() {
                         </div>
                         <div className="oa-meta-item">
                           <span className="oa-meta-val">{c.peserta}</span>
-                          <span className="oa-meta-label">Peserta</span>
+                          <span className="oa-meta-label">{tab === "pusat" ? "Views" : "Peserta"}</span>
                         </div>
                       </div>
                       <a href="#" className="btn-pill">Detail</a>
@@ -485,12 +499,12 @@ function Home() {
               },
               {
                 year: "2026",
-                edisi: "Seri Kepemimpinan",
+                edisi: "Sejarah BPPK",
                 masthead: [
                   { text: "BUKU", accent: true },
                   { text: "BPPK" },
                 ],
-                title: "Srikandi Perubahan, Inspirasi Bagi Perempuan",
+                title: "Jejak, Karya, dan Transformasi BPPK",
                 desc: "Akses bebas unduh ke ratusan modul ajar komprehensif untuk mendukung pembelajaran berkelanjutan di lingkungan Kementerian Keuangan.",
                 cover: coverBuku.url,
                 halftone: bgBuku.url,
@@ -561,7 +575,7 @@ function Home() {
           <div className="news-header-row">
             <div>
               <div className="section-eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8M15 18h-5M10 6h8v4h-8z"/></svg>BERITA</div>
-              <h2 className="section-title">Informasi<span className="st-italic">terbaru.</span></h2>
+              <h2 className="section-title">Informasi<span className="st-italic">terkini</span></h2>
             </div>
             <div className="news-toolbar-right">
               <div className="search-box news-search-box">
@@ -656,18 +670,6 @@ function Home() {
                 <span>Jl. Purnawarman No.99<br />Kebayoran Baru, Jakarta Selatan 12110</span>
               </li>
             </ul>
-          </div>
-          <div>
-            <h4 className="footer-heading">Jelajahi</h4>
-            <ul className="footer-links">
-              <li><a href="#">Profil BPPK</a></li>
-              <li><a href="#">Kemenkeu Corporate University</a></li>
-              <li><a href="#">Learning Organization</a></li>
-              <li><a href="#">Kemenkeu Learning Center</a></li>
-              <li><a href="#">Knowledge Management System</a></li>
-            </ul>
-          </div>
-          <div className="footer-right-col">
             <div className="footer-socials">
               <a href="#" aria-label="Instagram" className="footer-social">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
@@ -682,6 +684,16 @@ function Home() {
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22.54 6.42A2.78 2.78 0 0 0 20.6 4.5C18.88 4 12 4 12 4s-6.88 0-8.6.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-1.92 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
               </a>
             </div>
+          </div>
+          <div>
+            <h4 className="footer-heading">Jelajahi</h4>
+            <ul className="footer-links">
+              <li><a href="#">Profil BPPK</a></li>
+              <li><a href="#">Kemenkeu Corporate University</a></li>
+              <li><a href="#">Learning Organization</a></li>
+              <li><a href="#">Kemenkeu Learning Center</a></li>
+              <li><a href="#">Knowledge Management System</a></li>
+            </ul>
           </div>
         </div>
         <div className="footer-bottom">
