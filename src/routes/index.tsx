@@ -90,10 +90,10 @@ const trainings = [
 ];
 
 const knowledge = [
-  { badge: "Jurnal", title: "Jurnal BPPK Vol. 16 Tahun 2026", subtitle: "kajian akademik", rating: "4.7", peserta: "1.2k", img: "https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=600&q=80" },
-  { badge: "Modul", title: "Modul Pengantar Akuntansi Pemerintahan", subtitle: "pusdiklat anggaran", rating: "4.8", peserta: "2.0k", img: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=600&q=80" },
-  { badge: "Artikel", title: "Transformasi Digital Sektor Publik", subtitle: "knowledge management", rating: "4.6", peserta: "3.1k", img: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80" },
-  { badge: "Riset", title: "Evaluasi Pasca Diklat Kemenkeu", subtitle: "pusat kajian", rating: "4.7", peserta: "780", img: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80" },
+  { badge: "Video", title: "Jurnal BPPK Vol. 16 Tahun 2026", subtitle: "kajian akademik", rating: "4.7", peserta: "1.2k", img: "https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=600&q=80" },
+  { badge: "Artikel", title: "Modul Pengantar Akuntansi Pemerintahan", subtitle: "pusdiklat anggaran", rating: "4.8", peserta: "2.0k", img: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=600&q=80" },
+  { badge: "Audio", title: "Transformasi Digital Sektor Publik", subtitle: "knowledge management", rating: "4.6", peserta: "3.1k", img: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80" },
+  { badge: "Video", title: "Evaluasi Pasca Diklat Kemenkeu", subtitle: "pusat kajian", rating: "4.7", peserta: "780", img: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80" },
 ];
 
 type NewsItem = { date: string; title: string; excerpt: string; img: string };
