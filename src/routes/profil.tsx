@@ -455,6 +455,11 @@ function ProfilPage() {
                 </div>
               </header>
 
+              <figure className="profil-section-banner profil-section-banner-dark">
+                <img src={bgJurnal.url} alt="Kemenkeu Corporate University" loading="lazy" />
+                <figcaption>Ekosistem pembelajaran terintegrasi Kementerian Keuangan.</figcaption>
+              </figure>
+
               <div className="profil-section-intro">
                 <p>
                   Kementerian Keuangan Corporate University (Kemenkeu Corpu) adalah pendekatan pembelajaran yang menghubungkan strategi organisasi dengan pengembangan kapabilitas SDM. Empat pilar di bawah ini menjadi fondasi penyelenggaraan Corpu di BPPK.
