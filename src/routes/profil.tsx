@@ -362,6 +362,13 @@ function ProfilPage() {
                 </div>
               </header>
 
+              <figure className="profil-section-banner">
+                <img src={edukasiCover.url} alt="Visi dan misi BPPK" loading="lazy" />
+                <figcaption>Arah strategis pengembangan SDM keuangan negara.</figcaption>
+              </figure>
+
+
+
               <div className="profil-vm-grid">
                 <div className="profil-vm-card profil-vm-card-dark">
                   <div className="profil-vm-icon" aria-hidden="true">
