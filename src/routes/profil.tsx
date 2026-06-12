@@ -524,10 +524,18 @@ function ProfilPage() {
                 </div>
               </header>
 
-              <div className="profil-section-intro">
-                <p>
-                  Learning Organization adalah cita-cita BPPK untuk menjadi organisasi yang terus belajar, beradaptasi, dan menciptakan masa depan bersama. Lima disiplin Peter Senge berikut menjadi kompas transformasi pembelajaran di BPPK.
-                </p>
+              <div className="profil-section-split profil-section-split-reverse">
+                <div className="profil-section-intro profil-section-intro-inline">
+                  <p>
+                    Learning Organization adalah cita-cita BPPK untuk menjadi organisasi yang terus belajar, beradaptasi, dan menciptakan masa depan bersama.
+                  </p>
+                  <p>
+                    Lima disiplin Peter Senge berikut menjadi kompas transformasi pembelajaran di BPPK.
+                  </p>
+                </div>
+                <figure className="profil-section-aside">
+                  <img src={coverBuku.url} alt="Learning Organization BPPK" loading="lazy" />
+                </figure>
               </div>
 
               <div className="profil-lo">
