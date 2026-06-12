@@ -9,9 +9,15 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as StrukturOrganisasiRouteImport } from './routes/struktur-organisasi'
 import { Route as ProfilRouteImport } from './routes/profil'
 import { Route as IndexRouteImport } from './routes/index'
 
+const StrukturOrganisasiRoute = StrukturOrganisasiRouteImport.update({
+  id: '/struktur-organisasi',
+  path: '/struktur-organisasi',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProfilRoute = ProfilRouteImport.update({
   id: '/profil',
   path: '/profil',
@@ -26,31 +32,42 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/profil': typeof ProfilRoute
+  '/struktur-organisasi': typeof StrukturOrganisasiRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/profil': typeof ProfilRoute
+  '/struktur-organisasi': typeof StrukturOrganisasiRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/profil': typeof ProfilRoute
+  '/struktur-organisasi': typeof StrukturOrganisasiRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/profil'
+  fullPaths: '/' | '/profil' | '/struktur-organisasi'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/profil'
-  id: '__root__' | '/' | '/profil'
+  to: '/' | '/profil' | '/struktur-organisasi'
+  id: '__root__' | '/' | '/profil' | '/struktur-organisasi'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ProfilRoute: typeof ProfilRoute
+  StrukturOrganisasiRoute: typeof StrukturOrganisasiRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/struktur-organisasi': {
+      id: '/struktur-organisasi'
+      path: '/struktur-organisasi'
+      fullPath: '/struktur-organisasi'
+      preLoaderRoute: typeof StrukturOrganisasiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/profil': {
       id: '/profil'
       path: '/profil'
@@ -71,17 +88,8 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ProfilRoute: ProfilRoute,
+  StrukturOrganisasiRoute: StrukturOrganisasiRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
