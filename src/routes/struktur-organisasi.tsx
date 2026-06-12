@@ -262,6 +262,109 @@ function UnitCard({ u, selected, onClick, compact }: { u: Unit; selected: boolea
   );
 }
 
+type Seg = { x1: number; y1: number; x2: number; y2: number; highlight?: boolean };
+
+function OrgConnectors({ chartRef, selectedId }: { chartRef: React.RefObject<HTMLDivElement | null>; selectedId: string }) {
+  const [segs, setSegs] = useState<Seg[]>([]);
+  const [size, setSize] = useState({ w: 0, h: 0 });
+
+  useLayoutEffect(() => {
+    const chart = chartRef.current;
+    if (!chart) return;
+
+    const compute = () => {
+      const cRect = chart.getBoundingClientRect();
+      const rows = Array.from(chart.querySelectorAll<HTMLElement>(".org-row")).sort(
+        (a, b) => Number(a.dataset.row) - Number(b.dataset.row),
+      );
+      if (rows.length < 2) return;
+
+      const rowInfo = rows.map((row) => {
+        const cards = Array.from(row.querySelectorAll<HTMLElement>(".org-card"));
+        const rects = cards.map((c) => {
+          const r = c.getBoundingClientRect();
+          return {
+            id: c.getAttribute("data-id") ?? "",
+            cx: r.left - cRect.left + r.width / 2,
+            top: r.top - cRect.top,
+            bottom: r.bottom - cRect.top,
+          };
+        });
+        return { rects };
+      });
+
+      const next: Seg[] = [];
+      const trunkX = rowInfo[0].rects[0]?.cx ?? cRect.width / 2;
+
+      for (let r = 1; r < rowInfo.length; r++) {
+        const prev = rowInfo[r - 1].rects;
+        const cur = rowInfo[r].rects;
+        if (!prev.length || !cur.length) continue;
+        const prevBottom = Math.max(...prev.map((p) => p.bottom));
+        const curTop = Math.min(...cur.map((c) => c.top));
+        const busY = (prevBottom + curTop) / 2;
+
+        // trunk segment from prev row bottom (at trunkX) to busY
+        next.push({ x1: trunkX, y1: prevBottom, x2: trunkX, y2: busY });
+
+        // horizontal bus
+        const xs = cur.map((c) => c.cx).concat([trunkX]);
+        const minX = Math.min(...xs);
+        const maxX = Math.max(...xs);
+        if (maxX - minX > 0.5) {
+          next.push({ x1: minX, y1: busY, x2: maxX, y2: busY });
+        }
+
+        // verticals from bus down to each card
+        for (const c of cur) {
+          next.push({
+            x1: c.cx,
+            y1: busY,
+            x2: c.cx,
+            y2: c.top,
+            highlight: c.id === selectedId,
+          });
+        }
+      }
+
+      setSize({ w: chart.clientWidth, h: chart.clientHeight });
+      setSegs(next);
+    };
+
+    compute();
+    const ro = new ResizeObserver(compute);
+    ro.observe(chart);
+    chart.querySelectorAll(".org-card").forEach((el) => ro.observe(el));
+    window.addEventListener("resize", compute);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", compute);
+    };
+  }, [chartRef, selectedId]);
+
+  return (
+    <svg
+      className="org-connectors"
+      width={size.w}
+      height={size.h}
+      viewBox={`0 0 ${size.w} ${size.h}`}
+      aria-hidden="true"
+    >
+      {segs.map((s, i) => (
+        <line
+          key={i}
+          x1={s.x1}
+          y1={s.y1}
+          x2={s.x2}
+          y2={s.y2}
+          className={s.highlight ? "org-connector is-highlight" : "org-connector"}
+        />
+      ))}
+    </svg>
+  );
+}
+
+
 function Chevron() {
   return <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9" /></svg>;
 }
