@@ -420,10 +420,18 @@ function ProfilPage() {
                 </div>
               </header>
 
-              <div className="profil-section-intro">
-                <p>
-                  Berdasarkan Peraturan Menteri Keuangan, BPPK menyelenggarakan pendidikan, pelatihan, dan sertifikasi di bidang keuangan negara bagi aparatur Kementerian Keuangan dan pemangku kepentingan terkait.
-                </p>
+              <div className="profil-section-split">
+                <figure className="profil-section-aside">
+                  <img src={hero3.url} alt="Tugas dan fungsi BPPK" loading="lazy" />
+                </figure>
+                <div className="profil-section-intro profil-section-intro-inline">
+                  <p>
+                    Berdasarkan Peraturan Menteri Keuangan, BPPK menyelenggarakan pendidikan, pelatihan, dan sertifikasi di bidang keuangan negara bagi aparatur Kementerian Keuangan dan pemangku kepentingan terkait.
+                  </p>
+                  <p>
+                    Enam fungsi inti di bawah ini menjadi tulang punggung pelaksanaan mandat tersebut.
+                  </p>
+                </div>
               </div>
 
               <div className="profil-fungsi-grid">
