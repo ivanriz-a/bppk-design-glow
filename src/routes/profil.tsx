@@ -144,7 +144,7 @@ function ProfilPage() {
 
   return (
     <>
-      {/* NAVBAR (copy of homepage navbar) */}
+      {/* NAVBAR */}
       <nav className={`top-navbar ${scrolled ? "scrolled" : ""}`}>
         <div className="nav-container">
           <Link to="/" className="nav-logo">
@@ -155,7 +155,7 @@ function ProfilPage() {
               <a href="#" className="nav-active">Profil <Chevron /></a>
               <ul className="dropdown-menu">
                 <li className="has-submenu">
-                  <a href="#">Profil Lembaga <span className="submenu-arrow">›</span></a>
+                  <Link to="/profil">Profil Lembaga <span className="submenu-arrow">›</span></Link>
                   <ul className="submenu">
                     <li><Link to="/profil" hash="sejarah">Sejarah BPPK</Link></li>
                     <li><Link to="/profil" hash="visi-misi">Visi dan Misi</Link></li>
@@ -169,15 +169,98 @@ function ProfilPage() {
                 <li><a href="#">Jejak, Karya, dan Transformasi BPPK</a></li>
               </ul>
             </li>
-            <li className="nav-item"><Link to="/">Beranda</Link></li>
+            <li className="nav-item">
+              <a href="#">Unit <Chevron /></a>
+              <ul className="dropdown-menu">
+                <li className="has-submenu">
+                  <a href="#">Unit Pusat <span className="submenu-arrow">›</span></a>
+                  <ul className="submenu">
+                    <li><a href="#">Sekretariat Badan</a></li>
+                    <li><a href="#">Pusdiklat Kepemimpinan dan Manajemen</a></li>
+                    <li><a href="#">Pusdiklat Anggaran dan Perbendaharaan</a></li>
+                    <li><a href="#">Pusdiklat Pajak</a></li>
+                    <li><a href="#">Pusdiklat Bea dan Cukai</a></li>
+                    <li><a href="#">Pusdiklat Keuangan Publik</a></li>
+                    <li><a href="#">Pusat Pembinaan Jabatan Fungsional dan Penjaminan Mutu</a></li>
+                  </ul>
+                </li>
+                <li className="has-submenu">
+                  <a href="#">Unit Pelaksana Teknis <span className="submenu-arrow">›</span></a>
+                  <ul className="submenu">
+                    <li><a href="#">BDK Medan</a></li>
+                    <li><a href="#">BDK Pekanbaru</a></li>
+                    <li><a href="#">BDK Palembang</a></li>
+                    <li><a href="#">BDK Cimahi</a></li>
+                    <li><a href="#">BDK Yogyakarta</a></li>
+                    <li><a href="#">BDK Malang</a></li>
+                    <li><a href="#">BDK Denpasar</a></li>
+                    <li><a href="#">BDK Pontianak</a></li>
+                    <li><a href="#">BDK Balikpapan</a></li>
+                    <li><a href="#">BDK Makassar</a></li>
+                    <li><a href="#">BDK Manado</a></li>
+                  </ul>
+                </li>
+                <li className="has-submenu">
+                  <a href="#">Badan Layanan Umum <span className="submenu-arrow">›</span></a>
+                  <ul className="submenu">
+                    <li><a href="#">Politeknik Keuangan Negara STAN</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li className="nav-item">
+              <a href="#">Layanan <Chevron /></a>
+              <div className="dropdown-mega mega-2">
+                <div className="mega-col">
+                  <a href="#">Kemenkeu Learning Center (KLC)</a>
+                  <a href="#">Manajemen Pengetahuan (KMS)</a>
+                  <a href="#">Sertifikasi</a>
+                  <a href="#">Akreditasi</a>
+                  <a href="#">Lembaga Sertifikasi Profesi</a>
+                  <a href="#">Beasiswa</a>
+                </div>
+                <div className="mega-col">
+                  <a href="#">PENA JFKN</a>
+                  <a href="#">Ujian Online</a>
+                  <a href="#">Kemenkeu Learning Festival</a>
+                  <a href="#">Olimpiade APBN</a>
+                  <a href="#">Kerja Sama Program Pembelajaran</a>
+                  <a href="#">Regional Training Center</a>
+                </div>
+              </div>
+            </li>
+            <li className="nav-item">
+              <a href="#">Publikasi <Chevron /></a>
+              <ul className="dropdown-menu">
+                <li className="has-submenu">
+                  <a href="#">Penelitian <span className="submenu-arrow">›</span></a>
+                  <ul className="submenu">
+                    <li><a href="#">Jurnal</a></li>
+                    <li><a href="#">Prosiding Kajian Akademis</a></li>
+                    <li><a href="#">Simposium Nasional Keuangan Negara (SNKN)</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Majalah Edukasi Keuangan</a></li>
+                <li><a href="#">Buku</a></li>
+                <li><a href="#">Laporan-laporan</a></li>
+              </ul>
+            </li>
+            <li className="nav-item">
+              <a href="#">Informasi Publik <Chevron /></a>
+              <ul className="dropdown-menu">
+                <li><a href="#">PPID</a></li>
+                <li><a href="#">Laporan/Informasi Publik Lainnya</a></li>
+                <li><a href="#">Peraturan</a></li>
+              </ul>
+            </li>
           </ul>
           <a href="#" className="nav-cta">Hubungi Kami 134</a>
         </div>
       </nav>
 
       {/* HERO */}
-      <section className="profil-hero">
-        <div className="profil-hero-bg" style={{ backgroundImage: `url(${hero2.url})` }} />
+      <section className="profil-hero profil-hero-short">
+        <div className="profil-hero-bg" style={{ backgroundImage: `url(${profilHeroBg.url})` }} />
         <div className="profil-hero-overlay" />
         <div className="profil-hero-content container-bppk">
           <nav className="profil-breadcrumb" aria-label="Breadcrumb">
@@ -189,18 +272,7 @@ function ProfilPage() {
           <h1 className="profil-hero-title">
             Profil <em>Lembaga</em>
           </h1>
-          <p className="profil-hero-desc">
-            Mengenal Badan Pendidikan dan Pelatihan Keuangan — sejarah, visi, tugas, dan transformasi menuju organisasi pembelajar.
-          </p>
         </div>
-        <button
-          type="button"
-          className="profil-scroll-down"
-          aria-label="Lihat konten"
-          onClick={() => scrollTo("sejarah")}
-        >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9" /></svg>
-        </button>
       </section>
 
       {/* CONTENT */}
