@@ -7,7 +7,6 @@ import edukasiCover from "@/assets/edukasi-cover.jpg.asset.json";
 import bgJurnal from "@/assets/background-jurnal.jpg.asset.json";
 import bgBuku from "@/assets/background-buku.jpeg.asset.json";
 import coverBuku from "@/assets/cover-buku.png.asset.json";
-import coverJurnal from "@/assets/cover-jurnal.jpg.asset.json";
 import profilHeroBg from "@/assets/profil-hero-bg.png.asset.json";
 import logoPutih from "@/assets/logo-bppk-putih.png.asset.json";
 import logoFooter from "@/assets/logo-kemenkeu-bppk-putih.png.asset.json";
