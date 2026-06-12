@@ -65,6 +65,7 @@ const blu: Unit[] = [
 function StrukturPage() {
   const [scrolled, setScrolled] = useState(false);
   const [selected, setSelected] = useState<Unit>(kepala);
+  const chartRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
