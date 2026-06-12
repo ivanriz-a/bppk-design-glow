@@ -299,7 +299,10 @@ function OrgConnectors({ chartRef, selectedId }: { chartRef: React.RefObject<HTM
   const [segs, setSegs] = useState<Seg[]>([]);
   const [size, setSize] = useState({ w: 0, h: 0 });
 
-  useLayoutEffect(() => {
+  useEffect(() => {
+    // debug helper
+    // eslint-disable-next-line no-console
+    console.log("[OrgConnectors] effect", { chart: chartRef.current });
     const chart = chartRef.current;
     if (!chart) return;
 
