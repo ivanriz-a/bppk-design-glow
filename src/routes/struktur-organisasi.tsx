@@ -152,7 +152,7 @@ function StrukturPage() {
               <span className="org-label-text">Unit Pusat</span>
               <span className="org-label-line" />
             </div>
-            <div className="org-row org-row-2">
+            <div className="org-row org-row-2" data-row="2">
               {unitPusat.map((u) => (
                 <UnitCard key={u.id} u={u} selected={selected.id === u.id} onClick={() => setSelected(u)} />
               ))}
@@ -164,7 +164,7 @@ function StrukturPage() {
               <span className="org-label-text">Unit Pelaksana Teknis · Balai Diklat Keuangan</span>
               <span className="org-label-line" />
             </div>
-            <div className="org-row org-row-3">
+            <div className="org-row org-row-3" data-row="3">
               {bdk.map((u) => (
                 <UnitCard key={u.id} u={u} compact selected={selected.id === u.id} onClick={() => setSelected(u)} />
               ))}
@@ -176,8 +176,9 @@ function StrukturPage() {
               <span className="org-label-text">Badan Layanan Umum</span>
               <span className="org-label-line" />
             </div>
-            <div className="org-row org-row-4">
+            <div className="org-row org-row-4" data-row="4">
               {blu.map((u) => (
+
                 <UnitCard key={u.id} u={u} selected={selected.id === u.id} onClick={() => setSelected(u)} />
               ))}
             </div>
