@@ -2,9 +2,15 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import hero1 from "@/assets/hero-1.png.asset.json";
 import hero2 from "@/assets/hero-2.png.asset.json";
+import hero3 from "@/assets/hero-3.png.asset.json";
+import edukasiCover from "@/assets/edukasi-cover.jpg.asset.json";
+import bgJurnal from "@/assets/background-jurnal.jpg.asset.json";
+import bgBuku from "@/assets/background-buku.jpeg.asset.json";
+import coverBuku from "@/assets/cover-buku.png.asset.json";
+import coverJurnal from "@/assets/cover-jurnal.jpg.asset.json";
+import profilHeroBg from "@/assets/profil-hero-bg.png.asset.json";
 import logoPutih from "@/assets/logo-bppk-putih.png.asset.json";
 import logoFooter from "@/assets/logo-kemenkeu-bppk-putih.png.asset.json";
-import logoKemenkeu from "@/assets/logo-kemenkeu.png.asset.json";
 
 export const Route = createFileRoute("/profil")({
   head: () => ({
