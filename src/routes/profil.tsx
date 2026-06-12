@@ -332,15 +332,20 @@ function ProfilPage() {
                 </p>
               </div>
 
-              <div className="profil-timeline">
+              <div className="profil-timeline profil-timeline-v2">
                 <div className="profil-timeline-line" aria-hidden="true" />
-                {milestones.map((m, i) => (
-                  <article key={m.year} className={`profil-timeline-item ${i % 2 === 0 ? "left" : "right"}`}>
+                {milestones.map((m) => (
+                  <article key={m.year} className="profil-timeline-item">
                     <div className="profil-timeline-node" aria-hidden="true" />
                     <div className="profil-timeline-card">
-                      <span className="profil-timeline-year">{m.year}</span>
-                      <h3>{m.title}</h3>
-                      <p>{m.desc}</p>
+                      <div className="profil-timeline-media">
+                        <img src={m.img} alt={m.title} loading="lazy" />
+                        <span className="profil-timeline-year">{m.year}</span>
+                      </div>
+                      <div className="profil-timeline-body">
+                        <h3>{m.title}</h3>
+                        <p>{m.desc}</p>
+                      </div>
                     </div>
                   </article>
                 ))}
