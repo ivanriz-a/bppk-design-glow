@@ -2462,3 +2462,267 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   .profil-timeline-v2 .profil-timeline-line { left: 14px; }
   .profil-timeline-v2 .profil-timeline-node { left: 14px; }
 }
+
+/* ========== Struktur Organisasi ========== */
+.struktur-intro {
+  padding: clamp(56px, 8vw, 96px) 0 24px;
+  background: var(--background);
+}
+.struktur-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: end;
+}
+.struktur-eyebrow {
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  color: var(--gold, #c9a64b);
+  text-transform: uppercase;
+  margin: 0 0 12px;
+}
+.struktur-intro-title {
+  font-family: "Amulya", serif;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.05;
+  margin: 0;
+  color: var(--foreground);
+  letter-spacing: -0.01em;
+}
+.struktur-intro-title em {
+  font-style: italic;
+  color: var(--gold, #c9a64b);
+}
+.struktur-intro-desc {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: color-mix(in oklab, var(--foreground) 75%, transparent);
+  margin: 0;
+}
+@media (max-width: 900px) {
+  .struktur-intro-grid { grid-template-columns: 1fr; gap: 16px; }
+}
+
+.struktur-main {
+  padding: 32px 0 clamp(72px, 10vw, 120px);
+  background: var(--background);
+}
+.struktur-main > .container-bppk {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 40px;
+  align-items: start;
+}
+@media (max-width: 1100px) {
+  .struktur-main > .container-bppk { grid-template-columns: 1fr; }
+}
+
+.struktur-chart {
+  position: relative;
+  padding: 32px;
+  border: 1px solid color-mix(in oklab, var(--foreground) 10%, transparent);
+  border-radius: 16px;
+  background: color-mix(in oklab, var(--foreground) 2%, var(--background));
+}
+.org-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  position: relative;
+}
+.org-row-1 { justify-content: center; }
+.org-row-2 { justify-content: center; }
+.org-row-3 { justify-content: center; }
+
+.org-trunk {
+  width: 2px;
+  height: 36px;
+  margin: 0 auto;
+  background: color-mix(in oklab, var(--foreground) 25%, transparent);
+}
+
+.org-section-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 32px 0 16px;
+  font-family: "Poppins", sans-serif;
+}
+.org-label-num {
+  font-family: "Amulya", serif;
+  font-size: 28px;
+  color: var(--gold, #c9a64b);
+  font-style: italic;
+}
+.org-label-text {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--foreground);
+  font-weight: 600;
+}
+.org-label-line {
+  flex: 1;
+  height: 1px;
+  background: color-mix(in oklab, var(--foreground) 15%, transparent);
+}
+
+.org-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+  background: var(--background);
+  border: 1px solid color-mix(in oklab, var(--foreground) 12%, transparent);
+  border-radius: 12px;
+  padding: 14px 16px;
+  min-width: 180px;
+  max-width: 230px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: "Poppins", sans-serif;
+  position: relative;
+}
+.org-card:hover {
+  border-color: var(--gold, #c9a64b);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -12px color-mix(in oklab, var(--gold, #c9a64b) 60%, transparent);
+}
+.org-card.is-selected {
+  border-color: var(--gold, #c9a64b);
+  background: color-mix(in oklab, var(--gold, #c9a64b) 8%, var(--background));
+  box-shadow: 0 8px 24px -12px color-mix(in oklab, var(--gold, #c9a64b) 80%, transparent);
+}
+.org-card.is-compact {
+  min-width: 140px;
+  padding: 10px 14px;
+}
+.org-card-kind {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--gold, #c9a64b);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.org-card-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--foreground);
+  line-height: 1.3;
+}
+.org-card.is-compact .org-card-name { font-size: 13px; }
+.org-card-role {
+  font-size: 12px;
+  color: color-mix(in oklab, var(--foreground) 60%, transparent);
+}
+
+.org-card.kind-kepala {
+  background: #0b1e3f;
+  border-color: #0b1e3f;
+  min-width: 280px;
+  padding: 18px 22px;
+}
+.org-card.kind-kepala .org-card-kind { color: var(--gold, #c9a64b); }
+.org-card.kind-kepala .org-card-name { color: #fff; font-size: 18px; }
+.org-card.kind-kepala .org-card-role { color: color-mix(in oklab, #fff 70%, transparent); }
+.org-card.kind-kepala.is-selected,
+.org-card.kind-kepala:hover {
+  background: #0b1e3f;
+  box-shadow: 0 12px 28px -10px color-mix(in oklab, var(--gold, #c9a64b) 70%, transparent);
+}
+
+.struktur-detail {
+  position: sticky;
+  top: 100px;
+}
+.struktur-detail-inner {
+  border: 1px solid color-mix(in oklab, var(--foreground) 12%, transparent);
+  border-radius: 16px;
+  padding: 24px;
+  background: var(--background);
+  font-family: "Poppins", sans-serif;
+}
+.struktur-detail-kind {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--gold, #c9a64b);
+  text-transform: uppercase;
+  margin: 0 0 8px;
+  font-weight: 600;
+}
+.struktur-detail-name {
+  font-family: "Amulya", serif;
+  font-size: 22px;
+  line-height: 1.2;
+  margin: 0 0 18px;
+  color: var(--foreground);
+}
+.struktur-detail-label {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--foreground) 55%, transparent);
+  margin: 0 0 8px;
+}
+.struktur-detail-person {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  background: color-mix(in oklab, var(--foreground) 4%, transparent);
+  border-radius: 10px;
+  margin-bottom: 18px;
+}
+.struktur-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: color-mix(in oklab, var(--gold, #c9a64b) 18%, var(--background));
+  color: var(--gold, #c9a64b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.struktur-detail-personname {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--foreground);
+}
+.struktur-detail-role {
+  font-size: 12px;
+  margin: 0;
+  color: color-mix(in oklab, var(--foreground) 60%, transparent);
+}
+.struktur-detail-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: color-mix(in oklab, var(--foreground) 75%, transparent);
+  margin: 0 0 18px;
+}
+.struktur-detail-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gold, #c9a64b);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in oklab, var(--gold, #c9a64b) 30%, transparent);
+  padding-bottom: 2px;
+  transition: gap 0.2s;
+}
+.struktur-detail-cta:hover { gap: 12px; }
+
+@media (max-width: 1100px) {
+  .struktur-detail { position: static; }
+}
+@media (max-width: 700px) {
+  .struktur-chart { padding: 20px 14px; }
+  .org-card { min-width: 150px; max-width: 100%; flex: 1 1 45%; }
+  .org-card.kind-kepala { min-width: 100%; }
+}
