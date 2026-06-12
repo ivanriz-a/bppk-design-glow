@@ -252,6 +252,7 @@ function UnitCard({ u, selected, onClick, compact }: { u: Unit; selected: boolea
     <button
       type="button"
       onClick={onClick}
+      data-id={u.id}
       className={`org-card ${selected ? "is-selected" : ""} ${compact ? "is-compact" : ""} kind-${u.kind}`}
       aria-pressed={selected}
     >
