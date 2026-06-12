@@ -35,12 +35,12 @@ const sections: { id: SectionId; num: string; label: string }[] = [
 ];
 
 const milestones = [
-  { year: "1975", title: "Cikal Bakal Pusdiklat Keuangan", desc: "Pendirian unit pendidikan dan pelatihan di lingkungan Departemen Keuangan sebagai fondasi pengembangan SDM keuangan negara." },
-  { year: "1995", title: "Pembentukan BPPK", desc: "Badan Pendidikan dan Pelatihan Keuangan resmi dibentuk untuk mengonsolidasikan pendidikan dan pelatihan di Kementerian Keuangan." },
-  { year: "2007", title: "Reformasi Birokrasi", desc: "Transformasi diklat seiring reformasi birokrasi Kementerian Keuangan: kurikulum berbasis kompetensi dan akreditasi mutu." },
-  { year: "2015", title: "Kemenkeu Corporate University", desc: "Kemenkeu Corpu dicanangkan sebagai pendekatan pembelajaran strategis terintegrasi dengan kinerja organisasi." },
-  { year: "2020", title: "Digital Learning Center", desc: "Akselerasi pembelajaran digital melalui Kemenkeu Learning Center, knowledge management, dan platform sertifikasi daring." },
-  { year: "2025", title: "Menuju Learning Organization", desc: "BPPK bertransformasi menjadi Learning Organization yang adaptif, kolaboratif, dan berorientasi pada dampak." },
+  { year: "1975", title: "Cikal Bakal Pusdiklat Keuangan", desc: "Pendirian unit pendidikan dan pelatihan di lingkungan Departemen Keuangan sebagai fondasi pengembangan SDM keuangan negara.", img: hero1.url },
+  { year: "1995", title: "Pembentukan BPPK", desc: "Badan Pendidikan dan Pelatihan Keuangan resmi dibentuk untuk mengonsolidasikan pendidikan dan pelatihan di Kementerian Keuangan.", img: hero2.url },
+  { year: "2007", title: "Reformasi Birokrasi", desc: "Transformasi diklat seiring reformasi birokrasi Kementerian Keuangan: kurikulum berbasis kompetensi dan akreditasi mutu.", img: hero3.url },
+  { year: "2015", title: "Kemenkeu Corporate University", desc: "Kemenkeu Corpu dicanangkan sebagai pendekatan pembelajaran strategis terintegrasi dengan kinerja organisasi.", img: edukasiCover.url },
+  { year: "2020", title: "Digital Learning Center", desc: "Akselerasi pembelajaran digital melalui Kemenkeu Learning Center, knowledge management, dan platform sertifikasi daring.", img: bgJurnal.url },
+  { year: "2025", title: "Menuju Learning Organization", desc: "BPPK bertransformasi menjadi Learning Organization yang adaptif, kolaboratif, dan berorientasi pada dampak.", img: bgBuku.url },
 ];
 
 const misi = [
