@@ -138,13 +138,13 @@ function StrukturPage() {
       {/* ORG CHART */}
       <section className="struktur-main">
         <div className="container-bppk">
-          <div className="struktur-chart">
+          <div className="struktur-chart" ref={chartRef}>
+            <OrgConnectors chartRef={chartRef} selectedId={selected.id} />
             {/* L1 — Kepala */}
-            <div className="org-row org-row-1">
+            <div className="org-row org-row-1" data-row="1">
               <UnitCard u={kepala} selected={selected.id === kepala.id} onClick={() => setSelected(kepala)} />
             </div>
 
-            <div className="org-trunk" aria-hidden="true" />
 
             {/* L2 — Unit Pusat */}
             <div className="org-section-label">
