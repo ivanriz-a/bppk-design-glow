@@ -16,85 +16,51 @@ export const Route = createFileRoute("/struktur-organisasi")({
   component: StrukturPage,
 });
 
-type Kind = "kepala" | "sekretariat" | "pusat" | "bdk" | "blu";
 type Unit = {
   id: string;
   name: string;
   short?: string;
-  tag: string;
   role: string;
   person: string;
   desc: string;
-  kind: Kind;
+  kind: "kepala" | "pusat" | "bdk" | "blu";
 };
 
 const kepala: Unit = {
   id: "kepala",
-  name: "Badan Pendidikan dan Pelatihan Keuangan",
-  short: "Badan Pendidikan dan Pelatihan Keuangan",
-  tag: "BPPK",
+  name: "Kepala Badan Pendidikan dan Pelatihan Keuangan",
+  short: "Kepala BPPK",
   role: "Kepala Badan",
   person: "—",
   desc: "Memimpin Badan Pendidikan dan Pelatihan Keuangan dalam menyelenggarakan pendidikan, pelatihan, dan pengembangan SDM di lingkungan Kementerian Keuangan.",
   kind: "kepala",
 };
 
-const sekretariat: Unit = {
-  id: "sekretariat",
-  name: "Sekretariat Badan Pendidikan dan Pelatihan Keuangan",
-  short: "Sekretariat Badan Pendidikan dan Pelatihan Keuangan",
-  tag: "SET BPPK",
-  role: "Sekretaris Badan",
-  person: "—",
-  desc: "Koordinasi pelaksanaan tugas, pembinaan, dan pemberian dukungan administrasi kepada seluruh unit di lingkungan BPPK.",
-  kind: "sekretariat",
-};
-
-// Order matches the zigzag layout in the reference image:
-// Top row (col 1,3,5): KM, Pajak, KP   |  Bottom row (col 2,4,6): AP, BC, JF
-const pusdiklat: Unit[] = [
-  { id: "pkm",  tag: "PUSDIKLAT KM", short: "Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajemen", name: "Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajemen", role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan kepemimpinan serta manajemen bagi aparatur Kementerian Keuangan.", kind: "pusat" },
-  { id: "pap",  tag: "PUSDIKLAT AP", short: "Pusat Pendidikan dan Pelatihan Anggaran dan Perbendaharaan",   name: "Pusat Pendidikan dan Pelatihan Anggaran dan Perbendaharaan",   role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan di bidang penganggaran dan perbendaharaan negara.", kind: "pusat" },
-  { id: "ppjk", tag: "PUSDIKLAT PA", short: "Pusat Pendidikan dan Pelatihan Pajak",                          name: "Pusat Pendidikan dan Pelatihan Pajak",                          role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan teknis di bidang perpajakan.", kind: "pusat" },
-  { id: "pbc",  tag: "PUSDIKLAT BC", short: "Pusat Pendidikan dan Pelatihan Bea dan Cukai",                  name: "Pusat Pendidikan dan Pelatihan Bea dan Cukai",                  role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan teknis di bidang kepabeanan dan cukai.", kind: "pusat" },
-  { id: "pkp",  tag: "PUSDIKLAT KP", short: "Pusat Pendidikan dan Pelatihan Keuangan Publik",                name: "Pusat Pendidikan dan Pelatihan Keuangan Publik",                role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan di bidang keuangan publik dan pengelolaan APBN/APBD.", kind: "pusat" },
-  { id: "pjf",  tag: "PUSBIN JF",    short: "Pusat Pembinaan Jabatan Fungsional dan Penjaminan Mutu",        name: "Pusat Pembinaan Jabatan Fungsional dan Penjaminan Mutu",        role: "Kepala Pusat",     person: "—", desc: "Pembinaan jabatan fungsional bidang keuangan negara dan penjaminan mutu pelatihan.", kind: "pusat" },
+const unitPusat: Unit[] = [
+  { id: "sekretariat", name: "Sekretariat Badan", role: "Sekretaris Badan", person: "—", desc: "Koordinasi pelaksanaan tugas, pembinaan, dan pemberian dukungan administrasi kepada seluruh unit di lingkungan BPPK.", kind: "pusat" },
+  { id: "pkm", name: "Pusdiklat Kepemimpinan dan Manajemen", short: "Pusdiklat KM", role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan kepemimpinan serta manajemen bagi aparatur Kementerian Keuangan.", kind: "pusat" },
+  { id: "pap", name: "Pusdiklat Anggaran dan Perbendaharaan", short: "Pusdiklat AP", role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan di bidang penganggaran dan perbendaharaan negara.", kind: "pusat" },
+  { id: "pajak", name: "Pusdiklat Pajak", role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan teknis di bidang perpajakan untuk aparatur Direktorat Jenderal Pajak.", kind: "pusat" },
+  { id: "bc", name: "Pusdiklat Bea dan Cukai", short: "Pusdiklat BC", role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan teknis di bidang kepabeanan dan cukai.", kind: "pusat" },
+  { id: "kp", name: "Pusdiklat Keuangan Publik", short: "Pusdiklat KP", role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan di bidang keuangan publik, kekayaan negara, dan pengelolaan APBN/APBD.", kind: "pusat" },
+  { id: "pjfpm", name: "Pusat Pembinaan Jabatan Fungsional dan Penjaminan Mutu", short: "P2JFPM", role: "Kepala Pusat", person: "—", desc: "Pembinaan jabatan fungsional bidang keuangan negara dan penjaminan mutu penyelenggaraan pelatihan.", kind: "pusat" },
 ];
 
-const blu: Unit = {
-  id: "pkn-stan",
-  tag: "PKN STAN",
-  short: "Politeknik Keuangan Negara STAN",
-  name: "Politeknik Keuangan Negara STAN",
-  role: "Direktur",
+const bdk: Unit[] = [
+  "Medan", "Pekanbaru", "Palembang", "Cimahi", "Yogyakarta", "Malang", "Denpasar", "Pontianak", "Balikpapan", "Makassar", "Manado",
+].map((kota) => ({
+  id: `bdk-${kota.toLowerCase()}`,
+  name: `Balai Diklat Keuangan ${kota}`,
+  short: `BDK ${kota}`,
+  role: "Kepala Balai",
   person: "—",
-  desc: "Perguruan tinggi vokasi bidang keuangan negara yang dikelola sebagai Badan Layanan Umum di lingkungan BPPK.",
-  kind: "blu",
-};
+  desc: `Unit Pelaksana Teknis BPPK yang menyelenggarakan pendidikan dan pelatihan di wilayah ${kota} dan sekitarnya.`,
+  kind: "bdk",
+}));
 
-// 11 BDK in zigzag: top row 6, bottom row 5 (interleaved)
-const bdkOrder = [
-  "Medan", "Pekanbaru", "Palembang", "Cimahi", "Yogyakarta", "Malang",
-  "Pontianak", "Balikpapan", "Denpasar", "Makassar", "Manado",
+const blu: Unit[] = [
+  { id: "pkn-stan", name: "Politeknik Keuangan Negara STAN", short: "PKN STAN", role: "Direktur", person: "—", desc: "Perguruan tinggi vokasi di bidang keuangan negara yang dikelola sebagai Badan Layanan Umum di lingkungan BPPK.", kind: "blu" },
 ];
-const bdk: Unit[] = bdkOrder.map((kota) => {
-  const tagMap: Record<string, string> = {
-    Medan: "BDK MEDAN", Pekanbaru: "BDK PEKANBARU", Palembang: "BDK PALEMBANG",
-    Cimahi: "BDK CIMAHI", Yogyakarta: "BDK YOGYA", Malang: "BDK MALANG",
-    Pontianak: "BDK PONTIANAK", Balikpapan: "BDK BALIKPAPAN", Denpasar: "BDK DENPASAR",
-    Makassar: "BDK MAKASSAR", Manado: "BDK MANADO",
-  };
-  return {
-    id: `bdk-${kota.toLowerCase()}`,
-    tag: tagMap[kota],
-    short: `Balai Diklat Keuangan ${kota}`,
-    name: `Balai Diklat Keuangan ${kota}`,
-    role: "Kepala Balai",
-    person: "—",
-    desc: `Unit Pelaksana Teknis BPPK yang menyelenggarakan pendidikan dan pelatihan di wilayah ${kota} dan sekitarnya.`,
-    kind: "bdk",
-  };
-});
 
 function StrukturPage() {
   const [scrolled, setScrolled] = useState(false);
@@ -108,12 +74,8 @@ function StrukturPage() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const kindLabel = (k: Kind) =>
-    k === "kepala" ? "Pimpinan"
-    : k === "sekretariat" ? "Sekretariat"
-    : k === "pusat" ? "Unit Pusat"
-    : k === "bdk" ? "Unit Pelaksana Teknis"
-    : "Badan Layanan Umum";
+  const kindLabel = (k: Unit["kind"]) =>
+    k === "kepala" ? "Pimpinan" : k === "pusat" ? "Unit Pusat" : k === "bdk" ? "Unit Pelaksana Teknis" : "Badan Layanan Umum";
 
   return (
     <>
@@ -169,7 +131,7 @@ function StrukturPage() {
             <h2 className="struktur-intro-title">Satu kepemimpinan, banyak <em>jalur belajar</em>.</h2>
           </div>
           <p className="struktur-intro-desc">
-            BPPK dipimpin oleh Kepala Badan dan didukung oleh Sekretariat Badan, enam Pusdiklat, Pusat Pembinaan Jabatan Fungsional, sebelas Balai Diklat Keuangan, serta Politeknik Keuangan Negara STAN. Klik unit pada bagan untuk melihat ringkasan tugasnya.
+            BPPK dipimpin oleh seorang Kepala Badan dan didukung oleh Sekretariat Badan, enam Pusdiklat, sebelas Balai Diklat Keuangan di berbagai wilayah, serta Politeknik Keuangan Negara STAN sebagai Badan Layanan Umum. Klik unit pada bagan untuk melihat ringkasan tugasnya.
           </p>
         </div>
       </section>
@@ -179,40 +141,47 @@ function StrukturPage() {
         <div className="container-bppk">
           <div className="struktur-chart" ref={chartRef}>
             <OrgConnectors chartRef={chartRef} selectedId={selected.id} />
-
             {/* L1 — Kepala */}
-            <div className="org-row org-row-kepala" data-row="1">
+            <div className="org-row org-row-1" data-row="1">
               <UnitCard u={kepala} selected={selected.id === kepala.id} onClick={() => setSelected(kepala)} />
             </div>
 
-            {/* L2 — Sekretariat (full-width supervisory band) */}
-            <div className="org-row org-row-sekretariat" data-row="2">
-              <UnitCard u={sekretariat} selected={selected.id === sekretariat.id} onClick={() => setSelected(sekretariat)} />
+
+            {/* L2 — Unit Pusat */}
+            <div className="org-section-label">
+              <span className="org-label-num">02</span>
+              <span className="org-label-text">Unit Pusat</span>
+              <span className="org-label-line" />
+            </div>
+            <div className="org-row org-row-2" data-row="2">
+              {unitPusat.map((u) => (
+                <UnitCard key={u.id} u={u} selected={selected.id === u.id} onClick={() => setSelected(u)} />
+              ))}
             </div>
 
-            {/* L3 — Pusdiklat zigzag + PKN STAN on the right */}
-            <div className="org-row org-row-pusat" data-row="3">
-              <div className="org-grid org-grid-pusat">
-                {pusdiklat.map((u, i) => (
-                  <div key={u.id} className="org-cell" data-pos={i}>
-                    <UnitCard u={u} selected={selected.id === u.id} onClick={() => setSelected(u)} />
-                  </div>
-                ))}
-                <div className="org-cell org-cell-blu">
-                  <UnitCard u={blu} selected={selected.id === blu.id} onClick={() => setSelected(blu)} />
-                </div>
-              </div>
+            {/* L3 — UPT */}
+            <div className="org-section-label">
+              <span className="org-label-num">03</span>
+              <span className="org-label-text">Unit Pelaksana Teknis · Balai Diklat Keuangan</span>
+              <span className="org-label-line" />
+            </div>
+            <div className="org-row org-row-3" data-row="3">
+              {bdk.map((u) => (
+                <UnitCard key={u.id} u={u} compact selected={selected.id === u.id} onClick={() => setSelected(u)} />
+              ))}
             </div>
 
-            {/* L4 — BDK zigzag (11 units) */}
-            <div className="org-row org-row-bdk" data-row="4">
-              <div className="org-grid org-grid-bdk">
-                {bdk.map((u, i) => (
-                  <div key={u.id} className="org-cell" data-pos={i}>
-                    <UnitCard u={u} selected={selected.id === u.id} onClick={() => setSelected(u)} />
-                  </div>
-                ))}
-              </div>
+            {/* L4 — BLU */}
+            <div className="org-section-label">
+              <span className="org-label-num">04</span>
+              <span className="org-label-text">Badan Layanan Umum</span>
+              <span className="org-label-line" />
+            </div>
+            <div className="org-row org-row-4" data-row="4">
+              {blu.map((u) => (
+
+                <UnitCard key={u.id} u={u} selected={selected.id === u.id} onClick={() => setSelected(u)} />
+              ))}
             </div>
           </div>
 
@@ -278,22 +247,23 @@ function StrukturPage() {
   );
 }
 
-function UnitCard({ u, selected, onClick }: { u: Unit; selected: boolean; onClick: () => void }) {
+function UnitCard({ u, selected, onClick, compact }: { u: Unit; selected: boolean; onClick: () => void; compact?: boolean }) {
   return (
     <button
       type="button"
       onClick={onClick}
       data-id={u.id}
-      className={`org-card ${selected ? "is-selected" : ""} kind-${u.kind}`}
+      className={`org-card ${selected ? "is-selected" : ""} ${compact ? "is-compact" : ""} kind-${u.kind}`}
       aria-pressed={selected}
     >
-      <span className="org-card-tag">{u.tag}</span>
+      <span className="org-card-kind">{u.kind === "kepala" ? "PIMPINAN" : u.kind === "pusat" ? "UNIT PUSAT" : u.kind === "bdk" ? "UPT" : "BLU"}</span>
       <span className="org-card-name">{u.short ?? u.name}</span>
+      <span className="org-card-role">{u.role}</span>
     </button>
   );
 }
 
-type Seg = { x1: number; y1: number; x2: number; y2: number; dashed?: boolean; highlight?: boolean };
+type Seg = { x1: number; y1: number; x2: number; y2: number; highlight?: boolean };
 
 function OrgConnectors({ chartRef, selectedId }: { chartRef: React.RefObject<HTMLDivElement | null>; selectedId: string }) {
   const [segs, setSegs] = useState<Seg[]>([]);
@@ -305,86 +275,55 @@ function OrgConnectors({ chartRef, selectedId }: { chartRef: React.RefObject<HTM
 
     const compute = () => {
       const cRect = chart.getBoundingClientRect();
-      const rect = (el: HTMLElement) => {
-        const r = el.getBoundingClientRect();
-        return {
-          left: r.left - cRect.left,
-          right: r.right - cRect.left,
-          cx: r.left - cRect.left + r.width / 2,
-          top: r.top - cRect.top,
-          bottom: r.bottom - cRect.top,
-          cy: r.top - cRect.top + r.height / 2,
-        };
-      };
+      const rows = Array.from(chart.querySelectorAll<HTMLElement>(".org-row")).sort(
+        (a, b) => Number(a.dataset.row) - Number(b.dataset.row),
+      );
+      if (rows.length < 2) return;
 
-      const kepalaEl = chart.querySelector<HTMLElement>('.org-card.kind-kepala');
-      const setEl = chart.querySelector<HTMLElement>('.org-card.kind-sekretariat');
-      const pusatEls = Array.from(chart.querySelectorAll<HTMLElement>('.org-card.kind-pusat'));
-      const bluEl = chart.querySelector<HTMLElement>('.org-card.kind-blu');
-      const bdkEls = Array.from(chart.querySelectorAll<HTMLElement>('.org-card.kind-bdk'));
-      if (!kepalaEl || !setEl) return;
+      const rowInfo = rows.map((row) => {
+        const cards = Array.from(row.querySelectorAll<HTMLElement>(".org-card"));
+        const rects = cards.map((c) => {
+          const r = c.getBoundingClientRect();
+          return {
+            id: c.getAttribute("data-id") ?? "",
+            cx: r.left - cRect.left + r.width / 2,
+            top: r.top - cRect.top,
+            bottom: r.bottom - cRect.top,
+          };
+        });
+        return { rects };
+      });
 
-      const kepalaR = rect(kepalaEl);
-      const setR = rect(setEl);
-      const trunkX = kepalaR.cx;
       const next: Seg[] = [];
+      const trunkX = rowInfo[0].rects[0]?.cx ?? cRect.width / 2;
 
-      // Trunk: Kepala bottom → through Set row, down to just above pusat row top
-      const pusatTops = pusatEls.map((e) => rect(e).top);
-      const pusatTopMin = pusatTops.length ? Math.min(...pusatTops) : setR.bottom + 40;
-      const busPusatY = setR.bottom + Math.max(20, (pusatTopMin - setR.bottom) / 2);
+      for (let r = 1; r < rowInfo.length; r++) {
+        const prev = rowInfo[r - 1].rects;
+        const cur = rowInfo[r].rects;
+        if (!prev.length || !cur.length) continue;
+        const prevBottom = Math.max(...prev.map((p) => p.bottom));
+        const curTop = Math.min(...cur.map((c) => c.top));
+        const busY = (prevBottom + curTop) / 2;
 
-      // 1. Kepala -> Sekretariat band horizontal line
-      const setBandY = setR.cy;
-      next.push({ x1: trunkX, y1: kepalaR.bottom, x2: trunkX, y2: setBandY });
-      // horizontal supervisory bar across full chart width (Sekretariat spans visually)
-      next.push({ x1: setR.right, y1: setBandY, x2: chart.clientWidth - 32, y2: setBandY });
+        // trunk segment from prev row bottom (at trunkX) to busY
+        next.push({ x1: trunkX, y1: prevBottom, x2: trunkX, y2: busY });
 
-      // 2. From trunk continue downward to pusat bus
-      next.push({ x1: trunkX, y1: setBandY, x2: trunkX, y2: busPusatY });
-
-      // 3. Pusat horizontal bus + vertical drops to each pusdiklat
-      if (pusatEls.length) {
-        const pusatCxs = pusatEls.map((e) => rect(e).cx);
-        const minX = Math.min(...pusatCxs, trunkX);
-        const maxX = Math.max(...pusatCxs, trunkX);
-        next.push({ x1: minX, y1: busPusatY, x2: maxX, y2: busPusatY });
-        for (const el of pusatEls) {
-          const r = rect(el);
-          next.push({
-            x1: r.cx, y1: busPusatY, x2: r.cx, y2: r.top,
-            highlight: el.getAttribute("data-id") === selectedId,
-          });
+        // horizontal bus
+        const xs = cur.map((c) => c.cx).concat([trunkX]);
+        const minX = Math.min(...xs);
+        const maxX = Math.max(...xs);
+        if (maxX - minX > 0.5) {
+          next.push({ x1: minX, y1: busY, x2: maxX, y2: busY });
         }
-      }
 
-      // 4. PKN STAN — dashed bracket from right edge of Sekretariat band down to BLU card
-      if (bluEl) {
-        const r = rect(bluEl);
-        const bracketX = chart.clientWidth - 40;
-        next.push({ x1: bracketX, y1: setBandY, x2: bracketX, y2: r.cy, dashed: true });
-        next.push({ x1: bracketX, y1: r.cy, x2: r.right, y2: r.cy, dashed: true });
-      }
-
-      // 5. BDK — dashed bracket. From Sekretariat band down the left edge,
-      //    across as a bus above BDK row, then down (dashed) to each BDK.
-      if (bdkEls.length) {
-        const bdkRects = bdkEls.map(rect);
-        const bdkTopMin = Math.min(...bdkRects.map((r) => r.top));
-        const busBdkY = bdkTopMin - 28;
-        const leftX = 28;
-
-        // vertical down the left edge from set band to BDK bus
-        next.push({ x1: leftX, y1: setBandY, x2: leftX, y2: busBdkY, dashed: true });
-        // horizontal BDK bus
-        const maxX = Math.max(...bdkRects.map((r) => r.cx));
-        next.push({ x1: leftX, y1: busBdkY, x2: maxX, y2: busBdkY, dashed: true });
-        // verticals to each BDK
-        for (let i = 0; i < bdkEls.length; i++) {
-          const r = bdkRects[i];
+        // verticals from bus down to each card
+        for (const c of cur) {
           next.push({
-            x1: r.cx, y1: busBdkY, x2: r.cx, y2: r.top, dashed: true,
-            highlight: bdkEls[i].getAttribute("data-id") === selectedId,
+            x1: c.cx,
+            y1: busY,
+            x2: c.cx,
+            y2: c.top,
+            highlight: c.id === selectedId,
           });
         }
       }
@@ -419,12 +358,13 @@ function OrgConnectors({ chartRef, selectedId }: { chartRef: React.RefObject<HTM
           y1={s.y1}
           x2={s.x2}
           y2={s.y2}
-          className={`org-connector ${s.highlight ? "is-highlight" : ""} ${s.dashed ? "is-dashed" : ""}`}
+          className={s.highlight ? "org-connector is-highlight" : "org-connector"}
         />
       ))}
     </svg>
   );
 }
+
 
 function Chevron() {
   return <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9" /></svg>;
