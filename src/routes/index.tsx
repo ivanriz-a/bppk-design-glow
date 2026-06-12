@@ -178,7 +178,7 @@ function Home() {
                     <li><Link to="/profil" hash="learning-org">Learning Organization</Link></li>
                   </ul>
                 </li>
-                <li><a href="#">Struktur Organisasi</a></li>
+                <li><Link to="/struktur-organisasi">Struktur Organisasi</Link></li>
                 <li><a href="#">Profil Pejabat</a></li>
                 <li><a href="#">Jejak, Karya, dan Transformasi BPPK</a></li>
               </ul>
