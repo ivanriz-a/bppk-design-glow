@@ -2532,17 +2532,32 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   gap: 12px;
   justify-content: center;
   position: relative;
+  z-index: 2;
 }
-.org-row-1 { justify-content: center; }
+.org-row-1 { justify-content: center; margin-bottom: 44px; }
 .org-row-2 { justify-content: center; }
 .org-row-3 { justify-content: center; }
 
-.org-trunk {
-  width: 2px;
-  height: 36px;
-  margin: 0 auto;
-  background: color-mix(in oklab, var(--foreground) 25%, transparent);
+.org-connectors {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: visible;
 }
+.org-connector {
+  stroke: color-mix(in oklab, var(--foreground) 28%, transparent);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  transition: stroke 200ms ease, stroke-width 200ms ease;
+}
+.org-connector.is-highlight {
+  stroke: var(--gold, #c9a64b);
+  stroke-width: 2;
+}
+
+.org-section-label + .org-row { margin-top: 32px; }
+
 
 .org-section-label {
   display: flex;
