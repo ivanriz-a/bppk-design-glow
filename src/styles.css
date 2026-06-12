@@ -2638,25 +2638,25 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
 }
 
 .org-card.kind-kepala {
-  background: var(--bppk-yellow, #fece2f);
-  border-color: var(--bppk-yellow, #fece2f);
+  background: var(--bppk-blue-dark, #03364f);
+  border-color: var(--bppk-blue-dark, #03364f);
   max-width: 320px;
   padding: 16px 22px;
 }
 .org-card.kind-kepala .org-card-tag {
-  color: color-mix(in oklab, #fff 70%, transparent);
+  color: var(--bppk-light-blue, #439fd9);
   font-size: 18px;
   letter-spacing: 0.32em;
 }
 .org-card.kind-kepala .org-card-name {
-  color: #0b1e3f;
+  color: #fff;
   font-size: 15px;
 }
 .org-card.kind-kepala:hover {
-  box-shadow: 0 14px 30px -14px color-mix(in oklab, var(--bppk-yellow, #fece2f) 75%, transparent);
+  box-shadow: 0 14px 30px -14px color-mix(in oklab, var(--bppk-blue-dark, #03364f) 75%, transparent);
 }
 .org-card.kind-kepala.is-selected {
-  box-shadow: 0 0 0 2px var(--bppk-blue, #044f74), 0 14px 28px -14px color-mix(in oklab, var(--bppk-blue, #044f74) 70%, transparent);
+  box-shadow: 0 0 0 2px var(--bppk-light-blue, #439fd9), 0 14px 28px -14px color-mix(in oklab, var(--bppk-light-blue, #439fd9) 70%, transparent);
 }
 
 .org-card.kind-sekretariat { max-width: 280px; }
