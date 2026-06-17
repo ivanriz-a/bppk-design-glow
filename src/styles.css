@@ -2648,7 +2648,6 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
 .org-card.kind-kepala {
   background: var(--bppk-blue-dark, #03364f);
   border-color: var(--bppk-blue-dark, #03364f);
-  max-width: 360px;
   padding: 18px 24px;
   min-height: 110px;
 }
@@ -2673,10 +2672,10 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   box-shadow: 0 0 0 2px var(--bppk-yellow, #fece2f), 0 14px 28px -14px color-mix(in oklab, var(--bppk-yellow, #fece2f) 65%, transparent);
 }
 
-.org-card.kind-sekretariat { max-width: 320px; }
-.org-card.kind-pusat       { max-width: 260px; }
-.org-card.kind-blu         { max-width: 240px; }
-.org-card.kind-bdk         { max-width: 220px; min-height: 88px; padding: 12px 14px; }
+.org-card.kind-sekretariat { }
+.org-card.kind-pusat       { min-height: 110px; }
+.org-card.kind-blu         { }
+.org-card.kind-bdk         { min-height: 88px; padding: 12px 14px; }
 .org-card.kind-bdk .org-card-name { font-size: 14px; }
 .org-card.kind-bdk .org-card-role { font-size: 11.5px; }
 
