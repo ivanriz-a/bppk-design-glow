@@ -282,7 +282,8 @@ function UnitCard({ u, selected, onClick }: { u: Unit; selected: boolean; onClic
       aria-pressed={selected}
     >
       <span className="org-card-tag">{u.tag}</span>
-      <span className="org-card-name">{u.short ?? u.name}</span>
+      <span className="org-card-name">{u.label}</span>
+      <span className="org-card-role">{u.role}</span>
     </button>
   );
 }
