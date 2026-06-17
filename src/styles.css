@@ -2560,7 +2560,7 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
 
 .org-grid-bdk {
   grid-template-columns: repeat(11, minmax(0, 1fr));
-  column-gap: 8px;
+  column-gap: 14px;
   row-gap: 28px;
 }
 .org-grid-bdk .org-cell { display: flex; justify-content: center; }
