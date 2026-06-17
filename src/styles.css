@@ -2599,74 +2599,86 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
 .org-card {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  text-align: center;
-  align-items: center;
-  background: var(--bppk-blue, #044f74);
-  border: 1.5px solid var(--bppk-blue, #044f74);
-  border-radius: 14px;
-  padding: 12px 14px 12px;
+  gap: 6px;
+  text-align: left;
+  align-items: flex-start;
+  background: #ffffff;
+  border: 1.5px solid color-mix(in oklab, var(--bppk-blue, #044f74) 14%, transparent);
+  border-radius: 12px;
+  padding: 14px 18px;
   width: 100%;
-  min-height: 84px;
+  min-height: 96px;
   cursor: pointer;
   transition: all 0.2s ease;
   font-family: "Poppins", sans-serif;
   position: relative;
-  color: #fff;
+  color: var(--bppk-blue-dark, #03364f);
+  box-shadow: 0 1px 2px rgba(3, 54, 79, 0.04);
 }
 .org-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px -14px color-mix(in oklab, var(--bppk-blue, #044f74) 80%, transparent);
+  border-color: var(--bppk-yellow, #fece2f);
+  box-shadow: 0 10px 24px -14px color-mix(in oklab, var(--bppk-blue, #044f74) 60%, transparent);
 }
 .org-card.is-selected {
+  border-color: var(--bppk-yellow, #fece2f);
   box-shadow: 0 0 0 2px var(--bppk-yellow, #fece2f), 0 12px 28px -14px color-mix(in oklab, var(--bppk-yellow, #fece2f) 70%, transparent);
 }
 .org-card-tag {
   font-size: 10.5px;
   letter-spacing: 0.22em;
   font-weight: 700;
-  color: color-mix(in oklab, var(--bppk-yellow, #fece2f) 70%, transparent);
+  color: var(--bppk-yellow-dark, #b8860b);
   text-transform: uppercase;
   line-height: 1;
-  margin-bottom: 4px;
 }
 .org-card-name {
-  font-size: 12.5px;
+  font-size: 15px;
   font-weight: 700;
+  line-height: 1.25;
+  color: var(--bppk-blue-dark, #03364f);
+}
+.org-card-role {
+  font-size: 12px;
+  font-weight: 500;
   line-height: 1.3;
-  color: #fff;
+  color: color-mix(in oklab, var(--bppk-blue-dark, #03364f) 55%, transparent);
 }
 
 .org-card.kind-kepala {
   background: var(--bppk-blue-dark, #03364f);
   border-color: var(--bppk-blue-dark, #03364f);
-  max-width: 320px;
-  padding: 16px 22px;
+  max-width: 360px;
+  padding: 18px 24px;
+  min-height: 110px;
 }
 .org-card.kind-kepala .org-card-tag {
-  color: var(--bppk-light-blue, #439fd9);
-  font-size: 18px;
+  color: var(--bppk-yellow, #fece2f);
+  font-size: 11px;
   letter-spacing: 0.32em;
 }
 .org-card.kind-kepala .org-card-name {
   color: #fff;
-  font-size: 15px;
+  font-size: 22px;
+}
+.org-card.kind-kepala .org-card-role {
+  color: color-mix(in oklab, #ffffff 75%, transparent);
+  font-size: 13px;
 }
 .org-card.kind-kepala:hover {
+  border-color: var(--bppk-yellow, #fece2f);
   box-shadow: 0 14px 30px -14px color-mix(in oklab, var(--bppk-blue-dark, #03364f) 75%, transparent);
 }
 .org-card.kind-kepala.is-selected {
-  box-shadow: 0 0 0 2px var(--bppk-light-blue, #439fd9), 0 14px 28px -14px color-mix(in oklab, var(--bppk-light-blue, #439fd9) 70%, transparent);
+  box-shadow: 0 0 0 2px var(--bppk-yellow, #fece2f), 0 14px 28px -14px color-mix(in oklab, var(--bppk-yellow, #fece2f) 65%, transparent);
 }
 
-.org-card.kind-sekretariat { max-width: 280px; }
-.org-card.kind-sekretariat .org-card-tag { font-size: 13px; letter-spacing: 0.3em; }
-
-.org-card.kind-pusat  { max-width: 220px; }
-.org-card.kind-blu    { max-width: 200px; }
-.org-card.kind-bdk    { max-width: 180px; min-height: 70px; padding: 10px 10px; }
-.org-card.kind-bdk .org-card-name { font-size: 11.5px; }
-.org-card.kind-bdk .org-card-tag { font-size: 9.5px; letter-spacing: 0.18em; }
+.org-card.kind-sekretariat { max-width: 320px; }
+.org-card.kind-pusat       { max-width: 260px; }
+.org-card.kind-blu         { max-width: 240px; }
+.org-card.kind-bdk         { max-width: 220px; min-height: 88px; padding: 12px 14px; }
+.org-card.kind-bdk .org-card-name { font-size: 14px; }
+.org-card.kind-bdk .org-card-role { font-size: 11.5px; }
 
 .struktur-detail {
   position: sticky;

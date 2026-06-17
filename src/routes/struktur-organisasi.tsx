@@ -21,6 +21,7 @@ type Unit = {
   id: string;
   name: string;
   short?: string;
+  label: string;
   tag: string;
   role: string;
   person: string;
@@ -31,8 +32,9 @@ type Unit = {
 const kepala: Unit = {
   id: "kepala",
   name: "Badan Pendidikan dan Pelatihan Keuangan",
-  short: "Badan Pendidikan dan Pelatihan Keuangan",
-  tag: "BPPK",
+  short: "Kepala BPPK",
+  label: "Kepala BPPK",
+  tag: "PIMPINAN",
   role: "Kepala Badan",
   person: "—",
   desc: "Memimpin Badan Pendidikan dan Pelatihan Keuangan dalam menyelenggarakan pendidikan, pelatihan, dan pengembangan SDM di lingkungan Kementerian Keuangan.",
@@ -42,29 +44,29 @@ const kepala: Unit = {
 const sekretariat: Unit = {
   id: "sekretariat",
   name: "Sekretariat Badan Pendidikan dan Pelatihan Keuangan",
-  short: "Sekretariat Badan Pendidikan dan Pelatihan Keuangan",
-  tag: "SET BPPK",
+  short: "Sekretariat Badan",
+  label: "Sekretariat Badan",
+  tag: "KANTOR PUSAT",
   role: "Sekretaris Badan",
   person: "—",
   desc: "Koordinasi pelaksanaan tugas, pembinaan, dan pemberian dukungan administrasi kepada seluruh unit di lingkungan BPPK.",
   kind: "sekretariat",
 };
 
-// Order matches the zigzag layout in the reference image:
-// Top row (col 1,3,5): KM, Pajak, KP   |  Bottom row (col 2,4,6): AP, BC, JF
 const pusdiklat: Unit[] = [
-  { id: "pkm",  tag: "PUSDIKLAT KM", short: "Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajemen", name: "Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajemen", role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan kepemimpinan serta manajemen bagi aparatur Kementerian Keuangan.", kind: "pusat" },
-  { id: "pap",  tag: "PUSDIKLAT AP", short: "Pusat Pendidikan dan Pelatihan Anggaran dan Perbendaharaan",   name: "Pusat Pendidikan dan Pelatihan Anggaran dan Perbendaharaan",   role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan di bidang penganggaran dan perbendaharaan negara.", kind: "pusat" },
-  { id: "ppjk", tag: "PUSDIKLAT PA", short: "Pusat Pendidikan dan Pelatihan Pajak",                          name: "Pusat Pendidikan dan Pelatihan Pajak",                          role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan teknis di bidang perpajakan.", kind: "pusat" },
-  { id: "pbc",  tag: "PUSDIKLAT BC", short: "Pusat Pendidikan dan Pelatihan Bea dan Cukai",                  name: "Pusat Pendidikan dan Pelatihan Bea dan Cukai",                  role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan teknis di bidang kepabeanan dan cukai.", kind: "pusat" },
-  { id: "pkp",  tag: "PUSDIKLAT KP", short: "Pusat Pendidikan dan Pelatihan Keuangan Publik",                name: "Pusat Pendidikan dan Pelatihan Keuangan Publik",                role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan di bidang keuangan publik dan pengelolaan APBN/APBD.", kind: "pusat" },
-  { id: "pjf",  tag: "PUSBIN JF",    short: "Pusat Pembinaan Jabatan Fungsional dan Penjaminan Mutu",        name: "Pusat Pembinaan Jabatan Fungsional dan Penjaminan Mutu",        role: "Kepala Pusat",     person: "—", desc: "Pembinaan jabatan fungsional bidang keuangan negara dan penjaminan mutu pelatihan.", kind: "pusat" },
+  { id: "pkm",  tag: "KANTOR PUSAT", label: "Pusdiklat KM",    short: "Pusdiklat KM",    name: "Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajemen", role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan kepemimpinan serta manajemen bagi aparatur Kementerian Keuangan.", kind: "pusat" },
+  { id: "pap",  tag: "KANTOR PUSAT", label: "Pusdiklat AP",    short: "Pusdiklat AP",    name: "Pusat Pendidikan dan Pelatihan Anggaran dan Perbendaharaan", role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan di bidang penganggaran dan perbendaharaan negara.", kind: "pusat" },
+  { id: "ppjk", tag: "KANTOR PUSAT", label: "Pusdiklat Pajak", short: "Pusdiklat Pajak", name: "Pusat Pendidikan dan Pelatihan Pajak", role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan teknis di bidang perpajakan.", kind: "pusat" },
+  { id: "pbc",  tag: "KANTOR PUSAT", label: "Pusdiklat BC",    short: "Pusdiklat BC",    name: "Pusat Pendidikan dan Pelatihan Bea dan Cukai", role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan teknis di bidang kepabeanan dan cukai.", kind: "pusat" },
+  { id: "pkp",  tag: "KANTOR PUSAT", label: "Pusdiklat KP",    short: "Pusdiklat KP",    name: "Pusat Pendidikan dan Pelatihan Keuangan Publik", role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan di bidang keuangan publik dan pengelolaan APBN/APBD.", kind: "pusat" },
+  { id: "pjf",  tag: "KANTOR PUSAT", label: "P2JFPM",          short: "P2JFPM",          name: "Pusat Pembinaan Jabatan Fungsional dan Penjaminan Mutu", role: "Kepala Pusat", person: "—", desc: "Pembinaan jabatan fungsional bidang keuangan negara dan penjaminan mutu pelatihan.", kind: "pusat" },
 ];
 
 const blu: Unit = {
   id: "pkn-stan",
-  tag: "PKN STAN",
-  short: "Politeknik Keuangan Negara STAN",
+  tag: "BLU",
+  label: "PKN STAN",
+  short: "PKN STAN",
   name: "Politeknik Keuangan Negara STAN",
   role: "Direktur",
   person: "—",
@@ -72,29 +74,21 @@ const blu: Unit = {
   kind: "blu",
 };
 
-// 11 BDK in zigzag: top row 6, bottom row 5 (interleaved)
 const bdkOrder = [
   "Medan", "Pekanbaru", "Palembang", "Cimahi", "Yogyakarta", "Malang",
   "Pontianak", "Balikpapan", "Denpasar", "Makassar", "Manado",
 ];
-const bdk: Unit[] = bdkOrder.map((kota) => {
-  const tagMap: Record<string, string> = {
-    Medan: "BDK MEDAN", Pekanbaru: "BDK PEKANBARU", Palembang: "BDK PALEMBANG",
-    Cimahi: "BDK CIMAHI", Yogyakarta: "BDK YOGYA", Malang: "BDK MALANG",
-    Pontianak: "BDK PONTIANAK", Balikpapan: "BDK BALIKPAPAN", Denpasar: "BDK DENPASAR",
-    Makassar: "BDK MAKASSAR", Manado: "BDK MANADO",
-  };
-  return {
-    id: `bdk-${kota.toLowerCase()}`,
-    tag: tagMap[kota],
-    short: `Balai Diklat Keuangan ${kota}`,
-    name: `Balai Diklat Keuangan ${kota}`,
-    role: "Kepala Balai",
-    person: "—",
-    desc: `Unit Pelaksana Teknis BPPK yang menyelenggarakan pendidikan dan pelatihan di wilayah ${kota} dan sekitarnya.`,
-    kind: "bdk",
-  };
-});
+const bdk: Unit[] = bdkOrder.map((kota) => ({
+  id: `bdk-${kota.toLowerCase()}`,
+  tag: "UPT",
+  label: `BDK ${kota}`,
+  short: `BDK ${kota}`,
+  name: `Balai Diklat Keuangan ${kota}`,
+  role: "Kepala Balai",
+  person: "—",
+  desc: `Unit Pelaksana Teknis BPPK yang menyelenggarakan pendidikan dan pelatihan di wilayah ${kota} dan sekitarnya.`,
+  kind: "bdk",
+}));
 
 function StrukturPage() {
   const [scrolled, setScrolled] = useState(false);
@@ -288,7 +282,8 @@ function UnitCard({ u, selected, onClick }: { u: Unit; selected: boolean; onClic
       aria-pressed={selected}
     >
       <span className="org-card-tag">{u.tag}</span>
-      <span className="org-card-name">{u.short ?? u.name}</span>
+      <span className="org-card-name">{u.label}</span>
+      <span className="org-card-role">{u.role}</span>
     </button>
   );
 }
