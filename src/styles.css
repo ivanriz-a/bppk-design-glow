@@ -2546,7 +2546,7 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
 .org-grid { display: grid; width: 100%; }
 .org-grid-pusat {
   grid-template-columns: repeat(7, minmax(0, 1fr));
-  column-gap: 12px;
+  column-gap: 16px;
   row-gap: 36px;
 }
 .org-grid-pusat .org-cell { display: flex; justify-content: center; }
