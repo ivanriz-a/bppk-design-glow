@@ -203,7 +203,11 @@ function StrukturPage() {
               <div className="org-grid org-grid-bdk">
                 {bdk.map((u, i) => (
                   <div key={u.id} className="org-cell" data-pos={i}>
-                    <UnitCard u={u} selected={selected.id === u.id} onClick={() => setSelected(u)} />
+                    <div data-id={u.id} className={`org-card kind-${u.kind}`} aria-disabled="true">
+                      <span className="org-card-tag">{u.tag}</span>
+                      <span className="org-card-name">{u.label}</span>
+                      <span className="org-card-role">{u.role}</span>
+                    </div>
                   </div>
                 ))}
               </div>
