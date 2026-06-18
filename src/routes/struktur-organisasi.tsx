@@ -184,7 +184,7 @@ function StrukturPage() {
               <UnitCard u={sekretariat} selected={selected.id === sekretariat.id} onClick={() => setSelected(sekretariat)} />
             </div>
 
-            {/* L3 — Pusdiklat zigzag + PKN STAN on the right */}
+            {/* L3 — Pusdiklat zigzag (left) + BLU (right, separate) */}
             <div className="org-row org-row-pusat" data-row="3">
               <div className="org-grid org-grid-pusat">
                 {pusdiklat.map((u, i) => (
@@ -192,9 +192,9 @@ function StrukturPage() {
                     <UnitCard u={u} selected={selected.id === u.id} onClick={() => setSelected(u)} />
                   </div>
                 ))}
-                <div className="org-cell org-cell-blu">
-                  <UnitCard u={blu} selected={selected.id === blu.id} onClick={() => setSelected(blu)} />
-                </div>
+              </div>
+              <div className="org-grid org-grid-blu">
+                <UnitCard u={blu} selected={selected.id === blu.id} onClick={() => setSelected(blu)} />
               </div>
             </div>
 
