@@ -2677,7 +2677,8 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
 .org-card.kind-sekretariat { max-width: 320px; }
 .org-card.kind-pusat       { max-width: none; }
 .org-card.kind-blu         { max-width: none; }
-.org-card.kind-bdk         { max-width: none; min-height: 88px; padding: 12px 14px; }
+.org-card.kind-bdk         { max-width: none; min-height: 88px; padding: 12px 14px; cursor: default; }
+.org-card.kind-bdk:hover   { transform: none; border-color: color-mix(in oklab, var(--bppk-blue, #044f74) 14%, transparent); box-shadow: 0 1px 2px rgba(3, 54, 79, 0.04); }
 .org-card.kind-bdk .org-card-name { font-size: 14px; }
 .org-card.kind-bdk .org-card-role { font-size: 11.5px; }
 
