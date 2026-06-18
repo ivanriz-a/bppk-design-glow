@@ -2634,7 +2634,7 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   box-shadow: 0 0 0 2px var(--bppk-yellow, #fece2f), 0 12px 28px -14px color-mix(in oklab, var(--bppk-yellow, #fece2f) 70%, transparent);
 }
 .org-card-tag {
-  font-size: 10.5px;
+  font-size: 8.5px;
   letter-spacing: 0.22em;
   font-weight: 700;
   color: var(--bppk-yellow-dark, #b8860b);
