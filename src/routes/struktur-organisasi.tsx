@@ -59,7 +59,7 @@ const pusdiklat: Unit[] = [
   { id: "ppjk", tag: "KANTOR PUSAT", label: "Pusdiklat Pajak", short: "Pusdiklat Pajak", name: "Pusat Pendidikan dan Pelatihan Pajak", role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan teknis di bidang perpajakan.", kind: "pusat" },
   { id: "pbc",  tag: "KANTOR PUSAT", label: "Pusdiklat BC",    short: "Pusdiklat BC",    name: "Pusat Pendidikan dan Pelatihan Bea dan Cukai", role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan teknis di bidang kepabeanan dan cukai.", kind: "pusat" },
   { id: "pkp",  tag: "KANTOR PUSAT", label: "Pusdiklat KP",    short: "Pusdiklat KP",    name: "Pusat Pendidikan dan Pelatihan Keuangan Publik", role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan di bidang keuangan publik dan pengelolaan APBN/APBD.", kind: "pusat" },
-  { id: "pjf",  tag: "KANTOR PUSAT", label: "P2JFPM",          short: "P2JFPM",          name: "Pusat Pembinaan Jabatan Fungsional dan Penjaminan Mutu", role: "Kepala Pusat", person: "—", desc: "Pembinaan jabatan fungsional bidang keuangan negara dan penjaminan mutu pelatihan.", kind: "pusat" },
+  { id: "pjf",  tag: "KANTOR PUSAT", label: "PUSBIN JFKN",     short: "PUSBIN JFKN",     name: "Pusat Pembinaan Jabatan Fungsional Keuangan Negara", role: "Kepala Pusat", person: "—", desc: "Pembinaan jabatan fungsional bidang keuangan negara dan penjaminan mutu pelatihan.", kind: "pusat" },
 ];
 
 const blu: Unit = {
@@ -184,7 +184,7 @@ function StrukturPage() {
               <UnitCard u={sekretariat} selected={selected.id === sekretariat.id} onClick={() => setSelected(sekretariat)} />
             </div>
 
-            {/* L3 — Pusdiklat zigzag (left) + BLU (right, separate) */}
+            {/* L3 — Pusdiklat + BLU brick (4 atas, 3 bawah offset) */}
             <div className="org-row org-row-pusat" data-row="3">
               <div className="org-grid org-grid-pusat">
                 {pusdiklat.map((u, i) => (
@@ -192,13 +192,13 @@ function StrukturPage() {
                     <UnitCard u={u} selected={selected.id === u.id} onClick={() => setSelected(u)} />
                   </div>
                 ))}
-              </div>
-              <div className="org-grid org-grid-blu">
-                <UnitCard u={blu} selected={selected.id === blu.id} onClick={() => setSelected(blu)} />
+                <div className="org-cell" data-pos={pusdiklat.length}>
+                  <UnitCard u={blu} selected={selected.id === blu.id} onClick={() => setSelected(blu)} />
+                </div>
               </div>
             </div>
 
-            {/* L4 — BDK zigzag (11 units) */}
+            {/* L4 — BDK brick (6 atas, 5 bawah offset) */}
             <div className="org-row org-row-bdk" data-row="4">
               <div className="org-grid org-grid-bdk">
                 {bdk.map((u, i) => (
