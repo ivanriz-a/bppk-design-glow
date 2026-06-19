@@ -331,28 +331,27 @@ function OrgConnectors({ chartRef, selectedId }: { chartRef: React.RefObject<HTM
       const trunkX = kepalaR.cx;
       const next: Seg[] = [];
 
-      // Identify pusdiklat top-row vs bottom-row by Y position
       const pusatRects = pusatEls.map((e) => ({ el: e, r: rect(e) }));
       const bluR = bluEl ? rect(bluEl) : null;
-      // Top-row Y = min top among pusdiklat + BLU
       const allTops = [...pusatRects.map((p) => p.r.top), ...(bluR ? [bluR.top] : [])];
       const topRowY = allTops.length ? Math.min(...allTops) : setR.bottom + 40;
       const busPusatY = setR.bottom + Math.max(20, (topRowY - setR.bottom) / 2);
 
-      // SOLID trunk: Kepala bottom → straight down to pusat bus (passes through sekretariat band area)
+      // SOLID trunk: Kepala → bus pusat
       next.push({ x1: trunkX, y1: kepalaR.bottom, x2: trunkX, y2: busPusatY });
 
-      // SOLID pusat horizontal bus + verticals to ALL pusdiklat + BLU cards
-      const allPusat: { cx: number; top: number; id: string | null }[] = [
-        ...pusatRects.map((p) => ({ cx: p.r.cx, top: p.r.top, id: p.el.getAttribute("data-id") })),
-        ...(bluR && bluEl ? [{ cx: bluR.cx, top: bluR.top, id: bluEl.getAttribute("data-id") }] : []),
-      ];
-      if (allPusat.length) {
-        const cxs = allPusat.map((p) => p.cx);
+      // SOLID: Sekretariat → trunk (small horizontal stub at sek band)
+      const setBandY = setR.cy;
+      next.push({ x1: setR.right, y1: setBandY, x2: trunkX, y2: setBandY });
+
+      // SOLID bus + verticals to 6 Pusdiklat (BLU excluded — connects via dashed)
+      const pusatOnly = pusatRects.map((p) => ({ cx: p.r.cx, top: p.r.top, id: p.el.getAttribute("data-id") }));
+      if (pusatOnly.length) {
+        const cxs = pusatOnly.map((p) => p.cx);
         const minX = Math.min(...cxs, trunkX);
         const maxX = Math.max(...cxs, trunkX);
         next.push({ x1: minX, y1: busPusatY, x2: maxX, y2: busPusatY });
-        for (const p of allPusat) {
+        for (const p of pusatOnly) {
           next.push({
             x1: p.cx, y1: busPusatY, x2: p.cx, y2: p.top,
             highlight: p.id === selectedId,
@@ -360,24 +359,38 @@ function OrgConnectors({ chartRef, selectedId }: { chartRef: React.RefObject<HTM
         }
       }
 
-      // DASHED bracket: surrounds pusdiklat block from outside (left & right of cards)
-      const setBandY = setR.cy;
+      // DASHED bracket enclosing pusdiklat block, anchored at sekretariat band
       const pusatLefts = [...pusatRects.map((p) => p.r.left), ...(bluR ? [bluR.left] : [])];
       const pusatRights = [...pusatRects.map((p) => p.r.right), ...(bluR ? [bluR.right] : [])];
       const pusatLeftMost = pusatLefts.length ? Math.min(...pusatLefts) : 24;
       const pusatRightMost = pusatRights.length ? Math.max(...pusatRights) : chart.clientWidth - 24;
-      const leftX = Math.max(12, pusatLeftMost - 16);
+      const leftX = Math.max(12, Math.min(pusatLeftMost - 16, setR.left - 16));
       const rightX = Math.min(chart.clientWidth - 12, pusatRightMost + 16);
       const pusatBottoms = [...pusatRects.map((p) => p.r.bottom), ...(bluR ? [bluR.bottom] : [])];
       const pusatBottomMax = pusatBottoms.length ? Math.max(...pusatBottoms) : busPusatY + 80;
       const bracketBottomY = pusatBottomMax + 28;
-      next.push({ x1: setR.left, y1: setBandY, x2: leftX, y2: setBandY, dashed: true });
-      next.push({ x1: leftX, y1: setBandY, x2: leftX, y2: bracketBottomY, dashed: true });
-      next.push({ x1: leftX, y1: bracketBottomY, x2: rightX, y2: bracketBottomY, dashed: true });
-      next.push({ x1: rightX, y1: bracketBottomY, x2: rightX, y2: setBandY, dashed: true });
 
+      // top horizontal: leftX → setR.left (dashed, left of sek)
+      next.push({ x1: leftX, y1: setBandY, x2: setR.left, y2: setBandY, dashed: true });
+      // top horizontal: setR.right → rightX (dashed, passes over trunk to PKN STAN side)
+      next.push({ x1: setR.right, y1: setBandY, x2: rightX, y2: setBandY, dashed: true });
+      // left vertical
+      next.push({ x1: leftX, y1: setBandY, x2: leftX, y2: bracketBottomY, dashed: true });
+      // right vertical
+      next.push({ x1: rightX, y1: setBandY, x2: rightX, y2: bracketBottomY, dashed: true });
+      // bottom horizontal
+      next.push({ x1: leftX, y1: bracketBottomY, x2: rightX, y2: bracketBottomY, dashed: true });
+
+      // DASHED PKN STAN: from sek band down to BLU top
+      if (bluR && bluEl) {
+        next.push({
+          x1: bluR.cx, y1: setBandY, x2: bluR.cx, y2: bluR.top, dashed: true,
+          highlight: bluEl.getAttribute("data-id") === selectedId,
+        });
+      }
 
       // BDK — DASHED verticals from bracket bottom to each BDK card top
+
       if (bdkEls.length) {
         const bdkRects = bdkEls.map(rect);
         for (let i = 0; i < bdkEls.length; i++) {
