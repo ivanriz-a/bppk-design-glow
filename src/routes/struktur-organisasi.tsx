@@ -331,61 +331,57 @@ function OrgConnectors({ chartRef, selectedId }: { chartRef: React.RefObject<HTM
       const trunkX = kepalaR.cx;
       const next: Seg[] = [];
 
-      // Trunk: Kepala bottom → through Set row, down to just above pusat row top
-      const pusatTops = pusatEls.map((e) => rect(e).top);
-      const pusatTopMin = pusatTops.length ? Math.min(...pusatTops) : setR.bottom + 40;
-      const busPusatY = setR.bottom + Math.max(20, (pusatTopMin - setR.bottom) / 2);
+      // Identify pusdiklat top-row vs bottom-row by Y position
+      const pusatRects = pusatEls.map((e) => ({ el: e, r: rect(e) }));
+      const bluR = bluEl ? rect(bluEl) : null;
+      // Top-row Y = min top among pusdiklat + BLU
+      const allTops = [...pusatRects.map((p) => p.r.top), ...(bluR ? [bluR.top] : [])];
+      const topRowY = allTops.length ? Math.min(...allTops) : setR.bottom + 40;
+      const busPusatY = setR.bottom + Math.max(20, (topRowY - setR.bottom) / 2);
 
-      // 1. Kepala -> Sekretariat band horizontal line
-      const setBandY = setR.cy;
-      next.push({ x1: trunkX, y1: kepalaR.bottom, x2: trunkX, y2: setBandY });
-      // horizontal supervisory bar across full chart width (Sekretariat spans visually)
-      next.push({ x1: setR.right, y1: setBandY, x2: chart.clientWidth - 32, y2: setBandY });
+      // SOLID trunk: Kepala bottom → straight down to pusat bus (passes through sekretariat band area)
+      next.push({ x1: trunkX, y1: kepalaR.bottom, x2: trunkX, y2: busPusatY });
 
-      // 2. From trunk continue downward to pusat bus
-      next.push({ x1: trunkX, y1: setBandY, x2: trunkX, y2: busPusatY });
-
-      // 3. Pusat horizontal bus + vertical drops to each pusdiklat
-      if (pusatEls.length) {
-        const pusatCxs = pusatEls.map((e) => rect(e).cx);
-        const minX = Math.min(...pusatCxs, trunkX);
-        const maxX = Math.max(...pusatCxs, trunkX);
+      // SOLID pusat horizontal bus + verticals to ALL pusdiklat + BLU cards
+      const allPusat: { cx: number; top: number; id: string | null }[] = [
+        ...pusatRects.map((p) => ({ cx: p.r.cx, top: p.r.top, id: p.el.getAttribute("data-id") })),
+        ...(bluR && bluEl ? [{ cx: bluR.cx, top: bluR.top, id: bluEl.getAttribute("data-id") }] : []),
+      ];
+      if (allPusat.length) {
+        const cxs = allPusat.map((p) => p.cx);
+        const minX = Math.min(...cxs, trunkX);
+        const maxX = Math.max(...cxs, trunkX);
         next.push({ x1: minX, y1: busPusatY, x2: maxX, y2: busPusatY });
-        for (const el of pusatEls) {
-          const r = rect(el);
+        for (const p of allPusat) {
           next.push({
-            x1: r.cx, y1: busPusatY, x2: r.cx, y2: r.top,
-            highlight: el.getAttribute("data-id") === selectedId,
+            x1: p.cx, y1: busPusatY, x2: p.cx, y2: p.top,
+            highlight: p.id === selectedId,
           });
         }
       }
 
-      // 4. PKN STAN — dashed bracket from right edge of Sekretariat band down to BLU card
-      if (bluEl) {
-        const r = rect(bluEl);
-        const bracketX = chart.clientWidth - 40;
-        next.push({ x1: bracketX, y1: setBandY, x2: bracketX, y2: r.cy, dashed: true });
-        next.push({ x1: bracketX, y1: r.cy, x2: r.right, y2: r.cy, dashed: true });
-      }
+      // DASHED bracket: surrounds pusdiklat row from sekretariat band on left, around bottom, up to right
+      const setBandY = setR.cy;
+      const leftX = 24;
+      const rightX = chart.clientWidth - 24;
+      // Use bottom of pusdiklat row as bracket bottom
+      const pusatBottoms = [...pusatRects.map((p) => p.r.bottom), ...(bluR ? [bluR.bottom] : [])];
+      const pusatBottomMax = pusatBottoms.length ? Math.max(...pusatBottoms) : busPusatY + 80;
+      const bracketBottomY = pusatBottomMax + 18;
+      // From sekretariat box left → leftX, then leftX down to bracketBottomY, across to rightX, up to setBandY back to sekretariat right
+      next.push({ x1: setR.left, y1: setBandY, x2: leftX, y2: setBandY, dashed: true });
+      next.push({ x1: leftX, y1: setBandY, x2: leftX, y2: bracketBottomY, dashed: true });
+      next.push({ x1: leftX, y1: bracketBottomY, x2: rightX, y2: bracketBottomY, dashed: true });
+      next.push({ x1: rightX, y1: bracketBottomY, x2: rightX, y2: setBandY, dashed: true });
+      next.push({ x1: rightX, y1: setBandY, x2: setR.right, y2: setBandY, dashed: true });
 
-      // 5. BDK — dashed bracket. From Sekretariat band down the left edge,
-      //    across as a bus above BDK row, then down (dashed) to each BDK.
+      // BDK — DASHED verticals from bracket bottom to each BDK card top
       if (bdkEls.length) {
         const bdkRects = bdkEls.map(rect);
-        const bdkTopMin = Math.min(...bdkRects.map((r) => r.top));
-        const busBdkY = bdkTopMin - 28;
-        const leftX = 28;
-
-        // vertical down the left edge from set band to BDK bus
-        next.push({ x1: leftX, y1: setBandY, x2: leftX, y2: busBdkY, dashed: true });
-        // horizontal BDK bus
-        const maxX = Math.max(...bdkRects.map((r) => r.cx));
-        next.push({ x1: leftX, y1: busBdkY, x2: maxX, y2: busBdkY, dashed: true });
-        // verticals to each BDK
         for (let i = 0; i < bdkEls.length; i++) {
           const r = bdkRects[i];
           next.push({
-            x1: r.cx, y1: busBdkY, x2: r.cx, y2: r.top, dashed: true,
+            x1: r.cx, y1: bracketBottomY, x2: r.cx, y2: r.top, dashed: true,
             highlight: bdkEls[i].getAttribute("data-id") === selectedId,
           });
         }
