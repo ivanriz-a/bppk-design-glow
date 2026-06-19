@@ -1,31 +1,46 @@
-## Perbaikan Bagan Struktur Organisasi
+# Penyesuaian Garis Struktur Organisasi
 
-### 1. Perkecil lebar kotak (jadi 80% dari ukuran sekarang)
-Di `src/styles.css`, untuk kotak `kind-kepala`, `kind-sekretariat`, `kind-pusat`, dan `kind-blu`:
-- Beri `max-width` ≈ 80% dari lebar saat ini, dan center di dalam cell-nya (`margin-inline: auto`).
-- Kotak BDK (UPT) tidak diubah.
-- Lebar kolom grid tetap, hanya kotaknya yang menyusut → otomatis menambah jarak visual.
+Perubahan logika garis di `OrgConnectors` (`src/routes/struktur-organisasi.tsx`). Tidak ada perubahan pada CSS atau urutan kotak.
 
-### 2. Perbaiki garis dashed (bracket Sekretariat → UPT)
-Di `OrgConnectors` (`src/routes/struktur-organisasi.tsx`), masalah saat ini: sisi kanan bracket turun pada `rightX = chart.clientWidth - 24`, yang masih berada DI ATAS area kartu (memotong PKN STAN dan bus solid pusdiklat). Bagian bawah bracket juga terlalu dekat sehingga tampak menumpuk dengan kartu Pusdiklat baris bawah (AP/BC/PUSBIN).
+## Yang berubah
 
-Perbaikan:
-- Hitung bounding box kartu Pusdiklat+BLU (left-most & right-most), lalu set:
-  - `leftX  = pusatLeftMost  - 16`
-  - `rightX = pusatRightMost + 16`
-  Sehingga sisi kiri/kanan bracket berada **di luar** semua kartu.
-- `bracketBottomY = pusatBottomMax + 28` (jarak lebih lega supaya tidak menempel kartu baris bawah).
-- Sisi kanan bracket: turun dari `setBandY` ke `bracketBottomY` di `rightX` yang sudah di luar kartu → tidak lagi memotong PKN STAN / bus solid.
-- Sisi kiri tetap dari `setR.left → leftX → bracketBottomY`.
-- Garis horizontal bawah `leftX → rightX` di `bracketBottomY` (di bawah seluruh blok Pusdiklat).
-- Vertikal dashed ke tiap kartu BDK tetap dari `bracketBottomY` ke top kartu.
+### 1. Hilangkan sisi kanan bracket dashed
+Hapus tiga segmen:
+- Horizontal atas kanan: `setR.right → rightX` di `setBandY`
+- Vertikal kanan: `rightX` dari `setBandY` ke `bracketBottomY`
+- Bagian kanan dari horizontal bawah
 
-### 3. Verifikasi
-Setelah edit: cek preview pada viewport saat ini, pastikan:
-- Tidak ada garis dashed yang melewati kartu Pusdiklat / PKN STAN.
-- Bracket benar-benar mengelilingi blok Pusdiklat dari luar.
-- Kotak Pimpinan/Kantor Pusat/BLU terlihat lebih ramping; UPT tetap.
+### 2. Bracket dashed hanya sisi kiri, berhenti di BDK Manado
+- Horizontal atas: `leftX → setR.left` di `setBandY` (tetap, dashed)
+- Vertikal kiri: `leftX` dari `setBandY` turun ke `bracketBottomY` (tetap, dashed)
+- Horizontal bawah: dari `leftX` hanya sampai ke titik X tengah **BDK Manado** (BDK posisi ke-6 / index 5 pada baris atas) — bukan sampai `rightX`
+- Vertikal dashed dari `bracketBottomY` ke setiap kotak BDK (tetap, semua 11 BDK)
 
-### File yang diubah
-- `src/styles.css` — lebar kartu kepala/sekretariat/pusat/blu.
-- `src/routes/struktur-organisasi.tsx` — logika `OrgConnectors` (leftX/rightX/bracketBottomY).
+### 3. PKN STAN terhubung ke batang utama (bukan ke band Sekretariat)
+- Hapus segmen dashed `bluR.cx, setBandY → bluR.cx, bluR.top`
+- Ganti dengan jalur dashed: `trunkX, busPusatY → bluR.cx, busPusatY → bluR.cx, bluR.top`
+  - Stub horizontal dashed dari batang utama (`trunkX`) ke kolom PKN STAN di level bus pusat
+  - Vertikal dashed turun ke atas kotak PKN STAN
+- PKN STAN tidak lagi tersentuh oleh bracket dashed maupun band Sekretariat
+
+### 4. Yang tetap
+- Garis solid: Kepala→bus pusat, Sekretariat→trunk (stub di band), bus pusat solid + vertikal solid ke 6 Pusdiklat
+- Garis dashed vertikal ke 11 BDK
+- Posisi & ukuran kotak, urutan, label
+
+## Hasil visual
+```
+            [Kepala]
+               │ (solid)
+   [Sekretariat]──┼────────── (stub solid sek→trunk)
+   ╎              │
+   ╎       ┌──────┴──────┐ (solid bus pusat)
+   ╎       │ │ │ │ │ │   ╎╌╌[PKN STAN]  (dashed stub dari trunk)
+   ╎      KM Pj KP AP BC JF
+   ╎
+   ╎╌╌╌╌╌╌╌╌╌╌╌ (dashed bottom, berhenti di kolom BDK Manado)
+   ╎ ╎ ╎ ╎ ╎ ╎
+  Md Pl Yk Pt Dp Mn
+   ╎ ╎ ╎ ╎ ╎
+  Pk Cm Ml Bk Mk
+```
