@@ -359,47 +359,39 @@ function OrgConnectors({ chartRef, selectedId }: { chartRef: React.RefObject<HTM
         }
       }
 
-      // DASHED bracket enclosing pusdiklat block, anchored at sekretariat band
-      const pusatLefts = [...pusatRects.map((p) => p.r.left), ...(bluR ? [bluR.left] : [])];
-      const pusatRights = [...pusatRects.map((p) => p.r.right), ...(bluR ? [bluR.right] : [])];
+      // DASHED bracket — only LEFT side, from Sekretariat band down to BDK row
+      const pusatLefts = pusatRects.map((p) => p.r.left);
       const pusatLeftMost = pusatLefts.length ? Math.min(...pusatLefts) : 24;
-      const pusatRightMost = pusatRights.length ? Math.max(...pusatRights) : chart.clientWidth - 24;
       const leftX = Math.max(12, Math.min(pusatLeftMost - 16, setR.left - 16));
-      const rightX = Math.min(chart.clientWidth - 12, pusatRightMost + 16);
-      const pusatBottoms = [...pusatRects.map((p) => p.r.bottom), ...(bluR ? [bluR.bottom] : [])];
+      const pusatBottoms = pusatRects.map((p) => p.r.bottom);
       const pusatBottomMax = pusatBottoms.length ? Math.max(...pusatBottoms) : busPusatY + 80;
       const bracketBottomY = pusatBottomMax + 28;
 
+      const bdkRects = bdkEls.map(rect);
+      // BDK Manado is index 5 (top row, 6th); fall back to last BDK if missing
+      const bdkEndCx = bdkRects[5]?.cx ?? bdkRects[bdkRects.length - 1]?.cx ?? leftX;
+
       // top horizontal: leftX → setR.left (dashed, left of sek)
       next.push({ x1: leftX, y1: setBandY, x2: setR.left, y2: setBandY, dashed: true });
-      // top horizontal: setR.right → rightX (dashed, passes over trunk to PKN STAN side)
-      next.push({ x1: setR.right, y1: setBandY, x2: rightX, y2: setBandY, dashed: true });
       // left vertical
       next.push({ x1: leftX, y1: setBandY, x2: leftX, y2: bracketBottomY, dashed: true });
-      // right vertical
-      next.push({ x1: rightX, y1: setBandY, x2: rightX, y2: bracketBottomY, dashed: true });
-      // bottom horizontal
-      next.push({ x1: leftX, y1: bracketBottomY, x2: rightX, y2: bracketBottomY, dashed: true });
+      // bottom horizontal: leftX → BDK Manado column
+      next.push({ x1: leftX, y1: bracketBottomY, x2: bdkEndCx, y2: bracketBottomY, dashed: true });
 
-      // DASHED PKN STAN: from sek band down to BLU top
+      // DASHED PKN STAN: stub from main trunk at busPusatY → over to BLU column → down to BLU top
       if (bluR && bluEl) {
-        next.push({
-          x1: bluR.cx, y1: setBandY, x2: bluR.cx, y2: bluR.top, dashed: true,
-          highlight: bluEl.getAttribute("data-id") === selectedId,
-        });
+        const hl = bluEl.getAttribute("data-id") === selectedId;
+        next.push({ x1: trunkX, y1: busPusatY, x2: bluR.cx, y2: busPusatY, dashed: true, highlight: hl });
+        next.push({ x1: bluR.cx, y1: busPusatY, x2: bluR.cx, y2: bluR.top, dashed: true, highlight: hl });
       }
 
       // BDK — DASHED verticals from bracket bottom to each BDK card top
-
-      if (bdkEls.length) {
-        const bdkRects = bdkEls.map(rect);
-        for (let i = 0; i < bdkEls.length; i++) {
-          const r = bdkRects[i];
-          next.push({
-            x1: r.cx, y1: bracketBottomY, x2: r.cx, y2: r.top, dashed: true,
-            highlight: bdkEls[i].getAttribute("data-id") === selectedId,
-          });
-        }
+      for (let i = 0; i < bdkEls.length; i++) {
+        const r = bdkRects[i];
+        next.push({
+          x1: r.cx, y1: bracketBottomY, x2: r.cx, y2: r.top, dashed: true,
+          highlight: bdkEls[i].getAttribute("data-id") === selectedId,
+        });
       }
 
       setSize({ w: chart.clientWidth, h: chart.clientHeight });
