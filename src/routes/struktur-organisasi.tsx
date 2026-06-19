@@ -302,10 +302,14 @@ function OrgConnectors({ chartRef, selectedId }: { chartRef: React.RefObject<HTM
   const [size, setSize] = useState({ w: 0, h: 0 });
 
   useLayoutEffect(() => {
-    const chart = chartRef.current;
-    if (!chart) return;
+    let raf = 0;
+    let t1 = 0 as unknown as ReturnType<typeof setTimeout>;
+    let t2 = 0 as unknown as ReturnType<typeof setTimeout>;
+    let ro: ResizeObserver | null = null;
 
     const compute = () => {
+      const chart = chartRef.current;
+      if (!chart) return;
       const cRect = chart.getBoundingClientRect();
       const rect = (el: HTMLElement) => {
         const r = el.getBoundingClientRect();
@@ -331,18 +335,14 @@ function OrgConnectors({ chartRef, selectedId }: { chartRef: React.RefObject<HTM
       const trunkX = kepalaR.cx;
       const next: Seg[] = [];
 
-      // Identify pusdiklat top-row vs bottom-row by Y position
       const pusatRects = pusatEls.map((e) => ({ el: e, r: rect(e) }));
       const bluR = bluEl ? rect(bluEl) : null;
-      // Top-row Y = min top among pusdiklat + BLU
       const allTops = [...pusatRects.map((p) => p.r.top), ...(bluR ? [bluR.top] : [])];
       const topRowY = allTops.length ? Math.min(...allTops) : setR.bottom + 40;
       const busPusatY = setR.bottom + Math.max(20, (topRowY - setR.bottom) / 2);
 
-      // SOLID trunk: Kepala bottom → straight down to pusat bus (passes through sekretariat band area)
       next.push({ x1: trunkX, y1: kepalaR.bottom, x2: trunkX, y2: busPusatY });
 
-      // SOLID pusat horizontal bus + verticals to ALL pusdiklat + BLU cards
       const allPusat: { cx: number; top: number; id: string | null }[] = [
         ...pusatRects.map((p) => ({ cx: p.r.cx, top: p.r.top, id: p.el.getAttribute("data-id") })),
         ...(bluR && bluEl ? [{ cx: bluR.cx, top: bluR.top, id: bluEl.getAttribute("data-id") }] : []),
@@ -360,7 +360,6 @@ function OrgConnectors({ chartRef, selectedId }: { chartRef: React.RefObject<HTM
         }
       }
 
-      // DASHED bracket: surrounds pusdiklat block from outside (left & right of cards)
       const setBandY = setR.cy;
       const pusatLefts = [...pusatRects.map((p) => p.r.left), ...(bluR ? [bluR.left] : [])];
       const pusatRights = [...pusatRects.map((p) => p.r.right), ...(bluR ? [bluR.right] : [])];
@@ -376,8 +375,6 @@ function OrgConnectors({ chartRef, selectedId }: { chartRef: React.RefObject<HTM
       next.push({ x1: leftX, y1: bracketBottomY, x2: rightX, y2: bracketBottomY, dashed: true });
       next.push({ x1: rightX, y1: bracketBottomY, x2: rightX, y2: setBandY, dashed: true });
 
-
-      // BDK — DASHED verticals from bracket bottom to each BDK card top
       if (bdkEls.length) {
         const bdkRects = bdkEls.map(rect);
         for (let i = 0; i < bdkEls.length; i++) {
@@ -391,15 +388,25 @@ function OrgConnectors({ chartRef, selectedId }: { chartRef: React.RefObject<HTM
 
       setSize({ w: chart.clientWidth, h: chart.clientHeight });
       setSegs(next);
+
+      // Attach observers once chart is available
+      if (!ro) {
+        ro = new ResizeObserver(compute);
+        ro.observe(chart);
+        chart.querySelectorAll(".org-card").forEach((el) => ro!.observe(el));
+      }
     };
 
     compute();
-    const ro = new ResizeObserver(compute);
-    ro.observe(chart);
-    chart.querySelectorAll(".org-card").forEach((el) => ro.observe(el));
+    raf = requestAnimationFrame(compute);
+    t1 = setTimeout(compute, 100);
+    t2 = setTimeout(compute, 400);
     window.addEventListener("resize", compute);
     return () => {
-      ro.disconnect();
+      cancelAnimationFrame(raf);
+      clearTimeout(t1);
+      clearTimeout(t2);
+      ro?.disconnect();
       window.removeEventListener("resize", compute);
     };
   }, [chartRef, selectedId]);
@@ -407,9 +414,9 @@ function OrgConnectors({ chartRef, selectedId }: { chartRef: React.RefObject<HTM
   return (
     <svg
       className="org-connectors"
-      width={size.w}
-      height={size.h}
-      viewBox={`0 0 ${size.w} ${size.h}`}
+      width="100%"
+      height="100%"
+      preserveAspectRatio="none"
       aria-hidden="true"
     >
       {segs.map((s, i) => (
