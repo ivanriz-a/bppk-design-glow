@@ -360,21 +360,22 @@ function OrgConnectors({ chartRef, selectedId }: { chartRef: React.RefObject<HTM
         }
       }
 
-      // DASHED bracket: surrounds pusdiklat row from sekretariat band on left, around bottom, up to right
+      // DASHED bracket: surrounds pusdiklat block from outside (left & right of cards)
       const setBandY = setR.cy;
-      const leftX = 24;
-      const rightX = chart.clientWidth - 24;
-      // Use bottom of pusdiklat row as bracket bottom
+      const pusatLefts = [...pusatRects.map((p) => p.r.left), ...(bluR ? [bluR.left] : [])];
+      const pusatRights = [...pusatRects.map((p) => p.r.right), ...(bluR ? [bluR.right] : [])];
+      const pusatLeftMost = pusatLefts.length ? Math.min(...pusatLefts) : 24;
+      const pusatRightMost = pusatRights.length ? Math.max(...pusatRights) : chart.clientWidth - 24;
+      const leftX = Math.max(12, pusatLeftMost - 16);
+      const rightX = Math.min(chart.clientWidth - 12, pusatRightMost + 16);
       const pusatBottoms = [...pusatRects.map((p) => p.r.bottom), ...(bluR ? [bluR.bottom] : [])];
       const pusatBottomMax = pusatBottoms.length ? Math.max(...pusatBottoms) : busPusatY + 80;
-      const bracketBottomY = pusatBottomMax + 18;
-      // From sekretariat box left → leftX, then leftX down to bracketBottomY, across to rightX, up to setBandY back to sekretariat right
-      // From sekretariat box left → leftX (top-left of bracket), then leftX down to bracketBottomY,
-      // across to rightX, up to setBandY. Right side stays open (no loop back to sekretariat).
+      const bracketBottomY = pusatBottomMax + 28;
       next.push({ x1: setR.left, y1: setBandY, x2: leftX, y2: setBandY, dashed: true });
       next.push({ x1: leftX, y1: setBandY, x2: leftX, y2: bracketBottomY, dashed: true });
       next.push({ x1: leftX, y1: bracketBottomY, x2: rightX, y2: bracketBottomY, dashed: true });
       next.push({ x1: rightX, y1: bracketBottomY, x2: rightX, y2: setBandY, dashed: true });
+
 
       // BDK — DASHED verticals from bracket bottom to each BDK card top
       if (bdkEls.length) {
