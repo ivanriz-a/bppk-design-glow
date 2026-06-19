@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as StrukturOrganisasiRouteImport } from './routes/struktur-organisasi'
+import { Route as ProfilPejabatRouteImport } from './routes/profil-pejabat'
 import { Route as ProfilRouteImport } from './routes/profil'
 import { Route as IndexRouteImport } from './routes/index'
 
 const StrukturOrganisasiRoute = StrukturOrganisasiRouteImport.update({
   id: '/struktur-organisasi',
   path: '/struktur-organisasi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfilPejabatRoute = ProfilPejabatRouteImport.update({
+  id: '/profil-pejabat',
+  path: '/profil-pejabat',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProfilRoute = ProfilRouteImport.update({
@@ -32,30 +38,34 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/profil': typeof ProfilRoute
+  '/profil-pejabat': typeof ProfilPejabatRoute
   '/struktur-organisasi': typeof StrukturOrganisasiRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/profil': typeof ProfilRoute
+  '/profil-pejabat': typeof ProfilPejabatRoute
   '/struktur-organisasi': typeof StrukturOrganisasiRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/profil': typeof ProfilRoute
+  '/profil-pejabat': typeof ProfilPejabatRoute
   '/struktur-organisasi': typeof StrukturOrganisasiRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/profil' | '/struktur-organisasi'
+  fullPaths: '/' | '/profil' | '/profil-pejabat' | '/struktur-organisasi'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/profil' | '/struktur-organisasi'
-  id: '__root__' | '/' | '/profil' | '/struktur-organisasi'
+  to: '/' | '/profil' | '/profil-pejabat' | '/struktur-organisasi'
+  id: '__root__' | '/' | '/profil' | '/profil-pejabat' | '/struktur-organisasi'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ProfilRoute: typeof ProfilRoute
+  ProfilPejabatRoute: typeof ProfilPejabatRoute
   StrukturOrganisasiRoute: typeof StrukturOrganisasiRoute
 }
 
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/struktur-organisasi'
       fullPath: '/struktur-organisasi'
       preLoaderRoute: typeof StrukturOrganisasiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profil-pejabat': {
+      id: '/profil-pejabat'
+      path: '/profil-pejabat'
+      fullPath: '/profil-pejabat'
+      preLoaderRoute: typeof ProfilPejabatRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/profil': {
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ProfilRoute: ProfilRoute,
+  ProfilPejabatRoute: ProfilPejabatRoute,
   StrukturOrganisasiRoute: StrukturOrganisasiRoute,
 }
 export const routeTree = rootRouteImport
