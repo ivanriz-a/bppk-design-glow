@@ -382,7 +382,6 @@ function OrgConnectors({ chartRef, selectedId }: { chartRef: React.RefObject<HTM
       if (bluR && bluEl) {
         const hl = bluEl.getAttribute("data-id") === selectedId;
         const bluBusY = setBandY;
-        next.push({ x1: trunkX, y1: busPusatY, x2: trunkX, y2: bluBusY, dashed: true });
         next.push({ x1: trunkX, y1: bluBusY, x2: bluR.cx, y2: bluBusY, dashed: true, highlight: hl });
         next.push({ x1: bluR.cx, y1: bluBusY, x2: bluR.cx, y2: bluR.top, dashed: true, highlight: hl });
       }
