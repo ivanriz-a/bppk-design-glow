@@ -21,37 +21,61 @@ type Pejabat = {
   jabatan: string;
   unit: string;
   inisial: string;
-  bio: string;
 };
 
-const pejabatList: Pejabat[] = [
+type PejabatGroup = {
+  id: string;
+  eyebrow: string;
+  judul: string;
+  deskripsi: string;
+  items: Pejabat[];
+};
+
+const groups: PejabatGroup[] = [
   {
-    nama: "[Nama Kepala BPPK]",
-    jabatan: "Kepala Badan",
-    unit: "Badan Pendidikan dan Pelatihan Keuangan",
-    inisial: "KB",
-    bio: "Memimpin BPPK dalam menyelenggarakan pendidikan, pelatihan, dan pengembangan SDM di lingkungan Kementerian Keuangan.",
+    id: "pimpinan",
+    eyebrow: "Pimpinan",
+    judul: "Kepala Badan",
+    deskripsi:
+      "Badan Pendidikan dan Pelatihan Keuangan dipimpin oleh seorang Kepala Badan yang bertanggung jawab langsung kepada Menteri Keuangan dalam menyelenggarakan pendidikan, pelatihan, dan pengembangan SDM Kementerian Keuangan.",
+    items: [
+      { nama: "[Nama Kepala BPPK]", jabatan: "Kepala Badan", unit: "Badan Pendidikan dan Pelatihan Keuangan", inisial: "KB" },
+    ],
   },
   {
-    nama: "[Nama Sekretaris]",
-    jabatan: "Sekretaris Badan",
-    unit: "Sekretariat BPPK",
-    inisial: "SB",
-    bio: "Menyelenggarakan administrasi, keuangan, kepegawaian, dan dukungan operasional keseluruhan organisasi BPPK.",
+    id: "sekretariat",
+    eyebrow: "Sekretariat",
+    judul: "Sekretaris Badan",
+    deskripsi:
+      "Sekretariat Badan menyelenggarakan koordinasi pelaksanaan tugas, pembinaan, dan pemberian dukungan administrasi kepada seluruh unit organisasi di lingkungan BPPK.",
+    items: [
+      { nama: "[Nama Sekretaris]", jabatan: "Sekretaris Badan", unit: "Sekretariat BPPK", inisial: "SB" },
+    ],
   },
   {
-    nama: "[Nama Kepala Pusdiklat]",
-    jabatan: "Kepala Pusdiklat",
-    unit: "Pusdiklat Anggaran dan Perbendaharaan",
-    inisial: "KP",
-    bio: "Memimpin unit pusat pendidikan dan pelatihan dalam menyusun kurikulum serta menyelenggarakan program diklat bidang keuangan.",
+    id: "pusdiklat",
+    eyebrow: "Pusat Pendidikan dan Pelatihan",
+    judul: "Kepala Pusdiklat",
+    deskripsi:
+      "Pusdiklat dan Pusat di lingkungan BPPK menyelenggarakan pendidikan, pelatihan, sertifikasi, serta pembinaan jabatan fungsional dan penjaminan mutu sesuai bidang masing-masing.",
+    items: [
+      { nama: "[Nama Kepala Pusdiklat]", jabatan: "Kepala Pusdiklat", unit: "Pusdiklat Kepemimpinan dan Manajemen", inisial: "KM" },
+      { nama: "[Nama Kepala Pusdiklat]", jabatan: "Kepala Pusdiklat", unit: "Pusdiklat Anggaran dan Perbendaharaan", inisial: "AP" },
+      { nama: "[Nama Kepala Pusdiklat]", jabatan: "Kepala Pusdiklat", unit: "Pusdiklat Pajak", inisial: "PJ" },
+      { nama: "[Nama Kepala Pusdiklat]", jabatan: "Kepala Pusdiklat", unit: "Pusdiklat Bea dan Cukai", inisial: "BC" },
+      { nama: "[Nama Kepala Pusdiklat]", jabatan: "Kepala Pusdiklat", unit: "Pusdiklat Keuangan Publik", inisial: "KP" },
+      { nama: "[Nama Kepala Pusat]", jabatan: "Kepala Pusat", unit: "Pusat Pembinaan Jabatan Fungsional dan Penjaminan Mutu", inisial: "JF" },
+    ],
   },
   {
-    nama: "[Nama PKN STAN]",
-    jabatan: "Direktur",
-    unit: "Politeknik Keuangan Negara STAN",
-    inisial: "PS",
-    bio: "Memimpin Politeknik Keuangan Negara STAN dalam menyelenggarakan pendidikan kedinasan unggulan calon pengelola keuangan negara.",
+    id: "blu",
+    eyebrow: "Badan Layanan Umum",
+    judul: "Direktur PKN STAN",
+    deskripsi:
+      "Politeknik Keuangan Negara STAN merupakan perguruan tinggi kedinasan di lingkungan BPPK yang menyelenggarakan pendidikan vokasi calon pengelola keuangan negara.",
+    items: [
+      { nama: "[Nama Direktur PKN STAN]", jabatan: "Direktur", unit: "Politeknik Keuangan Negara STAN", inisial: "PS" },
+    ],
   },
 ];
 
@@ -204,26 +228,35 @@ function ProfilPejabatPage() {
           <header className="pejabat-header">
             <p className="pejabat-eyebrow">PIMPINAN ORGANISASI</p>
             <h2 className="pejabat-title">
-              Pejabat <em>Utama</em> BPPK
+              Profil <em>Pimpinan</em> BPPK
             </h2>
             <div className="accent-line" />
           </header>
 
-          <div className="pejabat-grid">
-            {pejabatList.map((p) => (
-              <article key={p.inisial} className="pejabat-card">
-                <div className="pejabat-avatar">
-                  <span className="pejabat-avatar-initial">{p.inisial}</span>
-                </div>
-                <div className="pejabat-body">
-                  <span className="pejabat-tag">{p.jabatan}</span>
-                  <h3 className="pejabat-name">{p.nama}</h3>
-                  <p className="pejabat-unit">{p.unit}</p>
-                  <p className="pejabat-bio">{p.bio}</p>
-                </div>
-              </article>
-            ))}
-          </div>
+          {groups.map((g) => (
+            <div key={g.id} className="pejabat-group">
+              <div className="pejabat-group-head">
+                <p className="pejabat-group-eyebrow">{g.eyebrow}</p>
+                <h3 className="pejabat-group-title">{g.judul}</h3>
+                <p className="pejabat-group-desc">{g.deskripsi}</p>
+              </div>
+              <div className={`pejabat-grid pejabat-grid-${Math.min(g.items.length, 3)}`}>
+                {g.items.map((p, i) => (
+                  <article key={`${g.id}-${i}`} className="pejabat-card">
+                    <div className="pejabat-photo">
+                      <div className="pejabat-photo-overlay" />
+                      <span className="pejabat-photo-initial">{p.inisial}</span>
+                    </div>
+                    <div className="pejabat-body">
+                      <h4 className="pejabat-name">{p.nama}</h4>
+                      <p className="pejabat-jabatan">{p.jabatan}</p>
+                      <p className="pejabat-unit">{p.unit}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
