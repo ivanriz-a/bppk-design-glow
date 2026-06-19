@@ -163,7 +163,7 @@ function StrukturPage() {
             <h2 className="struktur-intro-title">Satu kepemimpinan, banyak <em>jalur belajar</em>.</h2>
           </div>
           <p className="struktur-intro-desc">
-            BPPK dipimpin oleh Kepala Badan dan didukung oleh Sekretariat Badan, enam Pusdiklat, Pusat Pembinaan Jabatan Fungsional, sebelas Balai Diklat Keuangan, serta Politeknik Keuangan Negara STAN. Klik unit pada bagan untuk melihat ringkasan tugasnya.
+            BPPK dipimpin oleh Kepala Badan dan didukung oleh Sekretariat BPPK, enam Pusdiklat, Pusat Pembinaan Jabatan Fungsional, sebelas Balai Diklat Keuangan, serta Politeknik Keuangan Negara STAN.
           </p>
         </div>
       </section>
