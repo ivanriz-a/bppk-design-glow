@@ -123,7 +123,7 @@ function StrukturPage() {
               <ul className="dropdown-menu">
                 <li><Link to="/profil">Profil Lembaga</Link></li>
                 <li><Link to="/struktur-organisasi">Struktur Organisasi</Link></li>
-                <li><a href="#">Profil Pejabat</a></li>
+                <li><Link to="/profil-pejabat">Profil Pejabat</Link></li>
                 <li><a href="#">Jejak, Karya, dan Transformasi BPPK</a></li>
               </ul>
             </li>
@@ -265,7 +265,7 @@ function StrukturPage() {
             <ul className="footer-links">
               <li><Link to="/profil">Profil BPPK</Link></li>
               <li><Link to="/struktur-organisasi">Struktur Organisasi</Link></li>
-              <li><a href="#">Profil Pejabat</a></li>
+              <li><Link to="/profil-pejabat">Profil Pejabat</Link></li>
             </ul>
           </div>
         </div>
