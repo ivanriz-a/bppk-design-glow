@@ -378,15 +378,11 @@ function OrgConnectors({ chartRef, selectedId }: { chartRef: React.RefObject<HTM
       // bottom horizontal: leftX → BDK Manado column
       next.push({ x1: leftX, y1: bracketBottomY, x2: bdkEndCx, y2: bracketBottomY, dashed: true });
 
-      // DASHED PKN STAN — standalone line like sekretariat, not sharing the solid bus
+      // DASHED PKN STAN — standalone line aligned with sekretariat band
       if (bluR && bluEl) {
         const hl = bluEl.getAttribute("data-id") === selectedId;
-        // Small dashed drop straight down from the main trunk to a unique dashed band
-        const bluBusY = busPusatY + 14;
-        next.push({ x1: trunkX, y1: busPusatY, x2: trunkX, y2: bluBusY, dashed: true });
-        // Dashed horizontal from trunk over to the BLU column (its own band)
+        const bluBusY = setBandY;
         next.push({ x1: trunkX, y1: bluBusY, x2: bluR.cx, y2: bluBusY, dashed: true, highlight: hl });
-        // Dashed vertical down to the BLU card
         next.push({ x1: bluR.cx, y1: bluBusY, x2: bluR.cx, y2: bluR.top, dashed: true, highlight: hl });
       }
 
