@@ -2683,7 +2683,7 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   box-shadow: 0 0 0 2px var(--bppk-yellow, #fece2f), 0 14px 28px -14px color-mix(in oklab, var(--bppk-yellow, #fece2f) 65%, transparent);
 }
 
-.org-card.kind-sekretariat { max-width: 256px; }
+.org-card.kind-sekretariat { max-width: 256px; margin-inline: auto; }
 .org-card.kind-pusat       { max-width: 80%; margin-inline: auto; }
 .org-card.kind-blu         { max-width: 80%; margin-inline: auto; }
 .org-card.kind-bdk         { max-width: none; min-height: 88px; padding: 12px 14px; cursor: default; }
