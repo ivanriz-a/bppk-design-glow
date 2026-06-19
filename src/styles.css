@@ -2537,10 +2537,12 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
 }
 .org-row-kepala { margin-bottom: 40px; }
 .org-row-sekretariat {
-  justify-content: flex-start;
-  padding-left: 32px;
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  column-gap: 10px;
   margin-bottom: 56px;
 }
+.org-row-sekretariat > * { grid-column: 2 / span 2; }
 .org-row-pusat {
   display: flex;
   justify-content: center;
