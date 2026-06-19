@@ -184,17 +184,20 @@ function StrukturPage() {
               <UnitCard u={sekretariat} selected={selected.id === sekretariat.id} onClick={() => setSelected(sekretariat)} />
             </div>
 
-            {/* L3 — Pusdiklat + BLU brick (4 atas, 3 bawah offset) */}
+            {/* L3 — Pusdiklat + BLU brick (4 atas: KM, Pajak, KP, PKN STAN; 3 bawah: AP, BC, Pusbin JFKN) */}
             <div className="org-row org-row-pusat" data-row="3">
               <div className="org-grid org-grid-pusat">
-                {pusdiklat.map((u, i) => (
-                  <div key={u.id} className="org-cell" data-pos={i}>
-                    <UnitCard u={u} selected={selected.id === u.id} onClick={() => setSelected(u)} />
-                  </div>
-                ))}
-                <div className="org-cell" data-pos={pusdiklat.length}>
-                  <UnitCard u={blu} selected={selected.id === blu.id} onClick={() => setSelected(blu)} />
-                </div>
+                {(() => {
+                  // pos 0..3 top row, 4..6 bottom row
+                  const top = [pusdiklat[0], pusdiklat[1], pusdiklat[2], blu];
+                  const bottom = [pusdiklat[3], pusdiklat[4], pusdiklat[5]];
+                  const ordered = [...top, ...bottom];
+                  return ordered.map((u, i) => (
+                    <div key={u.id} className="org-cell" data-pos={i}>
+                      <UnitCard u={u} selected={selected.id === u.id} onClick={() => setSelected(u)} />
+                    </div>
+                  ));
+                })()}
               </div>
             </div>
 
