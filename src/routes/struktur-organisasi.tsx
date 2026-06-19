@@ -369,11 +369,12 @@ function OrgConnectors({ chartRef, selectedId }: { chartRef: React.RefObject<HTM
       const pusatBottomMax = pusatBottoms.length ? Math.max(...pusatBottoms) : busPusatY + 80;
       const bracketBottomY = pusatBottomMax + 18;
       // From sekretariat box left → leftX, then leftX down to bracketBottomY, across to rightX, up to setBandY back to sekretariat right
+      // From sekretariat box left → leftX (top-left of bracket), then leftX down to bracketBottomY,
+      // across to rightX, up to setBandY. Right side stays open (no loop back to sekretariat).
       next.push({ x1: setR.left, y1: setBandY, x2: leftX, y2: setBandY, dashed: true });
       next.push({ x1: leftX, y1: setBandY, x2: leftX, y2: bracketBottomY, dashed: true });
       next.push({ x1: leftX, y1: bracketBottomY, x2: rightX, y2: bracketBottomY, dashed: true });
       next.push({ x1: rightX, y1: bracketBottomY, x2: rightX, y2: setBandY, dashed: true });
-      next.push({ x1: rightX, y1: setBandY, x2: setR.right, y2: setBandY, dashed: true });
 
       // BDK — DASHED verticals from bracket bottom to each BDK card top
       if (bdkEls.length) {
