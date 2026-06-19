@@ -43,9 +43,9 @@ const kepala: Unit = {
 
 const sekretariat: Unit = {
   id: "sekretariat",
-  name: "Sekretariat Badan Pendidikan dan Pelatihan Keuangan",
-  short: "Sekretariat Badan",
-  label: "Sekretariat Badan",
+  name: "Sekretariat BPPK",
+  short: "Sekretariat BPPK",
+  label: "Sekretariat BPPK",
   tag: "KANTOR PUSAT",
   role: "Sekretaris Badan",
   person: "—",
@@ -55,10 +55,10 @@ const sekretariat: Unit = {
 
 const pusdiklat: Unit[] = [
   { id: "pkm",  tag: "KANTOR PUSAT", label: "Pusdiklat KM",    short: "Pusdiklat KM",    name: "Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajemen", role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan kepemimpinan serta manajemen bagi aparatur Kementerian Keuangan.", kind: "pusat" },
-  { id: "pap",  tag: "KANTOR PUSAT", label: "Pusdiklat AP",    short: "Pusdiklat AP",    name: "Pusat Pendidikan dan Pelatihan Anggaran dan Perbendaharaan", role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan di bidang penganggaran dan perbendaharaan negara.", kind: "pusat" },
   { id: "ppjk", tag: "KANTOR PUSAT", label: "Pusdiklat Pajak", short: "Pusdiklat Pajak", name: "Pusat Pendidikan dan Pelatihan Pajak", role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan teknis di bidang perpajakan.", kind: "pusat" },
-  { id: "pbc",  tag: "KANTOR PUSAT", label: "Pusdiklat BC",    short: "Pusdiklat BC",    name: "Pusat Pendidikan dan Pelatihan Bea dan Cukai", role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan teknis di bidang kepabeanan dan cukai.", kind: "pusat" },
   { id: "pkp",  tag: "KANTOR PUSAT", label: "Pusdiklat KP",    short: "Pusdiklat KP",    name: "Pusat Pendidikan dan Pelatihan Keuangan Publik", role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan di bidang keuangan publik dan pengelolaan APBN/APBD.", kind: "pusat" },
+  { id: "pap",  tag: "KANTOR PUSAT", label: "Pusdiklat AP",    short: "Pusdiklat AP",    name: "Pusat Pendidikan dan Pelatihan Anggaran dan Perbendaharaan", role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan di bidang penganggaran dan perbendaharaan negara.", kind: "pusat" },
+  { id: "pbc",  tag: "KANTOR PUSAT", label: "Pusdiklat BC",    short: "Pusdiklat BC",    name: "Pusat Pendidikan dan Pelatihan Bea dan Cukai", role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan teknis di bidang kepabeanan dan cukai.", kind: "pusat" },
   { id: "pjf",  tag: "KANTOR PUSAT", label: "PUSBIN JFKN",     short: "PUSBIN JFKN",     name: "Pusat Pembinaan Jabatan Fungsional Keuangan Negara", role: "Kepala Pusat", person: "—", desc: "Pembinaan jabatan fungsional bidang keuangan negara dan penjaminan mutu pelatihan.", kind: "pusat" },
 ];
 
@@ -75,8 +75,8 @@ const blu: Unit = {
 };
 
 const bdkOrder = [
-  "Medan", "Pekanbaru", "Palembang", "Cimahi", "Yogyakarta", "Malang",
-  "Pontianak", "Balikpapan", "Denpasar", "Makassar", "Manado",
+  "Medan", "Palembang", "Yogyakarta", "Pontianak", "Denpasar", "Manado",
+  "Pekanbaru", "Cimahi", "Malang", "Balikpapan", "Makassar",
 ];
 const bdk: Unit[] = bdkOrder.map((kota) => ({
   id: `bdk-${kota.toLowerCase()}`,
@@ -163,7 +163,7 @@ function StrukturPage() {
             <h2 className="struktur-intro-title">Satu kepemimpinan, banyak <em>jalur belajar</em>.</h2>
           </div>
           <p className="struktur-intro-desc">
-            BPPK dipimpin oleh Kepala Badan dan didukung oleh Sekretariat Badan, enam Pusdiklat, Pusat Pembinaan Jabatan Fungsional, sebelas Balai Diklat Keuangan, serta Politeknik Keuangan Negara STAN. Klik unit pada bagan untuk melihat ringkasan tugasnya.
+            BPPK dipimpin oleh Kepala Badan dan didukung oleh Sekretariat BPPK, enam Pusdiklat, Pusat Pembinaan Jabatan Fungsional, sebelas Balai Diklat Keuangan, serta Politeknik Keuangan Negara STAN.
           </p>
         </div>
       </section>
@@ -184,17 +184,20 @@ function StrukturPage() {
               <UnitCard u={sekretariat} selected={selected.id === sekretariat.id} onClick={() => setSelected(sekretariat)} />
             </div>
 
-            {/* L3 — Pusdiklat + BLU brick (4 atas, 3 bawah offset) */}
+            {/* L3 — Pusdiklat + BLU brick (4 atas: KM, Pajak, KP, PKN STAN; 3 bawah: AP, BC, Pusbin JFKN) */}
             <div className="org-row org-row-pusat" data-row="3">
               <div className="org-grid org-grid-pusat">
-                {pusdiklat.map((u, i) => (
-                  <div key={u.id} className="org-cell" data-pos={i}>
-                    <UnitCard u={u} selected={selected.id === u.id} onClick={() => setSelected(u)} />
-                  </div>
-                ))}
-                <div className="org-cell" data-pos={pusdiklat.length}>
-                  <UnitCard u={blu} selected={selected.id === blu.id} onClick={() => setSelected(blu)} />
-                </div>
+                {(() => {
+                  // pos 0..3 top row, 4..6 bottom row
+                  const top = [pusdiklat[0], pusdiklat[1], pusdiklat[2], blu];
+                  const bottom = [pusdiklat[3], pusdiklat[4], pusdiklat[5]];
+                  const ordered = [...top, ...bottom];
+                  return ordered.map((u, i) => (
+                    <div key={u.id} className="org-cell" data-pos={i}>
+                      <UnitCard u={u} selected={selected.id === u.id} onClick={() => setSelected(u)} />
+                    </div>
+                  ));
+                })()}
               </div>
             </div>
 
@@ -328,61 +331,57 @@ function OrgConnectors({ chartRef, selectedId }: { chartRef: React.RefObject<HTM
       const trunkX = kepalaR.cx;
       const next: Seg[] = [];
 
-      // Trunk: Kepala bottom → through Set row, down to just above pusat row top
-      const pusatTops = pusatEls.map((e) => rect(e).top);
-      const pusatTopMin = pusatTops.length ? Math.min(...pusatTops) : setR.bottom + 40;
-      const busPusatY = setR.bottom + Math.max(20, (pusatTopMin - setR.bottom) / 2);
+      // Identify pusdiklat top-row vs bottom-row by Y position
+      const pusatRects = pusatEls.map((e) => ({ el: e, r: rect(e) }));
+      const bluR = bluEl ? rect(bluEl) : null;
+      // Top-row Y = min top among pusdiklat + BLU
+      const allTops = [...pusatRects.map((p) => p.r.top), ...(bluR ? [bluR.top] : [])];
+      const topRowY = allTops.length ? Math.min(...allTops) : setR.bottom + 40;
+      const busPusatY = setR.bottom + Math.max(20, (topRowY - setR.bottom) / 2);
 
-      // 1. Kepala -> Sekretariat band horizontal line
-      const setBandY = setR.cy;
-      next.push({ x1: trunkX, y1: kepalaR.bottom, x2: trunkX, y2: setBandY });
-      // horizontal supervisory bar across full chart width (Sekretariat spans visually)
-      next.push({ x1: setR.right, y1: setBandY, x2: chart.clientWidth - 32, y2: setBandY });
+      // SOLID trunk: Kepala bottom → straight down to pusat bus (passes through sekretariat band area)
+      next.push({ x1: trunkX, y1: kepalaR.bottom, x2: trunkX, y2: busPusatY });
 
-      // 2. From trunk continue downward to pusat bus
-      next.push({ x1: trunkX, y1: setBandY, x2: trunkX, y2: busPusatY });
-
-      // 3. Pusat horizontal bus + vertical drops to each pusdiklat
-      if (pusatEls.length) {
-        const pusatCxs = pusatEls.map((e) => rect(e).cx);
-        const minX = Math.min(...pusatCxs, trunkX);
-        const maxX = Math.max(...pusatCxs, trunkX);
+      // SOLID pusat horizontal bus + verticals to ALL pusdiklat + BLU cards
+      const allPusat: { cx: number; top: number; id: string | null }[] = [
+        ...pusatRects.map((p) => ({ cx: p.r.cx, top: p.r.top, id: p.el.getAttribute("data-id") })),
+        ...(bluR && bluEl ? [{ cx: bluR.cx, top: bluR.top, id: bluEl.getAttribute("data-id") }] : []),
+      ];
+      if (allPusat.length) {
+        const cxs = allPusat.map((p) => p.cx);
+        const minX = Math.min(...cxs, trunkX);
+        const maxX = Math.max(...cxs, trunkX);
         next.push({ x1: minX, y1: busPusatY, x2: maxX, y2: busPusatY });
-        for (const el of pusatEls) {
-          const r = rect(el);
+        for (const p of allPusat) {
           next.push({
-            x1: r.cx, y1: busPusatY, x2: r.cx, y2: r.top,
-            highlight: el.getAttribute("data-id") === selectedId,
+            x1: p.cx, y1: busPusatY, x2: p.cx, y2: p.top,
+            highlight: p.id === selectedId,
           });
         }
       }
 
-      // 4. PKN STAN — dashed bracket from right edge of Sekretariat band down to BLU card
-      if (bluEl) {
-        const r = rect(bluEl);
-        const bracketX = chart.clientWidth - 40;
-        next.push({ x1: bracketX, y1: setBandY, x2: bracketX, y2: r.cy, dashed: true });
-        next.push({ x1: bracketX, y1: r.cy, x2: r.right, y2: r.cy, dashed: true });
-      }
+      // DASHED bracket: surrounds pusdiklat row from sekretariat band on left, around bottom, up to right
+      const setBandY = setR.cy;
+      const leftX = 24;
+      const rightX = chart.clientWidth - 24;
+      // Use bottom of pusdiklat row as bracket bottom
+      const pusatBottoms = [...pusatRects.map((p) => p.r.bottom), ...(bluR ? [bluR.bottom] : [])];
+      const pusatBottomMax = pusatBottoms.length ? Math.max(...pusatBottoms) : busPusatY + 80;
+      const bracketBottomY = pusatBottomMax + 18;
+      // From sekretariat box left → leftX, then leftX down to bracketBottomY, across to rightX, up to setBandY back to sekretariat right
+      next.push({ x1: setR.left, y1: setBandY, x2: leftX, y2: setBandY, dashed: true });
+      next.push({ x1: leftX, y1: setBandY, x2: leftX, y2: bracketBottomY, dashed: true });
+      next.push({ x1: leftX, y1: bracketBottomY, x2: rightX, y2: bracketBottomY, dashed: true });
+      next.push({ x1: rightX, y1: bracketBottomY, x2: rightX, y2: setBandY, dashed: true });
+      next.push({ x1: rightX, y1: setBandY, x2: setR.right, y2: setBandY, dashed: true });
 
-      // 5. BDK — dashed bracket. From Sekretariat band down the left edge,
-      //    across as a bus above BDK row, then down (dashed) to each BDK.
+      // BDK — DASHED verticals from bracket bottom to each BDK card top
       if (bdkEls.length) {
         const bdkRects = bdkEls.map(rect);
-        const bdkTopMin = Math.min(...bdkRects.map((r) => r.top));
-        const busBdkY = bdkTopMin - 28;
-        const leftX = 28;
-
-        // vertical down the left edge from set band to BDK bus
-        next.push({ x1: leftX, y1: setBandY, x2: leftX, y2: busBdkY, dashed: true });
-        // horizontal BDK bus
-        const maxX = Math.max(...bdkRects.map((r) => r.cx));
-        next.push({ x1: leftX, y1: busBdkY, x2: maxX, y2: busBdkY, dashed: true });
-        // verticals to each BDK
         for (let i = 0; i < bdkEls.length; i++) {
           const r = bdkRects[i];
           next.push({
-            x1: r.cx, y1: busBdkY, x2: r.cx, y2: r.top, dashed: true,
+            x1: r.cx, y1: bracketBottomY, x2: r.cx, y2: r.top, dashed: true,
             highlight: bdkEls[i].getAttribute("data-id") === selectedId,
           });
         }
