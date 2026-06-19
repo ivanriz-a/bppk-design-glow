@@ -164,7 +164,7 @@ function ProfilPage() {
                   </ul>
                 </li>
                 <li><Link to="/struktur-organisasi">Struktur Organisasi</Link></li>
-                <li><a href="#">Profil Pejabat</a></li>
+                <li><Link to="/profil-pejabat">Profil Pejabat</Link></li>
                 <li><a href="#">Jejak, Karya, dan Transformasi BPPK</a></li>
               </ul>
             </li>
