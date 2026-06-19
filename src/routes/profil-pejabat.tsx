@@ -228,26 +228,35 @@ function ProfilPejabatPage() {
           <header className="pejabat-header">
             <p className="pejabat-eyebrow">PIMPINAN ORGANISASI</p>
             <h2 className="pejabat-title">
-              Pejabat <em>Utama</em> BPPK
+              Profil <em>Pimpinan</em> BPPK
             </h2>
             <div className="accent-line" />
           </header>
 
-          <div className="pejabat-grid">
-            {pejabatList.map((p) => (
-              <article key={p.inisial} className="pejabat-card">
-                <div className="pejabat-avatar">
-                  <span className="pejabat-avatar-initial">{p.inisial}</span>
-                </div>
-                <div className="pejabat-body">
-                  <span className="pejabat-tag">{p.jabatan}</span>
-                  <h3 className="pejabat-name">{p.nama}</h3>
-                  <p className="pejabat-unit">{p.unit}</p>
-                  <p className="pejabat-bio">{p.bio}</p>
-                </div>
-              </article>
-            ))}
-          </div>
+          {groups.map((g) => (
+            <div key={g.id} className="pejabat-group">
+              <div className="pejabat-group-head">
+                <p className="pejabat-group-eyebrow">{g.eyebrow}</p>
+                <h3 className="pejabat-group-title">{g.judul}</h3>
+                <p className="pejabat-group-desc">{g.deskripsi}</p>
+              </div>
+              <div className={`pejabat-grid pejabat-grid-${Math.min(g.items.length, 3)}`}>
+                {g.items.map((p, i) => (
+                  <article key={`${g.id}-${i}`} className="pejabat-card">
+                    <div className="pejabat-photo">
+                      <div className="pejabat-photo-overlay" />
+                      <span className="pejabat-photo-initial">{p.inisial}</span>
+                    </div>
+                    <div className="pejabat-body">
+                      <h4 className="pejabat-name">{p.nama}</h4>
+                      <p className="pejabat-jabatan">{p.jabatan}</p>
+                      <p className="pejabat-unit">{p.unit}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
