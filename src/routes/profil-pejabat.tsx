@@ -21,37 +21,61 @@ type Pejabat = {
   jabatan: string;
   unit: string;
   inisial: string;
-  bio: string;
 };
 
-const pejabatList: Pejabat[] = [
+type PejabatGroup = {
+  id: string;
+  eyebrow: string;
+  judul: string;
+  deskripsi: string;
+  items: Pejabat[];
+};
+
+const groups: PejabatGroup[] = [
   {
-    nama: "[Nama Kepala BPPK]",
-    jabatan: "Kepala Badan",
-    unit: "Badan Pendidikan dan Pelatihan Keuangan",
-    inisial: "KB",
-    bio: "Memimpin BPPK dalam menyelenggarakan pendidikan, pelatihan, dan pengembangan SDM di lingkungan Kementerian Keuangan.",
+    id: "pimpinan",
+    eyebrow: "Pimpinan",
+    judul: "Kepala Badan",
+    deskripsi:
+      "Badan Pendidikan dan Pelatihan Keuangan dipimpin oleh seorang Kepala Badan yang bertanggung jawab langsung kepada Menteri Keuangan dalam menyelenggarakan pendidikan, pelatihan, dan pengembangan SDM Kementerian Keuangan.",
+    items: [
+      { nama: "[Nama Kepala BPPK]", jabatan: "Kepala Badan", unit: "Badan Pendidikan dan Pelatihan Keuangan", inisial: "KB" },
+    ],
   },
   {
-    nama: "[Nama Sekretaris]",
-    jabatan: "Sekretaris Badan",
-    unit: "Sekretariat BPPK",
-    inisial: "SB",
-    bio: "Menyelenggarakan administrasi, keuangan, kepegawaian, dan dukungan operasional keseluruhan organisasi BPPK.",
+    id: "sekretariat",
+    eyebrow: "Sekretariat",
+    judul: "Sekretaris Badan",
+    deskripsi:
+      "Sekretariat Badan menyelenggarakan koordinasi pelaksanaan tugas, pembinaan, dan pemberian dukungan administrasi kepada seluruh unit organisasi di lingkungan BPPK.",
+    items: [
+      { nama: "[Nama Sekretaris]", jabatan: "Sekretaris Badan", unit: "Sekretariat BPPK", inisial: "SB" },
+    ],
   },
   {
-    nama: "[Nama Kepala Pusdiklat]",
-    jabatan: "Kepala Pusdiklat",
-    unit: "Pusdiklat Anggaran dan Perbendaharaan",
-    inisial: "KP",
-    bio: "Memimpin unit pusat pendidikan dan pelatihan dalam menyusun kurikulum serta menyelenggarakan program diklat bidang keuangan.",
+    id: "pusdiklat",
+    eyebrow: "Pusat Pendidikan dan Pelatihan",
+    judul: "Kepala Pusdiklat",
+    deskripsi:
+      "Pusdiklat dan Pusat di lingkungan BPPK menyelenggarakan pendidikan, pelatihan, sertifikasi, serta pembinaan jabatan fungsional dan penjaminan mutu sesuai bidang masing-masing.",
+    items: [
+      { nama: "[Nama Kepala Pusdiklat]", jabatan: "Kepala Pusdiklat", unit: "Pusdiklat Kepemimpinan dan Manajemen", inisial: "KM" },
+      { nama: "[Nama Kepala Pusdiklat]", jabatan: "Kepala Pusdiklat", unit: "Pusdiklat Anggaran dan Perbendaharaan", inisial: "AP" },
+      { nama: "[Nama Kepala Pusdiklat]", jabatan: "Kepala Pusdiklat", unit: "Pusdiklat Pajak", inisial: "PJ" },
+      { nama: "[Nama Kepala Pusdiklat]", jabatan: "Kepala Pusdiklat", unit: "Pusdiklat Bea dan Cukai", inisial: "BC" },
+      { nama: "[Nama Kepala Pusdiklat]", jabatan: "Kepala Pusdiklat", unit: "Pusdiklat Keuangan Publik", inisial: "KP" },
+      { nama: "[Nama Kepala Pusat]", jabatan: "Kepala Pusat", unit: "Pusat Pembinaan Jabatan Fungsional dan Penjaminan Mutu", inisial: "JF" },
+    ],
   },
   {
-    nama: "[Nama PKN STAN]",
-    jabatan: "Direktur",
-    unit: "Politeknik Keuangan Negara STAN",
-    inisial: "PS",
-    bio: "Memimpin Politeknik Keuangan Negara STAN dalam menyelenggarakan pendidikan kedinasan unggulan calon pengelola keuangan negara.",
+    id: "blu",
+    eyebrow: "Badan Layanan Umum",
+    judul: "Direktur PKN STAN",
+    deskripsi:
+      "Politeknik Keuangan Negara STAN merupakan perguruan tinggi kedinasan di lingkungan BPPK yang menyelenggarakan pendidikan vokasi calon pengelola keuangan negara.",
+    items: [
+      { nama: "[Nama Direktur PKN STAN]", jabatan: "Direktur", unit: "Politeknik Keuangan Negara STAN", inisial: "PS" },
+    ],
   },
 ];
 
