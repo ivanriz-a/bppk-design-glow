@@ -75,8 +75,8 @@ const blu: Unit = {
 };
 
 const bdkOrder = [
-  "Medan", "Pekanbaru", "Palembang", "Cimahi", "Yogyakarta", "Malang",
-  "Pontianak", "Balikpapan", "Denpasar", "Makassar", "Manado",
+  "Medan", "Palembang", "Yogyakarta", "Pontianak", "Denpasar", "Manado",
+  "Pekanbaru", "Cimahi", "Malang", "Balikpapan", "Makassar",
 ];
 const bdk: Unit[] = bdkOrder.map((kota) => ({
   id: `bdk-${kota.toLowerCase()}`,
