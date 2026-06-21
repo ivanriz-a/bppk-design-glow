@@ -3102,6 +3102,17 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
 .pejabat-modal-meta { margin: 0 0 6px; }
 .pejabat-modal-meta strong { color: var(--bppk-blue); margin-right: 6px; }
 .pejabat-modal-meta a { color: var(--bppk-blue); text-decoration: underline; }
+.pejabat-modal-bio p { margin: 0 0 12px; text-align: justify; }
+.pejabat-modal-bio p:last-child { margin-bottom: 0; }
+.pejabat-modal-lhkpn {
+  margin: 18px 0 0;
+  padding-top: 14px;
+  border-top: 1px dashed var(--border-light);
+  font-size: 0.92rem;
+  color: var(--text-gray);
+}
+.pejabat-modal-lhkpn strong { color: var(--bppk-blue); margin-right: 6px; }
+.pejabat-modal-lhkpn a { color: var(--bppk-blue); text-decoration: underline; font-weight: 600; }
 
 @media (max-width: 768px) {
   .pejabat-modal-grid {
