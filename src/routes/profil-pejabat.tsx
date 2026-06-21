@@ -113,6 +113,7 @@ const groups: PejabatGroup[] = [
 
 function ProfilPejabatPage() {
   const [scrolled, setScrolled] = useState(false);
+  const [selected, setSelected] = useState<Pejabat | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -120,6 +121,20 @@ function ProfilPejabatPage() {
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!selected) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelected(null);
+    };
+    window.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [selected]);
 
   return (
     <>
