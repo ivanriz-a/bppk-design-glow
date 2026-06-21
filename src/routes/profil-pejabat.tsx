@@ -290,10 +290,19 @@ function ProfilPejabatPage() {
               <div className={`pejabat-grid pejabat-grid-${Math.min(g.items.length, 3)}`}>
                 {g.items.map((p, i) => (
                   <article key={`${g.id}-${i}`} className="pejabat-card">
-                    <div className="pejabat-photo">
-                      <div className="pejabat-photo-overlay" />
-                      <span className="pejabat-photo-initial">{p.inisial}</span>
-                    </div>
+                    <button
+                      type="button"
+                      className="pejabat-photo pejabat-photo-button"
+                      onClick={() => setSelected(p)}
+                      aria-label={`Lihat profil ${p.nama}`}
+                    >
+                      {p.foto ? (
+                        <img src={p.foto} alt={p.nama} className="pejabat-photo-img" />
+                      ) : (
+                        <span className="pejabat-photo-initial">{p.inisial}</span>
+                      )}
+                      <span className="pejabat-photo-cta">Lihat profil</span>
+                    </button>
                     <div className="pejabat-body">
                       <h4 className="pejabat-name">{p.nama}</h4>
                       <p className="pejabat-jabatan">{p.jabatan}</p>
