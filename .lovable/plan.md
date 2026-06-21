@@ -1,46 +1,42 @@
-# Penyesuaian Garis Struktur Organisasi
+## Rencana: Profil Pejabat — Modal Bio + Foto Contoh
 
-Perubahan logika garis di `OrgConnectors` (`src/routes/struktur-organisasi.tsx`). Tidak ada perubahan pada CSS atau urutan kotak.
+### 1. Foto contoh
+- Upload foto `Profil-Dhoni.jpg` sebagai Lovable Asset → `src/assets/profil-dhoni.jpg.asset.json`.
+- Pakai foto ini untuk SEMUA kartu sebagai placeholder visual (gambaran tampilan akhir). Nanti tinggal diganti per pejabat.
+- Ganti rendering kartu dari inisial gradien menjadi `<img>` foto. Style foto disesuaikan rasio 3:4 (sudah pas dengan gambar contoh).
 
-## Yang berubah
+### 2. Data bio (placeholder, bisa diupdate nanti)
+Tambah field opsional ke tipe `Pejabat`:
+- `bio` (string, paragraf riwayat singkat)
+- `pendidikan` (array string)
+- `riwayatJabatan` (array string)
+- `alamatKantor` (string)
+- `kontak` (`{ telepon?, email?, website? }`)
 
-### 1. Hilangkan sisi kanan bracket dashed
-Hapus tiga segmen:
-- Horizontal atas kanan: `setR.right → rightX` di `setBandY`
-- Vertikal kanan: `rightX` dari `setBandY` ke `bracketBottomY`
-- Bagian kanan dari horizontal bawah
+Isi semua dengan placeholder seragam (mis. "Riwayat akan diperbarui.") agar struktur popup terlihat.
 
-### 2. Bracket dashed hanya sisi kiri, berhenti di BDK Manado
-- Horizontal atas: `leftX → setR.left` di `setBandY` (tetap, dashed)
-- Vertikal kiri: `leftX` dari `setBandY` turun ke `bracketBottomY` (tetap, dashed)
-- Horizontal bawah: dari `leftX` hanya sampai ke titik X tengah **BDK Manado** (BDK posisi ke-6 / index 5 pada baris atas) — bukan sampai `rightX`
-- Vertikal dashed dari `bracketBottomY` ke setiap kotak BDK (tetap, semua 11 BDK)
+### 3. Popup/modal bio
+- Klik foto/kartu → buka modal overlay (state `selectedPejabat` di komponen).
+- Modal berisi:
+  - Foto besar di kiri (di mobile: di atas)
+  - Kanan: Nama + gelar, Jabatan, Unit
+  - Section **Biografi** (paragraf bio)
+  - Section **Pendidikan** (list)
+  - Section **Riwayat Jabatan** (list)
+  - Section **Alamat Kantor & Kontak** (alamat, telepon, email, website) — sesuai permintaan no. 3
+  - Tombol close (×) + close on backdrop click + close on `Esc`
+- Body scroll dikunci saat modal terbuka.
+- Aksesibilitas: `role="dialog"`, `aria-modal="true"`, `aria-labelledby`.
 
-### 3. PKN STAN terhubung ke batang utama (bukan ke band Sekretariat)
-- Hapus segmen dashed `bluR.cx, setBandY → bluR.cx, bluR.top`
-- Ganti dengan jalur dashed: `trunkX, busPusatY → bluR.cx, busPusatY → bluR.cx, bluR.top`
-  - Stub horizontal dashed dari batang utama (`trunkX`) ke kolom PKN STAN di level bus pusat
-  - Vertikal dashed turun ke atas kotak PKN STAN
-- PKN STAN tidak lagi tersentuh oleh bracket dashed maupun band Sekretariat
+### 4. Styling (`src/styles.css`)
+Tambah:
+- `.pejabat-card` jadi `cursor: pointer` + indikator hover ("Lihat profil").
+- `.pejabat-photo img` → `object-fit: cover; width:100%; height:100%`.
+- Modal: `.pejabat-modal-backdrop`, `.pejabat-modal`, `.pejabat-modal-close`, `.pejabat-modal-grid` (2 kolom desktop, 1 kolom mobile), `.pejabat-modal-section`, `.pejabat-modal-meta`, dengan token warna eksisting (biru BPPK). Animasi fade+scale.
 
-### 4. Yang tetap
-- Garis solid: Kepala→bus pusat, Sekretariat→trunk (stub di band), bus pusat solid + vertikal solid ke 6 Pusdiklat
-- Garis dashed vertikal ke 11 BDK
-- Posisi & ukuran kotak, urutan, label
+### 5. File yang berubah
+- `src/assets/profil-dhoni.jpg.asset.json` (baru, via lovable-assets)
+- `src/routes/profil-pejabat.tsx` (data + modal + handler klik)
+- `src/styles.css` (foto img + style modal)
 
-## Hasil visual
-```
-            [Kepala]
-               │ (solid)
-   [Sekretariat]──┼────────── (stub solid sek→trunk)
-   ╎              │
-   ╎       ┌──────┴──────┐ (solid bus pusat)
-   ╎       │ │ │ │ │ │   ╎╌╌[PKN STAN]  (dashed stub dari trunk)
-   ╎      KM Pj KP AP BC JF
-   ╎
-   ╎╌╌╌╌╌╌╌╌╌╌╌ (dashed bottom, berhenti di kolom BDK Manado)
-   ╎ ╎ ╎ ╎ ╎ ╎
-  Md Pl Yk Pt Dp Mn
-   ╎ ╎ ╎ ╎ ╎
-  Pk Cm Ml Bk Mk
-```
+Tidak ada perubahan rute, tidak ada backend.

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import profilHeroBg from "@/assets/profil-hero-bg.png.asset.json";
 import logoPutih from "@/assets/logo-bppk-putih.png.asset.json";
 import logoFooter from "@/assets/logo-kemenkeu-bppk-putih.png.asset.json";
+import fotoContoh from "@/assets/profil-dhoni.jpg.asset.json";
 
 export const Route = createFileRoute("/profil-pejabat")({
   head: () => ({
@@ -21,6 +22,12 @@ type Pejabat = {
   jabatan: string;
   unit: string;
   inisial: string;
+  foto?: string;
+  bio?: string;
+  pendidikan?: string[];
+  riwayatJabatan?: string[];
+  alamatKantor?: string;
+  kontak?: { telepon?: string; email?: string; website?: string };
 };
 
 type PejabatGroup = {
@@ -31,6 +38,31 @@ type PejabatGroup = {
   items: Pejabat[];
 };
 
+const placeholderBio = {
+  bio: "Riwayat singkat pejabat akan diperbarui. Bagian ini akan memuat ringkasan latar belakang, kompetensi, dan kontribusi yang bersangkutan di lingkungan Kementerian Keuangan.",
+  pendidikan: [
+    "[Jenjang] — [Nama Perguruan Tinggi], [Tahun]",
+    "[Jenjang] — [Nama Perguruan Tinggi], [Tahun]",
+  ],
+  riwayatJabatan: [
+    "[Jabatan sebelumnya] — [Unit], [Tahun]",
+    "[Jabatan sebelumnya] — [Unit], [Tahun]",
+  ],
+  alamatKantor:
+    "Gedung BPPK, Jl. Purnawarman No.99, Kebayoran Baru, Jakarta Selatan 12110",
+  kontak: {
+    telepon: "(021) 7394666",
+    email: "[email pejabat]@kemenkeu.go.id",
+    website: "https://bppk.kemenkeu.go.id",
+  },
+};
+
+const withDefaults = (p: Pejabat): Pejabat => ({
+  foto: fotoContoh.url,
+  ...placeholderBio,
+  ...p,
+});
+
 const groups: PejabatGroup[] = [
   {
     id: "pimpinan",
@@ -40,7 +72,7 @@ const groups: PejabatGroup[] = [
       "Badan Pendidikan dan Pelatihan Keuangan dipimpin oleh seorang Kepala Badan yang bertanggung jawab langsung kepada Menteri Keuangan dalam menyelenggarakan pendidikan, pelatihan, dan pengembangan SDM Kementerian Keuangan.",
     items: [
       { nama: "[Nama Kepala BPPK]", jabatan: "Kepala Badan", unit: "Badan Pendidikan dan Pelatihan Keuangan", inisial: "KB" },
-    ],
+    ].map(withDefaults),
   },
   {
     id: "sekretariat",
@@ -50,7 +82,7 @@ const groups: PejabatGroup[] = [
       "Sekretariat Badan menyelenggarakan koordinasi pelaksanaan tugas, pembinaan, dan pemberian dukungan administrasi kepada seluruh unit organisasi di lingkungan BPPK.",
     items: [
       { nama: "[Nama Sekretaris]", jabatan: "Sekretaris Badan", unit: "Sekretariat BPPK", inisial: "SB" },
-    ],
+    ].map(withDefaults),
   },
   {
     id: "pusdiklat",
@@ -65,7 +97,7 @@ const groups: PejabatGroup[] = [
       { nama: "[Nama Kepala Pusdiklat]", jabatan: "Kepala Pusdiklat", unit: "Pusdiklat Bea dan Cukai", inisial: "BC" },
       { nama: "[Nama Kepala Pusdiklat]", jabatan: "Kepala Pusdiklat", unit: "Pusdiklat Keuangan Publik", inisial: "KP" },
       { nama: "[Nama Kepala Pusat]", jabatan: "Kepala Pusat", unit: "Pusat Pembinaan Jabatan Fungsional dan Penjaminan Mutu", inisial: "JF" },
-    ],
+    ].map(withDefaults),
   },
   {
     id: "blu",
@@ -75,12 +107,13 @@ const groups: PejabatGroup[] = [
       "Politeknik Keuangan Negara STAN merupakan perguruan tinggi kedinasan di lingkungan BPPK yang menyelenggarakan pendidikan vokasi calon pengelola keuangan negara.",
     items: [
       { nama: "[Nama Direktur PKN STAN]", jabatan: "Direktur", unit: "Politeknik Keuangan Negara STAN", inisial: "PS" },
-    ],
+    ].map(withDefaults),
   },
 ];
 
 function ProfilPejabatPage() {
   const [scrolled, setScrolled] = useState(false);
+  const [selected, setSelected] = useState<Pejabat | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -88,6 +121,20 @@ function ProfilPejabatPage() {
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!selected) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelected(null);
+    };
+    window.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [selected]);
 
   return (
     <>
@@ -243,10 +290,19 @@ function ProfilPejabatPage() {
               <div className={`pejabat-grid pejabat-grid-${Math.min(g.items.length, 3)}`}>
                 {g.items.map((p, i) => (
                   <article key={`${g.id}-${i}`} className="pejabat-card">
-                    <div className="pejabat-photo">
-                      <div className="pejabat-photo-overlay" />
-                      <span className="pejabat-photo-initial">{p.inisial}</span>
-                    </div>
+                    <button
+                      type="button"
+                      className="pejabat-photo pejabat-photo-button"
+                      onClick={() => setSelected(p)}
+                      aria-label={`Lihat profil ${p.nama}`}
+                    >
+                      {p.foto ? (
+                        <img src={p.foto} alt={p.nama} className="pejabat-photo-img" />
+                      ) : (
+                        <span className="pejabat-photo-initial">{p.inisial}</span>
+                      )}
+                      <span className="pejabat-photo-cta">Lihat profil</span>
+                    </button>
                     <div className="pejabat-body">
                       <h4 className="pejabat-name">{p.nama}</h4>
                       <p className="pejabat-jabatan">{p.jabatan}</p>
@@ -259,6 +315,107 @@ function ProfilPejabatPage() {
           ))}
         </div>
       </section>
+
+      {/* MODAL BIO */}
+      {selected && (
+        <div
+          className="pejabat-modal-backdrop"
+          onClick={() => setSelected(null)}
+          role="presentation"
+        >
+          <div
+            className="pejabat-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="pejabat-modal-title"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              className="pejabat-modal-close"
+              onClick={() => setSelected(null)}
+              aria-label="Tutup"
+            >
+              ×
+            </button>
+            <div className="pejabat-modal-grid">
+              <div className="pejabat-modal-photo">
+                {selected.foto ? (
+                  <img src={selected.foto} alt={selected.nama} />
+                ) : (
+                  <span className="pejabat-photo-initial">{selected.inisial}</span>
+                )}
+              </div>
+              <div className="pejabat-modal-content">
+                <p className="pejabat-modal-eyebrow">{selected.jabatan}</p>
+                <h3 id="pejabat-modal-title" className="pejabat-modal-name">
+                  {selected.nama}
+                </h3>
+                <p className="pejabat-modal-unit">{selected.unit}</p>
+
+                {selected.bio && (
+                  <section className="pejabat-modal-section">
+                    <h4>Biografi</h4>
+                    <p>{selected.bio}</p>
+                  </section>
+                )}
+
+                {selected.pendidikan && selected.pendidikan.length > 0 && (
+                  <section className="pejabat-modal-section">
+                    <h4>Pendidikan</h4>
+                    <ul>
+                      {selected.pendidikan.map((x, i) => (
+                        <li key={i}>{x}</li>
+                      ))}
+                    </ul>
+                  </section>
+                )}
+
+                {selected.riwayatJabatan && selected.riwayatJabatan.length > 0 && (
+                  <section className="pejabat-modal-section">
+                    <h4>Riwayat Jabatan</h4>
+                    <ul>
+                      {selected.riwayatJabatan.map((x, i) => (
+                        <li key={i}>{x}</li>
+                      ))}
+                    </ul>
+                  </section>
+                )}
+
+                {(selected.alamatKantor || selected.kontak) && (
+                  <section className="pejabat-modal-section">
+                    <h4>Alamat Kantor &amp; Kontak</h4>
+                    {selected.alamatKantor && (
+                      <p className="pejabat-modal-meta">
+                        <strong>Alamat:</strong> {selected.alamatKantor}
+                      </p>
+                    )}
+                    {selected.kontak?.telepon && (
+                      <p className="pejabat-modal-meta">
+                        <strong>Telepon:</strong> {selected.kontak.telepon}
+                      </p>
+                    )}
+                    {selected.kontak?.email && (
+                      <p className="pejabat-modal-meta">
+                        <strong>Email:</strong>{" "}
+                        <a href={`mailto:${selected.kontak.email}`}>{selected.kontak.email}</a>
+                      </p>
+                    )}
+                    {selected.kontak?.website && (
+                      <p className="pejabat-modal-meta">
+                        <strong>Website:</strong>{" "}
+                        <a href={selected.kontak.website} target="_blank" rel="noreferrer">
+                          {selected.kontak.website}
+                        </a>
+                      </p>
+                    )}
+                  </section>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* FOOTER */}
       <footer className="bppk-footer">
