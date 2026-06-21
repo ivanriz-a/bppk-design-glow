@@ -316,6 +316,107 @@ function ProfilPejabatPage() {
         </div>
       </section>
 
+      {/* MODAL BIO */}
+      {selected && (
+        <div
+          className="pejabat-modal-backdrop"
+          onClick={() => setSelected(null)}
+          role="presentation"
+        >
+          <div
+            className="pejabat-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="pejabat-modal-title"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              className="pejabat-modal-close"
+              onClick={() => setSelected(null)}
+              aria-label="Tutup"
+            >
+              ×
+            </button>
+            <div className="pejabat-modal-grid">
+              <div className="pejabat-modal-photo">
+                {selected.foto ? (
+                  <img src={selected.foto} alt={selected.nama} />
+                ) : (
+                  <span className="pejabat-photo-initial">{selected.inisial}</span>
+                )}
+              </div>
+              <div className="pejabat-modal-content">
+                <p className="pejabat-modal-eyebrow">{selected.jabatan}</p>
+                <h3 id="pejabat-modal-title" className="pejabat-modal-name">
+                  {selected.nama}
+                </h3>
+                <p className="pejabat-modal-unit">{selected.unit}</p>
+
+                {selected.bio && (
+                  <section className="pejabat-modal-section">
+                    <h4>Biografi</h4>
+                    <p>{selected.bio}</p>
+                  </section>
+                )}
+
+                {selected.pendidikan && selected.pendidikan.length > 0 && (
+                  <section className="pejabat-modal-section">
+                    <h4>Pendidikan</h4>
+                    <ul>
+                      {selected.pendidikan.map((x, i) => (
+                        <li key={i}>{x}</li>
+                      ))}
+                    </ul>
+                  </section>
+                )}
+
+                {selected.riwayatJabatan && selected.riwayatJabatan.length > 0 && (
+                  <section className="pejabat-modal-section">
+                    <h4>Riwayat Jabatan</h4>
+                    <ul>
+                      {selected.riwayatJabatan.map((x, i) => (
+                        <li key={i}>{x}</li>
+                      ))}
+                    </ul>
+                  </section>
+                )}
+
+                {(selected.alamatKantor || selected.kontak) && (
+                  <section className="pejabat-modal-section">
+                    <h4>Alamat Kantor &amp; Kontak</h4>
+                    {selected.alamatKantor && (
+                      <p className="pejabat-modal-meta">
+                        <strong>Alamat:</strong> {selected.alamatKantor}
+                      </p>
+                    )}
+                    {selected.kontak?.telepon && (
+                      <p className="pejabat-modal-meta">
+                        <strong>Telepon:</strong> {selected.kontak.telepon}
+                      </p>
+                    )}
+                    {selected.kontak?.email && (
+                      <p className="pejabat-modal-meta">
+                        <strong>Email:</strong>{" "}
+                        <a href={`mailto:${selected.kontak.email}`}>{selected.kontak.email}</a>
+                      </p>
+                    )}
+                    {selected.kontak?.website && (
+                      <p className="pejabat-modal-meta">
+                        <strong>Website:</strong>{" "}
+                        <a href={selected.kontak.website} target="_blank" rel="noreferrer">
+                          {selected.kontak.website}
+                        </a>
+                      </p>
+                    )}
+                  </section>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* FOOTER */}
       <footer className="bppk-footer">
         <div className="footer-top-accent" aria-hidden="true" />
