@@ -443,36 +443,16 @@ function ProfilPejabatPage() {
                 </h3>
                 <p className="pejabat-modal-unit">{selected.unit}</p>
 
-                {selected.bio && (
-                  <section className="pejabat-modal-section">
+                {selected.bio && selected.bio.length > 0 && (
+                  <section className="pejabat-modal-section pejabat-modal-bio">
                     <h4>Biografi</h4>
-                    <p>{selected.bio}</p>
+                    {selected.bio.map((par, i) => (
+                      <p key={i}>{par}</p>
+                    ))}
                   </section>
                 )}
 
-                {selected.pendidikan && selected.pendidikan.length > 0 && (
-                  <section className="pejabat-modal-section">
-                    <h4>Pendidikan</h4>
-                    <ul>
-                      {selected.pendidikan.map((x, i) => (
-                        <li key={i}>{x}</li>
-                      ))}
-                    </ul>
-                  </section>
-                )}
-
-                {selected.riwayatJabatan && selected.riwayatJabatan.length > 0 && (
-                  <section className="pejabat-modal-section">
-                    <h4>Riwayat Jabatan</h4>
-                    <ul>
-                      {selected.riwayatJabatan.map((x, i) => (
-                        <li key={i}>{x}</li>
-                      ))}
-                    </ul>
-                  </section>
-                )}
-
-                {(selected.alamatKantor || selected.kontak) && (
+                {(selected.alamatKantor || selected.email || selected.telepon) && (
                   <section className="pejabat-modal-section">
                     <h4>Alamat Kantor &amp; Kontak</h4>
                     {selected.alamatKantor && (
@@ -480,27 +460,29 @@ function ProfilPejabatPage() {
                         <strong>Alamat:</strong> {selected.alamatKantor}
                       </p>
                     )}
-                    {selected.kontak?.telepon && (
+                    {selected.telepon && (
                       <p className="pejabat-modal-meta">
-                        <strong>Telepon:</strong> {selected.kontak.telepon}
+                        <strong>Telepon:</strong> {selected.telepon}
                       </p>
                     )}
-                    {selected.kontak?.email && (
+                    {selected.email && (
                       <p className="pejabat-modal-meta">
                         <strong>Email:</strong>{" "}
-                        <a href={`mailto:${selected.kontak.email}`}>{selected.kontak.email}</a>
-                      </p>
-                    )}
-                    {selected.kontak?.website && (
-                      <p className="pejabat-modal-meta">
-                        <strong>Website:</strong>{" "}
-                        <a href={selected.kontak.website} target="_blank" rel="noreferrer">
-                          {selected.kontak.website}
-                        </a>
+                        <a href={`mailto:${selected.email}`}>{selected.email}</a>
                       </p>
                     )}
                   </section>
                 )}
+
+                {selected.lhkpn && (
+                  <p className="pejabat-modal-lhkpn">
+                    <strong>LHKPN:</strong>{" "}
+                    <a href={selected.lhkpn} target="_blank" rel="noreferrer">
+                      Unduh di sini
+                    </a>
+                  </p>
+                )}
+
               </div>
             </div>
           </div>
