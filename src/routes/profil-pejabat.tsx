@@ -22,6 +22,12 @@ type Pejabat = {
   jabatan: string;
   unit: string;
   inisial: string;
+  foto?: string;
+  bio?: string;
+  pendidikan?: string[];
+  riwayatJabatan?: string[];
+  alamatKantor?: string;
+  kontak?: { telepon?: string; email?: string; website?: string };
 };
 
 type PejabatGroup = {
@@ -32,6 +38,31 @@ type PejabatGroup = {
   items: Pejabat[];
 };
 
+const placeholderBio = {
+  bio: "Riwayat singkat pejabat akan diperbarui. Bagian ini akan memuat ringkasan latar belakang, kompetensi, dan kontribusi yang bersangkutan di lingkungan Kementerian Keuangan.",
+  pendidikan: [
+    "[Jenjang] — [Nama Perguruan Tinggi], [Tahun]",
+    "[Jenjang] — [Nama Perguruan Tinggi], [Tahun]",
+  ],
+  riwayatJabatan: [
+    "[Jabatan sebelumnya] — [Unit], [Tahun]",
+    "[Jabatan sebelumnya] — [Unit], [Tahun]",
+  ],
+  alamatKantor:
+    "Gedung BPPK, Jl. Purnawarman No.99, Kebayoran Baru, Jakarta Selatan 12110",
+  kontak: {
+    telepon: "(021) 7394666",
+    email: "[email pejabat]@kemenkeu.go.id",
+    website: "https://bppk.kemenkeu.go.id",
+  },
+};
+
+const withDefaults = (p: Pejabat): Pejabat => ({
+  foto: fotoContoh.url,
+  ...placeholderBio,
+  ...p,
+});
+
 const groups: PejabatGroup[] = [
   {
     id: "pimpinan",
@@ -41,7 +72,7 @@ const groups: PejabatGroup[] = [
       "Badan Pendidikan dan Pelatihan Keuangan dipimpin oleh seorang Kepala Badan yang bertanggung jawab langsung kepada Menteri Keuangan dalam menyelenggarakan pendidikan, pelatihan, dan pengembangan SDM Kementerian Keuangan.",
     items: [
       { nama: "[Nama Kepala BPPK]", jabatan: "Kepala Badan", unit: "Badan Pendidikan dan Pelatihan Keuangan", inisial: "KB" },
-    ],
+    ].map(withDefaults),
   },
   {
     id: "sekretariat",
@@ -51,7 +82,7 @@ const groups: PejabatGroup[] = [
       "Sekretariat Badan menyelenggarakan koordinasi pelaksanaan tugas, pembinaan, dan pemberian dukungan administrasi kepada seluruh unit organisasi di lingkungan BPPK.",
     items: [
       { nama: "[Nama Sekretaris]", jabatan: "Sekretaris Badan", unit: "Sekretariat BPPK", inisial: "SB" },
-    ],
+    ].map(withDefaults),
   },
   {
     id: "pusdiklat",
@@ -66,7 +97,7 @@ const groups: PejabatGroup[] = [
       { nama: "[Nama Kepala Pusdiklat]", jabatan: "Kepala Pusdiklat", unit: "Pusdiklat Bea dan Cukai", inisial: "BC" },
       { nama: "[Nama Kepala Pusdiklat]", jabatan: "Kepala Pusdiklat", unit: "Pusdiklat Keuangan Publik", inisial: "KP" },
       { nama: "[Nama Kepala Pusat]", jabatan: "Kepala Pusat", unit: "Pusat Pembinaan Jabatan Fungsional dan Penjaminan Mutu", inisial: "JF" },
-    ],
+    ].map(withDefaults),
   },
   {
     id: "blu",
@@ -76,7 +107,7 @@ const groups: PejabatGroup[] = [
       "Politeknik Keuangan Negara STAN merupakan perguruan tinggi kedinasan di lingkungan BPPK yang menyelenggarakan pendidikan vokasi calon pengelola keuangan negara.",
     items: [
       { nama: "[Nama Direktur PKN STAN]", jabatan: "Direktur", unit: "Politeknik Keuangan Negara STAN", inisial: "PS" },
-    ],
+    ].map(withDefaults),
   },
 ];
 
