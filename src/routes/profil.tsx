@@ -573,7 +573,7 @@ function ProfilPage() {
               <header className="profil-section-head">
                 <span className="profil-section-num">03</span>
                 <div>
-                  <p className="profil-section-eyebrow">Mandat Organisasi</p>
+                  
                   <h2 className="profil-section-title">Tugas dan <em>Fungsi</em></h2>
                 </div>
               </header>
