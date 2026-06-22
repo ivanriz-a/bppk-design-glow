@@ -3,6 +3,8 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import profilHeroBg from "@/assets/profil-hero-bg.png.asset.json";
 import logoPutih from "@/assets/logo-bppk-putih.png.asset.json";
 import logoFooter from "@/assets/logo-kemenkeu-bppk-putih.png.asset.json";
+import { getPejabatNama } from "@/lib/pejabat-data";
+
 
 export const Route = createFileRoute("/struktur-organisasi")({
   head: () => ({
