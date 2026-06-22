@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useRef, useState, type ComponentType } from "react";
+import { useEffect, useRef, useState } from "react";
 import coverAsset from "../assets/jejak-cover.jpg.asset.json";
 import logoPutih from "../assets/logo-bppk-putih.png.asset.json";
 
@@ -28,33 +28,17 @@ export const Route = createFileRoute("/jejak-karya")({
 });
 
 // react-pageflip is client-only (uses window). Lazy import on mount.
-type FlipbookProps = {
-  width: number;
-  height: number;
-  size?: "fixed" | "stretch";
-  minWidth?: number;
-  maxWidth?: number;
-  minHeight?: number;
-  maxHeight?: number;
-  drawShadow?: boolean;
-  showCover?: boolean;
-  className?: string;
-  style?: React.CSSProperties;
-  onFlip?: (e: { data: number }) => void;
-  children?: React.ReactNode;
-};
-
 function JejakKaryaPage() {
-  const [Flipbook, setFlipbook] = useState<ComponentType<FlipbookProps> | null>(
-    null,
-  );
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [Flipbook, setFlipbook] = useState<any>(null);
   const [page, setPage] = useState(0);
-  const flipRef = useRef<{ pageFlip: () => { flipNext: () => void; flipPrev: () => void; getPageCount: () => number } } | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const flipRef = useRef<any>(null);
 
   useEffect(() => {
     let mounted = true;
     import("react-pageflip").then((mod) => {
-      if (mounted) setFlipbook(() => mod.default as unknown as ComponentType<FlipbookProps>);
+      if (mounted) setFlipbook(() => mod.default);
     });
     return () => {
       mounted = false;
@@ -123,7 +107,7 @@ function JejakKaryaPage() {
         <div className="jejak-book-wrap">
           {Flipbook ? (
             <Flipbook
-              ref={flipRef as never}
+              ref={flipRef}
               width={420}
               height={580}
               size="stretch"
