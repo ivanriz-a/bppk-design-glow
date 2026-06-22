@@ -228,8 +228,12 @@ function StrukturPage() {
                 <div>
                   <p className="struktur-detail-label">Pejabat</p>
                   <div className="struktur-detail-person">
-                    <div className="struktur-avatar" aria-hidden="true">
-                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+                    <div className={`struktur-avatar ${PEJABAT_BY_ID[selected.id]?.foto ? "has-photo" : ""}`} aria-hidden="true">
+                      {PEJABAT_BY_ID[selected.id]?.foto ? (
+                        <img src={PEJABAT_BY_ID[selected.id]!.foto} alt={selected.person} />
+                      ) : (
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+                      )}
                     </div>
                     <div>
                       <p className="struktur-detail-personname">{selected.person}</p>
@@ -239,10 +243,10 @@ function StrukturPage() {
                 </div>
               </div>
               <p className="struktur-detail-desc">{selected.desc}</p>
-              <a href="#" className="struktur-detail-cta">
+              <Link to="/profil-pejabat" className="struktur-detail-cta">
                 Profil pejabat lengkap
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </a>
+              </Link>
             </div>
           </aside>
         </div>
