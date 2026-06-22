@@ -118,7 +118,7 @@ function JejakKaryaPage() {
               drawShadow
               showCover
               className="jejak-flipbook"
-              onFlip={(e) => setPage(e.data)}
+              onFlip={(e: { data: number }) => setPage(e.data)}
             >
               {pages.map((p, i) => (
                 <div key={i} className={`jejak-page-sheet jejak-page-${p.kind}`}>
