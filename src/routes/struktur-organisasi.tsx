@@ -38,7 +38,7 @@ const kepala: Unit = {
   label: "Kepala BPPK",
   tag: "PIMPINAN",
   role: "Kepala Badan",
-  person: "—",
+  person: getPejabatNama("kepala"),
   desc: "Memimpin Badan Pendidikan dan Pelatihan Keuangan dalam menyelenggarakan pendidikan, pelatihan, dan pengembangan SDM di lingkungan Kementerian Keuangan.",
   kind: "kepala",
 };
@@ -50,18 +50,18 @@ const sekretariat: Unit = {
   label: "Sekretariat BPPK",
   tag: "KANTOR PUSAT",
   role: "Sekretaris Badan",
-  person: "—",
+  person: getPejabatNama("sekretariat"),
   desc: "Koordinasi pelaksanaan tugas, pembinaan, dan pemberian dukungan administrasi kepada seluruh unit di lingkungan BPPK.",
   kind: "sekretariat",
 };
 
 const pusdiklat: Unit[] = [
-  { id: "pkm",  tag: "KANTOR PUSAT", label: "Pusdiklat KM",    short: "Pusdiklat KM",    name: "Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajemen", role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan kepemimpinan serta manajemen bagi aparatur Kementerian Keuangan.", kind: "pusat" },
-  { id: "ppjk", tag: "KANTOR PUSAT", label: "Pusdiklat Pajak", short: "Pusdiklat Pajak", name: "Pusat Pendidikan dan Pelatihan Pajak", role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan teknis di bidang perpajakan.", kind: "pusat" },
-  { id: "pkp",  tag: "KANTOR PUSAT", label: "Pusdiklat KP",    short: "Pusdiklat KP",    name: "Pusat Pendidikan dan Pelatihan Keuangan Publik", role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan di bidang keuangan publik dan pengelolaan APBN/APBD.", kind: "pusat" },
-  { id: "pap",  tag: "KANTOR PUSAT", label: "Pusdiklat AP",    short: "Pusdiklat AP",    name: "Pusat Pendidikan dan Pelatihan Anggaran dan Perbendaharaan", role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan di bidang penganggaran dan perbendaharaan negara.", kind: "pusat" },
-  { id: "pbc",  tag: "KANTOR PUSAT", label: "Pusdiklat BC",    short: "Pusdiklat BC",    name: "Pusat Pendidikan dan Pelatihan Bea dan Cukai", role: "Kepala Pusdiklat", person: "—", desc: "Pendidikan dan pelatihan teknis di bidang kepabeanan dan cukai.", kind: "pusat" },
-  { id: "pjf",  tag: "KANTOR PUSAT", label: "PUSBIN JFKN",     short: "PUSBIN JFKN",     name: "Pusat Pembinaan Jabatan Fungsional Keuangan Negara", role: "Kepala Pusat", person: "—", desc: "Pembinaan jabatan fungsional bidang keuangan negara dan penjaminan mutu pelatihan.", kind: "pusat" },
+  { id: "pkm",  tag: "KANTOR PUSAT", label: "Pusdiklat KM",    short: "Pusdiklat KM",    name: "Pusat Pendidikan dan Pelatihan Kepemimpinan dan Manajemen", role: "Kepala Pusdiklat", person: getPejabatNama("pkm"), desc: "Pendidikan dan pelatihan kepemimpinan serta manajemen bagi aparatur Kementerian Keuangan.", kind: "pusat" },
+  { id: "ppjk", tag: "KANTOR PUSAT", label: "Pusdiklat Pajak", short: "Pusdiklat Pajak", name: "Pusat Pendidikan dan Pelatihan Pajak", role: "Kepala Pusdiklat", person: getPejabatNama("ppjk"), desc: "Pendidikan dan pelatihan teknis di bidang perpajakan.", kind: "pusat" },
+  { id: "pkp",  tag: "KANTOR PUSAT", label: "Pusdiklat KP",    short: "Pusdiklat KP",    name: "Pusat Pendidikan dan Pelatihan Keuangan Publik", role: "Kepala Pusdiklat", person: getPejabatNama("pkp"), desc: "Pendidikan dan pelatihan di bidang keuangan publik dan pengelolaan APBN/APBD.", kind: "pusat" },
+  { id: "pap",  tag: "KANTOR PUSAT", label: "Pusdiklat AP",    short: "Pusdiklat AP",    name: "Pusat Pendidikan dan Pelatihan Anggaran dan Perbendaharaan", role: "Kepala Pusdiklat", person: getPejabatNama("pap"), desc: "Pendidikan dan pelatihan di bidang penganggaran dan perbendaharaan negara.", kind: "pusat" },
+  { id: "pbc",  tag: "KANTOR PUSAT", label: "Pusdiklat BC",    short: "Pusdiklat BC",    name: "Pusat Pendidikan dan Pelatihan Bea dan Cukai", role: "Kepala Pusdiklat", person: getPejabatNama("pbc"), desc: "Pendidikan dan pelatihan teknis di bidang kepabeanan dan cukai.", kind: "pusat" },
+  { id: "pjf",  tag: "KANTOR PUSAT", label: "PUSBIN JFKN",     short: "PUSBIN JFKN",     name: "Pusat Pembinaan Jabatan Fungsional Keuangan Negara", role: "Kepala Pusat", person: getPejabatNama("pjf"), desc: "Pembinaan jabatan fungsional bidang keuangan negara dan penjaminan mutu pelatihan.", kind: "pusat" },
 ];
 
 const blu: Unit = {
@@ -71,7 +71,7 @@ const blu: Unit = {
   short: "PKN STAN",
   name: "Politeknik Keuangan Negara STAN",
   role: "Direktur",
-  person: "—",
+  person: getPejabatNama("pkn-stan"),
   desc: "Perguruan tinggi vokasi bidang keuangan negara yang dikelola sebagai Badan Layanan Umum di lingkungan BPPK.",
   kind: "blu",
 };
