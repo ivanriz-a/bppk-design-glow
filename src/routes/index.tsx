@@ -12,6 +12,14 @@ import bgJurnal from "@/assets/background-jurnal.jpg.asset.json";
 import coverBuku from "@/assets/cover-buku.png.asset.json";
 import bgBuku from "@/assets/background-buku.jpeg.asset.json";
 import logoKemenkeu from "@/assets/logo-kemenkeu.png.asset.json";
+import logoBaTII from "@/assets/logo-BaTII.png.asset.json";
+import logoBPPKUnit from "@/assets/logo-BPPK.png.asset.json";
+import logoDJBC from "@/assets/logo-DJBC.png.asset.json";
+import logoDJKN from "@/assets/logo-DJKN.png.asset.json";
+import logoDJP from "@/assets/logo-DJP.png.asset.json";
+import logoDJPb from "@/assets/logo-DJPb.png.asset.json";
+import logoDJPK from "@/assets/logo-DJPK.png.asset.json";
+import logoDJPPR from "@/assets/logo-DJPPR.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -121,7 +129,21 @@ const newsData: Record<"Berita" | "Pengumuman" | "Artikel", NewsItem[]> = {
 const newsTabs = ["Berita", "Pengumuman", "Artikel"] as const;
 type NewsTab = typeof newsTabs[number];
 
-const synergy = ["SETJEN", "ITJEN", "DJP", "DJBC", "DJA", "DJPb", "DJKN", "DJPK", "DJPPR", "DJSEF", "BPPK", "DJSPSK", "BaTII"];
+const synergy: { label: string; logo?: string }[] = [
+  { label: "SETJEN" },
+  { label: "ITJEN" },
+  { label: "DJP", logo: logoDJP.url },
+  { label: "DJBC", logo: logoDJBC.url },
+  { label: "DJA" },
+  { label: "DJPb", logo: logoDJPb.url },
+  { label: "DJKN", logo: logoDJKN.url },
+  { label: "DJPK", logo: logoDJPK.url },
+  { label: "DJPPR", logo: logoDJPPR.url },
+  { label: "DJSEF" },
+  { label: "BPPK", logo: logoBPPKUnit.url },
+  { label: "DJSPSK" },
+  { label: "BaTII", logo: logoBaTII.url },
+];
 const dates: Array<{ d: number; cls?: string; name?: string }> = [
   { d: 28, cls: "date-muted" }, { d: 29, cls: "date-muted" }, { d: 30, cls: "date-muted" },
   { d: 1 }, { d: 2 }, { d: 3 }, { d: 4 },
@@ -646,10 +668,10 @@ function Home() {
             </a>
             <div className="scrolling-area">
               <div className="ticker">
-                {[...synergy, ...synergy].map((label, i) => (
+                {[...synergy, ...synergy].map((item, i) => (
                   <a key={i} href="#" className="ticker-item">
-                    <div className="ticker-logo"><img src={logoKemenkeu.url} alt={label} /></div>
-                    <span style={{ fontSize: "0.72rem", color: "#888", fontWeight: 700 }}>{label}</span>
+                    <div className="ticker-logo"><img src={item.logo ?? logoKemenkeu.url} alt={item.label} /></div>
+                    <span style={{ fontSize: "0.72rem", color: "#888", fontWeight: 700 }}>{item.label}</span>
                   </a>
                 ))}
               </div>
