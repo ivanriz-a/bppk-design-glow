@@ -668,10 +668,10 @@ function Home() {
             </a>
             <div className="scrolling-area">
               <div className="ticker">
-                {[...synergy, ...synergy].map((label, i) => (
+                {[...synergy, ...synergy].map((item, i) => (
                   <a key={i} href="#" className="ticker-item">
-                    <div className="ticker-logo"><img src={logoKemenkeu.url} alt={label} /></div>
-                    <span style={{ fontSize: "0.72rem", color: "#888", fontWeight: 700 }}>{label}</span>
+                    <div className="ticker-logo"><img src={item.logo ?? logoKemenkeu.url} alt={item.label} /></div>
+                    <span style={{ fontSize: "0.72rem", color: "#888", fontWeight: 700 }}>{item.label}</span>
                   </a>
                 ))}
               </div>
