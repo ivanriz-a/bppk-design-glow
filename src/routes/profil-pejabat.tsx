@@ -372,12 +372,12 @@ function ProfilPejabatPage() {
 
           {groups.map((g) => (
             <div key={g.id} className="pejabat-group">
-              <div className="pejabat-group-head">
-                <p className="pejabat-group-eyebrow">{g.eyebrow}</p>
-                <h3 className="pejabat-group-title">{g.judul}</h3>
-                <p className="pejabat-group-desc">{g.deskripsi}</p>
-              </div>
-              <div className={`pejabat-grid pejabat-grid-${Math.min(g.items.length, 3)}`}>
+              <div className="pejabat-grid-quad">
+                <aside className="pejabat-info-card">
+                  <p className="pejabat-group-eyebrow">{g.eyebrow}</p>
+                  <h3 className="pejabat-group-title">{g.judul}</h3>
+                  <p className="pejabat-group-desc">{g.deskripsi}</p>
+                </aside>
                 {g.items.map((p, i) => (
                   <article key={`${g.id}-${i}`} className="pejabat-card">
                     <button
