@@ -456,18 +456,6 @@ function ProfilPage() {
                 </div>
               </div>
 
-              <div className="profil-values">
-                <p className="profil-values-label">NILAI-NILAI KEMENKEU SATU</p>
-                <div className="profil-values-grid">
-                  {nilai.map((n, i) => (
-                    <div key={n.t} className="profil-value-card">
-                      <span className="profil-value-num">0{i + 1}</span>
-                      <h4>{n.t}</h4>
-                      <p>{n.d}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </section>
 
             {/* TUGAS FUNGSI */}
