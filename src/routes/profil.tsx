@@ -379,7 +379,7 @@ function ProfilPage() {
               <header className="profil-section-head">
                 <span className="profil-section-num">01</span>
                 <div>
-                  <p className="profil-section-eyebrow">Perjalanan Lembaga</p>
+                  
                   <h2 className="profil-section-title">Sejarah <em>BPPK</em></h2>
                 </div>
               </header>
