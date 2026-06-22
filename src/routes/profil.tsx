@@ -379,7 +379,7 @@ function ProfilPage() {
               <header className="profil-section-head">
                 <span className="profil-section-num">01</span>
                 <div>
-                  <p className="profil-section-eyebrow">Perjalanan Lembaga</p>
+                  
                   <h2 className="profil-section-title">Sejarah <em>BPPK</em></h2>
                 </div>
               </header>
@@ -524,7 +524,7 @@ function ProfilPage() {
               <header className="profil-section-head">
                 <span className="profil-section-num">02</span>
                 <div>
-                  <p className="profil-section-eyebrow">Arah dan Komitmen</p>
+                  
                   <h2 className="profil-section-title">Visi dan <em>Misi</em></h2>
                 </div>
               </header>
@@ -548,6 +548,9 @@ function ProfilPage() {
                   <p className="profil-vm-quote">
                     Visi tersebut menunjukkan komitmen yang ingin dicapai oleh BPPK dalam memberikan layanan kepada pemangku kepentingan dengan memaksimalkan potensi yang ada.
                   </p>
+                  <figure className="profil-vm-figure">
+                    <img src={hero2.url} alt="Ilustrasi visi BPPK" loading="lazy" />
+                  </figure>
                 </div>
 
                 <div className="profil-vm-card profil-vm-card-light">
@@ -573,7 +576,7 @@ function ProfilPage() {
               <header className="profil-section-head">
                 <span className="profil-section-num">03</span>
                 <div>
-                  <p className="profil-section-eyebrow">Mandat Organisasi</p>
+                  
                   <h2 className="profil-section-title">Tugas dan <em>Fungsi</em></h2>
                 </div>
               </header>
@@ -623,7 +626,7 @@ function ProfilPage() {
               <header className="profil-section-head">
                 <span className="profil-section-num">04</span>
                 <div>
-                  <p className="profil-section-eyebrow">Pembelajaran Strategis</p>
+                  
                   <h2 className="profil-section-title">Kemenkeu <em>Corpu</em></h2>
                 </div>
               </header>
@@ -692,7 +695,7 @@ function ProfilPage() {
               <header className="profil-section-head">
                 <span className="profil-section-num">05</span>
                 <div>
-                  <p className="profil-section-eyebrow">Organisasi Pembelajar</p>
+                  
                   <h2 className="profil-section-title">Learning <em>Organization</em></h2>
                 </div>
               </header>
