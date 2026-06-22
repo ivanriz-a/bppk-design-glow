@@ -202,7 +202,7 @@ function Home() {
                 </li>
                 <li><Link to="/struktur-organisasi">Struktur Organisasi</Link></li>
                 <li><Link to="/profil-pejabat">Profil Pejabat</Link></li>
-                <li><a href="#">Jejak, Karya, dan Transformasi BPPK</a></li>
+                <li><Link to="/jejak-karya">Jejak, Karya, dan Transformasi BPPK</Link></li>
               </ul>
             </li>
             <li className="nav-item">
