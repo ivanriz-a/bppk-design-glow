@@ -452,6 +452,18 @@ function ProfilPage() {
                   </article>
                 ))}
               </div>
+
+              <div className="profil-values">
+                <p className="profil-values-label">DASAR HUKUM</p>
+                <ol className="profil-vm-list">
+                  {dasarHukum.map((d, i) => (
+                    <li key={i}>
+                      <span className="profil-vm-num">{String(i + 1).padStart(2, "0")}</span>
+                      <span>{d}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
             </section>
 
             {/* CORPU */}
