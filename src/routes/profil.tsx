@@ -548,6 +548,9 @@ function ProfilPage() {
                   <p className="profil-vm-quote">
                     Visi tersebut menunjukkan komitmen yang ingin dicapai oleh BPPK dalam memberikan layanan kepada pemangku kepentingan dengan memaksimalkan potensi yang ada.
                   </p>
+                  <figure className="profil-vm-figure">
+                    <img src={hero2.url} alt="Ilustrasi visi BPPK" loading="lazy" />
+                  </figure>
                 </div>
 
                 <div className="profil-vm-card profil-vm-card-light">
