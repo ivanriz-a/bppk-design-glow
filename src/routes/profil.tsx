@@ -474,23 +474,26 @@ function ProfilPage() {
                 </figure>
                 <div className="profil-section-intro profil-section-intro-inline">
                   <p>
-                    BPPK mempunyai tugas <strong>menyelenggarakan pendidikan, pelatihan, dan sertifikasi kompetensi di bidang keuangan negara</strong> sesuai dengan ketentuan peraturan perundang-undangan.
-                  </p>
-                  <p>
-                    Dalam melaksanakan tugas tersebut, BPPK menyelenggarakan enam fungsi utama yang menjadi tulang punggung pelaksanaan mandat organisasi.
+                    BPPK mempunyai tugas menyelenggarakan pendidikan, pelatihan, dan sertifikasi kompetensi di bidang keuangan negara sesuai dengan ketentuan peraturan perundang-undangan. Dalam melaksanakan tugas tersebut BPPK menyelenggarakan fungsi:
                   </p>
                 </div>
               </div>
 
-              <div className="profil-fungsi-grid">
+              <ol className="profil-vm-list">
                 {fungsi.map((f, i) => (
-                  <article key={f.t} className="profil-fungsi-card">
-                    <span className="profil-fungsi-num">{String(i + 1).padStart(2, "0")}</span>
-                    <h3>{f.t}</h3>
-                    <p>{f.d}</p>
-                  </article>
+                  <li key={i}>
+                    <span className="profil-vm-num">{String(i + 1).padStart(2, "0")}</span>
+                    <span>{f}</span>
+                  </li>
                 ))}
+              </ol>
+
+              <div className="profil-section-intro" style={{ marginTop: "2rem" }}>
+                <p>
+                  Tugas dan fungsi BPPK dilaksanakan oleh Unit Pusat maupun Unit Pelaksana Teknis di daerah sesuai dengan:
+                </p>
               </div>
+
 
               <div className="profil-values">
                 <p className="profil-values-label">DASAR HUKUM</p>
