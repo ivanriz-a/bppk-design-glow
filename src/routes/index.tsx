@@ -129,7 +129,21 @@ const newsData: Record<"Berita" | "Pengumuman" | "Artikel", NewsItem[]> = {
 const newsTabs = ["Berita", "Pengumuman", "Artikel"] as const;
 type NewsTab = typeof newsTabs[number];
 
-const synergy = ["SETJEN", "ITJEN", "DJP", "DJBC", "DJA", "DJPb", "DJKN", "DJPK", "DJPPR", "DJSEF", "BPPK", "DJSPSK", "BaTII"];
+const synergy: { label: string; logo?: string }[] = [
+  { label: "SETJEN" },
+  { label: "ITJEN" },
+  { label: "DJP", logo: logoDJP.url },
+  { label: "DJBC", logo: logoDJBC.url },
+  { label: "DJA" },
+  { label: "DJPb", logo: logoDJPb.url },
+  { label: "DJKN", logo: logoDJKN.url },
+  { label: "DJPK", logo: logoDJPK.url },
+  { label: "DJPPR", logo: logoDJPPR.url },
+  { label: "DJSEF" },
+  { label: "BPPK", logo: logoBPPKUnit.url },
+  { label: "DJSPSK" },
+  { label: "BaTII", logo: logoBaTII.url },
+];
 const dates: Array<{ d: number; cls?: string; name?: string }> = [
   { d: 28, cls: "date-muted" }, { d: 29, cls: "date-muted" }, { d: 30, cls: "date-muted" },
   { d: 1 }, { d: 2 }, { d: 3 }, { d: 4 },
