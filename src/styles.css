@@ -2737,8 +2737,8 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   margin-bottom: 18px;
 }
 .struktur-avatar {
-  width: 42px;
-  height: 42px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   background: var(--bppk-yellow, #fece2f);
   color: var(--bppk-blue, #044f74);
@@ -2746,6 +2746,16 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  overflow: hidden;
+}
+.struktur-avatar.has-photo {
+  background: transparent;
+}
+.struktur-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .struktur-detail-personname {
   font-size: 15px;
