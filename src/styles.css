@@ -2849,6 +2849,17 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   color: var(--text-gray);
   margin: 0;
 }
+.pejabat-group-row {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) 3fr;
+  gap: 24px;
+  align-items: start;
+}
+.pejabat-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
 .pejabat-grid-quad {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
