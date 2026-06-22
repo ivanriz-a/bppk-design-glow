@@ -397,7 +397,6 @@ function ProfilPejabatPage() {
                       <div className="pejabat-body">
                         <h4 className="pejabat-name">{p.nama}</h4>
                         <p className="pejabat-jabatan">{p.jabatan}</p>
-                        <p className="pejabat-unit">{p.unit}</p>
                       </div>
                     </article>
                   ))}
