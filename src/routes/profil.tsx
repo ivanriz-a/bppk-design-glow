@@ -383,9 +383,9 @@ function ProfilPage() {
                   <div className="profil-vm-icon" aria-hidden="true">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"/><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/></svg>
                   </div>
-                  <p className="profil-vm-label">VISI</p>
+                  <p className="profil-vm-label">VISI 2025–2029</p>
                   <h3 className="profil-vm-text">
-                    Menjadi lembaga pendidikan dan pelatihan keuangan negara <em>berkelas dunia</em> yang menghasilkan SDM unggul dan berintegritas.
+                    Menjadi <em>Knowledge Institution</em> berbasis teknologi digital untuk menghasilkan SDM Pengelola Keuangan Negara yang <em>agile</em> dan berintegritas dalam rangka mendukung visi Kementerian Keuangan.
                   </h3>
                 </div>
 
@@ -435,10 +435,10 @@ function ProfilPage() {
                 </figure>
                 <div className="profil-section-intro profil-section-intro-inline">
                   <p>
-                    Berdasarkan Peraturan Menteri Keuangan, BPPK menyelenggarakan pendidikan, pelatihan, dan sertifikasi di bidang keuangan negara bagi aparatur Kementerian Keuangan dan pemangku kepentingan terkait.
+                    BPPK mempunyai tugas <strong>menyelenggarakan pendidikan, pelatihan, dan sertifikasi kompetensi di bidang keuangan negara</strong> sesuai dengan ketentuan peraturan perundang-undangan.
                   </p>
                   <p>
-                    Enam fungsi inti di bawah ini menjadi tulang punggung pelaksanaan mandat tersebut.
+                    Dalam melaksanakan tugas tersebut, BPPK menyelenggarakan enam fungsi utama yang menjadi tulang punggung pelaksanaan mandat organisasi.
                   </p>
                 </div>
               </div>
