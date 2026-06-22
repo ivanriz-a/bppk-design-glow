@@ -545,6 +545,9 @@ function ProfilPage() {
                   <h3 className="profil-vm-text">
                     Menjadi <em>Knowledge Institution</em> berbasis teknologi digital untuk menghasilkan SDM Pengelola Keuangan Negara yang <em>agile</em> dan berintegritas dalam rangka mendukung visi Kementerian Keuangan.
                   </h3>
+                  <p className="profil-vm-quote">
+                    Visi tersebut menunjukkan komitmen yang ingin dicapai oleh BPPK dalam memberikan layanan kepada pemangku kepentingan dengan memaksimalkan potensi yang ada.
+                  </p>
                 </div>
 
                 <div className="profil-vm-card profil-vm-card-light">
