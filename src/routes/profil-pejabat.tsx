@@ -372,34 +372,36 @@ function ProfilPejabatPage() {
 
           {groups.map((g) => (
             <div key={g.id} className="pejabat-group">
-              <div className="pejabat-grid-quad">
+              <div className="pejabat-group-row">
                 <aside className="pejabat-info-card">
                   <p className="pejabat-group-eyebrow">{g.eyebrow}</p>
                   <h3 className="pejabat-group-title">{g.judul}</h3>
                   <p className="pejabat-group-desc">{g.deskripsi}</p>
                 </aside>
-                {g.items.map((p, i) => (
-                  <article key={`${g.id}-${i}`} className="pejabat-card">
-                    <button
-                      type="button"
-                      className="pejabat-photo pejabat-photo-button"
-                      onClick={() => setSelected(p)}
-                      aria-label={`Lihat profil ${p.nama}`}
-                    >
-                      {p.foto ? (
-                        <img src={p.foto} alt={p.nama} className="pejabat-photo-img" />
-                      ) : (
-                        <span className="pejabat-photo-initial">{p.inisial}</span>
-                      )}
-                      <span className="pejabat-photo-cta">Lihat profil</span>
-                    </button>
-                    <div className="pejabat-body">
-                      <h4 className="pejabat-name">{p.nama}</h4>
-                      <p className="pejabat-jabatan">{p.jabatan}</p>
-                      <p className="pejabat-unit">{p.unit}</p>
-                    </div>
-                  </article>
-                ))}
+                <div className="pejabat-photo-grid">
+                  {g.items.map((p, i) => (
+                    <article key={`${g.id}-${i}`} className="pejabat-card">
+                      <button
+                        type="button"
+                        className="pejabat-photo pejabat-photo-button"
+                        onClick={() => setSelected(p)}
+                        aria-label={`Lihat profil ${p.nama}`}
+                      >
+                        {p.foto ? (
+                          <img src={p.foto} alt={p.nama} className="pejabat-photo-img" />
+                        ) : (
+                          <span className="pejabat-photo-initial">{p.inisial}</span>
+                        )}
+                        <span className="pejabat-photo-cta">Lihat profil</span>
+                      </button>
+                      <div className="pejabat-body">
+                        <h4 className="pejabat-name">{p.nama}</h4>
+                        <p className="pejabat-jabatan">{p.jabatan}</p>
+                        <p className="pejabat-unit">{p.unit}</p>
+                      </div>
+                    </article>
+                  ))}
+                </div>
               </div>
             </div>
           ))}
