@@ -34,46 +34,97 @@ const sections: { id: SectionId; num: string; label: string }[] = [
 ];
 
 const milestones = [
-  { year: "1952", title: "Akademi Ajun Akuntan", desc: "Departemen Keuangan membentuk Akademi Ajun Akuntan Negara dan Akademi Ajun Akuntan Pajak untuk menyiapkan kader pimpinan pengelola keuangan negara pasca pengakuan kedaulatan RI.", img: hero1.url },
+  { year: "1952", title: "Akademi Ajun Akuntan", desc: "Departemen Keuangan membentuk Akademi Ajun Akuntan Negara dan Akademi Ajun Akuntan Pajak untuk menyiapkan kader pimpinan tinggi pengelola keuangan negara.", img: hero1.url },
   { year: "1959", title: "Sekolah Tinggi Ilmu Keuangan Negara", desc: "Berdasarkan SK Menkeu No. 175402/UP/X tanggal 31 Desember 1959, dibentuk STIKN dengan empat jurusan: Pajak Umum, Bea dan Cukai, Kebendaharaan Umum, dan Akuntansi.", img: hero2.url },
   { year: "1968", title: "Institut Ilmu Keuangan Negara (IIK)", desc: "Keppres RI Nomor 167 Tahun 1968 membentuk IIK yang meleburkan STIKN, Akademi Treasury Negara (ATN), dan Akademi Dinas Pemeriksa Keuangan (ADPK).", img: hero3.url },
-  { year: "1975", title: "Lahirnya BPLK", desc: "Diresmikan melalui Keppres No. 44 Tahun 1974 dan KMK No. 405/MK/6/4/1975. Tanggal 16 April 1975 ditetapkan sebagai hari jadi BPLK, dengan Bapak Mulyatno Sindhudarmoko sebagai Kepala BPLK pertama.", img: edukasiCover.url },
-  { year: "1987", title: "Penguatan Balai Diklat", desc: "Melalui KMK No. 189/KMK.01/1987 dibentuk Balai Diklat di Medan, Yogyakarta, Ujung Pandang, dan Kediri — melengkapi Pusdiklat Pegawai di Magelang yang berdiri sejak 1984.", img: bgJurnal.url },
-  { year: "2001", title: "Transformasi BPLK menjadi BPPK", desc: "Berdasarkan KMK No. 2/KMK.01/2001, BPLK berubah nama menjadi Badan Pendidikan dan Pelatihan Keuangan (BPPK) dengan susunan Sekretariat Badan dan lima Pusdiklat.", img: bgBuku.url },
-  { year: "2023", title: "Organisasi BPPK Terkini", desc: "Berdasarkan PMK Nomor 135 Tahun 2023, BPPK terdiri dari 1 Sekretariat, 5 Pusdiklat, dan 1 Pusat Pembinaan Jabatan Fungsional dan Penjaminan Mutu, didukung 11 BDK serta PKN STAN.", img: hero1.url },
+  { year: "1975", title: "Lahirnya BPLK", desc: "Diresmikan melalui Keppres No. 44 Tahun 1974 dan KMK No. 405/MK/6/4/1975. Tanggal 16 April 1975 ditetapkan sebagai hari jadi BPLK.", img: edukasiCover.url },
+  { year: "1987", title: "Penguatan Balai Diklat", desc: "Melalui KMK No. 189/KMK.01/1987 dibentuk Balai Diklat di Medan, Yogyakarta, Ujung Pandang, dan Kediri.", img: bgJurnal.url },
+  { year: "2001", title: "Transformasi BPLK menjadi BPPK", desc: "Berdasarkan KMK No. 2/KMK.01/2001, BPLK berubah nama menjadi Badan Pendidikan dan Pelatihan Keuangan (BPPK).", img: bgBuku.url },
+  { year: "2023", title: "Organisasi BPPK Terkini", desc: "Berdasarkan PMK Nomor 135 Tahun 2023, BPPK terdiri dari 1 Sekretariat, 5 Pusdiklat, dan 1 Pusat Pembinaan Jabatan Fungsional dan Penjaminan Mutu.", img: hero1.url },
+];
+
+const akademiAwal = [
+  "Akademi Ajun Akuntan Negara – 1952",
+  "Akademi Ajun Akuntan Pajak – 1952",
+  "Akademi Pajak dan Pabean – 1956",
+  "Akademi Thesauri Negara – 1960",
+];
+
+const pusdiklatAwal = [
+  "Sekretariat Badan Pendidikan dan Latihan Keuangan;",
+  "Pusdiklat Kebendaharaan Umum;",
+  "Pusdiklat Perpajakan;",
+  "Pusdiklat Bea dan Cukai;",
+  "Pusdiklat Pengawasan;",
+  "Pusdiklat IPEDA dan Pegadaian; dan",
+  "Pusdiklat Akuntansi Negara.",
+];
+
+const bplk1991 = [
+  "Sekretariat Badan;",
+  "Pusdiklat Pegawai;",
+  "Pusdiklat Anggaran;",
+  "Pusdiklat Perpajakan;",
+  "Pusdiklat Bea dan Cukai; dan",
+  "Pusdiklat Keuangan Umum.",
+];
+
+const bplk1997 = [
+  "Sekretariat Badan;",
+  "Pusdiklat Pegawai;",
+  "Pusdiklat Anggaran;",
+  "Pusdiklat Perpajakan;",
+  "Pusdiklat Bea dan Cukai; dan",
+  "Pusdiklat Keuangan Umum.",
+];
+
+const bppk2023 = [
+  "Sekretariat Badan;",
+  "Pusdiklat Kepemimpinan dan Manajemen;",
+  "Pusdiklat Anggaran dan Perbendaharaan;",
+  "Pusdiklat Pajak;",
+  "Pusdiklat Bea dan Cukai;",
+  "Pusdiklat Keuangan Publik; dan",
+  "Pusat Pembinaan Jabatan Fungsional dan Penjaminan Mutu.",
+];
+
+const bdkList = [
+  "BDK Medan;",
+  "BDK Pekanbaru;",
+  "BDK Palembang;",
+  "BDK Cimahi;",
+  "BDK Yogyakarta;",
+  "BDK Malang;",
+  "BDK Denpasar;",
+  "BDK Pontianak;",
+  "BDK Balikpapan;",
+  "BDK Makassar; dan",
+  "BDK Manado.",
 ];
 
 const misi = [
-  "Mewujudkan pendidikan tinggi vokasi bereputasi unggul dan bertaraf internasional serta pengelolaan tugas belajar yang efektif dan tepat sasaran.",
-  "Menyelenggarakan program pembelajaran yang berdampak dalam kerangka Kementerian Keuangan Corporate University.",
-  "Mewujudkan sertifikasi kompetensi di bidang keuangan negara dan sektor keuangan, serta akreditasi program pembelajaran di bidang keuangan negara yang andal.",
-  "Mewujudkan pengelolaan jabatan fungsional di bidang keuangan negara melalui pembinaan jabatan fungsional yang profesional dan adaptif.",
-  "Memperkuat penelitian di bidang keuangan negara dan sektor keuangan yang didukung manajemen pengetahuan.",
+  "Mewujudkan ectorion bereputasi unggul dan bertaraf internasional serta pengelolaan tugas belajar yang efektif dan tepat sasaran.",
+  "Menyelenggarakan program pembelajaran yang berdampak dalam Kerangka Kementerian Keuangan Corporate University.",
+  "Mewujudkan sertifikasi kompetensi di bidang keuangan negara dan ector keuangan, serta akreditasi program pembelajaran di bidang keuangan negara yang andal.",
+  "Mewujudkan pengelolaan jabatan fungsional di bidang keuangan negara melalui pembinaan jabatan fungsional yang ectorional dan adaptif.",
+  "Memperkuat penelitian di bidang keuangan negara dan ector keuanngan yang didukung manajemen pengetahuan.",
   "Mewujudkan pengelolaan sumber daya organisasi yang andal dan adaptif untuk mendukung kinerja BPPK yang unggul.",
 ];
 
-const nilai = [
-  { t: "Integritas", d: "Berpikir, berkata, berperilaku, dan bertindak dengan baik dan benar." },
-  { t: "Profesionalisme", d: "Bekerja tuntas dan akurat atas dasar kompetensi terbaik." },
-  { t: "Sinergi", d: "Membangun kerja sama yang produktif dan harmonis." },
-  { t: "Pelayanan", d: "Memberikan layanan terbaik bagi pemangku kepentingan." },
-  { t: "Kesempurnaan", d: "Senantiasa melakukan perbaikan di segala bidang." },
-];
-
 const fungsi = [
-  { t: "Penyusunan Kebijakan Teknis", d: "Penyusunan kebijakan teknis, rencana dan program pendidikan, pelatihan, dan sertifikasi kompetensi di bidang keuangan negara, serta manajemen pengetahuan." },
-  { t: "Pelaksanaan Pembelajaran", d: "Pelaksanaan pendidikan, pelatihan, sertifikasi kompetensi di bidang keuangan negara, dan manajemen pengetahuan." },
-  { t: "Pembinaan Jafung & Penjaminan Mutu", d: "Pembinaan jabatan fungsional, penjaminan mutu pembelajaran, akreditasi program pelatihan, pengelolaan uji kompetensi dan sertifikasi, tes terpadu, serta manajemen beasiswa." },
-  { t: "Pemantauan & Evaluasi", d: "Pemantauan, analisis, evaluasi, dan pelaporan atas pelaksanaan diklat, sertifikasi, pembinaan jafung, serta pemanfaatan hasil pendidikan dan pelatihan." },
-  { t: "Administrasi BPPK", d: "Pelaksanaan administrasi Badan Pendidikan dan Pelatihan Keuangan secara tertib dan akuntabel." },
-  { t: "Fungsi Lain dari Menkeu", d: "Pelaksanaan fungsi lain yang diberikan oleh Menteri Keuangan sesuai dengan kebutuhan organisasi." },
+  "penyusunan kebijakan teknis, rencana dan program pendidikan, pelatihan, dan sertifikasi kompetensi di bidang keuangan negara, dan manajemen pengetahuan;",
+  "pelaksanaan pendidikan, pelatihan, sertifikasi kompetensi di bidang keuangan negara, dan manajemen pengetahuan;",
+  "pelaksanaan pembinaan jabatan fungsional di bidang keuangan negara, penjaminan mutu pembelajaran, akreditasi program pelatihan di bidang keuangan negara, pengelolaan uji kompetensi dan sertifikasi kompetensi di bidang keuangan negara, pengelolaan tes terpadu dan manajemen beasiswa berdasarkan kebijakan teknis;",
+  "pelaksanaan pemantauan, analisis, evaluasi, dan pelaporan atas pelaksanaan pendidikan, pelatihan, sertifikasi kompetensi, pembinaan jabatan fungsional, dan pemanfaatan hasil pendidikan dan pelatihan di bidang keuangan negara, dan manajemen pengetahuan;",
+  "pelaksanaan administrasi Badan Pendidikan dan Pelatihan Keuangan; dan",
+  "pelaksanaan fungsi lain yang diberikan oleh Menteri Keuangan.",
 ];
 
 const dasarHukum = [
-  "PMK Nomor 160/PMK.01/2020 tentang Organisasi dan Tata Kerja Politeknik Keuangan Negara STAN.",
-  "PMK Nomor 118/PMK.01/2021 tentang Organisasi dan Tata Kerja Kementerian Keuangan, sebagaimana diubah dengan PMK Nomor 141/PMK.01/2022 dan PMK Nomor 135 Tahun 2023.",
-  "PMK Nomor 79/PMK.01/2022 tentang Organisasi dan Tata Kerja Unit Pelaksana Teknis di Lingkungan BPPK.",
-  "PMK Nomor 124 Tahun 2024 tentang Organisasi dan Tata Kerja Kementerian Keuangan.",
+  "Peraturan Menteri Keuangan Nomor Nomor 160/PMK.01/2020 tentang Organisasi dan Tata Kerja Politeknik Keuangan Negara STAN;",
+  "Peraturan Menteri Keuangan Nomor 118/PMK.01/2021 tentang Organisasi dan Tata Kerja Kementerian Keuangan sebagaimana telah diubah dengan Peraturan Menteri Keuangan Nomor 141/PMK.01/2022 tentang Perubahan atas Peraturan Menteri Keuangan Nomor 118/PMK.01/2021 tentang Organisasi dan Tata Kerja Kementerian Keuangan dan Peraturan Menteri Keuangan Nomor 135 Tahun 2023 tentang Perubahan Kedua atas Peraturan Menteri Keuangan Nomor 118/PMK.01/2021 tentang Organisasi dan Tata Kerja Kementerian Keuangan; dan",
+  "Peraturan Menteri Keuangan Nomor Nomor 79/PMK.01/2022 tentang Organisasi dan Tata Kerja Unit Pelaksana Teknis di Lingkungan Badan Pendidikan dan Pelatihan Keuangan.",
+  "Peraturan Menteri Keuangan Nomor 124 Tahun 2024 tentang Organisasi dan Tata Kerja Kementerian Keuangan.",
 ];
 
 const corpuPilars = [
@@ -334,10 +385,7 @@ function ProfilPage() {
               </header>
               <div className="profil-section-intro">
                 <p>
-                  Badan Pendidikan dan Pelatihan Keuangan (BPPK) memiliki perjalanan panjang sebagai motor pengembangan sumber daya manusia Kementerian Keuangan. Dari unit diklat sederhana hingga menjadi corporate university, BPPK terus beradaptasi mengikuti dinamika tata kelola keuangan negara.
-                </p>
-                <p>
-                  Setiap babak transformasi diiringi penyempurnaan kurikulum, metode pembelajaran, dan tata kelola mutu — semuanya bermuara pada satu tujuan: SDM keuangan negara yang unggul, adaptif, dan berintegritas.
+                  Badan Pendidikan dan Pelatihan Keuangan merupakan salah satu unit Eselon I yang berada di bawah Kementerian Keuangan yang memiliki tugas menyelenggarakan pendidikan, pelatihan, dan sertifikasi kompetensi di bidang keuangan negara sesuai dengan ketentuan peraturan perundang-undangan.
                 </p>
               </div>
 
@@ -359,7 +407,117 @@ function ProfilPage() {
                   </article>
                 ))}
               </div>
+
+              <div className="profil-section-intro" style={{ marginTop: "3rem" }}>
+                <h3 className="profil-section-title" style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>Pendidikan Pada Masa Sebelum BPLK</h3>
+                <p>
+                  Usai pengakuan kedaulatan Republik Indonesia oleh Belanda pada tahun 1949, Departemen Keuangan memerlukan adanya suatu institusi tinggi untuk mempersiapkan kader-kader pimpinan tinggi di Departemen Keuangan. Maka selain merekrut pegawai lulusan dari perguruan tinggi dari universitas di dalam negeri maupun Belanda, Departemen Keuangan juga membentuk institusi pendidikan tinggi yang secara spesifik membidangi terkait pengelolaan keuangan negara, yaitu:
+                </p>
+                <ol className="profil-vm-list">
+                  {akademiAwal.map((a, i) => (
+                    <li key={i}>
+                      <span className="profil-vm-num">{String(i + 1).padStart(2, "0")}</span>
+                      <span>{a}</span>
+                    </li>
+                  ))}
+                </ol>
+                <p>
+                  Periode tahun 1959, terjadi berbagai perubahan dan pembentukan Sekolah Tinggi Ilmu Keuangan Negara (STIKN) berdasarkan Surat Keputusan Menkeu No: 175402/UP/X tanggal 31 Desember 1959. Sekolah ini menggabungkan beberapa akademi dan memiliki empat jurusan yakni Pajak Umum, Bea dan Cukai, Kebendaharaan Umum dan Akuntansi.
+                </p>
+                <p>
+                  Seiring berjalannya waktu, pada tahun 1968 berdasarkan Keputusan Presiden RI Nomor 167 tahun 1968 dibentuklah Institut Ilmu Keuangan Negara (IIK) yang meleburkan STIKN dan Akademi Treasury Negara (ATN) yang dibentuk Departemen Keuangan serta Akademi Dinas Pemeriksa Keuangan (ADPK) yang dibentuk oleh Badan Pemeriksa Keuangan.
+                </p>
+              </div>
+
+              <div className="profil-section-intro" style={{ marginTop: "2.5rem" }}>
+                <h3 className="profil-section-title" style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>Lahirnya Badan Pendidikan dan Latihan Keuangan (BPLK)</h3>
+                <p>
+                  Tahun 1974, Bapak Ali Wardhana selaku Menteri Keuangan pada saat itu menginisiasi pengintegrasian seluruh akademi dan institusi pendidikan yang menangani pendidikan dan pelatihan di Departemen Keuangan pada satu lembaga khusus yang dinamakan Badan Pendidikan dan Latihan Keuangan (BPLK).
+                </p>
+                <p>
+                  BPLK diresmikan melalui Keputusan Presiden RI Nomor 44 tahun 1974 tentang Pokok-Pokok Organisasi Departemen yang diikuti dengan Keputusan Menteri Keuangan Nomor 405/MK/6/4/1975 dimana Bapak Mulyatno Sindhudarmoko ditunjuk sebagai Kepala BPLK yang pertama. Keputusan ini ditetapkan pada tanggal 16 April 1975 dan dinyatakan sebagai hari jadi BPLK.
+                </p>
+                <p>Berdasarkan keputusan tersebut, BPLK terdiri dari 1 Sekretariat dan 6 Pusdiklat yaitu:</p>
+                <ol className="profil-vm-list">
+                  {pusdiklatAwal.map((p, i) => (
+                    <li key={i}>
+                      <span className="profil-vm-num">{String(i + 1).padStart(2, "0")}</span>
+                      <span>{p}</span>
+                    </li>
+                  ))}
+                </ol>
+                <p>
+                  Selain itu, BPLK diperkuat pula dengan pembentukan Balai Diklat yakni Pusdiklat Pegawai di Magelang pada tahun 1984. Kemudian Balai Diklat di Medan, Yogyakarta, Ujung Pandang dan Kediri pada tahun 1987 melalui Keputusan Menteri Keuangan Nomor 189/KMK.01/1987.
+                </p>
+                <p>
+                  Tahun 1989, penyelenggaraan kegiatan program pendidikan pascasarjana yang dilaksanakan oleh Panitia Kerja Sama Teknik Luar Negeri (KTLN) yang bersifat ad hoc diserahkan kepada BPLK berdasarkan Keputusan Menteri Keuangan Nomor 1307/KMK.14/1989 tentang Perubahan Keputusan Menteri Keuangan Nomor 1018/KMK.14/1989 tentang Pelimpahan Tugas Panitia Kerja Sama Teknik Luar Negeri Departemen Keuangan – Perbankan (jabatan setingkat Eselon III yaitu Bidang Administrasi Pendidikan Pascasarjana pada Pusdiklat Pegawai BPLK yang menjadi cikal bakal PB PSDM).
+                </p>
+                <p>
+                  Pada tahun 1990 – 1991, Badan Diklat Keuangan memiliki unit penyelenggara program diploma yang terdiri dari dua lembaga yaitu Balai Program Diploma dan STAN. Di pertengahan tahun 1990, muncul rencana penyempurnaan organisasi Pendidikan Tinggi Departemen Keuangan melalui peleburan STAN ke dalam satu wadah bernama Sekolah Tinggi Ilmu Keuangan dan Akuntansi (STIKA).
+                </p>
+                <p>Di tahun 1991, BPLK mengalami perubahan organisasi berdasarkan Keputusan Menteri Keuangan Nomor 191/KMK.01/1991 dan terdiri dari:</p>
+                <ol className="profil-vm-list">
+                  {bplk1991.map((p, i) => (
+                    <li key={i}>
+                      <span className="profil-vm-num">{String(i + 1).padStart(2, "0")}</span>
+                      <span>{p}</span>
+                    </li>
+                  ))}
+                </ol>
+                <p>Tahun 1997, BPLK berdasarkan Keputusan Menteri Keuangan Nomor 100/KMK.01/1997 kembali mengalami perubahan organisasi dengan susunan yang terdiri dari:</p>
+                <ol className="profil-vm-list">
+                  {bplk1997.map((p, i) => (
+                    <li key={i}>
+                      <span className="profil-vm-num">{String(i + 1).padStart(2, "0")}</span>
+                      <span>{p}</span>
+                    </li>
+                  ))}
+                </ol>
+                <p>
+                  STAN tetap berada di BPLK berdasarkan Pasal 164 yang menyatakan Keputusan Menteri Keuangan Nomor 191/KMK.01/1991 dinyatakan tidak berlaku kecuali Pasal 156.
+                </p>
+              </div>
+
+              <div className="profil-section-intro" style={{ marginTop: "2.5rem" }}>
+                <h3 className="profil-section-title" style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>Terbentuknya Badan Pendidikan dan Pelatihan Keuangan (BPPK)</h3>
+                <p>
+                  Tahun 2001, perubahan organisasi BPLK kembali terjadi dengan ditetapkan Keputusan Menteri Keuangan Nomor 2/KMK.01/2001. Nama BPLK berubah menjadi Badan Pendidikan dan Pelatihan Keuangan (BPPK) dengan susunan Sekretariat Badan, Pusdiklat Pegawai, Pusdiklat Anggaran, Pusdiklat Perpajakan, Pusdiklat Bea dan Cukai, dan Pusdiklat Keuangan Umum. STAN secara status quo tetap berada di BPPK tetapi harus segera menyesuaikan diri dengan ketentuan peraturan perundang-undangan yang berlaku.
+                </p>
+                <p>
+                  Perubahan selanjutnya kembali terjadi dengan ditetapkannya Peraturan Menteri Keuangan mengenai Organisasi dan Tata Kerja pada tahun 2006, 2008, 2010, 2014, 2015, 2018, 2021, dan 2023.
+                </p>
+                <p>
+                  Kini berdasarkan Peraturan Menteri Keuangan Nomor 135 Tahun 2023 tentang Perubahan Kedua atas peraturan Menteri Keuangan Nomor 118/PMK.01/2021 tentang Organisasi dan Tata Kerja Kementerian Keuangan, Badan Pendidikan dan Pelatihan Keuangan (BPPK) terdiri dari 1 Sekretariat, 5 Pusdiklat, dan 1 Pusat Pembinaan yaitu:
+                </p>
+                <ol className="profil-vm-list">
+                  {bppk2023.map((p, i) => (
+                    <li key={i}>
+                      <span className="profil-vm-num">{String(i + 1).padStart(2, "0")}</span>
+                      <span>{p}</span>
+                    </li>
+                  ))}
+                </ol>
+                <p>
+                  Politeknik Keuangan Negara STAN tetap berada di Badan Pendidikan dan Pelatihan Keuangan berdasarkan Peraturan Menteri Keuangan Nomor 160/PMK.01/2020 tentang Organisasi dan Tata Kerja Politeknik Keuangan Negara STAN yang masih berlaku hingga saat ini.
+                </p>
+                <p>
+                  Selain itu, berdasarkan Peraturan Menteri Keuangan Nomor 79/PMK.01/2022 tentang Organisasi dan Tata Kerja Unit Pelaksana Teknis di Lingkungan Badan Pendidikan dan Pelatihan Keuangan, BPPK juga memiliki Unit Pelaksana Teknis (UPT) yang terdiri dari 11 Balai Pendidikan dan Pelatihan Keuangan (BDK) dan 1 Balai Pendidikan dan Pelatihan Kepemimpinan (BDPim), yaitu:
+                </p>
+                <ol className="profil-vm-list">
+                  {bdkList.map((b, i) => (
+                    <li key={i}>
+                      <span className="profil-vm-num">{String(i + 1).padStart(2, "0")}</span>
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ol>
+                <p>* BDPim Magelang</p>
+                <p>
+                  Namun dengan berlakunya Peraturan Menteri Keuangan Nomor 135 Tahun 2023 tentang Perubahan Kedua atas peraturan Menteri Keuangan Nomor 118/PMK.01/2021 tentang Organisasi dan Tata Kerja Kementerian Keuangan, Balai Pendidikan dan Pelatihan Kepemimpinan (BDPim) tidak lagi menjadi UPT di bawah BPPK.
+                </p>
+              </div>
             </section>
+
 
             {/* VISI MISI */}
             <section id="visi-misi" className="profil-section">
@@ -405,18 +563,6 @@ function ProfilPage() {
                 </div>
               </div>
 
-              <div className="profil-values">
-                <p className="profil-values-label">NILAI-NILAI KEMENKEU SATU</p>
-                <div className="profil-values-grid">
-                  {nilai.map((n, i) => (
-                    <div key={n.t} className="profil-value-card">
-                      <span className="profil-value-num">0{i + 1}</span>
-                      <h4>{n.t}</h4>
-                      <p>{n.d}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </section>
 
             {/* TUGAS FUNGSI */}
@@ -435,23 +581,26 @@ function ProfilPage() {
                 </figure>
                 <div className="profil-section-intro profil-section-intro-inline">
                   <p>
-                    BPPK mempunyai tugas <strong>menyelenggarakan pendidikan, pelatihan, dan sertifikasi kompetensi di bidang keuangan negara</strong> sesuai dengan ketentuan peraturan perundang-undangan.
-                  </p>
-                  <p>
-                    Dalam melaksanakan tugas tersebut, BPPK menyelenggarakan enam fungsi utama yang menjadi tulang punggung pelaksanaan mandat organisasi.
+                    BPPK mempunyai tugas menyelenggarakan pendidikan, pelatihan, dan sertifikasi kompetensi di bidang keuangan negara sesuai dengan ketentuan peraturan perundang-undangan. Dalam melaksanakan tugas tersebut BPPK menyelenggarakan fungsi:
                   </p>
                 </div>
               </div>
 
-              <div className="profil-fungsi-grid">
+              <ol className="profil-vm-list">
                 {fungsi.map((f, i) => (
-                  <article key={f.t} className="profil-fungsi-card">
-                    <span className="profil-fungsi-num">{String(i + 1).padStart(2, "0")}</span>
-                    <h3>{f.t}</h3>
-                    <p>{f.d}</p>
-                  </article>
+                  <li key={i}>
+                    <span className="profil-vm-num">{String(i + 1).padStart(2, "0")}</span>
+                    <span>{f}</span>
+                  </li>
                 ))}
+              </ol>
+
+              <div className="profil-section-intro" style={{ marginTop: "2rem" }}>
+                <p>
+                  Tugas dan fungsi BPPK dilaksanakan oleh Unit Pusat maupun Unit Pelaksana Teknis di daerah sesuai dengan:
+                </p>
               </div>
+
 
               <div className="profil-values">
                 <p className="profil-values-label">DASAR HUKUM</p>
