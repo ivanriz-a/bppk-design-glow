@@ -2849,20 +2849,36 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   color: var(--text-gray);
   margin: 0;
 }
-.pejabat-grid {
+.pejabat-grid-quad {
   display: grid;
-  gap: 28px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
 }
-.pejabat-grid-1 {
-  grid-template-columns: repeat(2, minmax(0, 360px));
-  justify-content: start;
+.pejabat-info-card {
+  background: #eef2f7;
+  border-radius: 18px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border: 1px solid var(--border-light);
+  min-height: 100%;
 }
-.pejabat-grid-2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  max-width: 760px;
+.pejabat-info-card .pejabat-group-eyebrow { margin-bottom: 14px; }
+.pejabat-info-card .pejabat-group-title {
+  font-family: 'Amulya', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--bppk-blue);
+  margin: 0 0 14px;
+  letter-spacing: -0.3px;
+  line-height: 1.25;
 }
-.pejabat-grid-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+.pejabat-info-card .pejabat-group-desc {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--text-gray);
+  margin: 0;
 }
 .pejabat-card {
   background: #fff;
@@ -2933,15 +2949,12 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
 }
 
 @media (max-width: 1024px) {
-  .pejabat-grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .pejabat-grid-1 { grid-template-columns: minmax(0, 360px); }
+  .pejabat-grid-quad { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 640px) {
-  .pejabat-grid-3,
-  .pejabat-grid-2,
-  .pejabat-grid-1 { grid-template-columns: 1fr; max-width: none; }
+  .pejabat-grid-quad { grid-template-columns: 1fr; }
   .pejabat-title { font-size: 1.7rem; }
-  .pejabat-group-title { font-size: 1.35rem; }
+  .pejabat-info-card .pejabat-group-title { font-size: 1.25rem; }
 }
 
 /* ===== Pejabat: Foto + Modal ===== */
