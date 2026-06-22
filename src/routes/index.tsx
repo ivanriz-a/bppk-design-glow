@@ -12,6 +12,14 @@ import bgJurnal from "@/assets/background-jurnal.jpg.asset.json";
 import coverBuku from "@/assets/cover-buku.png.asset.json";
 import bgBuku from "@/assets/background-buku.jpeg.asset.json";
 import logoKemenkeu from "@/assets/logo-kemenkeu.png.asset.json";
+import logoBaTII from "@/assets/logo-BaTII.png.asset.json";
+import logoBPPKUnit from "@/assets/logo-BPPK.png.asset.json";
+import logoDJBC from "@/assets/logo-DJBC.png.asset.json";
+import logoDJKN from "@/assets/logo-DJKN.png.asset.json";
+import logoDJP from "@/assets/logo-DJP.png.asset.json";
+import logoDJPb from "@/assets/logo-DJPb.png.asset.json";
+import logoDJPK from "@/assets/logo-DJPK.png.asset.json";
+import logoDJPPR from "@/assets/logo-DJPPR.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
