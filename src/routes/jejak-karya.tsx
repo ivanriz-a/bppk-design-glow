@@ -273,11 +273,6 @@ function JejakKaryaPage() {
       {/* DESKRIPSI */}
       <section className="jejak-desc">
         <div className="jejak-desc-inner container-bppk">
-          <p className="jejak-desc-eyebrow">TENTANG BUKU</p>
-          <h2 className="jejak-desc-title">
-            Sebuah Kisah <em>Rumah Belajar</em> Kementerian Keuangan
-          </h2>
-          <div className="accent-line" />
           <p>
             <strong>
               Pemompa jantung kompetensi pegawai Kemenkeu terus berdetak, berada
@@ -293,7 +288,10 @@ function JejakKaryaPage() {
             menjadi kawah candradimuka modern, menempa karakter, integritas,
             dan kompetensi SDM agar tangguh menghadapi badai VUCA (
             <em>volatility, uncertainty, complexity, ambiguity</em>) dan
-            tantangan masa depan.
+            tantangan masa depan. Dengan adaptasi digital, kolaborasi global, dan
+            komitmen pada profesionalisme, Kemenkeu membangun ekosistem
+            pembelajaran strategis yang terintegrasi dan berdampak nyata. Di era
+            teknologi sehebat apa pun, manusia tetap menjadi panglima.
           </p>
           <p>
             <strong>
@@ -306,7 +304,13 @@ function JejakKaryaPage() {
             bersemayam di ruang belajar tanpa batas, dari pusat hingga ke
             daerah terpencil. Transformasi ini—dari ruang kelas konvensional
             menjadi ruang digital inklusif—adalah langkah untuk menyongsong
-            Indonesia Emas 2045.
+            Indonesia Emas 2045. Inilah pilar utama yang menopang perjalanan
+            panjang menuju masa depan, di mana profesionalisme ASN adalah jangkar
+            yang menjaga arah di tengah gelombang besar. Sebab, kebesaran sebuah
+            bangsa bukan hanya ditentukan oleh kekayaan sumber daya alam, tetapi
+            oleh kualitas manusianya. BPPK akan terus menjadi rumah belajar:
+            Tempat para insan Kemenkeu menempa diri, bukan hanya untuk menjadi
+            lebih pintar; tetapi juga untuk menjadi lebih bijak.
           </p>
 
           <div className="jejak-cta-row">
