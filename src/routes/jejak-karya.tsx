@@ -274,9 +274,6 @@ function JejakKaryaPage() {
       <section className="jejak-desc">
         <div className="jejak-desc-inner container-bppk">
           <p className="jejak-desc-eyebrow">TENTANG BUKU</p>
-          <h2 className="jejak-desc-title">
-            Sebuah Kisah <em>Rumah Belajar</em> Kementerian Keuangan
-          </h2>
           <div className="accent-line" />
           <p>
             <strong>
