@@ -3239,10 +3239,6 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
 .jejak-back-cover {
   position: relative;
   color: #fff;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 36px 28px;
   overflow: hidden;
   height: 100%;
   width: 100%;
@@ -3262,11 +3258,17 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   background: rgba(4, 54, 79, 0.65);
 }
 .jejak-back-inner {
-  position: relative;
+  position: absolute;
+  inset: 0;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  max-width: 320px;
+  padding: 36px 28px;
 }
+.jejak-back-inner > * { max-width: 320px; }
 .jejak-back-eyebrow {
   font-size: 0.72rem; letter-spacing: 0.24em; text-transform: uppercase;
   color: var(--bppk-yellow); font-weight: 700; margin: 0 0 12px;
