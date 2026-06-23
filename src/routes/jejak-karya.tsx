@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import profilHeroBg from "@/assets/profil-hero-bg.png.asset.json";
 import { useEffect, useRef, useState } from "react";
 import logoPutih from "@/assets/logo-bppk-putih.png.asset.json";
 import logoFooter from "@/assets/logo-kemenkeu-bppk-putih.png.asset.json";
