@@ -3367,7 +3367,6 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
 }
 
 @media (max-width: 640px) {
-  .jejak-hero { padding: 100px 0 40px; }
   .jejak-book-section { padding: 40px 16px 60px; }
   .jejak-desc { padding: 60px 22px 80px; }
   .jejak-controls { flex-wrap: wrap; justify-content: center; }
