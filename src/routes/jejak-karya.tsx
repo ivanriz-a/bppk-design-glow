@@ -233,6 +233,8 @@ function JejakKaryaPage() {
                 </div>
               ))}
               <div className="jejak-page-sheet jejak-back-cover">
+                <img src={p16.url} alt="" className="jejak-back-bg" />
+                <div className="jejak-back-overlay" />
                 <div className="jejak-back-inner">
                   <p className="jejak-back-eyebrow">Akhir Preview</p>
                   <h3>Lanjutkan Membaca</h3>
