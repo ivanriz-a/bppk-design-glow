@@ -3228,6 +3228,7 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   color: #1a1a1a;
   overflow: hidden;
   height: 100%;
+  width: 100%;
 }
 .jejak-page-img {
   width: 100%;
@@ -3238,12 +3239,13 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
 .jejak-back-cover {
   position: relative;
   color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   padding: 36px 28px;
   overflow: hidden;
   height: 100%;
+  width: 100%;
 }
 .jejak-back-bg {
   position: absolute;
