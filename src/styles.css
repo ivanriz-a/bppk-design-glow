@@ -3240,7 +3240,8 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 36px 28px;
+  height: 100%;
+  padding: 28px 24px;
   overflow: hidden;
 }
 .jejak-back-bg {
@@ -3262,6 +3263,10 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   z-index: 2;
   text-align: center;
   max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .jejak-back-eyebrow {
   font-size: 0.72rem; letter-spacing: 0.24em; text-transform: uppercase;
