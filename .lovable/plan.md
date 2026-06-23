@@ -1,42 +1,47 @@
-## Halaman /jejak-karya
 
-Buat route baru `src/routes/jejak-karya.tsx` yang menampilkan preview buku "Jejak, Karya, dan Transformasi BPPK" lengkap dengan flipbook interaktif dan deskripsi.
+## Tujuan
+Saat tombol **"Informasi Lainnya"** di homepage diklik, user diarahkan ke halaman listing berita lengkap dengan tampilan sesuai mockup yang dilampirkan (hero "Informasi Terbaru", tab kategori, featured article, dan grid Latest articles).
 
-### Struktur Halaman
+## Halaman yang dibuat
 
-1. **Hero / Header**
-   - Judul: "Jejak, Karya, dan Transformasi BPPK"
-   - Subjudul singkat: "Rumah Belajar Kementerian Keuangan"
-   - Breadcrumb / kembali ke beranda
+### 1. `/informasi` — Listing berita
+Route baru: `src/routes/informasi.tsx`
 
-2. **Flipbook Preview**
-   - Komponen flipbook interaktif menggunakan library `react-pageflip` (ringan, populer, mendukung mouse/touch)
-   - Sumber PDF: link resmi BPPK (`https://bppk.kemenkeu.go.id/.../Buku_Jejak_Karya_dan_Transformasi_BPPK.pdf`)
-   - Karena PDF lintas-domain mungkin diblokir CORS untuk render langsung, halaman ini akan menampilkan flipbook dari **gambar cover + halaman teaser** (gambar yang sudah ter-extract dari dokumen sebagai cover) dan menyediakan tombol **"Buka PDF Lengkap"** yang membuka URL PDF di tab baru. Ini realistis tanpa perlu meng-host ulang PDF.
-   - Kontrol: tombol Prev/Next, indikator halaman.
+Struktur (mengikuti mockup + selaras dengan style homepage `/profil`, `/jejak-karya`):
+- **Navbar** sama dengan homepage (re-use markup dari `index.tsx`)
+- **Hero** bergaya seperti halaman profil — judul **"Informasi Terbaru"** di atas background gedung BPPK + garis aksen gradient ungu/pink
+- **Section tabs**: `Berita` (default aktif) · `Pengumuman` · `Artikel` — pill style, warna mengikuti token homepage (navy aktif, outline non-aktif)
+- **Featured article card** (split 2 kolom): gambar besar di kiri, judul + excerpt + chip kategori + tanggal di kanan
+- **Latest articles**:
+  - Header baris: judul "Artikel Terbaru" di kiri, filter kategori (`Active`, `Category`, `Category`, `Category`) di kanan
+  - Grid 3 kolom × 2 baris (6 card): gambar, judul, excerpt, chip kategori, tanggal
+  - Setiap card mengarah ke `/informasi/$slug`
+- **Pagination** sederhana di bawah grid (opsional, ringan)
+- **Footer** sama dengan homepage
 
-3. **Deskripsi Buku** (verbatim sesuai dokumen, dua paragraf)
-   - Paragraf 1: tentang Rumah Belajar, transformasi BPPK menjadi Kemenkeu Corpu & leaders factory, adaptasi VUCA, manusia sebagai panglima.
-   - Paragraf 2: tentang pembentukan ASN cerdas-etis-berintegritas, Kemenkeu Corpu sebagai DNA budaya, transformasi menuju Indonesia Emas 2045.
-   - Penekanan (bold/italic) sesuai dokumen.
+Data berita di-mock dalam file route (array statis) — konsisten dengan pendekatan `newsData` di `index.tsx`. Tab `Berita/Pengumuman/Artikel` memfilter data tersebut.
 
-4. **CTA** — tombol "Unduh / Baca PDF Lengkap" → URL resmi BPPK.
+### 2. `/informasi/$slug` — Detail berita (struktur dasar)
+Route baru: `src/routes/informasi.$slug.tsx`
 
-### File yang dibuat / diubah
+- Navbar + footer sama
+- Hero compact dengan judul berita + tanggal + kategori
+- Konten artikel (gambar utama + body text)
+- Tombol "Kembali ke Informasi" → `/informasi`
 
-- **Baru**: `src/routes/jejak-karya.tsx` — route + komponen halaman, head meta SEO.
-- **Baru**: aset gambar cover via `lovable-assets create` dari gambar yang ter-extract dokumen (`page_1.jpg`).
-- **Edit**: `src/routes/__root.tsx` — tambah link nav "Jejak Karya" jika ada navigasi utama.
-- **Edit**: `src/styles.css` — kelas styling halaman (`.jejak-*`).
-- **Dependency**: `bun add react-pageflip`.
+(Halaman detail dibuat sederhana agar link dari listing tidak 404. Bisa diperluas di permintaan berikutnya.)
 
-### Catatan teknis
+## Perubahan pada homepage
+File: `src/routes/index.tsx`
+- Tombol **"Informasi Lainnya"** (line 651) diubah dari `<a href="#">` menjadi `<Link to="/informasi">` dari `@tanstack/react-router`
+- Tombol **"Baca Selengkapnya"** pada setiap news card (line 644) diubah menjadi `<Link to="/informasi/$slug" params={{ slug: n.slug }}>` — perlu menambahkan field `slug` pada item `newsData`
 
-- `react-pageflip` adalah komponen client-only; gunakan tanpa SSR khusus (komponen biasa di route file aman karena di-render di client setelah hidrasi; jika muncul masalah `window`, bungkus dengan `useEffect` mount guard atau dynamic import).
-- Flipbook menggunakan 2-3 halaman gambar (cover + halaman teaser placeholder yang bertuliskan deskripsi singkat). Jika nanti tersedia gambar halaman lain, tinggal menambahkan ke array.
-- Tidak menambah backend.
+## Styling
+- Menambahkan blok CSS baru di `src/styles.css` dengan prefix `.info-*` untuk:
+  - `.info-hero` (mirip `.profil-hero`)
+  - `.info-tabs`, `.info-featured`, `.info-latest-grid`, `.info-card`, `.info-pagination`
+- Semua warna memakai token semantik yang sudah ada (`--navy`, `--text-gray`, `--accent`, dst). Tidak ada warna hardcoded.
 
-### Pertanyaan singkat sebelum implementasi
-
-1. Apakah cukup menggunakan **gambar cover + halaman teaser** untuk flipbook (dengan tombol buka PDF lengkap), atau Anda ingin saya mencoba render PDF langsung halaman-per-halaman? (Render PDF langsung butuh pdf.js + bisa lambat & terkadang kena CORS.)
-2. Apakah halaman ini perlu ditambahkan ke menu navigasi utama?
+## Catatan
+- Konten berita mock (judul, excerpt, gambar placeholder, tanggal, kategori). Gambar memakai asset yang sudah ada di `src/assets` atau placeholder gradient.
+- Tidak menyentuh logic backend — murni frontend/presentasi.
