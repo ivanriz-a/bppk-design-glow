@@ -192,23 +192,19 @@ function JejakKaryaPage() {
       </nav>
 
       {/* HERO */}
-      <section className="jejak-hero">
-        <div className="jejak-hero-inner container-bppk">
+      <section className="profil-hero profil-hero-short">
+        <div className="profil-hero-bg" style={{ backgroundImage: `url(${profilHeroBg.url})` }} />
+        <div className="profil-hero-overlay" />
+        <div className="profil-hero-content container-bppk">
           <nav className="profil-breadcrumb" aria-label="Breadcrumb">
             <Link to="/">Beranda</Link>
             <span className="sep">/</span>
             <span>Jejak, Karya, dan Transformasi BPPK</span>
           </nav>
-          <p className="jejak-eyebrow">PUBLIKASI BPPK</p>
-          <h1 className="jejak-title">
+          <p className="profil-hero-eyebrow">PUBLIKASI BPPK</p>
+          <h1 className="profil-hero-title">
             Jejak, Karya, dan <em>Transformasi</em> BPPK
           </h1>
-          <p className="jejak-subtitle">
-            Rumah Belajar Kementerian Keuangan — kisah perjalanan dari kursus
-            sederhana tahun 1950-an menjadi Kemenkeu Corporate University dan
-            <em> leaders factory </em>masa kini.
-          </p>
-          <div className="jejak-hero-accent" />
         </div>
       </section>
 
