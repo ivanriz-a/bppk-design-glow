@@ -80,7 +80,7 @@ function InformasiDetailPage() {
           <article className="info-detail-article">
             <img src={item.img} alt={item.title} className="info-detail-cover" />
             <div className="info-detail-body">
-              {item.body.map((p, i) => (
+              {item.body.map((p: string, i: number) => (
                 <p key={i}>{p}</p>
               ))}
             </div>
