@@ -3237,7 +3237,7 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   display: block;
 }
 .jejak-back-cover {
-  position: relative !important;
+  position: relative;
   color: #fff;
   display: flex !important;
   align-items: center !important;
