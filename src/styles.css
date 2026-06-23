@@ -3237,11 +3237,11 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   display: block;
 }
 .jejak-back-cover {
-  position: relative;
+  position: relative !important;
   color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   padding: 36px 28px;
   overflow: hidden;
   height: 100%;
