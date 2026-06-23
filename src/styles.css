@@ -3192,49 +3192,7 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
 /* ============================================================
    JEJAK KARYA TRANSFORMASI BPPK
    ============================================================ */
-.jejak-hero {
-  position: relative;
-  padding: 130px 0 60px;
-  background:
-    radial-gradient(1200px 500px at 80% -10%, rgba(67,159,217,0.18), transparent 60%),
-    linear-gradient(180deg, #ffffff 0%, #f4f8fc 100%);
-  border-bottom: 1px solid #e5edf5;
-  font-family: 'Poppins', system-ui, sans-serif;
-}
-.jejak-hero-inner { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
-.jejak-eyebrow {
-  font-size: 0.78rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--bppk-light-blue);
-  margin: 18px 0 12px;
-  font-weight: 700;
-}
-.jejak-title {
-  font-size: clamp(2rem, 4.4vw, 3.2rem);
-  font-weight: 800;
-  line-height: 1.15;
-  margin: 0 0 18px;
-  color: var(--bppk-blue);
-  letter-spacing: -0.5px;
-  max-width: 880px;
-}
-.jejak-title em {
-  font-style: italic;
-  color: var(--bppk-light-blue);
-  font-weight: 800;
-}
-.jejak-subtitle {
-  font-size: 1.05rem;
-  line-height: 1.75;
-  color: #4a5d72;
-  margin: 0;
-  max-width: 720px;
-}
-.jejak-hero-accent {
-  width: 60px; height: 4px; background: var(--bppk-yellow);
-  border-radius: 2px; margin-top: 22px;
-}
+/* jejak-hero now uses .profil-hero classes */
 
 .jejak-book-section {
   padding: 70px 20px 80px;
