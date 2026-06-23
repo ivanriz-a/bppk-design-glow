@@ -3245,6 +3245,7 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   padding: 36px 28px;
   overflow: hidden;
   height: 100%;
+  width: 100%;
 }
 .jejak-back-bg {
   position: absolute;
