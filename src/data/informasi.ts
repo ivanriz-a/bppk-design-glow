@@ -1,0 +1,209 @@
+export type InfoCategory = "Berita" | "Pengumuman" | "Artikel";
+
+export type InfoItem = {
+  slug: string;
+  category: InfoCategory;
+  tag: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  dateISO: string;
+  img: string;
+  body: string[];
+};
+
+export const infoCategories: InfoCategory[] = ["Berita", "Pengumuman", "Artikel"];
+
+export const infoItems: InfoItem[] = [
+  {
+    slug: "pembukaan-pelatihan-teknis-keuangan-publik",
+    category: "Berita",
+    tag: "Pelatihan",
+    title: "Pembukaan Pelatihan Teknis di Lingkungan Keuangan Publik",
+    excerpt:
+      "Pusdiklat Keuangan Umum menyelenggarakan program strategis peningkatan kapasitas SDM yang diikuti oleh seluruh pegawai.",
+    date: "15 Mei 2026",
+    dateISO: "2026-05-15",
+    img: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80",
+    body: [
+      "Pusdiklat Keuangan Umum BPPK secara resmi membuka Pelatihan Teknis di Lingkungan Keuangan Publik yang diikuti oleh perwakilan pegawai dari seluruh unit eselon I Kementerian Keuangan. Program ini dirancang untuk memperkuat kapasitas teknis dalam pengelolaan keuangan negara modern.",
+      "Pelatihan berlangsung selama dua minggu dengan metode blended learning, memadukan kelas tatap muka dan modul digital di Kemenkeu Learning Center. Materi mencakup tata kelola anggaran, manajemen risiko, dan pemanfaatan data analitik dalam pengambilan keputusan kebijakan publik.",
+      "Kepala BPPK menegaskan bahwa investasi pada pengembangan kompetensi adalah kunci transformasi Kementerian Keuangan menuju organisasi pembelajar yang adaptif terhadap dinamika global.",
+    ],
+  },
+  {
+    slug: "rakor-pengembangan-kompetensi-aparatur",
+    category: "Berita",
+    tag: "Koordinasi",
+    title: "Rapat Koordinasi Pengembangan Kompetensi Aparatur",
+    excerpt:
+      "Memperkuat pengembangan kompetensi SDM melalui rapat koordinasi lintas unit untuk merumuskan kebijakan strategis.",
+    date: "12 Mei 2026",
+    dateISO: "2026-05-12",
+    img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80",
+    body: [
+      "BPPK menggelar Rapat Koordinasi Pengembangan Kompetensi Aparatur yang dihadiri oleh seluruh kepala pusdiklat dan balai diklat keuangan. Rapat membahas kerangka kerja kompetensi tahun anggaran berikutnya.",
+      "Diskusi difokuskan pada penyelarasan kebutuhan organisasi dengan portofolio pembelajaran, serta penguatan ekosistem Kemenkeu Corporate University.",
+    ],
+  },
+  {
+    slug: "mou-mitra-akademik",
+    category: "Berita",
+    tag: "Kerja Sama",
+    title: "Penandatanganan MoU dengan Mitra Akademik Terkemuka",
+    excerpt:
+      "Penguatan kolaborasi antara lembaga pelatihan pemerintah dengan institusi pendidikan tinggi resmi dimulai.",
+    date: "10 Mei 2026",
+    dateISO: "2026-05-10",
+    img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80",
+    body: [
+      "Penandatanganan nota kesepahaman antara BPPK dengan sejumlah universitas terkemuka membuka peluang riset bersama, pertukaran pengajar, serta pengembangan kurikulum keuangan negara.",
+      "Kolaborasi ini diharapkan memperkaya khazanah ilmu di lingkungan Kemenkeu Corporate University.",
+    ],
+  },
+  {
+    slug: "kunjungan-delegasi-internasional",
+    category: "Berita",
+    tag: "Internasional",
+    title: "Kunjungan Delegasi Internasional ke Kampus BPPK",
+    excerpt:
+      "Delegasi mitra internasional berbagi praktik terbaik dalam pengembangan kompetensi sektor publik.",
+    date: "08 Mei 2026",
+    dateISO: "2026-05-08",
+    img: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1200&q=80",
+    body: [
+      "Delegasi pelatihan keuangan dari beberapa negara mitra mengunjungi kampus BPPK untuk bertukar pengalaman terkait modernisasi pendidikan ASN bidang keuangan.",
+    ],
+  },
+  {
+    slug: "peluncuran-akselerasi-talenta-digital",
+    category: "Berita",
+    tag: "Digital",
+    title: "Peluncuran Program Akselerasi Talenta Digital",
+    excerpt:
+      "Program akselerasi membekali ASN dengan keterampilan digital terkini untuk transformasi layanan publik.",
+    date: "05 Mei 2026",
+    dateISO: "2026-05-05",
+    img: "https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?auto=format&fit=crop&w=1200&q=80",
+    body: [
+      "Program akselerasi talenta digital meliputi pelatihan data science, cloud, hingga kepemimpinan teknologi yang ditujukan kepada talenta-talenta terpilih Kementerian Keuangan.",
+    ],
+  },
+  {
+    slug: "hasil-seleksi-beasiswa-s2",
+    category: "Pengumuman",
+    tag: "Beasiswa",
+    title: "Pengumuman Hasil Seleksi Beasiswa S2 Dalam Negeri",
+    excerpt:
+      "Daftar peserta yang lolos tahap akhir seleksi beasiswa pascasarjana telah dipublikasikan.",
+    date: "20 Mei 2026",
+    dateISO: "2026-05-20",
+    img: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80",
+    body: [
+      "Hasil seleksi akhir beasiswa S2 dalam negeri telah diumumkan melalui kanal resmi BPPK. Peserta yang lolos diminta segera melengkapi berkas registrasi sesuai jadwal.",
+    ],
+  },
+  {
+    slug: "jadwal-ujian-sertifikasi-juni",
+    category: "Pengumuman",
+    tag: "Sertifikasi",
+    title: "Jadwal Ujian Sertifikasi Kompetensi Periode Juni",
+    excerpt:
+      "Peserta diharapkan memperhatikan jadwal pelaksanaan ujian sertifikasi yang akan datang.",
+    date: "18 Mei 2026",
+    dateISO: "2026-05-18",
+    img: "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?auto=format&fit=crop&w=1200&q=80",
+    body: [
+      "Jadwal ujian sertifikasi periode Juni telah ditetapkan. Mohon perhatian peserta untuk memastikan kesiapan teknis dan administratif sebelum hari pelaksanaan.",
+    ],
+  },
+  {
+    slug: "perubahan-jadwal-pelatihan-manajerial",
+    category: "Pengumuman",
+    tag: "Jadwal",
+    title: "Perubahan Jadwal Pelatihan Manajerial Tingkat Madya",
+    excerpt:
+      "Mohon perhatian peserta pelatihan terkait perubahan jadwal dan lokasi pelaksanaan kelas.",
+    date: "14 Mei 2026",
+    dateISO: "2026-05-14",
+    img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
+    body: [
+      "Penyesuaian jadwal dilakukan untuk mengakomodasi rotasi penugasan peserta. Detail lokasi dan tanggal terbaru disampaikan melalui email resmi peserta.",
+    ],
+  },
+  {
+    slug: "pendaftaran-magang-mahasiswa",
+    category: "Pengumuman",
+    tag: "Magang",
+    title: "Pembukaan Pendaftaran Magang Mahasiswa di BPPK",
+    excerpt:
+      "Kesempatan bagi mahasiswa untuk mendapatkan pengalaman langsung di lingkungan kerja BPPK.",
+    date: "11 Mei 2026",
+    dateISO: "2026-05-11",
+    img: "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1200&q=80",
+    body: [
+      "Program magang dibuka untuk mahasiswa S1 dan vokasi dari berbagai disiplin ilmu. Peserta akan ditempatkan di unit-unit pusat BPPK selama tiga bulan.",
+    ],
+  },
+  {
+    slug: "transformasi-digital-keuangan-negara",
+    category: "Artikel",
+    tag: "Opini",
+    title: "Transformasi Digital pada Manajemen Keuangan Negara",
+    excerpt:
+      "Bagaimana teknologi mengubah lanskap pengelolaan anggaran serta akuntabilitas publik di Indonesia.",
+    date: "16 Mei 2026",
+    dateISO: "2026-05-16",
+    img: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80",
+    body: [
+      "Transformasi digital telah mengubah cara pemerintah merencanakan, mengeksekusi, dan mempertanggungjawabkan anggaran negara. Sistem terintegrasi memungkinkan visibilitas real-time atas kondisi fiskal.",
+      "Kementerian Keuangan terus berinvestasi pada infrastruktur data dan kapabilitas analitik untuk mendukung kebijakan berbasis bukti.",
+    ],
+  },
+  {
+    slug: "budaya-belajar-berkelanjutan",
+    category: "Artikel",
+    tag: "Budaya",
+    title: "Membangun Budaya Belajar Berkelanjutan di Sektor Publik",
+    excerpt:
+      "Strategi praktis menumbuhkan kebiasaan belajar yang adaptif di kalangan aparatur negara.",
+    date: "13 Mei 2026",
+    dateISO: "2026-05-13",
+    img: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1200&q=80",
+    body: [
+      "Membangun budaya belajar bukan sekadar menyediakan kelas, tetapi menumbuhkan rasa ingin tahu dan komitmen kolektif untuk terus berkembang.",
+    ],
+  },
+  {
+    slug: "analitik-data-kebijakan",
+    category: "Artikel",
+    tag: "Data",
+    title: "Peran Analitik Data dalam Pengambilan Keputusan Kebijakan",
+    excerpt:
+      "Pemanfaatan data analitik menjadi kunci ketepatan kebijakan publik berbasis bukti.",
+    date: "09 Mei 2026",
+    dateISO: "2026-05-09",
+    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+    body: [
+      "Analitik data memungkinkan perumus kebijakan memahami pola, mengidentifikasi anomali, dan memproyeksikan dampak intervensi sebelum diterapkan.",
+    ],
+  },
+  {
+    slug: "kepemimpinan-adaptif-era-ketidakpastian",
+    category: "Artikel",
+    tag: "Kepemimpinan",
+    title: "Kepemimpinan Adaptif di Era Ketidakpastian",
+    excerpt:
+      "Pendekatan kepemimpinan yang fleksibel untuk menghadapi tantangan dinamis sektor publik.",
+    date: "06 Mei 2026",
+    dateISO: "2026-05-06",
+    img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80",
+    body: [
+      "Pemimpin adaptif mampu membaca konteks dan menyesuaikan gaya kepemimpinannya untuk merespons situasi yang berubah cepat.",
+    ],
+  },
+];
+
+export function getInfoBySlug(slug: string): InfoItem | undefined {
+  return infoItems.find((i) => i.slug === slug);
+}
