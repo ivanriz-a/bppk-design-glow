@@ -23,13 +23,15 @@ function InformasiPage() {
   const [page, setPage] = useState(1);
 
   const list = useMemo(() => infoItems.filter((i) => i.category === tab), [tab]);
-  const totalPages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
+  const featured = list[0];
+  const gridList = list.slice(1);
+  const totalPages = Math.max(1, Math.ceil(gridList.length / PAGE_SIZE));
 
   useEffect(() => {
     setPage(1);
   }, [tab]);
 
-  const paged = list.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+  const paged = gridList.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   return (
     <>
