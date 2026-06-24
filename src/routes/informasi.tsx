@@ -23,13 +23,15 @@ function InformasiPage() {
   const [page, setPage] = useState(1);
 
   const list = useMemo(() => infoItems.filter((i) => i.category === tab), [tab]);
-  const totalPages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
+  const featured = list[0];
+  const gridList = list.slice(1);
+  const totalPages = Math.max(1, Math.ceil(gridList.length / PAGE_SIZE));
 
   useEffect(() => {
     setPage(1);
   }, [tab]);
 
-  const paged = list.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+  const paged = gridList.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   return (
     <>
@@ -71,6 +73,29 @@ function InformasiPage() {
             </div>
           </div>
 
+          {/* Featured card — berita paling baru */}
+          {featured && (
+            <Link
+              to="/informasi/$slug"
+              params={{ slug: featured.slug }}
+              className="info-featured"
+            >
+              <div
+                className="info-featured-img"
+                style={{ backgroundImage: `url(${featured.img})` }}
+              />
+              <div className="info-featured-body">
+                <span className="info-chip">{featured.tag}</span>
+                <h2 className="info-featured-title">{featured.title}</h2>
+                <p className="info-featured-excerpt">{featured.excerpt}</p>
+                <div className="info-featured-meta">
+                  <span className="info-date">{featured.date}</span>
+                  <span className="btn-pill-outline">Baca Selengkapnya</span>
+                </div>
+              </div>
+            </Link>
+          )}
+
           {/* News-card grid */}
           {paged.length === 0 ? (
             <p className="info-empty">Belum ada artikel pada kategori ini.</p>
@@ -102,7 +127,7 @@ function InformasiPage() {
           )}
 
           {/* Pagination */}
-          {list.length > 0 && (
+          {gridList.length > 0 && (
             <nav className="info-pagination" aria-label="Pagination">
               <button
                 type="button"
