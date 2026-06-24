@@ -71,6 +71,29 @@ function InformasiPage() {
             </div>
           </div>
 
+          {/* Featured card — berita paling baru */}
+          {featured && (
+            <Link
+              to="/informasi/$slug"
+              params={{ slug: featured.slug }}
+              className="info-featured"
+            >
+              <div
+                className="info-featured-img"
+                style={{ backgroundImage: `url(${featured.img})` }}
+              />
+              <div className="info-featured-body">
+                <span className="info-chip">{featured.tag}</span>
+                <h2 className="info-featured-title">{featured.title}</h2>
+                <p className="info-featured-excerpt">{featured.excerpt}</p>
+                <div className="info-featured-meta">
+                  <span className="info-date">{featured.date}</span>
+                  <span className="btn-pill-outline">Baca Selengkapnya</span>
+                </div>
+              </div>
+            </Link>
+          )}
+
           {/* News-card grid */}
           {paged.length === 0 ? (
             <p className="info-empty">Belum ada artikel pada kategori ini.</p>
