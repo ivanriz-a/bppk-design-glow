@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { SiteNavbar, SiteFooter } from "@/components/SiteChrome";
 import profilHeroBg from "@/assets/profil-hero-bg.png.asset.json";
 import { infoCategories, infoItems, type InfoCategory } from "@/data/informasi";
@@ -16,21 +16,20 @@ export const Route = createFileRoute("/informasi")({
   component: InformasiPage,
 });
 
+const PAGE_SIZE = 9;
+
 function InformasiPage() {
   const [tab, setTab] = useState<InfoCategory>("Berita");
-  const [tagFilter, setTagFilter] = useState<string>("Semua");
+  const [page, setPage] = useState(1);
 
-  const inTab = useMemo(() => infoItems.filter((i) => i.category === tab), [tab]);
-  const featured = inTab[0];
-  const rest = inTab.slice(1);
+  const list = useMemo(() => infoItems.filter((i) => i.category === tab), [tab]);
+  const totalPages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
 
-  const tags = useMemo(() => {
-    const s = new Set<string>();
-    rest.forEach((r) => s.add(r.tag));
-    return ["Semua", ...Array.from(s)];
-  }, [rest]);
+  useEffect(() => {
+    setPage(1);
+  }, [tab]);
 
-  const filtered = tagFilter === "Semua" ? rest : rest.filter((r) => r.tag === tagFilter);
+  const paged = list.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   return (
     <>
@@ -56,18 +55,15 @@ function InformasiPage() {
       {/* LISTING */}
       <section className="info-section">
         <div className="container-bppk">
-          {/* Tabs */}
+          {/* Tabs — match homepage news tabs */}
           <div className="info-tabs-wrap">
-            <div className="section-tabs info-tabs">
+            <div className="section-tabs">
               {infoCategories.map((c) => (
                 <button
                   key={c}
                   type="button"
                   className={`section-tab ${tab === c ? "active" : ""}`}
-                  onClick={() => {
-                    setTab(c);
-                    setTagFilter("Semua");
-                  }}
+                  onClick={() => setTab(c)}
                 >
                   {c}
                 </button>
@@ -75,66 +71,69 @@ function InformasiPage() {
             </div>
           </div>
 
-          {/* Featured */}
-          {featured && (
-            <Link
-              to="/informasi/$slug"
-              params={{ slug: featured.slug }}
-              className="info-featured"
-            >
-              <div className="info-featured-img" style={{ backgroundImage: `url(${featured.img})` }} />
-              <div className="info-featured-body">
-                <h2 className="info-featured-title">{featured.title}</h2>
-                <p className="info-featured-excerpt">{featured.excerpt}</p>
-                <div className="info-featured-meta">
-                  <span className="info-chip">{featured.tag}</span>
-                  <span className="info-date">{featured.date}</span>
-                </div>
-              </div>
-            </Link>
-          )}
-
-          {/* Latest header */}
-          <div className="info-latest-header">
-            <h2 className="info-latest-title">Artikel Terbaru</h2>
-            <div className="info-tag-filters">
-              {tags.map((t) => (
-                <button
-                  key={t}
-                  type="button"
-                  className={`info-tag-pill ${tagFilter === t ? "active" : ""}`}
-                  onClick={() => setTagFilter(t)}
-                >
-                  {t}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Grid */}
-          {filtered.length === 0 ? (
+          {/* News-card grid */}
+          {paged.length === 0 ? (
             <p className="info-empty">Belum ada artikel pada kategori ini.</p>
           ) : (
-            <div className="info-grid">
-              {filtered.map((n) => (
-                <Link
-                  key={n.slug}
-                  to="/informasi/$slug"
-                  params={{ slug: n.slug }}
-                  className="info-card"
-                >
-                  <div className="info-card-img" style={{ backgroundImage: `url(${n.img})` }} />
-                  <div className="info-card-body">
-                    <h3 className="info-card-title">{n.title}</h3>
-                    <p className="info-card-excerpt">{n.excerpt}</p>
-                    <div className="info-card-meta">
-                      <span className="info-chip">{n.tag}</span>
-                      <span className="info-date">{n.date}</span>
+            <div className="news-grid info-news-grid">
+              {paged.map((n) => (
+                <div key={n.slug} className="news-card">
+                  <div className="news-img-wrapper">
+                    <div className="news-img" style={{ backgroundImage: `url(${n.img})` }} />
+                    <div className="news-overlay" />
+                  </div>
+                  <div className="news-content">
+                    <div className="news-date">{n.date}</div>
+                    <h3 className="news-title">{n.title}</h3>
+                    <p className="news-excerpt">{n.excerpt}</p>
+                    <div className="news-footer">
+                      <Link
+                        to="/informasi/$slug"
+                        params={{ slug: n.slug }}
+                        className="btn-pill-outline"
+                      >
+                        Baca Selengkapnya
+                      </Link>
                     </div>
                   </div>
-                </Link>
+                </div>
               ))}
             </div>
+          )}
+
+          {/* Pagination */}
+          {list.length > 0 && (
+            <nav className="info-pagination" aria-label="Pagination">
+              <button
+                type="button"
+                className="info-page-btn"
+                onClick={() => setPage((p) => Math.max(1, p - 1))}
+                disabled={page === 1}
+              >
+                Sebelumnya
+              </button>
+              {Array.from({ length: totalPages }).map((_, i) => {
+                const p = i + 1;
+                return (
+                  <button
+                    key={p}
+                    type="button"
+                    className={`info-page-num ${p === page ? "active" : ""}`}
+                    onClick={() => setPage(p)}
+                  >
+                    {p}
+                  </button>
+                );
+              })}
+              <button
+                type="button"
+                className="info-page-btn"
+                onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+                disabled={page === totalPages}
+              >
+                Selanjutnya
+              </button>
+            </nav>
           )}
         </div>
       </section>

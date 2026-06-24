@@ -90,6 +90,62 @@ export const infoItems: InfoItem[] = [
     ],
   },
   {
+    slug: "sosialisasi-kebijakan-pelatihan-2026",
+    category: "Berita",
+    tag: "Kebijakan",
+    title: "Sosialisasi Kebijakan Pelatihan Tahun Anggaran 2026",
+    excerpt:
+      "BPPK menyosialisasikan arah kebijakan pelatihan baru yang lebih adaptif terhadap kebutuhan unit eselon I.",
+    date: "03 Mei 2026",
+    dateISO: "2026-05-03",
+    img: "https://images.unsplash.com/photo-1591115765373-5207764f72e7?auto=format&fit=crop&w=1200&q=80",
+    body: [
+      "Sosialisasi dilakukan secara hybrid dan menghadirkan narasumber dari unit perencanaan BPPK serta perwakilan pengguna pelatihan dari berbagai eselon I.",
+    ],
+  },
+  {
+    slug: "workshop-fasilitator-pembelajaran-digital",
+    category: "Berita",
+    tag: "Workshop",
+    title: "Workshop Fasilitator Pembelajaran Digital BPPK",
+    excerpt:
+      "Penguatan kompetensi para fasilitator BPPK dalam merancang pengalaman belajar digital yang interaktif.",
+    date: "01 Mei 2026",
+    dateISO: "2026-05-01",
+    img: "https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=1200&q=80",
+    body: [
+      "Workshop diikuti oleh fasilitator dari seluruh pusdiklat dan balai diklat keuangan dengan fokus pada metodologi desain pembelajaran modern.",
+    ],
+  },
+  {
+    slug: "kunjungan-kerja-komisi-xi-dpr",
+    category: "Berita",
+    tag: "Kerja Sama",
+    title: "Kunjungan Kerja Komisi XI DPR RI ke BPPK",
+    excerpt:
+      "Komisi XI DPR RI meninjau program pengembangan SDM Kementerian Keuangan secara langsung di kampus BPPK.",
+    date: "28 April 2026",
+    dateISO: "2026-04-28",
+    img: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1200&q=80",
+    body: [
+      "Kunjungan kerja mencakup paparan capaian, diskusi anggaran, serta tinjauan fasilitas pembelajaran terpadu di kampus BPPK.",
+    ],
+  },
+  {
+    slug: "graduation-pkn-stan",
+    category: "Berita",
+    tag: "Wisuda",
+    title: "Wisuda Lulusan PKN STAN Angkatan Terbaru",
+    excerpt:
+      "Lulusan PKN STAN siap mengisi posisi-posisi strategis di lingkungan Kementerian Keuangan dan instansi lain.",
+    date: "25 April 2026",
+    dateISO: "2026-04-25",
+    img: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80",
+    body: [
+      "Wisuda dihadiri Menteri Keuangan dan jajaran pimpinan BPPK. Para lulusan dilepas untuk mengabdi sebagai abdi negara di bidang keuangan publik.",
+    ],
+  },
+  {
     slug: "hasil-seleksi-beasiswa-s2",
     category: "Pengumuman",
     tag: "Beasiswa",
