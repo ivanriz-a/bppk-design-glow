@@ -127,7 +127,7 @@ function InformasiPage() {
           )}
 
           {/* Pagination */}
-          {list.length > 0 && (
+          {gridList.length > 0 && (
             <nav className="info-pagination" aria-label="Pagination">
               <button
                 type="button"
