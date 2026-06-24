@@ -78,18 +78,18 @@ function InformasiPage() {
             <Link
               to="/informasi/$slug"
               params={{ slug: featured.slug }}
-              className="info-featured-h"
+              className="info-featured"
             >
               <div
-                className="info-featured-h-img"
+                className="info-featured-img"
                 style={{ backgroundImage: `url(${featured.img})` }}
               />
-              <div className="info-featured-h-overlay" />
-              <div className="info-featured-h-body">
-                <div className="info-featured-h-date">{featured.date}</div>
-                <h2 className="info-featured-h-title">{featured.title}</h2>
-                <p className="info-featured-h-excerpt">{featured.excerpt}</p>
-                <div className="info-featured-h-meta">
+              <div className="info-featured-body">
+                <span className="info-chip">{featured.tag}</span>
+                <h2 className="info-featured-title">{featured.title}</h2>
+                <p className="info-featured-excerpt">{featured.excerpt}</p>
+                <div className="info-featured-meta">
+                  <span className="info-date">{featured.date}</span>
                   <span className="btn-pill-outline">Baca Selengkapnya</span>
                 </div>
               </div>
@@ -137,65 +137,19 @@ function InformasiPage() {
               >
                 Sebelumnya
               </button>
-
-              {/* Max 2 visible page numbers */}
-              {totalPages <= 2 ? (
-                Array.from({ length: totalPages }).map((_, i) => {
-                  const p = i + 1;
-                  return (
-                    <button
-                      key={p}
-                      type="button"
-                      className={`info-page-num ${p === page ? "active" : ""}`}
-                      onClick={() => setPage(p)}
-                    >
-                      {p}
-                    </button>
-                  );
-                })
-              ) : (
-                <>
-                  {page > 1 && (
-                    <button
-                      key="prev-dots"
-                      type="button"
-                      className="info-page-dots"
-                      disabled
-                    >
-                      ...
-                    </button>
-                  )}
-                  {(() => {
-                    const visible: number[] = [];
-                    if (page === totalPages) {
-                      visible.push(totalPages - 1, totalPages);
-                    } else {
-                      visible.push(page, page + 1 <= totalPages ? page + 1 : page);
-                    }
-                    return visible.map((p) => (
-                      <button
-                        key={p}
-                        type="button"
-                        className={`info-page-num ${p === page ? "active" : ""}`}
-                        onClick={() => setPage(p)}
-                      >
-                        {p}
-                      </button>
-                    ));
-                  })()}
-                  {page + 1 < totalPages && (
-                    <button
-                      key="next-dots"
-                      type="button"
-                      className="info-page-dots"
-                      disabled
-                    >
-                      ...
-                    </button>
-                  )}
-                </>
-              )}
-
+              {Array.from({ length: totalPages }).map((_, i) => {
+                const p = i + 1;
+                return (
+                  <button
+                    key={p}
+                    type="button"
+                    className={`info-page-num ${p === page ? "active" : ""}`}
+                    onClick={() => setPage(p)}
+                  >
+                    {p}
+                  </button>
+                );
+              })}
               <button
                 type="button"
                 className="info-page-btn"
