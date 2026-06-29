@@ -3430,9 +3430,13 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
 .info-featured-img {
   min-height: 360px; background-size: cover; background-position: center;
   transition: all 0.55s cubic-bezier(0.25, 1, 0.5, 1);
+  position: relative;
+  border-radius: 18px 0 0 18px;
 }
 .info-featured:hover .info-featured-img {
   position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1;
+  border-radius: 18px;
+  transform: scale(1.06);
 }
 .info-featured-overlay {
   position: absolute; inset: 0;
@@ -3552,7 +3556,7 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
 
 @media (max-width: 980px) {
   .info-featured { grid-template-columns: 1fr; }
-  .info-featured-img { min-height: 260px; }
+  .info-featured-img { min-height: 260px; border-radius: 18px 18px 0 0; }
   .info-featured-body { grid-column: auto; padding: 28px; }
   .info-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
   .info-detail-wrap { grid-template-columns: 1fr; }
