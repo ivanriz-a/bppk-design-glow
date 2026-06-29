@@ -113,30 +113,7 @@ function StrukturPage() {
 
   return (
     <>
-      {/* NAVBAR */}
-      <nav className={`top-navbar ${scrolled ? "scrolled" : ""}`}>
-        <div className="nav-container">
-          <Link to="/" className="nav-logo">
-            <img src={logoPutih.url} alt="BPPK Kementerian Keuangan" />
-          </Link>
-          <ul className="nav-links">
-            <li className="nav-item">
-              <a href="#" className="nav-active">Profil <Chevron /></a>
-              <ul className="dropdown-menu">
-                <li><Link to="/profil">Profil Lembaga</Link></li>
-                <li><Link to="/struktur-organisasi">Struktur Organisasi</Link></li>
-                <li><Link to="/profil-pejabat">Profil Pejabat</Link></li>
-                <li><a href="#">Jejak, Karya, dan Transformasi BPPK</a></li>
-              </ul>
-            </li>
-            <li className="nav-item"><a href="#">Unit <Chevron /></a></li>
-            <li className="nav-item"><a href="#">Layanan <Chevron /></a></li>
-            <li className="nav-item"><a href="#">Publikasi <Chevron /></a></li>
-            <li className="nav-item"><a href="#">Informasi Publik <Chevron /></a></li>
-          </ul>
-          <a href="#" className="nav-cta">Hubungi Kami 134</a>
-        </div>
-      </nav>
+      <SiteNavbar />
 
       {/* HERO */}
       <section className="profil-hero profil-hero-short">
