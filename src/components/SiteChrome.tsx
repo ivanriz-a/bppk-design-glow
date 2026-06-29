@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import logoPutih from "@/assets/logo-bppk-putih.png.asset.json";
 import logoFooter from "@/assets/logo-kemenkeu-bppk-putih.png.asset.json";
@@ -15,12 +15,21 @@ function Chevron() {
 
 export function SiteNavbar() {
   const [scrolled, setScrolled] = useState(false);
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isInformasi = pathname.startsWith("/informasi");
+  const isProfil =
+    pathname.startsWith("/profil") ||
+    pathname.startsWith("/struktur-organisasi") ||
+    pathname.startsWith("/profil-pejabat") ||
+    pathname.startsWith("/jejak-karya");
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", onScroll);
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
   return (
     <nav className={`top-navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="nav-container">
@@ -29,7 +38,7 @@ export function SiteNavbar() {
         </Link>
         <ul className="nav-links">
           <li className="nav-item">
-            <a href="#">Profil <Chevron /></a>
+            <a href="#" className={isProfil ? "nav-active" : undefined}>Profil <Chevron /></a>
             <ul className="dropdown-menu">
               <li className="has-submenu">
                 <Link to="/profil">Profil Lembaga <span className="submenu-arrow">›</span></Link>
@@ -48,18 +57,86 @@ export function SiteNavbar() {
           </li>
           <li className="nav-item">
             <a href="#">Unit <Chevron /></a>
+            <ul className="dropdown-menu">
+              <li className="has-submenu">
+                <a href="#">Unit Pusat <span className="submenu-arrow">›</span></a>
+                <ul className="submenu">
+                  <li><a href="#">Sekretariat Badan</a></li>
+                  <li><a href="#">Pusdiklat Kepemimpinan dan Manajemen</a></li>
+                  <li><a href="#">Pusdiklat Anggaran dan Perbendaharaan</a></li>
+                  <li><a href="#">Pusdiklat Pajak</a></li>
+                  <li><a href="#">Pusdiklat Bea dan Cukai</a></li>
+                  <li><a href="#">Pusdiklat Keuangan Publik</a></li>
+                  <li><a href="#">Pusat Pembinaan Jabatan Fungsional dan Penjaminan Mutu</a></li>
+                </ul>
+              </li>
+              <li className="has-submenu">
+                <a href="#">Unit Pelaksana Teknis <span className="submenu-arrow">›</span></a>
+                <ul className="submenu">
+                  <li><a href="#">BDK Medan</a></li>
+                  <li><a href="#">BDK Pekanbaru</a></li>
+                  <li><a href="#">BDK Palembang</a></li>
+                  <li><a href="#">BDK Cimahi</a></li>
+                  <li><a href="#">BDK Yogyakarta</a></li>
+                  <li><a href="#">BDK Malang</a></li>
+                  <li><a href="#">BDK Denpasar</a></li>
+                  <li><a href="#">BDK Pontianak</a></li>
+                  <li><a href="#">BDK Balikpapan</a></li>
+                  <li><a href="#">BDK Makassar</a></li>
+                  <li><a href="#">BDK Manado</a></li>
+                </ul>
+              </li>
+              <li className="has-submenu">
+                <a href="#">Badan Layanan Umum <span className="submenu-arrow">›</span></a>
+                <ul className="submenu">
+                  <li><a href="#">Politeknik Keuangan Negara STAN</a></li>
+                </ul>
+              </li>
+            </ul>
           </li>
           <li className="nav-item">
             <a href="#">Layanan <Chevron /></a>
+            <div className="dropdown-mega mega-2">
+              <div className="mega-col">
+                <a href="#">Kemenkeu Learning Center (KLC)</a>
+                <a href="#">Manajemen Pengetahuan (KMS)</a>
+                <a href="#">Sertifikasi</a>
+                <a href="#">Akreditasi</a>
+                <a href="#">Lembaga Sertifikasi Profesi</a>
+                <a href="#">Beasiswa</a>
+              </div>
+              <div className="mega-col">
+                <a href="#">PENA JFKN</a>
+                <a href="#">Ujian Online</a>
+                <a href="#">Kemenkeu Learning Festival</a>
+                <a href="#">Olimpiade APBN</a>
+                <a href="#">Kerja Sama Program Pembelajaran</a>
+                <a href="#">Regional Training Center</a>
+              </div>
+            </div>
           </li>
           <li className="nav-item">
             <a href="#">Publikasi <Chevron /></a>
+            <ul className="dropdown-menu">
+              <li className="has-submenu">
+                <a href="#">Penelitian <span className="submenu-arrow">›</span></a>
+                <ul className="submenu">
+                  <li><a href="#">Jurnal</a></li>
+                  <li><a href="#">Prosiding Kajian Akademis</a></li>
+                  <li><a href="#">Simposium Nasional Keuangan Negara (SNKN)</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Majalah Edukasi Keuangan</a></li>
+              <li><a href="#">Buku</a></li>
+              <li><a href="#">Laporan-laporan</a></li>
+            </ul>
           </li>
           <li className="nav-item">
-            <Link to="/informasi" className="nav-active">Informasi Publik <Chevron /></Link>
+            <a href="#" className={isInformasi ? "nav-active" : undefined}>Informasi Publik <Chevron /></a>
             <ul className="dropdown-menu">
-              <li><Link to="/informasi">Berita &amp; Informasi</Link></li>
+              <li><Link to="/informasi">Berita dan Pengumuman</Link></li>
               <li><a href="#">PPID</a></li>
+              <li><a href="#">Laporan/Informasi Publik Lainnya</a></li>
               <li><a href="#">Peraturan</a></li>
             </ul>
           </li>
@@ -95,7 +172,7 @@ export function SiteFooter() {
           <h4 className="footer-heading">Jelajahi</h4>
           <ul className="footer-links">
             <li><Link to="/profil">Profil BPPK</Link></li>
-            <li><Link to="/informasi">Berita &amp; Informasi</Link></li>
+            <li><Link to="/informasi">Berita dan Pengumuman</Link></li>
             <li><a href="#">Kemenkeu Learning Center</a></li>
             <li><a href={KMS_URL} target="_blank" rel="noreferrer">Knowledge Management System</a></li>
           </ul>
