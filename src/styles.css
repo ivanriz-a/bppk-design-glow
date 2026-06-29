@@ -3442,6 +3442,7 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
 }
 .info-featured:hover .info-featured-overlay { opacity: 1; }
 .info-featured-body {
+  grid-column: 2;
   padding: 44px 44px 36px; display: flex; flex-direction: column; justify-content: center;
   position: relative; z-index: 3;
 }
