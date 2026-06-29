@@ -3632,3 +3632,192 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   box-shadow: 0 6px 18px rgba(4,79,116,0.25);
 }
 
+/* ============================================================
+   PPID
+   ============================================================ */
+.ppid-subhead {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  margin: 36px 0 14px;
+  padding-left: 14px;
+  border-left: 4px solid #7DD3FC;
+  line-height: 1.4;
+}
+.ppid-struktur-figure {
+  margin: 18px 0 28px;
+  background: #f8fafc;
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 22px;
+  text-align: center;
+}
+.ppid-struktur-figure img { max-width: 100%; height: auto; display: inline-block; }
+.ppid-struktur-figure figcaption {
+  margin-top: 14px;
+  font-size: 0.88rem;
+  color: #6b7280;
+  font-style: italic;
+}
+.ppid-struktur-list { display: grid; gap: 10px; margin: 16px 0 28px; }
+.ppid-struktur-item {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 18px;
+  padding: 14px 18px;
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-left: 4px solid #7DD3FC;
+  border-radius: 10px;
+  font-size: 0.92rem;
+}
+.ppid-struktur-level { font-weight: 700; color: var(--bppk-blue); }
+.ppid-struktur-jabatan { color: var(--text-dark); }
+
+.ppid-kontak-card {
+  background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);
+  border: 1px solid #bae6fd;
+  border-radius: 16px;
+  padding: 22px 26px;
+  margin: 12px 0 20px;
+}
+.ppid-kontak-row {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 18px;
+  padding: 12px 0;
+  border-bottom: 1px dashed rgba(125, 211, 252, 0.45);
+  font-size: 0.95rem;
+  align-items: baseline;
+}
+.ppid-kontak-row:last-child { border-bottom: 0; }
+.ppid-kontak-label { font-weight: 600; color: var(--bppk-blue); }
+.ppid-kontak-row a {
+  color: var(--text-dark);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+.ppid-kontak-row a:hover { border-bottom-color: var(--bppk-blue); }
+
+.ppid-linklist { list-style: none; padding: 0; margin: 0 0 24px; }
+.ppid-linklist > li {
+  padding: 12px 0;
+  border-bottom: 1px dashed var(--border-light);
+}
+.ppid-linklist > li:last-child { border-bottom: 0; }
+.ppid-linklist-row {
+  display: flex; gap: 14px; align-items: baseline;
+  font-size: 0.95rem; color: var(--text-dark); line-height: 1.55;
+}
+.ppid-linklist-num {
+  font-family: 'Amulya', serif;
+  font-weight: 800;
+  color: #7DD3FC;
+  flex-shrink: 0;
+}
+.ppid-linklist a {
+  color: var(--bppk-blue);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+.ppid-linklist a:hover { border-bottom-color: var(--bppk-blue); }
+.ppid-linklist-sub { list-style: none; padding: 8px 0 0 28px; margin: 0; }
+.ppid-linklist-sub li {
+  position: relative;
+  padding: 6px 0 6px 18px;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+}
+.ppid-linklist-sub li::before {
+  content: "›";
+  position: absolute; left: 0;
+  color: #7DD3FC; font-weight: 700;
+}
+
+.ppid-table-wrap {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+  margin: 12px 0 24px;
+}
+.ppid-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  background: #fff;
+}
+.ppid-table thead th {
+  background: var(--bppk-blue);
+  color: #fff;
+  text-align: left;
+  padding: 12px 14px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+}
+.ppid-table tbody td {
+  padding: 12px 14px;
+  border-top: 1px solid var(--border-light);
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+.ppid-table tbody tr:nth-child(even) { background: #f8fafc; }
+.ppid-table tbody tr:hover { background: #f0f9ff; }
+
+.ppid-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  background: var(--bppk-blue);
+  color: #fff;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  box-shadow: 0 8px 20px rgba(4, 79, 116, 0.25);
+}
+.ppid-cta:hover {
+  transform: translateY(-2px);
+  background: #033955;
+  box-shadow: 0 12px 28px rgba(4, 79, 116, 0.35);
+}
+
+.ppid-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 12px 0 28px;
+}
+.ppid-stat-card {
+  background: linear-gradient(135deg, var(--bppk-blue) 0%, #075a82 100%);
+  border-radius: 16px;
+  padding: 28px 22px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 12px 30px rgba(4, 79, 116, 0.2);
+}
+.ppid-stat-value {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 2.6rem;
+  line-height: 1;
+  color: #7DD3FC;
+}
+.ppid-stat-label { font-size: 0.92rem; opacity: 0.95; font-weight: 500; }
+
+@media (max-width: 768px) {
+  .ppid-struktur-item { grid-template-columns: 1fr; gap: 4px; }
+  .ppid-kontak-row { grid-template-columns: 1fr; gap: 4px; padding: 10px 0; }
+  .ppid-stat-grid { grid-template-columns: 1fr; }
+  .ppid-table { font-size: 0.82rem; }
+  .ppid-table thead th, .ppid-table tbody td { padding: 10px 10px; }
+}
+
+
