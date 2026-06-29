@@ -85,7 +85,6 @@ function InformasiPage() {
                 style={{ backgroundImage: `url(${featured.img})` }}
               />
               <div className="info-featured-body">
-                <span className="info-chip">{featured.tag}</span>
                 <h2 className="info-featured-title">{featured.title}</h2>
                 <p className="info-featured-excerpt">{featured.excerpt}</p>
                 <div className="info-featured-meta">
