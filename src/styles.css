@@ -3441,6 +3441,13 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
 }
 .info-featured-excerpt { color: rgba(255,255,255,0.88); font-size: 0.98rem; line-height: 1.7; margin: 0 0 24px; }
 .info-featured-meta { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.info-featured .info-date { color: rgba(255,255,255,0.85); }
+.info-featured .btn-pill-outline {
+  --b-bg: transparent; --b-txt: #fff; --b-border: rgba(255,255,255,0.6);
+}
+.info-featured:hover .btn-pill-outline {
+  --b-bg: var(--bppk-yellow); --b-txt: var(--bppk-blue); --b-border: var(--bppk-yellow);
+}
 
 .info-chip {
   display: inline-flex; align-items: center; gap: 6px;
