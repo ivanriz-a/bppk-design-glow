@@ -79,6 +79,7 @@ function InformasiPage() {
               to="/informasi/$slug"
               params={{ slug: featured.slug }}
               className="info-featured"
+              style={{ "--featured-img": `url(${featured.img})` } as React.CSSProperties}
             >
               <div
                 className="info-featured-img"
