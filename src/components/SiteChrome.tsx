@@ -134,10 +134,10 @@ export function SiteNavbar() {
           <li className="nav-item">
             <a href="#" className={isInformasi ? "nav-active" : undefined}>Informasi Publik <Chevron /></a>
             <ul className="dropdown-menu">
-              <li><Link to="/informasi">Berita dan Pengumuman</Link></li>
               <li><a href="#">PPID</a></li>
               <li><a href="#">Laporan/Informasi Publik Lainnya</a></li>
               <li><a href="#">Peraturan</a></li>
+              <li><Link to="/informasi">Berita dan Pengumuman</Link></li>
             </ul>
           </li>
         </ul>
