@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { SiteNavbar, SiteFooter } from "@/components/SiteChrome";
 import profilHeroBg from "@/assets/profil-hero-bg.png.asset.json";
 import logoPutih from "@/assets/logo-bppk-putih.png.asset.json";
 import logoFooter from "@/assets/logo-kemenkeu-bppk-putih.png.asset.json";
@@ -113,30 +114,7 @@ function StrukturPage() {
 
   return (
     <>
-      {/* NAVBAR */}
-      <nav className={`top-navbar ${scrolled ? "scrolled" : ""}`}>
-        <div className="nav-container">
-          <Link to="/" className="nav-logo">
-            <img src={logoPutih.url} alt="BPPK Kementerian Keuangan" />
-          </Link>
-          <ul className="nav-links">
-            <li className="nav-item">
-              <a href="#" className="nav-active">Profil <Chevron /></a>
-              <ul className="dropdown-menu">
-                <li><Link to="/profil">Profil Lembaga</Link></li>
-                <li><Link to="/struktur-organisasi">Struktur Organisasi</Link></li>
-                <li><Link to="/profil-pejabat">Profil Pejabat</Link></li>
-                <li><a href="#">Jejak, Karya, dan Transformasi BPPK</a></li>
-              </ul>
-            </li>
-            <li className="nav-item"><a href="#">Unit <Chevron /></a></li>
-            <li className="nav-item"><a href="#">Layanan <Chevron /></a></li>
-            <li className="nav-item"><a href="#">Publikasi <Chevron /></a></li>
-            <li className="nav-item"><a href="#">Informasi Publik <Chevron /></a></li>
-          </ul>
-          <a href="#" className="nav-cta">Hubungi Kami 134</a>
-        </div>
-      </nav>
+      <SiteNavbar />
 
       {/* HERO */}
       <section className="profil-hero profil-hero-short">
@@ -252,35 +230,7 @@ function StrukturPage() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="bppk-footer">
-        <div className="footer-top-accent" aria-hidden="true" />
-        <div className="footer-container">
-          <div className="footer-brand-col">
-            <img src={logoFooter.url} alt="Logo Kemenkeu BPPK" className="footer-brand-logo" />
-            <h3 className="footer-brand-name">Badan Pendidikan dan Pelatihan Keuangan</h3>
-            <ul className="footer-contact">
-              <li>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <span>Jl. Purnawarman No.99<br />Kebayoran Baru, Jakarta Selatan 12110</span>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="footer-heading">Jelajahi</h4>
-            <ul className="footer-links">
-              <li><Link to="/profil">Profil BPPK</Link></li>
-              <li><Link to="/struktur-organisasi">Struktur Organisasi</Link></li>
-              <li><Link to="/profil-pejabat">Profil Pejabat</Link></li>
-            </ul>
-          </div>
-        </div>
-        <div className="footer-bottom">
-          <div className="footer-bottom-inner">
-            <span>© 2026 Badan Pendidikan dan Pelatihan Keuangan — Kementerian Keuangan Republik Indonesia.</span>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </>
   );
 }
