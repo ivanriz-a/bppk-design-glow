@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Fragment, useEffect, useRef, useState } from "react";
+import { SiteNavbar, SiteFooter } from "@/components/SiteChrome";
 import hero1 from "@/assets/hero-1.png.asset.json";
 import hero2 from "@/assets/hero-2.png.asset.json";
 import hero3 from "@/assets/hero-3.png.asset.json";
