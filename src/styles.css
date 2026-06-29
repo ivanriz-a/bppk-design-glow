@@ -3412,7 +3412,7 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   box-shadow: 0 18px 40px rgba(4,79,116,0.10);
   text-decoration: none; color: inherit;
   margin-bottom: 56px; transition: transform .35s ease, box-shadow .35s ease;
-  position: relative;
+  position: relative; min-height: 360px;
   --t-main: var(--bppk-blue);
   --t-sub: var(--text-gray);
   --b-bg: transparent;
