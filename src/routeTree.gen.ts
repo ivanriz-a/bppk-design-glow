@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as StrukturOrganisasiRouteImport } from './routes/struktur-organisasi'
 import { Route as ProfilPejabatRouteImport } from './routes/profil-pejabat'
 import { Route as ProfilRouteImport } from './routes/profil'
+import { Route as PpidRouteImport } from './routes/ppid'
 import { Route as JejakKaryaRouteImport } from './routes/jejak-karya'
 import { Route as InformasiRouteImport } from './routes/informasi'
 import { Route as IndexRouteImport } from './routes/index'
@@ -30,6 +31,11 @@ const ProfilPejabatRoute = ProfilPejabatRouteImport.update({
 const ProfilRoute = ProfilRouteImport.update({
   id: '/profil',
   path: '/profil',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PpidRoute = PpidRouteImport.update({
+  id: '/ppid',
+  path: '/ppid',
   getParentRoute: () => rootRouteImport,
 } as any)
 const JejakKaryaRoute = JejakKaryaRouteImport.update({
@@ -57,6 +63,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/informasi': typeof InformasiRouteWithChildren
   '/jejak-karya': typeof JejakKaryaRoute
+  '/ppid': typeof PpidRoute
   '/profil': typeof ProfilRoute
   '/profil-pejabat': typeof ProfilPejabatRoute
   '/struktur-organisasi': typeof StrukturOrganisasiRoute
@@ -66,6 +73,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/informasi': typeof InformasiRouteWithChildren
   '/jejak-karya': typeof JejakKaryaRoute
+  '/ppid': typeof PpidRoute
   '/profil': typeof ProfilRoute
   '/profil-pejabat': typeof ProfilPejabatRoute
   '/struktur-organisasi': typeof StrukturOrganisasiRoute
@@ -76,6 +84,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/informasi': typeof InformasiRouteWithChildren
   '/jejak-karya': typeof JejakKaryaRoute
+  '/ppid': typeof PpidRoute
   '/profil': typeof ProfilRoute
   '/profil-pejabat': typeof ProfilPejabatRoute
   '/struktur-organisasi': typeof StrukturOrganisasiRoute
@@ -87,6 +96,7 @@ export interface FileRouteTypes {
     | '/'
     | '/informasi'
     | '/jejak-karya'
+    | '/ppid'
     | '/profil'
     | '/profil-pejabat'
     | '/struktur-organisasi'
@@ -96,6 +106,7 @@ export interface FileRouteTypes {
     | '/'
     | '/informasi'
     | '/jejak-karya'
+    | '/ppid'
     | '/profil'
     | '/profil-pejabat'
     | '/struktur-organisasi'
@@ -105,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/informasi'
     | '/jejak-karya'
+    | '/ppid'
     | '/profil'
     | '/profil-pejabat'
     | '/struktur-organisasi'
@@ -115,6 +127,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   InformasiRoute: typeof InformasiRouteWithChildren
   JejakKaryaRoute: typeof JejakKaryaRoute
+  PpidRoute: typeof PpidRoute
   ProfilRoute: typeof ProfilRoute
   ProfilPejabatRoute: typeof ProfilPejabatRoute
   StrukturOrganisasiRoute: typeof StrukturOrganisasiRoute
@@ -141,6 +154,13 @@ declare module '@tanstack/react-router' {
       path: '/profil'
       fullPath: '/profil'
       preLoaderRoute: typeof ProfilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ppid': {
+      id: '/ppid'
+      path: '/ppid'
+      fullPath: '/ppid'
+      preLoaderRoute: typeof PpidRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/jejak-karya': {
@@ -190,6 +210,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   InformasiRoute: InformasiRouteWithChildren,
   JejakKaryaRoute: JejakKaryaRoute,
+  PpidRoute: PpidRoute,
   ProfilRoute: ProfilRoute,
   ProfilPejabatRoute: ProfilPejabatRoute,
   StrukturOrganisasiRoute: StrukturOrganisasiRoute,
