@@ -3539,8 +3539,11 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
 
 @media (max-width: 980px) {
   .info-featured { grid-template-columns: 1fr; }
-  .info-featured-img { min-height: 260px; }
-  .info-featured-body { padding: 28px; }
+  .info-featured-bg { min-height: 320px; }
+  .info-featured-body { grid-column: 1 / -1; padding: 28px; }
+  .info-featured-overlay {
+    background: linear-gradient(to top, rgba(4,79,116,0.95) 0%, rgba(4,79,116,0.80) 45%, rgba(4,79,116,0.35) 100%);
+  }
   .info-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
   .info-detail-wrap { grid-template-columns: 1fr; }
   .info-related { position: static; }
