@@ -81,9 +81,10 @@ function InformasiPage() {
               className="info-featured"
             >
               <div
-                className="info-featured-img"
+                className="info-featured-bg"
                 style={{ backgroundImage: `url(${featured.img})` }}
               />
+              <div className="info-featured-overlay" />
               <div className="info-featured-body">
                 <h2 className="info-featured-title">{featured.title}</h2>
                 <p className="info-featured-excerpt">{featured.excerpt}</p>
