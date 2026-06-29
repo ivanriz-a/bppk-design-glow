@@ -146,6 +146,76 @@ export const infoItems: InfoItem[] = [
     ],
   },
   {
+    slug: "seminar-nasional-keuangan-negara",
+    category: "Berita",
+    tag: "Seminar",
+    title: "Seminar Nasional Kebijakan Keuangan Negara",
+    excerpt:
+      "Forum diskusi kebijakan fiskal yang menghadirkan para pakar dan praktisi keuangan publik dari berbagai instansi.",
+    date: "22 April 2026",
+    dateISO: "2026-04-22",
+    img: "https://images.unsplash.com/photo-1544531586-fde5298cdd40?auto=format&fit=crop&w=1200&q=80",
+    body: [
+      "Seminar Nasional Kebijakan Keuangan Negara menjadi wadah bagi para pengambil kebijakan untuk bertukar pandangan terkait arah fiskal Indonesia ke depan.",
+    ],
+  },
+  {
+    slug: "penandatanganan-kerja-sama-bppk-kpk",
+    category: "Berita",
+    tag: "Kerja Sama",
+    title: "Penandatanganan Kerja Sama BPPK dengan KPK",
+    excerpt:
+      "Kolaborasi strategis dalam pengembangan kompetensi aparatur bidang pencegahan dan pemberantasan korupsi.",
+    date: "20 April 2026",
+    dateISO: "2026-04-20",
+    img: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=1200&q=80",
+    body: [
+      "BPPK dan Komisi Pemberantasan Korupsi menandatangani nota kesepahaman untuk pengembangan kurikulum anti korupsi bagi aparatur negara.",
+    ],
+  },
+  {
+    slug: "pelatihan-keuangan-daerah-serentak",
+    category: "Berita",
+    tag: "Pelatihan",
+    title: "Pelatihan Keuangan Daerah Serentak di 10 Provinsi",
+    excerpt:
+      "Program pembelajaran jarak jauh untuk perangkat daerah dalam mengelola keuangan daerah secara akuntabel.",
+    date: "18 April 2026",
+    dateISO: "2026-04-18",
+    img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80",
+    body: [
+      "Pelatihan keuangan daerah diselenggarakan secara serentak di 10 provinsi dengan metode daring dan luring untuk memperkuat kapasitas regional.",
+    ],
+  },
+  {
+    slug: "launching-kemenkeu-corporate-university",
+    category: "Berita",
+    tag: "Peluncuran",
+    title: "Launching Kemenkeu Corporate University 2026",
+    excerpt:
+      "Ekosistem pembelajaran organisasi Kementerian Keuangan resmi diperbarui untuk tahun akademik baru.",
+    date: "15 April 2026",
+    dateISO: "2026-04-15",
+    img: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=1200&q=80",
+    body: [
+      "Kemenkeu Corporate University meluncurkan kurikulum terpadu yang mengintegrasikan teknologi digital, kepemimpinan, dan tata kelola keuangan.",
+    ],
+  },
+  {
+    slug: "rakor-tahunan-balai-diklat-keuangan",
+    category: "Berita",
+    tag: "Koordinasi",
+    title: "Rapat Koordinasi Tahunan Balai Diklat Keuangan",
+    excerpt:
+      "Pemetaan capaian dan rencana kerja seluruh Balai Diklat Keuangan di Indonesia untuk tahun 2026.",
+    date: "12 April 2026",
+    dateISO: "2026-04-12",
+    img: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1200&q=80",
+    body: [
+      "Rapat koordinasi tahunan membahas sinergi program pelatihan antarwilayah serta optimalisasi fasilitas pembelajaran di seluruh balai diklat keuangan.",
+    ],
+  },
+  {
     slug: "hasil-seleksi-beasiswa-s2",
     category: "Pengumuman",
     tag: "Beasiswa",
