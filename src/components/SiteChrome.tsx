@@ -16,7 +16,7 @@ function Chevron() {
 export function SiteNavbar() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const isInformasi = pathname.startsWith("/informasi");
+  const isInformasi = pathname.startsWith("/informasi") || pathname.startsWith("/ppid");
   const isProfil =
     pathname.startsWith("/profil") ||
     pathname.startsWith("/struktur-organisasi") ||
@@ -134,12 +134,13 @@ export function SiteNavbar() {
           <li className="nav-item">
             <a href="#" className={isInformasi ? "nav-active" : undefined}>Informasi Publik <Chevron /></a>
             <ul className="dropdown-menu">
-              <li><a href="#">PPID</a></li>
+              <li><Link to="/ppid">PPID</Link></li>
               <li><a href="#">Laporan/Informasi Publik Lainnya</a></li>
               <li><a href="#">Peraturan</a></li>
               <li><Link to="/informasi">Berita dan Pengumuman</Link></li>
             </ul>
           </li>
+
         </ul>
         <a href="#" className="nav-cta">Hubungi Kami 134</a>
       </div>
