@@ -380,9 +380,17 @@ function PpidPage() {
               </header>
               <div className="profil-section-intro">
                 <p>
-                  BPPK menyediakan dan mengumumkan Informasi Publik secara serta merta apabila terdapat
-                  keadaan atau peristiwa tertentu yang berdampak pada layanan, kegiatan, atau kepentingan
-                  publik sehingga memerlukan penyampaian informasi secara cepat dan tepat.
+                  Sesuai dengan Undang-Undang Nomor 14 Tahun 2008 tentang Keterbukaan Informasi Publik
+                  dan Peraturan Komisi Informasi Nomor 1 Tahun 2021 tentang Standar Layanan Informasi
+                  Publik, Badan Pendidikan dan Pelatihan Keuangan (BPPK) menyediakan dan mengumumkan
+                  Informasi Publik yang wajib diumumkan secara serta merta apabila terdapat keadaan atau
+                  peristiwa tertentu yang berdampak pada layanan, kegiatan, atau kepentingan publik
+                  sehingga memerlukan penyampaian informasi secara cepat dan tepat.
+                </p>
+                <p>
+                  Informasi serta merta disampaikan untuk memastikan masyarakat dan para pemangku
+                  kepentingan memperoleh informasi yang akurat, terkini, dan dapat dipertanggungjawabkan
+                  sebagai dasar dalam memahami situasi dan mengambil langkah yang diperlukan.
                 </p>
                 <p>
                   Dalam kondisi yang memerlukan penyampaian informasi secara cepat, BPPK dapat
