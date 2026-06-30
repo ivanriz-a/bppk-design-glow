@@ -3,6 +3,15 @@ import { useEffect, useRef, useState } from "react";
 import { SiteNavbar, SiteFooter } from "@/components/SiteChrome";
 import profilHeroBg from "@/assets/profil-hero-bg.png.asset.json";
 import ppidStruktur from "@/assets/ppid-struktur.png.asset.json";
+import slMaklumat from "@/assets/ppid-sl-maklumat.png.asset.json";
+import slPermintaan from "@/assets/ppid-sl-permintaan.png.asset.json";
+import slKeberatan from "@/assets/ppid-sl-keberatan.png.asset.json";
+import slSengketa from "@/assets/ppid-sl-sengketa.png.asset.json";
+import stat1 from "@/assets/ppid-stat-1.png.asset.json";
+import stat2 from "@/assets/ppid-stat-2.png.asset.json";
+import stat3 from "@/assets/ppid-stat-3.png.asset.json";
+import stat4 from "@/assets/ppid-stat-4.png.asset.json";
+import stat5 from "@/assets/ppid-stat-5.png.asset.json";
 import {
   ppidTugas,
   ppidWewenang,
@@ -200,15 +209,45 @@ function PpidPage() {
               </header>
               <div className="profil-section-intro">
                 <p>
-                  Dalam rangka memberikan layanan Informasi Publik sebagaimana diamanatkan dalam Undang-Undang
-                  Nomor 14 Tahun 2008 tentang Keterbukaan Informasi Publik, Menteri Keuangan menetapkan
-                  Keputusan Menteri Keuangan Nomor 300 Tahun 2025 tentang Penunjukan Pengelola Informasi
-                  dan Dokumentasi di Lingkungan Kementerian Keuangan.
+                  Dalam rangka memberikan layanan Informasi Publik sebagaimana diamanatkan dalam
+                  Undang-Undang Nomor 14 Tahun 2008 tentang Keterbukaan Informasi Publik, Menteri Keuangan
+                  telah menetapkan Keputusan Menteri Keuangan Nomor 300 Tahun 2025 tentang Penunjukan
+                  Pengelola Informasi dan Dokumentasi di Lingkungan Kementerian Keuangan.
                 </p>
+                <p>Sesuai Keputusan Menteri Keuangan tersebut ditetapkan:</p>
+                <ol className="profil-vm-list">
+                  <li>
+                    <span className="profil-vm-num">01</span>
+                    <span>
+                      Kepala Badan Pendidikan dan Pelatihan Keuangan sebagai Atasan PPID Kementerian
+                      Pelaksana di Lingkungan Badan Pendidikan dan Pelatihan Keuangan;
+                    </span>
+                  </li>
+                  <li>
+                    <span className="profil-vm-num">02</span>
+                    <span>
+                      Sekretaris Badan Pendidikan dan Pelatihan Keuangan sebagai PPID Kementerian
+                      Keuangan;
+                    </span>
+                  </li>
+                  <li>
+                    <span className="profil-vm-num">03</span>
+                    <span>
+                      PPID Pelaksana di Lingkungan Badan Pendidikan dan Pelatihan Keuangan:
+                      <br />a. Kepala Bagian Administrasi Akademik dan Kemahasiswaan, Politeknik Keuangan
+                      Negara STAN sebagai PPID Tingkat II; dan
+                      <br />b. Para Kepala Balai Diklat Keuangan sebagai PPID Tingkat III.
+                    </span>
+                  </li>
+                </ol>
                 <p>
-                  Pemberian layanan informasi publik oleh PPID di lingkungan BPPK berpedoman pada
-                  Peraturan Menteri Keuangan Nomor 110/PMK.01/2022 tentang Pedoman Layanan Informasi
-                  Publik PPID di Lingkungan Kementerian Keuangan.
+                  Pemberian layanan informasi publik oleh PPID di lingkungan Badan Pendidikan dan
+                  Pelatihan Keuangan berpedoman pada Peraturan Menteri Keuangan Nomor 110/PMK.01/2022
+                  tentang Pedoman Layanan Informasi Publik Pejabat Pengelola Informasi dan Dokumentasi
+                  di Lingkungan Kementerian Keuangan. PPID Tingkat I Badan Pendidikan dan Pelatihan
+                  Keuangan dan PPID Pelaksana di lingkungan Badan Pendidikan dan Pelatihan Keuangan
+                  bertanggung jawab untuk melakukan penyimpanan, pendokumentasian, penyediaan, dan/atau
+                  pelayanan informasi publik di lingkungan Badan Pendidikan dan Pelatihan Keuangan.
                 </p>
               </div>
 
@@ -292,21 +331,43 @@ function PpidPage() {
               </header>
               <div className="profil-section-intro">
                 <p>
+                  Sesuai dengan Undang-Undang Nomor 14 Tahun 2008 tentang Keterbukaan Informasi Publik
+                  dan Peraturan Komisi Informasi Nomor 1 Tahun 2021 tentang Standar Layanan Informasi
+                  Publik, Badan Pendidikan dan Pelatihan Keuangan (BPPK) menyediakan Informasi Publik
+                  yang wajib diumumkan secara berkala.
+                </p>
+                <p>
                   Informasi berkala merupakan informasi yang wajib disediakan dan diumumkan kepada
                   masyarakat secara rutin dalam jangka waktu tertentu guna menjamin transparansi,
                   akuntabilitas, serta keterbukaan penyelenggaraan tugas dan fungsi BPPK sebagai
                   Corporate University Kementerian Keuangan.
                 </p>
+                <p>
+                  Melalui penyediaan informasi berkala, masyarakat dapat memperoleh gambaran mengenai
+                  profil organisasi, kinerja, program dan kegiatan, pengelolaan keuangan, serta layanan
+                  yang diselenggarakan oleh BPPK.
+                </p>
               </div>
 
-              <h3 className="ppid-subhead">A. Informasi Badan Pendidikan dan Pelatihan Keuangan</h3>
+              <h3 className="ppid-subhead">A. Informasi Badan Pendidikan dan Pelatihan Keuangan (BPPK)</h3>
               <LinkList items={berkalaA} />
 
-              <h3 className="ppid-subhead">B. Program, Kegiatan, dan Kinerja BPPK</h3>
+              <h3 className="ppid-subhead">B. Informasi Program, Kegiatan, dan Kinerja BPPK</h3>
               <LinkList items={berkalaB} />
 
               <h3 className="ppid-subhead">C. Informasi Penting Terkait Pelaksanaan Tugas Badan Publik</h3>
               <LinkList items={berkalaC} />
+
+              <h3 className="ppid-subhead">Komitmen Keterbukaan Informasi</h3>
+              <div className="profil-section-intro">
+                <p>
+                  BPPK berkomitmen untuk menyediakan informasi publik yang akurat, transparan, dan mudah
+                  diakses sebagai bagian dari upaya mewujudkan tata kelola pemerintahan yang baik
+                  (good governance), meningkatkan kualitas pelayanan publik, serta memperkuat kepercayaan
+                  masyarakat terhadap pengelolaan keuangan negara dan pengembangan kompetensi sumber
+                  daya manusia.
+                </p>
+              </div>
             </section>
 
             {/* 03 - SERTA MERTA */}
@@ -319,9 +380,17 @@ function PpidPage() {
               </header>
               <div className="profil-section-intro">
                 <p>
-                  BPPK menyediakan dan mengumumkan Informasi Publik secara serta merta apabila terdapat
-                  keadaan atau peristiwa tertentu yang berdampak pada layanan, kegiatan, atau kepentingan
-                  publik sehingga memerlukan penyampaian informasi secara cepat dan tepat.
+                  Sesuai dengan Undang-Undang Nomor 14 Tahun 2008 tentang Keterbukaan Informasi Publik
+                  dan Peraturan Komisi Informasi Nomor 1 Tahun 2021 tentang Standar Layanan Informasi
+                  Publik, Badan Pendidikan dan Pelatihan Keuangan (BPPK) menyediakan dan mengumumkan
+                  Informasi Publik yang wajib diumumkan secara serta merta apabila terdapat keadaan atau
+                  peristiwa tertentu yang berdampak pada layanan, kegiatan, atau kepentingan publik
+                  sehingga memerlukan penyampaian informasi secara cepat dan tepat.
+                </p>
+                <p>
+                  Informasi serta merta disampaikan untuk memastikan masyarakat dan para pemangku
+                  kepentingan memperoleh informasi yang akurat, terkini, dan dapat dipertanggungjawabkan
+                  sebagai dasar dalam memahami situasi dan mengambil langkah yang diperlukan.
                 </p>
                 <p>
                   Dalam kondisi yang memerlukan penyampaian informasi secara cepat, BPPK dapat
@@ -355,12 +424,33 @@ function PpidPage() {
               </header>
               <div className="profil-section-intro">
                 <p>
-                  BPPK menyediakan Informasi Publik yang wajib tersedia setiap saat dan dapat diakses
-                  oleh masyarakat melalui mekanisme permohonan informasi publik sesuai ketentuan yang
-                  berlaku.
+                  Sesuai dengan Undang-Undang Nomor 14 Tahun 2008 tentang Keterbukaan Informasi Publik
+                  dan Peraturan Komisi Informasi Nomor 1 Tahun 2021 tentang Standar Layanan Informasi
+                  Publik, Badan Pendidikan dan Pelatihan Keuangan (BPPK) menyediakan Informasi Publik
+                  yang wajib tersedia setiap saat dan dapat diakses oleh masyarakat melalui mekanisme
+                  permohonan informasi publik sesuai ketentuan yang berlaku.
                 </p>
               </div>
               <LinkList items={setiapSaat} ordered />
+              <div className="profil-section-intro" style={{ marginTop: 16 }}>
+                <p>
+                  Formulir layanan informasi juga dapat diakses dengan mengisi form yang tertera pada
+                  aplikasi{" "}
+                  <a href="https://e-ppid.kemenkeu.go.id/" target="_blank" rel="noreferrer">e-PPID</a>{" "}
+                  atau melalui aplikasi <strong>Mobile PPID</strong> yang dapat diunduh pada toko aplikasi resmi.
+                </p>
+              </div>
+
+              <h3 className="ppid-subhead">Komitmen Keterbukaan Informasi</h3>
+              <div className="profil-section-intro">
+                <p>
+                  BPPK berkomitmen untuk menyediakan informasi publik yang akurat, transparan, dan mudah
+                  diakses sebagai bagian dari upaya mewujudkan tata kelola pemerintahan yang baik
+                  (good governance), meningkatkan kualitas pelayanan publik, serta memperkuat kepercayaan
+                  masyarakat terhadap pengelolaan keuangan negara dan pengembangan kompetensi sumber
+                  daya manusia.
+                </p>
+              </div>
             </section>
 
             {/* 05 - REGULASI */}
@@ -414,27 +504,44 @@ function PpidPage() {
                 </p>
               </div>
 
-              <h3 className="ppid-subhead">Mekanisme Permintaan Informasi Publik</h3>
+              <h3 className="ppid-subhead">Maklumat Layanan</h3>
+              <figure className="ppid-struktur-figure">
+                <img src={slMaklumat.url} alt="Maklumat Layanan PPID BPPK" loading="lazy" />
+              </figure>
+
+              <h3 className="ppid-subhead">Prosedur Permintaan Informasi</h3>
+              <figure className="ppid-struktur-figure">
+                <img src={slPermintaan.url} alt="Bagan prosedur permintaan informasi publik" loading="lazy" />
+              </figure>
               <div className="profil-section-intro">
                 <p>
                   Setiap Pemohon Informasi Publik dapat mengajukan permintaan untuk memperoleh Informasi
-                  Publik kepada Badan Publik terkait secara tertulis atau tidak tertulis (Pasal 22 ayat (1)
-                  UU Nomor 14 Tahun 2008).
+                  Publik kepada Badan Publik terkait secara tertulis atau tidak tertulis. (Pasal 22 ayat
+                  (1) Undang-Undang Nomor 14 Tahun 2008 tentang Keterbukaan Informasi Publik).
                 </p>
                 <p>
-                  Permintaan Informasi Publik dapat diajukan melalui formulir digital pada{" "}
+                  Permintaan Informasi Publik kepada PPID di lingkungan Kementerian Keuangan dapat
+                  diajukan melalui formulir digital melalui tautan{" "}
                   <a href="https://e-ppid.kemenkeu.go.id/in/login" target="_blank" rel="noreferrer">
-                    e-ppid.kemenkeu.go.id
+                    https://e-ppid.kemenkeu.go.id/in/login
                   </a>{" "}
-                  atau dengan mengunduh formulir permintaan informasi yang tersedia.
+                  atau dengan mengunduh formulir Permintaan Informasi, dengan melampirkan persyaratan
+                  permintaan informasi yang berlaku.
+                </p>
+                <p>
+                  Informasi lebih lanjut dapat menghubungi PPID BPPK melalui kontak yang tersedia pada
+                  bagian Jalur, Waktu, dan Biaya Layanan.
                 </p>
               </div>
 
-              <h3 className="ppid-subhead">Mekanisme Pengajuan Keberatan</h3>
+              <h3 className="ppid-subhead">Prosedur Pengajuan Keberatan</h3>
+              <figure className="ppid-struktur-figure">
+                <img src={slKeberatan.url} alt="Bagan prosedur pengajuan keberatan" loading="lazy" />
+              </figure>
               <div className="profil-section-intro">
                 <p>
                   Setiap Pemohon Informasi Publik dapat mengajukan keberatan secara tertulis kepada
-                  Atasan PPID berdasarkan alasan berikut:
+                  atasan Pejabat Pengelola Informasi dan Dokumentasi berdasarkan alasan berikut:
                 </p>
               </div>
               <ol className="profil-vm-list">
@@ -445,15 +552,30 @@ function PpidPage() {
                   </li>
                 ))}
               </ol>
+              <div className="profil-section-intro">
+                <p><em>(Sumber: Pasal 35 ayat (1) Undang-Undang Nomor 14 Tahun 2008 tentang Keterbukaan Informasi Publik).</em></p>
+                <p>
+                  Pengajuan Keberatan Informasi Publik dapat diajukan melalui formulir digital pada
+                  tautan{" "}
+                  <a href="https://e-ppid.kemenkeu.go.id/in/login" target="_blank" rel="noreferrer">
+                    https://e-ppid.kemenkeu.go.id/in/login
+                  </a>{" "}
+                  atau dengan mengunduh formulir Keberatan. Informasi lebih lanjut dapat menghubungi
+                  PPID BPPK melalui kontak yang tersedia.
+                </p>
+              </div>
 
-              <h3 className="ppid-subhead">Prosedur Pengajuan Sengketa</h3>
+              <h3 className="ppid-subhead">Prosedur Permohonan Sengketa</h3>
               <div className="profil-section-intro">
                 <p>
                   Dalam hal Pemohon tidak puas atas tanggapan Keberatan Informasi Publik yang diterbitkan
-                  oleh Atasan PPID Tk. I, Pemohon dapat mengajukan Sengketa Informasi Publik kepada Komisi
-                  Informasi.
+                  oleh Atasan PPID Tk. I, Pemohon dapat mengajukan Sengketa Informasi Publik kepada
+                  Komisi Informasi.
                 </p>
               </div>
+              <figure className="ppid-struktur-figure">
+                <img src={slSengketa.url} alt="Bagan prosedur permohonan sengketa informasi publik" loading="lazy" />
+              </figure>
               <ol className="profil-vm-list">
                 {sengketaTahapan.map((s, i) => (
                   <li key={i}>
@@ -503,9 +625,25 @@ function PpidPage() {
               <div className="profil-section-intro">
                 <p>
                   Rekapitulasi permintaan informasi, keberatan, dan tindak lanjut layanan informasi
-                  publik di lingkungan BPPK.
+                  publik di lingkungan BPPK sebagaimana data lengkap berikut.
                 </p>
               </div>
+
+              <figure className="ppid-struktur-figure">
+                <img src={stat1.url} alt="Statistik layanan informasi PPID BPPK – 1" loading="lazy" />
+              </figure>
+              <figure className="ppid-struktur-figure">
+                <img src={stat2.url} alt="Statistik layanan informasi PPID BPPK – 2" loading="lazy" />
+              </figure>
+              <figure className="ppid-struktur-figure">
+                <img src={stat3.url} alt="Statistik layanan informasi PPID BPPK – 3" loading="lazy" />
+              </figure>
+              <figure className="ppid-struktur-figure">
+                <img src={stat4.url} alt="Statistik layanan informasi PPID BPPK – 4" loading="lazy" />
+              </figure>
+              <figure className="ppid-struktur-figure">
+                <img src={stat5.url} alt="Statistik layanan informasi PPID BPPK – 5" loading="lazy" />
+              </figure>
 
               <h3 className="ppid-subhead">Konsolidasi Permintaan Informasi Tahun 2025</h3>
               <div className="ppid-stat-grid">
