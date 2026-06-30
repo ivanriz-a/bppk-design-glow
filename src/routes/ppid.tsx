@@ -504,27 +504,44 @@ function PpidPage() {
                 </p>
               </div>
 
-              <h3 className="ppid-subhead">Mekanisme Permintaan Informasi Publik</h3>
+              <h3 className="ppid-subhead">Maklumat Layanan</h3>
+              <figure className="ppid-struktur-figure">
+                <img src={slMaklumat.url} alt="Maklumat Layanan PPID BPPK" loading="lazy" />
+              </figure>
+
+              <h3 className="ppid-subhead">Prosedur Permintaan Informasi</h3>
+              <figure className="ppid-struktur-figure">
+                <img src={slPermintaan.url} alt="Bagan prosedur permintaan informasi publik" loading="lazy" />
+              </figure>
               <div className="profil-section-intro">
                 <p>
                   Setiap Pemohon Informasi Publik dapat mengajukan permintaan untuk memperoleh Informasi
-                  Publik kepada Badan Publik terkait secara tertulis atau tidak tertulis (Pasal 22 ayat (1)
-                  UU Nomor 14 Tahun 2008).
+                  Publik kepada Badan Publik terkait secara tertulis atau tidak tertulis. (Pasal 22 ayat
+                  (1) Undang-Undang Nomor 14 Tahun 2008 tentang Keterbukaan Informasi Publik).
                 </p>
                 <p>
-                  Permintaan Informasi Publik dapat diajukan melalui formulir digital pada{" "}
+                  Permintaan Informasi Publik kepada PPID di lingkungan Kementerian Keuangan dapat
+                  diajukan melalui formulir digital melalui tautan{" "}
                   <a href="https://e-ppid.kemenkeu.go.id/in/login" target="_blank" rel="noreferrer">
-                    e-ppid.kemenkeu.go.id
+                    https://e-ppid.kemenkeu.go.id/in/login
                   </a>{" "}
-                  atau dengan mengunduh formulir permintaan informasi yang tersedia.
+                  atau dengan mengunduh formulir Permintaan Informasi, dengan melampirkan persyaratan
+                  permintaan informasi yang berlaku.
+                </p>
+                <p>
+                  Informasi lebih lanjut dapat menghubungi PPID BPPK melalui kontak yang tersedia pada
+                  bagian Jalur, Waktu, dan Biaya Layanan.
                 </p>
               </div>
 
-              <h3 className="ppid-subhead">Mekanisme Pengajuan Keberatan</h3>
+              <h3 className="ppid-subhead">Prosedur Pengajuan Keberatan</h3>
+              <figure className="ppid-struktur-figure">
+                <img src={slKeberatan.url} alt="Bagan prosedur pengajuan keberatan" loading="lazy" />
+              </figure>
               <div className="profil-section-intro">
                 <p>
                   Setiap Pemohon Informasi Publik dapat mengajukan keberatan secara tertulis kepada
-                  Atasan PPID berdasarkan alasan berikut:
+                  atasan Pejabat Pengelola Informasi dan Dokumentasi berdasarkan alasan berikut:
                 </p>
               </div>
               <ol className="profil-vm-list">
@@ -535,15 +552,30 @@ function PpidPage() {
                   </li>
                 ))}
               </ol>
+              <div className="profil-section-intro">
+                <p><em>(Sumber: Pasal 35 ayat (1) Undang-Undang Nomor 14 Tahun 2008 tentang Keterbukaan Informasi Publik).</em></p>
+                <p>
+                  Pengajuan Keberatan Informasi Publik dapat diajukan melalui formulir digital pada
+                  tautan{" "}
+                  <a href="https://e-ppid.kemenkeu.go.id/in/login" target="_blank" rel="noreferrer">
+                    https://e-ppid.kemenkeu.go.id/in/login
+                  </a>{" "}
+                  atau dengan mengunduh formulir Keberatan. Informasi lebih lanjut dapat menghubungi
+                  PPID BPPK melalui kontak yang tersedia.
+                </p>
+              </div>
 
-              <h3 className="ppid-subhead">Prosedur Pengajuan Sengketa</h3>
+              <h3 className="ppid-subhead">Prosedur Permohonan Sengketa</h3>
               <div className="profil-section-intro">
                 <p>
                   Dalam hal Pemohon tidak puas atas tanggapan Keberatan Informasi Publik yang diterbitkan
-                  oleh Atasan PPID Tk. I, Pemohon dapat mengajukan Sengketa Informasi Publik kepada Komisi
-                  Informasi.
+                  oleh Atasan PPID Tk. I, Pemohon dapat mengajukan Sengketa Informasi Publik kepada
+                  Komisi Informasi.
                 </p>
               </div>
+              <figure className="ppid-struktur-figure">
+                <img src={slSengketa.url} alt="Bagan prosedur permohonan sengketa informasi publik" loading="lazy" />
+              </figure>
               <ol className="profil-vm-list">
                 {sengketaTahapan.map((s, i) => (
                   <li key={i}>
