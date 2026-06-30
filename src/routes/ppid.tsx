@@ -625,9 +625,25 @@ function PpidPage() {
               <div className="profil-section-intro">
                 <p>
                   Rekapitulasi permintaan informasi, keberatan, dan tindak lanjut layanan informasi
-                  publik di lingkungan BPPK.
+                  publik di lingkungan BPPK sebagaimana data lengkap berikut.
                 </p>
               </div>
+
+              <figure className="ppid-struktur-figure">
+                <img src={stat1.url} alt="Statistik layanan informasi PPID BPPK – 1" loading="lazy" />
+              </figure>
+              <figure className="ppid-struktur-figure">
+                <img src={stat2.url} alt="Statistik layanan informasi PPID BPPK – 2" loading="lazy" />
+              </figure>
+              <figure className="ppid-struktur-figure">
+                <img src={stat3.url} alt="Statistik layanan informasi PPID BPPK – 3" loading="lazy" />
+              </figure>
+              <figure className="ppid-struktur-figure">
+                <img src={stat4.url} alt="Statistik layanan informasi PPID BPPK – 4" loading="lazy" />
+              </figure>
+              <figure className="ppid-struktur-figure">
+                <img src={stat5.url} alt="Statistik layanan informasi PPID BPPK – 5" loading="lazy" />
+              </figure>
 
               <h3 className="ppid-subhead">Konsolidasi Permintaan Informasi Tahun 2025</h3>
               <div className="ppid-stat-grid">
