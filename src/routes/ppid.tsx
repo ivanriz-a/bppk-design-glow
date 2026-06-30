@@ -3,6 +3,15 @@ import { useEffect, useRef, useState } from "react";
 import { SiteNavbar, SiteFooter } from "@/components/SiteChrome";
 import profilHeroBg from "@/assets/profil-hero-bg.png.asset.json";
 import ppidStruktur from "@/assets/ppid-struktur.png.asset.json";
+import slMaklumat from "@/assets/ppid-sl-maklumat.png.asset.json";
+import slPermintaan from "@/assets/ppid-sl-permintaan.png.asset.json";
+import slKeberatan from "@/assets/ppid-sl-keberatan.png.asset.json";
+import slSengketa from "@/assets/ppid-sl-sengketa.png.asset.json";
+import stat1 from "@/assets/ppid-stat-1.png.asset.json";
+import stat2 from "@/assets/ppid-stat-2.png.asset.json";
+import stat3 from "@/assets/ppid-stat-3.png.asset.json";
+import stat4 from "@/assets/ppid-stat-4.png.asset.json";
+import stat5 from "@/assets/ppid-stat-5.png.asset.json";
 import {
   ppidTugas,
   ppidWewenang,
