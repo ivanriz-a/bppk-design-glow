@@ -331,21 +331,43 @@ function PpidPage() {
               </header>
               <div className="profil-section-intro">
                 <p>
+                  Sesuai dengan Undang-Undang Nomor 14 Tahun 2008 tentang Keterbukaan Informasi Publik
+                  dan Peraturan Komisi Informasi Nomor 1 Tahun 2021 tentang Standar Layanan Informasi
+                  Publik, Badan Pendidikan dan Pelatihan Keuangan (BPPK) menyediakan Informasi Publik
+                  yang wajib diumumkan secara berkala.
+                </p>
+                <p>
                   Informasi berkala merupakan informasi yang wajib disediakan dan diumumkan kepada
                   masyarakat secara rutin dalam jangka waktu tertentu guna menjamin transparansi,
                   akuntabilitas, serta keterbukaan penyelenggaraan tugas dan fungsi BPPK sebagai
                   Corporate University Kementerian Keuangan.
                 </p>
+                <p>
+                  Melalui penyediaan informasi berkala, masyarakat dapat memperoleh gambaran mengenai
+                  profil organisasi, kinerja, program dan kegiatan, pengelolaan keuangan, serta layanan
+                  yang diselenggarakan oleh BPPK.
+                </p>
               </div>
 
-              <h3 className="ppid-subhead">A. Informasi Badan Pendidikan dan Pelatihan Keuangan</h3>
+              <h3 className="ppid-subhead">A. Informasi Badan Pendidikan dan Pelatihan Keuangan (BPPK)</h3>
               <LinkList items={berkalaA} />
 
-              <h3 className="ppid-subhead">B. Program, Kegiatan, dan Kinerja BPPK</h3>
+              <h3 className="ppid-subhead">B. Informasi Program, Kegiatan, dan Kinerja BPPK</h3>
               <LinkList items={berkalaB} />
 
               <h3 className="ppid-subhead">C. Informasi Penting Terkait Pelaksanaan Tugas Badan Publik</h3>
               <LinkList items={berkalaC} />
+
+              <h3 className="ppid-subhead">Komitmen Keterbukaan Informasi</h3>
+              <div className="profil-section-intro">
+                <p>
+                  BPPK berkomitmen untuk menyediakan informasi publik yang akurat, transparan, dan mudah
+                  diakses sebagai bagian dari upaya mewujudkan tata kelola pemerintahan yang baik
+                  (good governance), meningkatkan kualitas pelayanan publik, serta memperkuat kepercayaan
+                  masyarakat terhadap pengelolaan keuangan negara dan pengembangan kompetensi sumber
+                  daya manusia.
+                </p>
+              </div>
             </section>
 
             {/* 03 - SERTA MERTA */}
