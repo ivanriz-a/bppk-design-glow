@@ -424,12 +424,33 @@ function PpidPage() {
               </header>
               <div className="profil-section-intro">
                 <p>
-                  BPPK menyediakan Informasi Publik yang wajib tersedia setiap saat dan dapat diakses
-                  oleh masyarakat melalui mekanisme permohonan informasi publik sesuai ketentuan yang
-                  berlaku.
+                  Sesuai dengan Undang-Undang Nomor 14 Tahun 2008 tentang Keterbukaan Informasi Publik
+                  dan Peraturan Komisi Informasi Nomor 1 Tahun 2021 tentang Standar Layanan Informasi
+                  Publik, Badan Pendidikan dan Pelatihan Keuangan (BPPK) menyediakan Informasi Publik
+                  yang wajib tersedia setiap saat dan dapat diakses oleh masyarakat melalui mekanisme
+                  permohonan informasi publik sesuai ketentuan yang berlaku.
                 </p>
               </div>
               <LinkList items={setiapSaat} ordered />
+              <div className="profil-section-intro" style={{ marginTop: 16 }}>
+                <p>
+                  Formulir layanan informasi juga dapat diakses dengan mengisi form yang tertera pada
+                  aplikasi{" "}
+                  <a href="https://e-ppid.kemenkeu.go.id/" target="_blank" rel="noreferrer">e-PPID</a>{" "}
+                  atau melalui aplikasi <strong>Mobile PPID</strong> yang dapat diunduh pada toko aplikasi resmi.
+                </p>
+              </div>
+
+              <h3 className="ppid-subhead">Komitmen Keterbukaan Informasi</h3>
+              <div className="profil-section-intro">
+                <p>
+                  BPPK berkomitmen untuk menyediakan informasi publik yang akurat, transparan, dan mudah
+                  diakses sebagai bagian dari upaya mewujudkan tata kelola pemerintahan yang baik
+                  (good governance), meningkatkan kualitas pelayanan publik, serta memperkuat kepercayaan
+                  masyarakat terhadap pengelolaan keuangan negara dan pengembangan kompetensi sumber
+                  daya manusia.
+                </p>
+              </div>
             </section>
 
             {/* 05 - REGULASI */}
