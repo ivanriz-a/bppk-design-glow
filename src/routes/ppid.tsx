@@ -209,15 +209,45 @@ function PpidPage() {
               </header>
               <div className="profil-section-intro">
                 <p>
-                  Dalam rangka memberikan layanan Informasi Publik sebagaimana diamanatkan dalam Undang-Undang
-                  Nomor 14 Tahun 2008 tentang Keterbukaan Informasi Publik, Menteri Keuangan menetapkan
-                  Keputusan Menteri Keuangan Nomor 300 Tahun 2025 tentang Penunjukan Pengelola Informasi
-                  dan Dokumentasi di Lingkungan Kementerian Keuangan.
+                  Dalam rangka memberikan layanan Informasi Publik sebagaimana diamanatkan dalam
+                  Undang-Undang Nomor 14 Tahun 2008 tentang Keterbukaan Informasi Publik, Menteri Keuangan
+                  telah menetapkan Keputusan Menteri Keuangan Nomor 300 Tahun 2025 tentang Penunjukan
+                  Pengelola Informasi dan Dokumentasi di Lingkungan Kementerian Keuangan.
                 </p>
+                <p>Sesuai Keputusan Menteri Keuangan tersebut ditetapkan:</p>
+                <ol className="profil-vm-list">
+                  <li>
+                    <span className="profil-vm-num">01</span>
+                    <span>
+                      Kepala Badan Pendidikan dan Pelatihan Keuangan sebagai Atasan PPID Kementerian
+                      Pelaksana di Lingkungan Badan Pendidikan dan Pelatihan Keuangan;
+                    </span>
+                  </li>
+                  <li>
+                    <span className="profil-vm-num">02</span>
+                    <span>
+                      Sekretaris Badan Pendidikan dan Pelatihan Keuangan sebagai PPID Kementerian
+                      Keuangan;
+                    </span>
+                  </li>
+                  <li>
+                    <span className="profil-vm-num">03</span>
+                    <span>
+                      PPID Pelaksana di Lingkungan Badan Pendidikan dan Pelatihan Keuangan:
+                      <br />a. Kepala Bagian Administrasi Akademik dan Kemahasiswaan, Politeknik Keuangan
+                      Negara STAN sebagai PPID Tingkat II; dan
+                      <br />b. Para Kepala Balai Diklat Keuangan sebagai PPID Tingkat III.
+                    </span>
+                  </li>
+                </ol>
                 <p>
-                  Pemberian layanan informasi publik oleh PPID di lingkungan BPPK berpedoman pada
-                  Peraturan Menteri Keuangan Nomor 110/PMK.01/2022 tentang Pedoman Layanan Informasi
-                  Publik PPID di Lingkungan Kementerian Keuangan.
+                  Pemberian layanan informasi publik oleh PPID di lingkungan Badan Pendidikan dan
+                  Pelatihan Keuangan berpedoman pada Peraturan Menteri Keuangan Nomor 110/PMK.01/2022
+                  tentang Pedoman Layanan Informasi Publik Pejabat Pengelola Informasi dan Dokumentasi
+                  di Lingkungan Kementerian Keuangan. PPID Tingkat I Badan Pendidikan dan Pelatihan
+                  Keuangan dan PPID Pelaksana di lingkungan Badan Pendidikan dan Pelatihan Keuangan
+                  bertanggung jawab untuk melakukan penyimpanan, pendokumentasian, penyediaan, dan/atau
+                  pelayanan informasi publik di lingkungan Badan Pendidikan dan Pelatihan Keuangan.
                 </p>
               </div>
 
