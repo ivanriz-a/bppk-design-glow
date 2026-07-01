@@ -10,6 +10,12 @@ export type InfoItem = {
   dateISO: string;
   img: string;
   body: string[];
+  author?: string;
+  readingTime?: string;
+  location?: string;
+  tags?: string[];
+  quote?: string;
+  gallery?: { src: string; caption?: string }[];
 };
 
 export const infoCategories: InfoCategory[] = ["Berita", "Pengumuman", "Artikel"];
@@ -26,9 +32,23 @@ export const infoItems: InfoItem[] = [
     dateISO: "2026-05-15",
     img: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80",
     body: [
-      "Pusdiklat Keuangan Umum BPPK secara resmi membuka Pelatihan Teknis di Lingkungan Keuangan Publik yang diikuti oleh perwakilan pegawai dari seluruh unit eselon I Kementerian Keuangan. Program ini dirancang untuk memperkuat kapasitas teknis dalam pengelolaan keuangan negara modern.",
-      "Pelatihan berlangsung selama dua minggu dengan metode blended learning, memadukan kelas tatap muka dan modul digital di Kemenkeu Learning Center. Materi mencakup tata kelola anggaran, manajemen risiko, dan pemanfaatan data analitik dalam pengambilan keputusan kebijakan publik.",
-      "Kepala BPPK menegaskan bahwa investasi pada pengembangan kompetensi adalah kunci transformasi Kementerian Keuangan menuju organisasi pembelajar yang adaptif terhadap dinamika global.",
+      "Pusdiklat Keuangan Umum BPPK secara resmi membuka Pelatihan Teknis di Lingkungan Keuangan Publik yang diikuti oleh perwakilan pegawai dari seluruh unit eselon I Kementerian Keuangan. Program ini dirancang untuk memperkuat kapasitas teknis dalam pengelolaan keuangan negara modern serta menjawab kebutuhan organisasi yang semakin dinamis.",
+      "Pembukaan berlangsung khidmat di Aula Utama Kampus BPPK dan dihadiri oleh jajaran pimpinan BPPK, para kepala pusdiklat, serta perwakilan unit pengguna. Dalam sambutannya, Kepala BPPK menekankan bahwa investasi pada pengembangan kompetensi adalah kunci transformasi Kementerian Keuangan menuju organisasi pembelajar yang adaptif terhadap dinamika global.",
+      "Pelatihan berlangsung selama dua minggu dengan metode blended learning, memadukan kelas tatap muka dan modul digital di Kemenkeu Learning Center. Materi mencakup tata kelola anggaran, manajemen risiko, pengadaan barang/jasa, hingga pemanfaatan data analitik dalam pengambilan keputusan kebijakan publik.",
+      "Selain sesi kelas, peserta juga mengikuti studi kasus lintas unit, simulasi penyusunan kebijakan, serta coaching clinic bersama praktisi senior. Pendekatan ini diharapkan memperkuat kemampuan peserta dalam menerjemahkan konsep kebijakan menjadi implementasi yang tepat sasaran di unit masing-masing.",
+      "Di akhir program, peserta akan mempresentasikan rencana aksi (action plan) yang akan diimplementasikan di unit kerjanya selama enam bulan ke depan. BPPK akan melakukan pendampingan berkala untuk memastikan hasil pelatihan benar-benar berdampak pada peningkatan kinerja organisasi.",
+    ],
+    author: "Redaksi BPPK",
+    readingTime: "5 menit baca",
+    location: "Jakarta",
+    tags: ["Pelatihan", "Pusdiklat KU", "Kemenkeu Corpu", "SDM"],
+    quote:
+      "Investasi pada pengembangan kompetensi adalah kunci transformasi Kementerian Keuangan menuju organisasi pembelajar yang adaptif.",
+    gallery: [
+      {
+        src: "https://images.unsplash.com/photo-1560523159-4a9692d222f8?auto=format&fit=crop&w=1200&q=80",
+        caption: "Peserta pelatihan mengikuti sesi kelas interaktif di Kampus BPPK.",
+      },
     ],
   },
   {
