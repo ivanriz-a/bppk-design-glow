@@ -14,8 +14,8 @@ import { Route as ProfilPejabatRouteImport } from './routes/profil-pejabat'
 import { Route as ProfilRouteImport } from './routes/profil'
 import { Route as PpidRouteImport } from './routes/ppid'
 import { Route as JejakKaryaRouteImport } from './routes/jejak-karya'
-import { Route as InformasiRouteImport } from './routes/informasi'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as InformasiIndexRouteImport } from './routes/informasi.index'
 import { Route as InformasiSlugRouteImport } from './routes/informasi.$slug'
 
 const StrukturOrganisasiRoute = StrukturOrganisasiRouteImport.update({
@@ -43,14 +43,14 @@ const JejakKaryaRoute = JejakKaryaRouteImport.update({
   path: '/jejak-karya',
   getParentRoute: () => rootRouteImport,
 } as any)
-const InformasiRoute = InformasiRouteImport.update({
-  id: '/informasi',
-  path: '/informasi',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InformasiIndexRoute = InformasiIndexRouteImport.update({
+  id: '/informasi/',
+  path: '/informasi/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const InformasiSlugRoute = InformasiSlugRouteImport.update({
@@ -61,76 +61,76 @@ const InformasiSlugRoute = InformasiSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/informasi': typeof InformasiRouteWithChildren
   '/jejak-karya': typeof JejakKaryaRoute
   '/ppid': typeof PpidRoute
   '/profil': typeof ProfilRoute
   '/profil-pejabat': typeof ProfilPejabatRoute
   '/struktur-organisasi': typeof StrukturOrganisasiRoute
   '/informasi/$slug': typeof InformasiSlugRoute
+  '/informasi/': typeof InformasiIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/informasi': typeof InformasiRouteWithChildren
   '/jejak-karya': typeof JejakKaryaRoute
   '/ppid': typeof PpidRoute
   '/profil': typeof ProfilRoute
   '/profil-pejabat': typeof ProfilPejabatRoute
   '/struktur-organisasi': typeof StrukturOrganisasiRoute
   '/informasi/$slug': typeof InformasiSlugRoute
+  '/informasi': typeof InformasiIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/informasi': typeof InformasiRouteWithChildren
   '/jejak-karya': typeof JejakKaryaRoute
   '/ppid': typeof PpidRoute
   '/profil': typeof ProfilRoute
   '/profil-pejabat': typeof ProfilPejabatRoute
   '/struktur-organisasi': typeof StrukturOrganisasiRoute
   '/informasi/$slug': typeof InformasiSlugRoute
+  '/informasi/': typeof InformasiIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/informasi'
     | '/jejak-karya'
     | '/ppid'
     | '/profil'
     | '/profil-pejabat'
     | '/struktur-organisasi'
     | '/informasi/$slug'
+    | '/informasi/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/informasi'
     | '/jejak-karya'
     | '/ppid'
     | '/profil'
     | '/profil-pejabat'
     | '/struktur-organisasi'
     | '/informasi/$slug'
+    | '/informasi'
   id:
     | '__root__'
     | '/'
-    | '/informasi'
     | '/jejak-karya'
     | '/ppid'
     | '/profil'
     | '/profil-pejabat'
     | '/struktur-organisasi'
     | '/informasi/$slug'
+    | '/informasi/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  InformasiRoute: typeof InformasiRouteWithChildren
   JejakKaryaRoute: typeof JejakKaryaRoute
   PpidRoute: typeof PpidRoute
   ProfilRoute: typeof ProfilRoute
   ProfilPejabatRoute: typeof ProfilPejabatRoute
   StrukturOrganisasiRoute: typeof StrukturOrganisasiRoute
+  InformasiIndexRoute: typeof InformasiIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -170,18 +170,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof JejakKaryaRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/informasi': {
-      id: '/informasi'
-      path: '/informasi'
-      fullPath: '/informasi'
-      preLoaderRoute: typeof InformasiRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/informasi/': {
+      id: '/informasi/'
+      path: '/informasi'
+      fullPath: '/informasi/'
+      preLoaderRoute: typeof InformasiIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/informasi/$slug': {
@@ -194,26 +194,14 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface InformasiRouteChildren {
-  InformasiSlugRoute: typeof InformasiSlugRoute
-}
-
-const InformasiRouteChildren: InformasiRouteChildren = {
-  InformasiSlugRoute: InformasiSlugRoute,
-}
-
-const InformasiRouteWithChildren = InformasiRoute._addFileChildren(
-  InformasiRouteChildren,
-)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  InformasiRoute: InformasiRouteWithChildren,
   JejakKaryaRoute: JejakKaryaRoute,
   PpidRoute: PpidRoute,
   ProfilRoute: ProfilRoute,
   ProfilPejabatRoute: ProfilPejabatRoute,
   StrukturOrganisasiRoute: StrukturOrganisasiRoute,
+  InformasiIndexRoute: InformasiIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
