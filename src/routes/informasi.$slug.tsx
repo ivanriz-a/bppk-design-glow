@@ -48,7 +48,7 @@ export const Route = createFileRoute("/informasi/$slug")({
 });
 
 function InformasiDetailPage() {
-  const { item } = Route.useLoaderData();
+  const { item } = Route.useLoaderData() as { item: import("@/data/informasi").InfoItem };
 
   const related = infoItems
     .filter((i) => i.category === item.category && i.slug !== item.slug)
