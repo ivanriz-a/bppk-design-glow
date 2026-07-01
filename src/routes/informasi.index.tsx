@@ -4,7 +4,7 @@ import { SiteNavbar, SiteFooter } from "@/components/SiteChrome";
 import profilHeroBg from "@/assets/profil-hero-bg.png.asset.json";
 import { infoCategories, infoItems, type InfoCategory } from "@/data/informasi";
 
-export const Route = createFileRoute("/informasi")({
+export const Route = createFileRoute("/informasi/")({
   head: () => ({
     meta: [
       { title: "Informasi Terbaru — BPPK Kementerian Keuangan" },
