@@ -79,11 +79,62 @@ function InformasiDetailPage() {
         <div className="container-bppk info-detail-wrap">
           <article className="info-detail-article">
             <img src={item.img} alt={item.title} className="info-detail-cover" />
+
+            <div className="info-detail-meta">
+              <span className="info-detail-meta-item">
+                <span className="info-detail-meta-label">Penulis</span>
+                <span className="info-detail-meta-value">{item.author ?? "Redaksi BPPK"}</span>
+              </span>
+              <span className="info-detail-meta-item">
+                <span className="info-detail-meta-label">Tanggal</span>
+                <span className="info-detail-meta-value">{item.date}</span>
+              </span>
+              <span className="info-detail-meta-item">
+                <span className="info-detail-meta-label">Waktu Baca</span>
+                <span className="info-detail-meta-value">{item.readingTime ?? "3 menit baca"}</span>
+              </span>
+              {item.location && (
+                <span className="info-detail-meta-item">
+                  <span className="info-detail-meta-label">Lokasi</span>
+                  <span className="info-detail-meta-value">{item.location}</span>
+                </span>
+              )}
+            </div>
+
             <div className="info-detail-body">
               {item.body.map((p: string, i: number) => (
                 <p key={i}>{p}</p>
               ))}
+
+              {item.quote && (
+                <blockquote className="info-detail-quote">
+                  <span aria-hidden="true">“</span>
+                  {item.quote}
+                </blockquote>
+              )}
+
+              {item.gallery?.map((g, i) => (
+                <figure key={i} className="info-detail-figure">
+                  <img src={g.src} alt={g.caption ?? item.title} loading="lazy" />
+                  {g.caption && <figcaption>{g.caption}</figcaption>}
+                </figure>
+              ))}
             </div>
+
+            <div className="info-detail-tags">
+              {(item.tags ?? [item.tag]).map((t) => (
+                <span key={t} className="info-detail-tag">#{t}</span>
+              ))}
+            </div>
+
+            <div className="info-detail-share">
+              <span className="info-detail-share-label">Bagikan:</span>
+              <a className="info-detail-share-btn" href="#" aria-label="Bagikan ke Facebook">Facebook</a>
+              <a className="info-detail-share-btn" href="#" aria-label="Bagikan ke X/Twitter">X/Twitter</a>
+              <a className="info-detail-share-btn" href="#" aria-label="Bagikan ke WhatsApp">WhatsApp</a>
+              <a className="info-detail-share-btn" href="#" aria-label="Salin tautan">Salin Tautan</a>
+            </div>
+
             <div className="info-detail-cta">
               <Link to="/informasi" className="info-back-link">← Kembali ke Informasi</Link>
             </div>
