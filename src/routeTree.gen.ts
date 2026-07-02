@@ -10,7 +10,6 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as StrukturOrganisasiRouteImport } from './routes/struktur-organisasi'
-import { Route as PublikasiRouteImport } from './routes/publikasi'
 import { Route as ProfilPejabatRouteImport } from './routes/profil-pejabat'
 import { Route as ProfilRouteImport } from './routes/profil'
 import { Route as PpidRouteImport } from './routes/ppid'
@@ -23,11 +22,6 @@ import { Route as InformasiSlugRouteImport } from './routes/informasi.$slug'
 const StrukturOrganisasiRoute = StrukturOrganisasiRouteImport.update({
   id: '/struktur-organisasi',
   path: '/struktur-organisasi',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PublikasiRoute = PublikasiRouteImport.update({
-  id: '/publikasi',
-  path: '/publikasi',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProfilPejabatRoute = ProfilPejabatRouteImport.update({
@@ -78,7 +72,6 @@ export interface FileRoutesByFullPath {
   '/ppid': typeof PpidRoute
   '/profil': typeof ProfilRoute
   '/profil-pejabat': typeof ProfilPejabatRoute
-  '/publikasi': typeof PublikasiRoute
   '/struktur-organisasi': typeof StrukturOrganisasiRoute
   '/informasi/$slug': typeof InformasiSlugRoute
   '/informasi/': typeof InformasiIndexRoute
@@ -89,7 +82,6 @@ export interface FileRoutesByTo {
   '/ppid': typeof PpidRoute
   '/profil': typeof ProfilRoute
   '/profil-pejabat': typeof ProfilPejabatRoute
-  '/publikasi': typeof PublikasiRoute
   '/struktur-organisasi': typeof StrukturOrganisasiRoute
   '/informasi/$slug': typeof InformasiSlugRoute
   '/informasi': typeof InformasiIndexRoute
@@ -102,7 +94,6 @@ export interface FileRoutesById {
   '/ppid': typeof PpidRoute
   '/profil': typeof ProfilRoute
   '/profil-pejabat': typeof ProfilPejabatRoute
-  '/publikasi': typeof PublikasiRoute
   '/struktur-organisasi': typeof StrukturOrganisasiRoute
   '/informasi/$slug': typeof InformasiSlugRoute
   '/informasi/': typeof InformasiIndexRoute
@@ -116,7 +107,6 @@ export interface FileRouteTypes {
     | '/ppid'
     | '/profil'
     | '/profil-pejabat'
-    | '/publikasi'
     | '/struktur-organisasi'
     | '/informasi/$slug'
     | '/informasi/'
@@ -127,7 +117,6 @@ export interface FileRouteTypes {
     | '/ppid'
     | '/profil'
     | '/profil-pejabat'
-    | '/publikasi'
     | '/struktur-organisasi'
     | '/informasi/$slug'
     | '/informasi'
@@ -139,7 +128,6 @@ export interface FileRouteTypes {
     | '/ppid'
     | '/profil'
     | '/profil-pejabat'
-    | '/publikasi'
     | '/struktur-organisasi'
     | '/informasi/$slug'
     | '/informasi/'
@@ -152,7 +140,6 @@ export interface RootRouteChildren {
   PpidRoute: typeof PpidRoute
   ProfilRoute: typeof ProfilRoute
   ProfilPejabatRoute: typeof ProfilPejabatRoute
-  PublikasiRoute: typeof PublikasiRoute
   StrukturOrganisasiRoute: typeof StrukturOrganisasiRoute
 }
 
@@ -163,13 +150,6 @@ declare module '@tanstack/react-router' {
       path: '/struktur-organisasi'
       fullPath: '/struktur-organisasi'
       preLoaderRoute: typeof StrukturOrganisasiRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/publikasi': {
-      id: '/publikasi'
-      path: '/publikasi'
-      fullPath: '/publikasi'
-      preLoaderRoute: typeof PublikasiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/profil-pejabat': {
@@ -252,7 +232,6 @@ const rootRouteChildren: RootRouteChildren = {
   PpidRoute: PpidRoute,
   ProfilRoute: ProfilRoute,
   ProfilPejabatRoute: ProfilPejabatRoute,
-  PublikasiRoute: PublikasiRoute,
   StrukturOrganisasiRoute: StrukturOrganisasiRoute,
 }
 export const routeTree = rootRouteImport
