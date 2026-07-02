@@ -118,7 +118,7 @@ export function SiteNavbar() {
             </div>
           </li>
           <li className="nav-item">
-            <a href="#">Publikasi <Chevron /></a>
+            <a href="#" className={isPublikasi ? "nav-active" : undefined}>Publikasi <Chevron /></a>
             <ul className="dropdown-menu">
               <li className="has-submenu">
                 <Link to="/publikasi" search={{ tab: "penelitian", sub: "jurnal" }}>Penelitian <span className="submenu-arrow">›</span></Link>
