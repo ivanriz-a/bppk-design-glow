@@ -129,24 +129,23 @@ function PublikasiPage() {
           {list.length === 0 ? (
             <p className="info-empty">Belum ada publikasi pada kategori ini.</p>
           ) : (
-            <div className="news-grid pub-grid">
+            <div className="pub-grid">
               {list.map((item) => (
                 <button
                   key={item.id}
                   type="button"
-                  className="news-card pub-card"
+                  className="pubcat-card"
                   onClick={() => setActive(item)}
                 >
-                  <div className="news-img-wrapper pub-cover-wrap">
-                    <img src={item.cover} alt={item.title} className="pub-cover-img" />
-                    <div className="news-overlay" />
+                  <div className="pubcat-cover">
+                    <img src={item.cover} alt={item.title} className="pubcat-cover-img" />
                   </div>
-                  <div className="news-content">
-                    <div className="news-date">{item.year}</div>
-                    <h3 className="news-title">{item.title}</h3>
-                    <p className="news-excerpt">{item.subtitle}</p>
-                    <div className="news-footer">
-                      <span className="btn-pill-outline">Selengkapnya ›</span>
+                  <div className="pubcat-body">
+                    <div className="pubcat-year">{item.year}</div>
+                    <h3 className="pubcat-title">{item.title}</h3>
+                    <p className="pubcat-subtitle">{item.subtitle}</p>
+                    <div className="pubcat-footer">
+                      <span className="pubcat-cta">Selengkapnya ›</span>
                     </div>
                   </div>
                 </button>
