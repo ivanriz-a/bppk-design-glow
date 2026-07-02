@@ -1,53 +1,56 @@
-## Tujuan
-Membuat halaman baru `/ppid` (Pejabat Pengelola Informasi dan Dokumentasi) dengan gaya visual identik halaman `/profil` — hero gelap, accent kuning, tipografi Poppins — berisi 8 pokok bahasan dari dokumen yang dilampirkan.
+## Halaman Publikasi (`/publikasi`)
 
-## Struktur halaman
+Membuat halaman katalog publikasi BPPK dengan gaya konsisten dengan halaman lain (hero gelap, aksen kuning, navbar/footer via `SiteChrome`).
 
-```
-[ SiteNavbar ]
-[ Hero gelap "PPID BPPK" + breadcrumb ]
-[ Sticky sidebar kiri (anchor nav) | Konten kanan scroll panjang ]
-[ SiteFooter ]
-```
+### Struktur halaman
 
-Sidebar sticky berisi 8 anchor (mirip TOC), highlight active section saat scroll.
+1. **Navbar** (`SiteNavbar`) + tambahkan menu **"Publikasi"** ke dropdown yang sesuai (di `SiteChrome.tsx`).
+2. **Hero pendek** — mengikuti pola `/profil` & `/jejak-karya`:
+   - Breadcrumb: Beranda / Publikasi
+   - Eyebrow: "KATALOG BPPK"
+   - Judul: "Publikasi *BPPK*"
+   - Sub-teks singkat tentang publikasi Rumah Belajar Kemenkeu.
+3. **Toolbar filter + search**:
+   - Tab kategori: **Semua · Buku · Jurnal · Majalah · Laporan** (styling sama dengan tab di homepage/`/informasi`).
+   - Input search (opsional, filter berdasarkan judul).
+   - Dropdown urutan: Terbaru / Judul A–Z.
+4. **Grid katalog** — 4 kolom di desktop, 2 di tablet, 1 di mobile.
+   - Card: cover publikasi (rasio 3:4), badge kategori (kuning), judul, tahun, tagline pendek.
+   - Hover: sedikit lift + border kuning, cover zoom halus (konsisten dengan card berita).
+5. **Modal detail** (Radix Dialog) saat card diklik:
+   - Kiri: cover besar.
+   - Kanan: badge kategori, judul, penulis/penerbit, tahun, sinopsis, meta (halaman, ISSN/ISBN bila ada).
+   - CTA utama: **"Baca di KMS"** (link eksternal ke KMS Kemenkeu).
+   - CTA sekunder: **"Unduh PDF"** (opsional per item) atau untuk buku yang punya flipbook internal: **"Buka Preview Flipbook"** → link ke `/jejak-karya`.
+6. **Footer** (`SiteFooter`).
 
-## 8 Pokok bahasan (urutan)
+### Data contoh
 
-1. **Profil PPID** (`#profil`) — gambaran umum, dasar hukum (UU 14/2008, KMK 300/2025, PMK 110/2022), struktur PPID Tingkat I (pakai gambar dari DOCX), tugas (22 item), wewenang (4 item), jalur/waktu/biaya layanan.
-2. **Informasi Berkala** (`#berkala`) — daftar informasi yang wajib diumumkan berkala.
-3. **Informasi Serta Merta** (`#serta-merta`) — informasi yang wajib diumumkan serta merta.
-4. **Informasi Setiap Saat** (`#setiap-saat`) — informasi yang wajib tersedia setiap saat.
-5. **Regulasi** (`#regulasi`) — daftar peraturan & dasar hukum.
-6. **Standar Layanan Informasi** (`#standar-layanan`) — SOP, jangka waktu, mekanisme.
-7. **Daftar Informasi Publik** (`#dip`) — DIP BPPK.
-8. **Statistik** (`#statistik`) — statistik permohonan/layanan informasi.
+File baru `src/data/publikasi.ts` berisi type + 12 item dummy tersebar di 4 kategori:
 
-Konten setiap section di-parse dari 8 file DOCX terlampir; data panjang (daftar dokumen, regulasi, statistik) ditampilkan dalam tabel/list dengan style kartu konsisten `/profil`.
+- **Buku (3)**: *Jejak, Karya, dan Transformasi BPPK* (dengan `internalUrl: "/jejak-karya"`), *Pembelajaran Sepanjang Hayat di Kemenkeu*, *Corporate University Kemenkeu*.
+- **Jurnal (3)**: *Jurnal BPPK* Vol. 17 No. 1 / No. 2 (2025), *Jurnal Info Artha*.
+- **Majalah (3)**: *Majalah Edukasi Keuangan* Ed. 78, 79, 80.
+- **Laporan (3)**: *Laporan Kinerja BPPK 2024*, *Laporan Tahunan BPPK 2024*, *Laporan Reformasi Birokrasi 2024*.
 
-## Visual design
-- **Hero**: gradient gelap (`#0b1d36` → `#152a4a`) + accent `#FBBF24`, judul "Pejabat Pengelola Informasi dan Dokumentasi", subjudul, breadcrumb Beranda › Informasi Publik › PPID.
-- **Section card**: putih, shadow lembut, padding besar, nomor section biru muda `#7DD3FC` (sama seperti `/profil` setelah revisi terakhir).
-- **CTA kontak** di bagian bawah Profil PPID: tombol email `ppidbppk@kemenkeu.go.id`, link `e-ppid.kemenkeu.go.id`, telp 134.
-- **Struktur PPID**: extract `img_p1_1.png` dari DOCX 1, upload via `lovable-assets`, tampilkan sebagai gambar full-width dengan caption.
+Setiap item: `id, slug, kategori, judul, tahun, penulis/penerbit, sinopsis, cover (pakai asset yang sudah ada — cover-buku, cover-jurnal, edukasi-cover, jejak-cover — sisanya reuse), kmsUrl, downloadUrl?, internalUrl?`.
 
-## Navigasi
-- Tambahkan link "PPID" di dropdown **Informasi Publik** pada `SiteChrome.tsx`, posisikan paling atas (sesuai struktur sebelumnya: PPID, Laporan/Informasi Publik Lainnya, Peraturan, Berita dan Pengumuman).
-- Tambahkan highlight `nav-active` untuk path `/ppid`.
+### File yang dibuat / diubah
 
-## File yang akan dibuat/diubah
+- **Buat** `src/data/publikasi.ts` — type + data dummy.
+- **Buat** `src/routes/publikasi.tsx` — route baru dengan hero, tab filter, grid, modal detail.
+- **Ubah** `src/styles.css` — tambah kelas untuk `.pub-*` (hero-short reuse, card, modal, tab).
+- **Ubah** `src/components/SiteChrome.tsx` — tambahkan link "Publikasi" pada dropdown yang relevan (kemungkinan di "Informasi Publik" atau menu utama, disamakan pola).
+- **Ubah** `src/routes/__root.tsx` — tidak perlu (metadata di route).
 
-**Baru:**
-- `src/routes/ppid.tsx` — halaman utama dengan 8 section + sidebar sticky.
-- `src/data/ppid.ts` — konten 8 pokok bahasan (daftar item Berkala/Serta Merta/Setiap Saat/Regulasi/DIP/Statistik).
-- `src/assets/ppid-struktur.png.asset.json` — gambar struktur PPID (upload via `lovable-assets`).
+### Head metadata
 
-**Diubah:**
-- `src/components/SiteChrome.tsx` — tambah link PPID di dropdown Informasi Publik + flag isInformasi/isPpid untuk active state.
-- `src/styles.css` — tambah style `.ppid-*` (hero, sidebar sticky, section card, tabel daftar informasi). Reuse pola `.profil-*` agar konsisten.
+Title: "Publikasi — BPPK Kementerian Keuangan"
+Description: katalog buku, jurnal, majalah, dan laporan BPPK.
+og:image: `jejak-cover` (aset publikasi paling representatif).
 
-## Catatan teknis
-- Sidebar sticky pakai `position: sticky; top: 96px` di kolom kiri dengan grid 2-kolom (240px | 1fr) untuk desktop; di mobile collapse jadi dropdown anchor di atas konten.
-- Active-section tracking pakai IntersectionObserver pada setiap `<section id>`.
-- Parse 7 DOCX lainnya saat implementasi (build mode) untuk mengisi `src/data/ppid.ts` — saya akan ringkas tabel panjang jadi struktur array `{ no, judul, ringkasan, link? }`.
-- Tidak ada dependency baru. Tidak ada perubahan backend.
+### Catatan
+
+- Tanpa backend — semua statis di `publikasi.ts`.
+- Semua tautan KMS placeholder `https://kms.kemenkeu.go.id/` (bisa diperbarui saat data final tersedia).
+- Warna & tipografi mengikuti design system yang sudah ada — tidak menambah token baru.
