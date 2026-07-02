@@ -116,8 +116,9 @@ export function SiteNavbar() {
             </div>
           </li>
           <li className="nav-item">
-            <a href="#">Publikasi <Chevron /></a>
+            <a href="#" className={pathname.startsWith("/publikasi") ? "nav-active" : undefined}>Publikasi <Chevron /></a>
             <ul className="dropdown-menu">
+              <li><Link to="/publikasi">Semua Publikasi</Link></li>
               <li className="has-submenu">
                 <a href="#">Penelitian <span className="submenu-arrow">›</span></a>
                 <ul className="submenu">
@@ -126,9 +127,9 @@ export function SiteNavbar() {
                   <li><a href="#">Simposium Nasional Keuangan Negara (SNKN)</a></li>
                 </ul>
               </li>
-              <li><a href="#">Majalah Edukasi Keuangan</a></li>
-              <li><a href="#">Buku</a></li>
-              <li><a href="#">Laporan-laporan</a></li>
+              <li><Link to="/publikasi">Majalah Edukasi Keuangan</Link></li>
+              <li><Link to="/publikasi">Buku</Link></li>
+              <li><Link to="/publikasi">Laporan-laporan</Link></li>
             </ul>
           </li>
           <li className="nav-item">
