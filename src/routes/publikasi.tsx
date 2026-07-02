@@ -142,7 +142,6 @@ function PublikasiPage() {
                     <div className="pubcat-overlay" aria-hidden="true" />
                   </div>
                   <div className="pubcat-body">
-                    <div className="pubcat-year">{item.year}</div>
                     <h3 className="pubcat-title">{item.title}</h3>
                     <p className="pubcat-subtitle">{item.subtitle}</p>
                     <div className="pubcat-footer">

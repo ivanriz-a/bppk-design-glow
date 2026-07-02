@@ -3911,7 +3911,7 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   overflow: hidden;
   box-shadow: 0 12px 28px rgba(4,79,116,0.06);
   transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
-  height: 460px;
+  height: 520px;
   position: relative;
   --t-main: var(--bppk-blue); --t-sub: var(--text-gray);
   --b-bg: transparent; --b-txt: var(--bppk-blue); --b-border: var(--border-light);
