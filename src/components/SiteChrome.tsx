@@ -17,11 +17,13 @@ export function SiteNavbar() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isInformasi = pathname.startsWith("/informasi") || pathname.startsWith("/ppid");
+  const isPublikasi = pathname.startsWith("/publikasi");
   const isProfil =
     pathname.startsWith("/profil") ||
     pathname.startsWith("/struktur-organisasi") ||
     pathname.startsWith("/profil-pejabat") ||
     pathname.startsWith("/jejak-karya");
+
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
