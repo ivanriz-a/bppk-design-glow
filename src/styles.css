@@ -3911,53 +3911,125 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   overflow: hidden;
   box-shadow: 0 12px 28px rgba(4,79,116,0.06);
   transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+  height: 460px;
+  position: relative;
+  --t-main: var(--bppk-blue); --t-sub: var(--text-gray);
+  --b-bg: transparent; --b-txt: var(--bppk-blue); --b-border: var(--border-light);
 }
 .pubcat-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px);
   border-color: rgba(4,79,116,0.25);
   box-shadow: 0 22px 44px rgba(4,79,116,0.16);
+  --t-main: #fff; --t-sub: rgba(255,255,255,0.85);
+  --b-bg: transparent; --b-txt: #fff; --b-border: #fff;
 }
 .pubcat-cover {
-  aspect-ratio: 3 / 4;
-  width: 100%;
-  background: #f2f4f8;
   position: relative;
+  width: 100%;
+  height: 240px;
+  background: #f2f4f8;
   overflow: hidden;
+  border-radius: 14px 14px 0 0;
+  transition: all 0.55s cubic-bezier(0.25, 1, 0.5, 1);
+  flex-shrink: 0;
+}
+.pubcat-card:hover .pubcat-cover {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  border-radius: 14px;
+  z-index: 1;
 }
 .pubcat-cover-img {
-  width: 100%; height: 100%;
-  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 16px;
   display: block;
-  transition: transform 0.8s ease;
+  position: relative;
+  z-index: 1;
+  transition: opacity 0.5s ease;
 }
-.pubcat-card:hover .pubcat-cover-img { transform: scale(1.06); }
-
+.pubcat-card:hover .pubcat-cover-img {
+  opacity: 0;
+}
+.pubcat-cover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--img);
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.8s ease;
+  transform: scale(1);
+  z-index: 2;
+}
+.pubcat-card:hover .pubcat-cover::before {
+  opacity: 1;
+  transform: scale(1.12);
+}
+.pubcat-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(4,79,116,0.96) 0%, rgba(4,79,116,0.35) 60%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 3;
+}
+.pubcat-card:hover .pubcat-overlay {
+  opacity: 1;
+}
 .pubcat-body {
-  display: flex; flex-direction: column;
-  gap: 6px;
-  padding: 18px 20px 20px;
+  position: relative;
+  z-index: 4;
   flex: 1;
+  min-height: 0;
+  padding: 18px 20px 20px;
+  display: flex;
+  flex-direction: column;
   background: #fff;
+  transition: padding 0.5s ease;
+}
+.pubcat-card:hover .pubcat-body {
+  position: absolute;
+  inset: 0;
+  justify-content: flex-end;
+  padding-top: 55%;
+  background: transparent;
+  pointer-events: none;
+}
+.pubcat-card:hover .pubcat-body > * {
+  pointer-events: auto;
 }
 .pubcat-year {
   font-size: 0.72rem; font-weight: 800;
   color: var(--bppk-light-blue, #3aa7d9);
   letter-spacing: 1px; text-transform: uppercase;
   margin-bottom: 4px;
+  transition: color 0.4s ease;
+}
+.pubcat-card:hover .pubcat-year {
+  color: var(--bppk-yellow);
 }
 .pubcat-title {
   font-size: 1rem; font-weight: 800;
-  color: var(--bppk-blue, #044f74);
+  color: var(--t-main);
   line-height: 1.35; margin: 0;
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
-  transition: color .3s ease;
+  transition: color 0.4s ease;
 }
-.pubcat-card:hover .pubcat-title { color: #022c46; }
 .pubcat-subtitle {
   font-size: 0.85rem; line-height: 1.5;
-  color: var(--text-gray, #5a6675);
+  color: var(--t-sub);
   margin: 0;
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  transition: color 0.4s ease, opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease;
+}
+.pubcat-card:hover .pubcat-subtitle {
+  opacity: 0;
+  max-height: 0;
+  margin-bottom: 0;
 }
 .pubcat-footer {
   display: flex; justify-content: flex-end;
@@ -3965,16 +4037,12 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
 }
 .pubcat-cta {
   padding: 8px 16px;
-  border: 2px solid var(--border-light, #e5e9ef);
-  color: var(--bppk-blue, #044f74);
+  background: var(--b-bg);
+  border: 2px solid var(--b-border);
+  color: var(--b-txt);
   border-radius: 30px;
   font-weight: 800; font-size: 0.76rem;
   transition: background .3s ease, color .3s ease, border-color .3s ease;
-}
-.pubcat-card:hover .pubcat-cta {
-  background: var(--bppk-blue, #044f74);
-  color: #fff;
-  border-color: var(--bppk-blue, #044f74);
 }
 
 /* Modal */

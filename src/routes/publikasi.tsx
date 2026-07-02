@@ -137,8 +137,9 @@ function PublikasiPage() {
                   className="pubcat-card"
                   onClick={() => setActive(item)}
                 >
-                  <div className="pubcat-cover">
+                  <div className="pubcat-cover" style={{ "--img": `url(${item.cover})` } as React.CSSProperties}>
                     <img src={item.cover} alt={item.title} className="pubcat-cover-img" />
+                    <div className="pubcat-overlay" aria-hidden="true" />
                   </div>
                   <div className="pubcat-body">
                     <div className="pubcat-year">{item.year}</div>
