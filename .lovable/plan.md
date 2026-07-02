@@ -1,53 +1,66 @@
-## Tujuan
-Membuat halaman baru `/ppid` (Pejabat Pengelola Informasi dan Dokumentasi) dengan gaya visual identik halaman `/profil` — hero gelap, accent kuning, tipografi Poppins — berisi 8 pokok bahasan dari dokumen yang dilampirkan.
+# Halaman Publikasi
+
+Buat satu halaman `/publikasi` sebagai katalog terpadu untuk semua jenis publikasi BPPK, dengan popup preview flipbook seperti di Jejak Karya.
 
 ## Struktur halaman
 
+1. **SiteNavbar** + hero pendek bergaya `/profil` & `/jejak-karya` (judul "Publikasi", breadcrumb Beranda / Publikasi, eyebrow "PUSTAKA BPPK").
+2. **Tab utama** (gaya sama dengan tab berita di homepage — pill/underline aksen kuning): `Penelitian` · `Majalah` · `Buku` · `Laporan`.
+3. Saat tab **Penelitian** aktif, muncul **sub-tab** di bawahnya: `Jurnal` · `Prosiding Kajian Akademis` · `SNKN`.
+4. **Grid katalog** 3 kolom (responsif 1/2/3) berisi card publikasi.
+5. **SiteFooter**.
+
+## Card publikasi (gaya sama dengan card berita)
+
+- Cover (aspek 3:4) dengan area putih kecil di sekelilingnya pada state default → zoom & full pada hover (samakan animasi `::before` overlay seperti card berita).
+- Bawah cover: **Judul** (bold), **Subjudul/edisi** (kecil abu), CTA link "Selengkapnya ›".
+- Klik card mana pun (cover, judul, CTA) → membuka popup detail.
+
+## Popup detail (modal / dialog)
+
+Layout dalam popup, dari atas ke bawah:
+
+1. **Flipbook preview** — pakai `react-pageflip` (sudah terpasang) dengan 16 halaman `jejak-p01..p16` sebagai konten dummy untuk semua item. Tombol Sebelumnya/Berikutnya + indikator halaman, konsisten dengan `/jejak-karya`.
+2. **Blok detail** di bawah flipbook, 2 kolom:
+   - Kiri: cover publikasi (gambar besar).
+   - Kanan: Judul, Subjudul/edisi/tahun, Deskripsi (2–4 paragraf), meta kecil (kategori, tahun, ISBN/ISSN jika ada).
+3. **CTA** di bawah kolom kanan: tombol utama kuning **"Unduh PDF"** (href `#` placeholder) + tombol ghost **"Tutup"**.
+
+Modal dapat ditutup via tombol X, klik backdrop, atau tombol Esc. Gunakan `Dialog` shadcn yang sudah ada, override style agar cocok dengan tema (dark accents, kuning aksen).
+
+## Data dummy
+
+Buat `src/data/publikasi.ts` dengan tipe:
+
+```ts
+type Publikasi = {
+  id: string; slug: string;
+  category: "penelitian" | "majalah" | "buku" | "laporan";
+  subCategory?: "jurnal" | "prosiding" | "snkn";
+  title: string; subtitle: string; description: string;
+  cover: string; year: number;
+  pdfUrl: string; // "#"
+};
 ```
-[ SiteNavbar ]
-[ Hero gelap "PPID BPPK" + breadcrumb ]
-[ Sticky sidebar kiri (anchor nav) | Konten kanan scroll panjang ]
-[ SiteFooter ]
-```
 
-Sidebar sticky berisi 8 anchor (mirip TOC), highlight active section saat scroll.
+Isi 3–4 item per kategori/sub-kategori (total ~18):
+- Jurnal (3), Prosiding (3), SNKN (3), Majalah (4), Buku (4 — salah satunya Jejak Karya asli), Laporan (3).
+- Cover pakai asset yang sudah ada: `cover-buku.png`, `cover-jurnal.jpg`, `edukasi-cover.jpg`, `jejak-cover.jpg` (rotasi antar item). Tidak perlu upload asset baru.
 
-## 8 Pokok bahasan (urutan)
+## File yang akan dibuat / diubah
 
-1. **Profil PPID** (`#profil`) — gambaran umum, dasar hukum (UU 14/2008, KMK 300/2025, PMK 110/2022), struktur PPID Tingkat I (pakai gambar dari DOCX), tugas (22 item), wewenang (4 item), jalur/waktu/biaya layanan.
-2. **Informasi Berkala** (`#berkala`) — daftar informasi yang wajib diumumkan berkala.
-3. **Informasi Serta Merta** (`#serta-merta`) — informasi yang wajib diumumkan serta merta.
-4. **Informasi Setiap Saat** (`#setiap-saat`) — informasi yang wajib tersedia setiap saat.
-5. **Regulasi** (`#regulasi`) — daftar peraturan & dasar hukum.
-6. **Standar Layanan Informasi** (`#standar-layanan`) — SOP, jangka waktu, mekanisme.
-7. **Daftar Informasi Publik** (`#dip`) — DIP BPPK.
-8. **Statistik** (`#statistik`) — statistik permohonan/layanan informasi.
+- **Baru** `src/data/publikasi.ts` — data + tipe.
+- **Baru** `src/routes/publikasi.tsx` — halaman dengan tabs, sub-tabs, grid, dan modal detail (self-contained; flipbook di-lazy-load seperti di `jejak-karya.tsx`).
+- **Ubah** `src/styles.css` — tambah kelas untuk tab publikasi, card katalog, dan layout modal (reuse variabel warna/animasi yang sudah ada).
+- **Ubah** `src/components/SiteChrome.tsx` — dropdown Publikasi diarahkan ke `/publikasi` (Penelitian → `/publikasi?tab=penelitian`, Majalah → `?tab=majalah`, dst) sehingga item dropdown yang sudah ada menjadi fungsional.
+- Route otomatis terdaftar via TanStack file-based routing.
 
-Konten setiap section di-parse dari 8 file DOCX terlampir; data panjang (daftar dokumen, regulasi, statistik) ditampilkan dalam tabel/list dengan style kartu konsisten `/profil`.
+## Detail teknis
 
-## Visual design
-- **Hero**: gradient gelap (`#0b1d36` → `#152a4a`) + accent `#FBBF24`, judul "Pejabat Pengelola Informasi dan Dokumentasi", subjudul, breadcrumb Beranda › Informasi Publik › PPID.
-- **Section card**: putih, shadow lembut, padding besar, nomor section biru muda `#7DD3FC` (sama seperti `/profil` setelah revisi terakhir).
-- **CTA kontak** di bagian bawah Profil PPID: tombol email `ppidbppk@kemenkeu.go.id`, link `e-ppid.kemenkeu.go.id`, telp 134.
-- **Struktur PPID**: extract `img_p1_1.png` dari DOCX 1, upload via `lovable-assets`, tampilkan sebagai gambar full-width dengan caption.
+- Tab state pakai `useState`, sinkron dengan search param `?tab=` dan `?sub=` supaya link dari navbar bisa langsung membuka tab yang benar.
+- Flipbook di-`import()` dinamis (hindari SSR error) — sama pola dengan `jejak-karya.tsx`.
+- Modal membungkus flipbook di dalam `Dialog` dengan `max-width` ~ 960px, scroll internal.
+- CTA "Unduh PDF" pakai `href="#"` + `download` attribute (placeholder), siap diganti URL asli nanti.
+- Metadata `head()`: title "Publikasi — BPPK", deskripsi, og tags (tanpa og:image di root level).
 
-## Navigasi
-- Tambahkan link "PPID" di dropdown **Informasi Publik** pada `SiteChrome.tsx`, posisikan paling atas (sesuai struktur sebelumnya: PPID, Laporan/Informasi Publik Lainnya, Peraturan, Berita dan Pengumuman).
-- Tambahkan highlight `nav-active` untuk path `/ppid`.
-
-## File yang akan dibuat/diubah
-
-**Baru:**
-- `src/routes/ppid.tsx` — halaman utama dengan 8 section + sidebar sticky.
-- `src/data/ppid.ts` — konten 8 pokok bahasan (daftar item Berkala/Serta Merta/Setiap Saat/Regulasi/DIP/Statistik).
-- `src/assets/ppid-struktur.png.asset.json` — gambar struktur PPID (upload via `lovable-assets`).
-
-**Diubah:**
-- `src/components/SiteChrome.tsx` — tambah link PPID di dropdown Informasi Publik + flag isInformasi/isPpid untuk active state.
-- `src/styles.css` — tambah style `.ppid-*` (hero, sidebar sticky, section card, tabel daftar informasi). Reuse pola `.profil-*` agar konsisten.
-
-## Catatan teknis
-- Sidebar sticky pakai `position: sticky; top: 96px` di kolom kiri dengan grid 2-kolom (240px | 1fr) untuk desktop; di mobile collapse jadi dropdown anchor di atas konten.
-- Active-section tracking pakai IntersectionObserver pada setiap `<section id>`.
-- Parse 7 DOCX lainnya saat implementasi (build mode) untuk mengisi `src/data/ppid.ts` — saya akan ringkas tabel panjang jadi struktur array `{ no, judul, ringkasan, link? }`.
-- Tidak ada dependency baru. Tidak ada perubahan backend.
+Setelah plan ini disetujui, saya lanjut implementasi.
