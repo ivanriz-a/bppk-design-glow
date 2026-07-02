@@ -119,18 +119,19 @@ export function SiteNavbar() {
             <a href="#">Publikasi <Chevron /></a>
             <ul className="dropdown-menu">
               <li className="has-submenu">
-                <a href="#">Penelitian <span className="submenu-arrow">›</span></a>
+                <Link to="/publikasi" search={{ tab: "penelitian", sub: "jurnal" }}>Penelitian <span className="submenu-arrow">›</span></Link>
                 <ul className="submenu">
-                  <li><a href="#">Jurnal</a></li>
-                  <li><a href="#">Prosiding Kajian Akademis</a></li>
-                  <li><a href="#">Simposium Nasional Keuangan Negara (SNKN)</a></li>
+                  <li><Link to="/publikasi" search={{ tab: "penelitian", sub: "jurnal" }}>Jurnal</Link></li>
+                  <li><Link to="/publikasi" search={{ tab: "penelitian", sub: "prosiding" }}>Prosiding Kajian Akademis</Link></li>
+                  <li><Link to="/publikasi" search={{ tab: "penelitian", sub: "snkn" }}>Simposium Nasional Keuangan Negara (SNKN)</Link></li>
                 </ul>
               </li>
-              <li><a href="#">Majalah Edukasi Keuangan</a></li>
-              <li><a href="#">Buku</a></li>
-              <li><a href="#">Laporan-laporan</a></li>
+              <li><Link to="/publikasi" search={{ tab: "majalah" }}>Majalah Edukasi Keuangan</Link></li>
+              <li><Link to="/publikasi" search={{ tab: "buku" }}>Buku</Link></li>
+              <li><Link to="/publikasi" search={{ tab: "laporan" }}>Laporan-laporan</Link></li>
             </ul>
           </li>
+
           <li className="nav-item">
             <a href="#" className={isInformasi ? "nav-active" : undefined}>Informasi Publik <Chevron /></a>
             <ul className="dropdown-menu">
