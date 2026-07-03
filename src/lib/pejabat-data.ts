@@ -1,4 +1,13 @@
 import fotoContoh from "@/assets/profil-dhoni.jpg.asset.json";
+import fotoDwiTeguh from "@/assets/pj-dwi-teguh-wibowo.png.asset.json";
+import fotoWahyu from "@/assets/pj-wahyu-kusuma-romadhoni.png.asset.json";
+import fotoHeni from "@/assets/pj-heni-kartikawati.png.asset.json";
+import fotoBhimantara from "@/assets/pj-bhimantara-widyajala.png.asset.json";
+import fotoEdward from "@/assets/pj-edward-hamonangan-sianipar.png.asset.json";
+import fotoMulyono from "@/assets/pj-mochamad-mulyono.png.asset.json";
+import fotoGanti from "@/assets/pj-ganti-lis-ariyadi.png.asset.json";
+import fotoNana from "@/assets/pj-nana-riana.png.asset.json";
+import fotoEvy from "@/assets/pj-evy-mulyani.png.asset.json";
 
 export type Pejabat = {
   id: string;
@@ -39,6 +48,7 @@ const withDefaults = (p: Pejabat): Pejabat => ({
 
 const kepala: Pejabat = withDefaults({
   id: "kepala",
+  foto: fotoDwiTeguh.url,
   nama: "Dwi Teguh Wibowo",
   jabatan: "Plt. Kepala Badan Pendidikan dan Pelatihan Keuangan",
   unit: "Badan Pendidikan dan Pelatihan Keuangan",
@@ -53,6 +63,7 @@ const kepala: Pejabat = withDefaults({
 
 const sekretariat: Pejabat = withDefaults({
   id: "sekretariat",
+  foto: fotoWahyu.url,
   nama: "Wahyu Kusuma Romadhoni",
   jabatan: "Sekretaris Badan Pendidikan dan Pelatihan Keuangan",
   unit: "Sekretariat BPPK",
@@ -67,6 +78,7 @@ const sekretariat: Pejabat = withDefaults({
 
 const pkm: Pejabat = withDefaults({
   id: "pkm",
+  foto: fotoHeni.url,
   nama: "Heni Kartikawati",
   jabatan: "Kepala Pusdiklat Kepemimpinan dan Manajemen",
   unit: "Pusdiklat Kepemimpinan dan Manajemen",
@@ -80,6 +92,7 @@ const pkm: Pejabat = withDefaults({
 
 const pap: Pejabat = withDefaults({
   id: "pap",
+  foto: fotoBhimantara.url,
   nama: "Bhimantara Widyajala",
   jabatan: "Kepala Pusdiklat Anggaran dan Perbendaharaan",
   unit: "Pusdiklat Anggaran dan Perbendaharaan",
@@ -95,6 +108,7 @@ const pap: Pejabat = withDefaults({
 
 const ppjk: Pejabat = withDefaults({
   id: "ppjk",
+  foto: fotoEdward.url,
   nama: "Edward Hamonangan Sianipar",
   jabatan: "Kepala Pusdiklat Pajak",
   unit: "Pusdiklat Pajak",
@@ -109,6 +123,7 @@ const ppjk: Pejabat = withDefaults({
 
 const pbc: Pejabat = withDefaults({
   id: "pbc",
+  foto: fotoMulyono.url,
   nama: "Mochamad Mulyono",
   jabatan: "Kepala Pusdiklat Bea dan Cukai",
   unit: "Pusdiklat Bea dan Cukai",
@@ -124,6 +139,7 @@ const pbc: Pejabat = withDefaults({
 
 const pkp: Pejabat = withDefaults({
   id: "pkp",
+  foto: fotoGanti.url,
   nama: "Ganti Lis Ariyadi",
   jabatan: "Kepala Pusdiklat Keuangan Publik",
   unit: "Pusdiklat Keuangan Publik",
@@ -138,6 +154,7 @@ const pkp: Pejabat = withDefaults({
 
 const pjf: Pejabat = withDefaults({
   id: "pjf",
+  foto: fotoNana.url,
   nama: "Nana Riana",
   jabatan: "Kepala Pusat Pembinaan Jabatan Fungsional dan Penjaminan Mutu",
   unit: "Pusat Pembinaan Jabatan Fungsional dan Penjaminan Mutu",
@@ -152,6 +169,7 @@ const pjf: Pejabat = withDefaults({
 
 const pknStan: Pejabat = withDefaults({
   id: "pkn-stan",
+  foto: fotoEvy.url,
   nama: "Evy Mulyani",
   jabatan: "Direktur Politeknik Keuangan Negara STAN",
   unit: "Politeknik Keuangan Negara STAN",
