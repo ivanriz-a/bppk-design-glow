@@ -3910,7 +3910,7 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   border-radius: var(--r-lg, 14px);
   overflow: hidden;
   box-shadow: 0 12px 28px rgba(4,79,116,0.06);
-  transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+  transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease, background .35s ease;
   position: relative;
   --t-main: var(--bppk-blue); --t-sub: var(--text-gray);
   --b-bg: transparent; --b-txt: var(--bppk-blue); --b-border: var(--border-light);
@@ -3919,6 +3919,7 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   transform: translateY(-8px);
   border-color: rgba(4,79,116,0.25);
   box-shadow: 0 22px 44px rgba(4,79,116,0.16);
+  background: var(--bppk-blue);
   --t-main: #fff; --t-sub: rgba(255,255,255,0.85);
   --b-bg: transparent; --b-txt: #fff; --b-border: #fff;
 }
