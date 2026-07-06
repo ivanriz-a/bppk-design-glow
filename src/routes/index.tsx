@@ -37,8 +37,8 @@ export const Route = createFileRoute("/")({
 const heroSlides = [
   {
     eyebrow: "KEMENTERIAN KEUANGAN RI",
-    pre: "Lebih simpel dengan Kemenkeu PRIME",
-    italic: "",
+    pre: "Lebih simpel dengan",
+    italic: "Kemenkeu PRIME",
     post: "",
     desc: "Layanan Halo BPPK dialihkan ke pusat kontak layanan Kemenkeu PRIME",
     image: hero1.url,
