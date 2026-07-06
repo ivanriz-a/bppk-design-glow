@@ -37,18 +37,18 @@ export const Route = createFileRoute("/")({
 const heroSlides = [
   {
     eyebrow: "KEMENTERIAN KEUANGAN RI",
-    pre: "Membangun",
-    italic: "Kompetensi",
-    post: "Keuangan Negara.",
-    desc: "Pusat pengembangan SDM aparatur negara melalui pembelajaran modern, terintegrasi, dan inklusif.",
+    pre: "Lebih simpel dengan",
+    italic: "Kemenkeu PRIME",
+    post: "",
+    desc: "Layanan Halo BPPK dialihkan ke pusat kontak layanan Kemenkeu PRIME",
     image: hero1.url,
   },
   {
     eyebrow: "INTEGRITAS BPPK",
-    pre: "Tolak",
-    italic: "Gratifikasi",
-    post: "Tegakkan Integritas.",
-    desc: "BPPK menolak gratifikasi dalam bentuk apapun. Bersama ciptakan wilayah bebas dari korupsi.",
+    pre: "Seluruh layanan pelatihan di BPPK tidak dipungut",
+    italic: "biaya/gratis",
+    post: "",
+    desc: "Segera ajukan pengaduan jika terjadi hal yang tidak sesuai.",
     image: hero3.url,
   },
   {
@@ -62,12 +62,12 @@ const heroSlides = [
 ];
 
 const services = [
-  { title: "Kemenkeu Learning Center", desc: "Platform pembelajaran digital terintegrasi untuk seluruh pegawai Kementerian Keuangan.", bg: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80", icon: <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" /> },
-  { title: "Knowledge Management", desc: "Sistem manajemen pengetahuan untuk berbagi wawasan dan inovasi.", bg: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80", icon: <polygon points="5 3 19 12 5 21 5 3" /> },
+  { title: "Kemenkeu Learning Center", desc: "Media pembelajaran online untuk pegawai Kementerian Keuangan dan masyarakat umum.", bg: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80", icon: <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" /> },
+  { title: "Knowledge Management system", desc: "Pusat pengetahuan keuangan negara dan wawasan lainnya.", bg: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80", icon: <polygon points="5 3 19 12 5 21 5 3" /> },
   { title: "Sertifikasi", desc: "Layanan sertifikasi untuk menjamin kualitas standar kompetensi.", bg: "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80", icon: <><circle cx="12" cy="8" r="7" /><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" /></> },
-  { title: "PENA JFKN", desc: "Pusat edukasi dan nilai tambah Jabatan Fungsional Keuangan Negara.", bg: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80", icon: <><rect x="2" y="3" width="20" height="14" rx="2" ry="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" /></> },
-  { title: "Beasiswa", desc: "Program beasiswa pengembangan SDM unggul keuangan negara.", bg: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80", icon: <><rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></> },
-  { title: "PKN STAN", desc: "Pendidikan kedinasan unggulan untuk calon pengelola keuangan negara.", bg: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=600&q=80", icon: <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /> },
+  { title: "Pena JFKN", desc: "Rumah bagi JF dan calon JF di bidang keuangan negara.", bg: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80", icon: <><rect x="2" y="3" width="20" height="14" rx="2" ry="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" /></> },
+  { title: "Beasiswa", desc: "Informasi seputar beasiswa di lingkungan Kementerian Keuangan.", bg: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80", icon: <><rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></> },
+  { title: "PKN STAN", desc: "Perguruan tinggi di lingkungan Kementerian Keuangan.", bg: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=600&q=80", icon: <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /> },
 ];
 
 const pelatihanList = [
@@ -418,7 +418,7 @@ function Home() {
                   { text: "BPPK" },
                 ],
                 title: "Jejak, Karya, dan Transformasi BPPK",
-                desc: "Akses bebas unduh ke ratusan modul ajar komprehensif untuk mendukung pembelajaran berkelanjutan di lingkungan Kementerian Keuangan.",
+                desc: "Badan Pendidikan dan Pelatihan Keuangan (BPPK) Kementerian Keuangan telah bertransformasi dari penyelenggara pelatihan konvensional menjadi kawah candradimuka modern.",
                 cover: coverBuku.url,
                 halftone: bgBuku.url,
                 category: "Buku & Modul",
