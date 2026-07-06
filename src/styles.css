@@ -3982,18 +3982,10 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   display: flex;
   flex-direction: column;
   background: #fff;
-  transition: padding 0.5s ease;
+  transition: background 0.35s ease;
 }
 .pubcat-card:hover .pubcat-body {
-  position: absolute;
-  inset: 0;
-  justify-content: flex-end;
-  padding-top: 55%;
   background: transparent;
-  pointer-events: none;
-}
-.pubcat-card:hover .pubcat-body > * {
-  pointer-events: auto;
 }
 .pubcat-year {
   font-size: 0.72rem; font-weight: 800;
