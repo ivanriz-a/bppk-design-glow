@@ -53,8 +53,8 @@ const heroSlides = [
   },
   {
     eyebrow: "LAYANAN BPPK",
-    pre: "Seluruh layanan pelatihan di BPPK tidak dipungut biaya/gratis",
-    italic: "",
+    pre: "Seluruh layanan pelatihan di BPPK",
+    italic: "tidak dipungut biaya/gratis",
     post: "",
     desc: "Segera ajukan pengaduan jika terjadi hal yang tidak sesuai.",
     image: hero2.url,
