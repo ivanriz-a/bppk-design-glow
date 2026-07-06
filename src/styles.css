@@ -3933,13 +3933,6 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   transition: all 0.55s cubic-bezier(0.25, 1, 0.5, 1);
   flex-shrink: 0;
 }
-.pubcat-card:hover .pubcat-cover {
-  position: absolute;
-  inset: 0;
-  height: 100%;
-  border-radius: 14px;
-  z-index: 1;
-}
 .pubcat-cover-img {
   width: 100%;
   height: 100%;
