@@ -4011,11 +4011,6 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
   transition: color 0.4s ease, opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease;
 }
-.pubcat-card:hover .pubcat-subtitle {
-  opacity: 0;
-  max-height: 0;
-  margin-bottom: 0;
-}
 .pubcat-footer {
   display: flex; justify-content: flex-end;
   margin-top: 10px;
