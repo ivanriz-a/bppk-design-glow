@@ -632,10 +632,10 @@ function ProfilPage() {
               <div className="profil-section-split profil-section-split-reverse">
                 <div className="profil-section-intro profil-section-intro-inline">
                   <p>
-                    Learning Organization adalah cita-cita BPPK untuk menjadi organisasi yang terus belajar, beradaptasi, dan menciptakan masa depan bersama.
+                    <strong>Learning Organization (LO) Kemenkeu</strong> hadir sebagai jawaban dalam menyiapkan insan Kementerian Keuangan menghadapi era penuh disrupsi — menuntut organisasi yang <em>agile</em>, adaptif, inovatif, dan kolaboratif.
                   </p>
                   <p>
-                    Lima disiplin Peter Senge berikut menjadi kompas transformasi pembelajaran di BPPK.
+                    LO membangun budaya <strong>#KitaPemelajar</strong>: terus berubah, saling berbagi, dan tumbuh bersama. Lima disiplin Peter Senge berikut menjadi kompas transformasi pembelajaran di BPPK.
                   </p>
                 </div>
                 <figure className="profil-section-aside">
@@ -664,14 +664,32 @@ function ProfilPage() {
                 </div>
               </div>
 
-              <div className="profil-cta-card">
+              <div className="profil-section-intro" style={{ marginTop: "2.5rem" }}>
+                <h3 className="profil-section-title" style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>Mengapa Learning Organization?</h3>
+                <ol className="profil-vm-list">
+                  <li>
+                    <span className="profil-vm-num">01</span>
+                    <span><strong>Pemeliharaan Aset Intelektual Organisasi</strong> — menjaga dan mengembangkan pengetahuan kolektif Kemenkeu agar tetap hidup dan bermanfaat lintas generasi pegawai.</span>
+                  </li>
+                  <li>
+                    <span className="profil-vm-num">02</span>
+                    <span><strong>Akselerasi Perwujudan Organisasi yang Agile, Adaptif, dan Inovatif</strong> — mempercepat transformasi Kemenkeu dalam merespons dinamika lingkungan strategis.</span>
+                  </li>
+                  <li>
+                    <span className="profil-vm-num">03</span>
+                    <span><strong>Optimalisasi Bekerja, Belajar, dan Berbagi Pengetahuan</strong> — mengintegrasikan aktivitas bekerja, belajar, dan berbagi menjadi satu ekosistem yang saling menguatkan.</span>
+                  </li>
+                </ol>
+              </div>
+
+              <div className="profil-cta-card" style={{ marginTop: "2.5rem" }}>
                 <div>
-                  <p className="profil-cta-eyebrow">EKOSISTEM PEMBELAJARAN</p>
-                  <h3>Bergabung dengan ekosistem pembelajaran <em>BPPK</em></h3>
-                  <p>Jelajahi Kemenkeu Learning Center, jalur sertifikasi, dan program pengembangan SDM kami.</p>
+                  <p className="profil-cta-eyebrow">LEARNING ORGANIZATION</p>
+                  <h3>Jelajahi ekosistem <em>Learning Organization</em> Kemenkeu</h3>
+                  <p>Temukan komponen, tema, dan manfaat LO Kemenkeu untuk pengembangan kompetensi berkelanjutan.</p>
                 </div>
-                <a href="#" className="profil-cta-btn">
-                  Kunjungi KLC
+                <a href="https://bppk.kemenkeu.go.id/pages/learning-organization/" target="_blank" rel="noopener noreferrer" className="profil-cta-btn">
+                  Kunjungi Learning Organization
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
                 </a>
               </div>
