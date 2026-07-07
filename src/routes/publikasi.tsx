@@ -125,32 +125,66 @@ function PublikasiPage() {
             </div>
           )}
 
-          {/* Grid */}
+          {/* Featured + Grid */}
           {list.length === 0 ? (
             <p className="info-empty">Belum ada publikasi pada kategori ini.</p>
           ) : (
-            <div className="pub-grid">
-              {list.map((item) => (
-                <button
-                  key={item.id}
-                  type="button"
-                  className="pubcat-card"
-                  onClick={() => setActive(item)}
-                >
-                  <div className="pubcat-cover" style={{ "--img": `url(${item.cover})` } as React.CSSProperties}>
-                    <img src={item.cover} alt={item.title} className="pubcat-cover-img" />
-                    <div className="pubcat-overlay" aria-hidden="true" />
-                  </div>
-                  <div className="pubcat-body">
-                    <h3 className="pubcat-title">{item.title}</h3>
-                    <p className="pubcat-subtitle">{item.subtitle}</p>
-                    <div className="pubcat-footer">
-                      <span className="pubcat-cta">Selengkapnya ›</span>
+            <>
+              {/* Featured card — first item */}
+              {(() => {
+                const item = list[0];
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    className="pubcat-card pubcat-featured"
+                    onClick={() => setActive(item)}
+                  >
+                    <div className="pubcat-cover" style={{ "--img": `url(${item.cover})` } as React.CSSProperties}>
+                      <img src={item.cover} alt={item.title} className="pubcat-cover-img" />
+                      <div className="pubcat-overlay" aria-hidden="true" />
                     </div>
-                  </div>
-                </button>
-              ))}
-            </div>
+                    <div className="pubcat-body">
+                      <span className="pubcat-year">
+                        {CATEGORY_LABEL[item.category]}
+                        {item.subCategory ? ` · ${SUB_LABEL[item.subCategory]}` : ""}
+                      </span>
+                      <h3 className="pubcat-title">{item.title}</h3>
+                      <p className="pubcat-subtitle">{item.subtitle}</p>
+                      <p className="pubcat-desc">
+                        {item.description[0]}
+                      </p>
+                      <div className="pubcat-footer">
+                        <span className="pubcat-cta">Selengkapnya ›</span>
+                      </div>
+                    </div>
+                  </button>
+                );
+              })()}
+
+              <div className="pub-grid">
+                {list.slice(1).map((item) => (
+                  <button
+                    key={item.id}
+                    type="button"
+                    className="pubcat-card"
+                    onClick={() => setActive(item)}
+                  >
+                    <div className="pubcat-cover" style={{ "--img": `url(${item.cover})` } as React.CSSProperties}>
+                      <img src={item.cover} alt={item.title} className="pubcat-cover-img" />
+                      <div className="pubcat-overlay" aria-hidden="true" />
+                    </div>
+                    <div className="pubcat-body">
+                      <h3 className="pubcat-title">{item.title}</h3>
+                      <p className="pubcat-subtitle">{item.subtitle}</p>
+                      <div className="pubcat-footer">
+                        <span className="pubcat-cta">Selengkapnya ›</span>
+                      </div>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </>
           )}
         </div>
       </section>
