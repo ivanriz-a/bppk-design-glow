@@ -534,52 +534,8 @@ function ProfilPage() {
                 </p>
               </div>
 
-              <div className="profil-corpu">
-                <div className="profil-corpu-diagram" role="group" aria-label="Diagram empat pilar Kemenkeu Corpu">
-                  <svg viewBox="0 0 360 360" className="profil-corpu-svg">
-                    {corpuPilars.map((p, i) => {
-                      const start = (i * 90 - 135) * (Math.PI / 180);
-                      const end = ((i + 1) * 90 - 135) * (Math.PI / 180);
-                      const cx = 180, cy = 180, rOuter = 160, rInner = 78;
-                      const x1 = cx + rOuter * Math.cos(start), y1 = cy + rOuter * Math.sin(start);
-                      const x2 = cx + rOuter * Math.cos(end), y2 = cy + rOuter * Math.sin(end);
-                      const x3 = cx + rInner * Math.cos(end), y3 = cy + rInner * Math.sin(end);
-                      const x4 = cx + rInner * Math.cos(start), y4 = cy + rInner * Math.sin(start);
-                      const mid = (start + end) / 2;
-                      const lx = cx + ((rInner + rOuter) / 2) * Math.cos(mid);
-                      const ly = cy + ((rInner + rOuter) / 2) * Math.sin(mid);
-                      const isActive = pilar === p.key;
-                      return (
-                        <g key={p.key} className={`profil-corpu-seg ${isActive ? "is-active" : ""}`} onMouseEnter={() => setPilar(p.key)} onClick={() => setPilar(p.key)}>
-                          <path d={`M ${x1} ${y1} A ${rOuter} ${rOuter} 0 0 1 ${x2} ${y2} L ${x3} ${y3} A ${rInner} ${rInner} 0 0 0 ${x4} ${y4} Z`} />
-                          <text x={lx} y={ly} textAnchor="middle" dominantBaseline="middle">
-                            {p.t.split(" ").map((w, wi) => (
-                              <tspan key={wi} x={lx} dy={wi === 0 ? "-0.3em" : "1.1em"}>{w}</tspan>
-                            ))}
-                          </text>
-                        </g>
-                      );
-                    })}
-                    <circle cx="180" cy="180" r="70" className="profil-corpu-center" />
-                    <text x="180" y="172" textAnchor="middle" className="profil-corpu-center-text">
-                      <tspan x="180" dy="0">Kemenkeu</tspan>
-                      <tspan x="180" dy="1.2em">Corpu</tspan>
-                    </text>
-                  </svg>
-                </div>
-                <div className="profil-corpu-panel">
-                  <p className="profil-corpu-panel-label">PILAR AKTIF</p>
-                  <h3 className="profil-corpu-panel-title">{activePilar.t}</h3>
-                  <p className="profil-corpu-panel-desc">{activePilar.d}</p>
-                  <div className="profil-corpu-tabs">
-                    {corpuPilars.map((p) => (
-                      <button key={p.key} type="button" className={`profil-corpu-tab ${pilar === p.key ? "is-active" : ""}`} onClick={() => setPilar(p.key)}>
-                        {p.t}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
+
+
 
               <div className="profil-section-intro" style={{ marginTop: "2.5rem" }}>
                 <h3 className="profil-section-title" style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>Ekosistem Pembelajaran</h3>
