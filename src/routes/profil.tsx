@@ -527,7 +527,10 @@ function ProfilPage() {
 
               <div className="profil-section-intro">
                 <p>
-                  Kementerian Keuangan Corporate University (Kemenkeu Corpu) adalah pendekatan pembelajaran yang menghubungkan strategi organisasi dengan pengembangan kapabilitas SDM. Empat pilar di bawah ini menjadi fondasi penyelenggaraan Corpu di BPPK.
+                  Sejak tahun 2015, strategi <strong>Kementerian Keuangan Corporate University (Kemenkeu Corpu)</strong> diperkenalkan untuk mengintegrasikan berbagai metode pembelajaran dengan nilai-nilai dan tujuan organisasi Kemenkeu. Hal ini sejalan dengan amanat PP 17 Tahun 2020 tentang Manajemen Pegawai Negeri Sipil. Didukung dengan sistem manajemen pengetahuan yang mutakhir, pembelajaran di Kemenkeu menjadi tak terbatas — <em>belajar tanpa batas, kinerja berkualitas</em>.
+                </p>
+                <p>
+                  Di tengah kondisi global dan perekonomian yang penuh tantangan, Kementerian Keuangan dituntut untuk selalu berkinerja unggul, adaptif, dan mampu menghasilkan kebijakan solutif. Melalui strategi Kemenkeu Corpu, pembelajaran menjadi terintegrasi ke dalam satu ekosistem sehingga setiap pegawai tidak hanya memperoleh pembelajaran melalui pelatihan <em>(structured learning)</em>, namun juga dari lingkungan sosialnya <em>(social learning)</em> dan dari unit tempat ia bekerja <em>(learning while working)</em>.
                 </p>
               </div>
 
@@ -577,6 +580,43 @@ function ProfilPage() {
                   </div>
                 </div>
               </div>
+
+              <div className="profil-section-intro" style={{ marginTop: "2.5rem" }}>
+                <h3 className="profil-section-title" style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>Ekosistem Pembelajaran</h3>
+                <ol className="profil-vm-list">
+                  <li>
+                    <span className="profil-vm-num">01</span>
+                    <span><strong>Structured Learning</strong> — Pembelajaran melalui pelatihan baik secara klasikal (tatap muka) di Pusdiklat/BDK maupun digital <em>(e-learning)</em> melalui KLC.</span>
+                  </li>
+                  <li>
+                    <span className="profil-vm-num">02</span>
+                    <span><strong>Social Learning</strong> — Pembelajaran melalui lingkungan sosial berupa pembimbingan, pendampingan, maupun <em>community of practice</em> (COP).</span>
+                  </li>
+                  <li>
+                    <span className="profil-vm-num">03</span>
+                    <span><strong>Learning While Working</strong> — Pembelajaran melalui penugasan dan pengalaman bekerja pegawai pada unit instansi yang bersangkutan.</span>
+                  </li>
+                </ol>
+              </div>
+
+              <div className="profil-section-intro" style={{ marginTop: "2.5rem" }}>
+                <h3 className="profil-section-title" style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>Tata Kelola</h3>
+                <p>
+                  Didukung dengan manajemen pengetahuan <em>(knowledge management)</em>, Kemenkeu Corpu memiliki pelaksanaan tata kelola yang terdiri atas <strong>Komite Pengarah</strong>, <strong>Komite Operasional</strong>, dan <em>Skill Group Owner</em> (SGO).
+                </p>
+              </div>
+
+              <div className="profil-cta-card" style={{ marginTop: "2.5rem" }}>
+                <div>
+                  <p className="profil-cta-eyebrow">KEMENKEU CORPU</p>
+                  <h3>Pelajari lebih lanjut tentang <em>Kemenkeu Corpu</em></h3>
+                  <p>Kunjungi portal resmi Kemenkeu Corporate University untuk informasi lengkap pilar, komponen, dan platform pembelajaran.</p>
+                </div>
+                <a href="https://bppk.kemenkeu.go.id/pages/corpu/" target="_blank" rel="noopener noreferrer" className="profil-cta-btn">
+                  Kunjungi Kemenkeu Corpu
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+                </a>
+              </div>
             </section>
 
             {/* LEARNING ORG */}
@@ -592,10 +632,10 @@ function ProfilPage() {
               <div className="profil-section-split profil-section-split-reverse">
                 <div className="profil-section-intro profil-section-intro-inline">
                   <p>
-                    Learning Organization adalah cita-cita BPPK untuk menjadi organisasi yang terus belajar, beradaptasi, dan menciptakan masa depan bersama.
+                    <strong>Learning Organization (LO) Kemenkeu</strong> hadir sebagai jawaban dalam menyiapkan insan Kementerian Keuangan menghadapi era penuh disrupsi — menuntut organisasi yang <em>agile</em>, adaptif, inovatif, dan kolaboratif.
                   </p>
                   <p>
-                    Lima disiplin Peter Senge berikut menjadi kompas transformasi pembelajaran di BPPK.
+                    LO membangun budaya <strong>#KitaPemelajar</strong>: terus berubah, saling berbagi, dan tumbuh bersama. Lima disiplin Peter Senge berikut menjadi kompas transformasi pembelajaran di BPPK.
                   </p>
                 </div>
                 <figure className="profil-section-aside">
@@ -624,14 +664,32 @@ function ProfilPage() {
                 </div>
               </div>
 
-              <div className="profil-cta-card">
+              <div className="profil-section-intro" style={{ marginTop: "2.5rem" }}>
+                <h3 className="profil-section-title" style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>Mengapa Learning Organization?</h3>
+                <ol className="profil-vm-list">
+                  <li>
+                    <span className="profil-vm-num">01</span>
+                    <span><strong>Pemeliharaan Aset Intelektual Organisasi</strong> — menjaga dan mengembangkan pengetahuan kolektif Kemenkeu agar tetap hidup dan bermanfaat lintas generasi pegawai.</span>
+                  </li>
+                  <li>
+                    <span className="profil-vm-num">02</span>
+                    <span><strong>Akselerasi Perwujudan Organisasi yang Agile, Adaptif, dan Inovatif</strong> — mempercepat transformasi Kemenkeu dalam merespons dinamika lingkungan strategis.</span>
+                  </li>
+                  <li>
+                    <span className="profil-vm-num">03</span>
+                    <span><strong>Optimalisasi Bekerja, Belajar, dan Berbagi Pengetahuan</strong> — mengintegrasikan aktivitas bekerja, belajar, dan berbagi menjadi satu ekosistem yang saling menguatkan.</span>
+                  </li>
+                </ol>
+              </div>
+
+              <div className="profil-cta-card" style={{ marginTop: "2.5rem" }}>
                 <div>
-                  <p className="profil-cta-eyebrow">EKOSISTEM PEMBELAJARAN</p>
-                  <h3>Bergabung dengan ekosistem pembelajaran <em>BPPK</em></h3>
-                  <p>Jelajahi Kemenkeu Learning Center, jalur sertifikasi, dan program pengembangan SDM kami.</p>
+                  <p className="profil-cta-eyebrow">LEARNING ORGANIZATION</p>
+                  <h3>Jelajahi ekosistem <em>Learning Organization</em> Kemenkeu</h3>
+                  <p>Temukan komponen, tema, dan manfaat LO Kemenkeu untuk pengembangan kompetensi berkelanjutan.</p>
                 </div>
-                <a href="#" className="profil-cta-btn">
-                  Kunjungi KLC
+                <a href="https://bppk.kemenkeu.go.id/pages/learning-organization/" target="_blank" rel="noopener noreferrer" className="profil-cta-btn">
+                  Kunjungi Learning Organization
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
                 </a>
               </div>
