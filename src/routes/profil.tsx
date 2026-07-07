@@ -128,27 +128,14 @@ const dasarHukum = [
   "Peraturan Menteri Keuangan Nomor 124 Tahun 2024 tentang Organisasi dan Tata Kerja Kementerian Keuangan.",
 ];
 
-const corpuPilars = [
-  { key: "strategy", t: "Learning Strategy", d: "Menyelaraskan strategi pembelajaran dengan prioritas organisasi dan target kinerja Kementerian Keuangan." },
-  { key: "knowledge", t: "Knowledge Management", d: "Mengelola pengetahuan organisasi agar mudah diakses, dibagikan, dan dimanfaatkan kembali." },
-  { key: "talent", t: "Talent Development", d: "Mengembangkan talenta unggul melalui jalur belajar yang terukur dan berbasis kompetensi." },
-  { key: "performance", t: "Performance Excellence", d: "Menghubungkan hasil pembelajaran dengan peningkatan kinerja individu dan organisasi." },
-];
 
-const disiplin = [
-  { key: "pm", t: "Personal Mastery", d: "Penguasaan diri: kemampuan setiap individu untuk terus belajar dan menumbuhkan kapasitas pribadi." },
-  { key: "mm", t: "Mental Models", d: "Menyadari dan menantang asumsi yang membentuk cara kita memahami dunia dan mengambil keputusan." },
-  { key: "sv", t: "Shared Vision", d: "Visi bersama yang menyatukan komitmen dan arah seluruh anggota organisasi." },
-  { key: "tl", t: "Team Learning", d: "Belajar sebagai tim melalui dialog dan kolaborasi yang menghasilkan kecerdasan kolektif." },
-  { key: "st", t: "Systems Thinking", d: "Berpikir sistemik: melihat keterkaitan antar bagian sebagai satu kesatuan yang utuh." },
-];
+
 
 function ProfilPage() {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState<SectionId>("sejarah");
-  const [pilar, setPilar] = useState(corpuPilars[0].key);
-  const [disc, setDisc] = useState(disiplin[2].key);
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
+
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
