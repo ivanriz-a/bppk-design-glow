@@ -588,10 +588,10 @@ function ProfilPage() {
               <div className="profil-section-split profil-section-split-reverse">
                 <div className="profil-section-intro profil-section-intro-inline">
                   <p>
-                    <strong>Learning Organization (LO) Kemenkeu</strong> hadir sebagai jawaban dalam menyiapkan insan Kementerian Keuangan menghadapi era penuh disrupsi — menuntut organisasi yang <em>agile</em>, adaptif, inovatif, dan kolaboratif.
+                    <strong>Learning Organization (LO) Kemenkeu</strong> hadir sebagai jawaban dalam menyiapkan insan Kementerian Keuangan untuk menghadapi segala tantangan di masa mendatang — era penuh disrupsi yang menuntut organisasi <em>agile</em>, adaptif, inovatif, terus berubah, kolaboratif, dan saling berbagi.
                   </p>
                   <p>
-                    LO membangun budaya <strong>#KitaPemelajar</strong>: terus berubah, saling berbagi, dan tumbuh bersama. Lima disiplin Peter Senge berikut menjadi kompas transformasi pembelajaran di BPPK.
+                    LO membangun budaya <strong>#KitaPemelajar</strong> di lingkungan Kementerian Keuangan.
                   </p>
                 </div>
                 <figure className="profil-section-aside">
@@ -599,26 +599,6 @@ function ProfilPage() {
                 </figure>
               </div>
 
-              <div className="profil-lo">
-                <div className="profil-lo-hex-wrap">
-                  {disiplin.map((d, i) => (
-                    <button
-                      key={d.key}
-                      type="button"
-                      className={`profil-lo-hex hex-${i} ${disc === d.key ? "is-active" : ""}`}
-                      onMouseEnter={() => setDisc(d.key)}
-                      onClick={() => setDisc(d.key)}
-                    >
-                      <span>{d.t}</span>
-                    </button>
-                  ))}
-                </div>
-                <div className="profil-lo-panel">
-                  <p className="profil-lo-panel-label">DISIPLIN</p>
-                  <h3>{activeDisc.t}</h3>
-                  <p>{activeDisc.d}</p>
-                </div>
-              </div>
 
               <div className="profil-section-intro" style={{ marginTop: "2.5rem" }}>
                 <h3 className="profil-section-title" style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>Mengapa Learning Organization?</h3>
