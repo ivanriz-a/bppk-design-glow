@@ -179,8 +179,8 @@ function ProfilPage() {
     return () => obs.disconnect();
   }, []);
 
-  const activePilar = corpuPilars.find((p) => p.key === pilar)!;
-  const activeDisc = disiplin.find((d) => d.key === disc)!;
+
+
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
