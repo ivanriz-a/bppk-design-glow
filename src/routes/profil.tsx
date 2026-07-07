@@ -128,27 +128,14 @@ const dasarHukum = [
   "Peraturan Menteri Keuangan Nomor 124 Tahun 2024 tentang Organisasi dan Tata Kerja Kementerian Keuangan.",
 ];
 
-const corpuPilars = [
-  { key: "strategy", t: "Learning Strategy", d: "Menyelaraskan strategi pembelajaran dengan prioritas organisasi dan target kinerja Kementerian Keuangan." },
-  { key: "knowledge", t: "Knowledge Management", d: "Mengelola pengetahuan organisasi agar mudah diakses, dibagikan, dan dimanfaatkan kembali." },
-  { key: "talent", t: "Talent Development", d: "Mengembangkan talenta unggul melalui jalur belajar yang terukur dan berbasis kompetensi." },
-  { key: "performance", t: "Performance Excellence", d: "Menghubungkan hasil pembelajaran dengan peningkatan kinerja individu dan organisasi." },
-];
 
-const disiplin = [
-  { key: "pm", t: "Personal Mastery", d: "Penguasaan diri: kemampuan setiap individu untuk terus belajar dan menumbuhkan kapasitas pribadi." },
-  { key: "mm", t: "Mental Models", d: "Menyadari dan menantang asumsi yang membentuk cara kita memahami dunia dan mengambil keputusan." },
-  { key: "sv", t: "Shared Vision", d: "Visi bersama yang menyatukan komitmen dan arah seluruh anggota organisasi." },
-  { key: "tl", t: "Team Learning", d: "Belajar sebagai tim melalui dialog dan kolaborasi yang menghasilkan kecerdasan kolektif." },
-  { key: "st", t: "Systems Thinking", d: "Berpikir sistemik: melihat keterkaitan antar bagian sebagai satu kesatuan yang utuh." },
-];
+
 
 function ProfilPage() {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState<SectionId>("sejarah");
-  const [pilar, setPilar] = useState(corpuPilars[0].key);
-  const [disc, setDisc] = useState(disiplin[2].key);
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
+
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -192,8 +179,8 @@ function ProfilPage() {
     return () => obs.disconnect();
   }, []);
 
-  const activePilar = corpuPilars.find((p) => p.key === pilar)!;
-  const activeDisc = disiplin.find((d) => d.key === disc)!;
+
+
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
@@ -534,52 +521,8 @@ function ProfilPage() {
                 </p>
               </div>
 
-              <div className="profil-corpu">
-                <div className="profil-corpu-diagram" role="group" aria-label="Diagram empat pilar Kemenkeu Corpu">
-                  <svg viewBox="0 0 360 360" className="profil-corpu-svg">
-                    {corpuPilars.map((p, i) => {
-                      const start = (i * 90 - 135) * (Math.PI / 180);
-                      const end = ((i + 1) * 90 - 135) * (Math.PI / 180);
-                      const cx = 180, cy = 180, rOuter = 160, rInner = 78;
-                      const x1 = cx + rOuter * Math.cos(start), y1 = cy + rOuter * Math.sin(start);
-                      const x2 = cx + rOuter * Math.cos(end), y2 = cy + rOuter * Math.sin(end);
-                      const x3 = cx + rInner * Math.cos(end), y3 = cy + rInner * Math.sin(end);
-                      const x4 = cx + rInner * Math.cos(start), y4 = cy + rInner * Math.sin(start);
-                      const mid = (start + end) / 2;
-                      const lx = cx + ((rInner + rOuter) / 2) * Math.cos(mid);
-                      const ly = cy + ((rInner + rOuter) / 2) * Math.sin(mid);
-                      const isActive = pilar === p.key;
-                      return (
-                        <g key={p.key} className={`profil-corpu-seg ${isActive ? "is-active" : ""}`} onMouseEnter={() => setPilar(p.key)} onClick={() => setPilar(p.key)}>
-                          <path d={`M ${x1} ${y1} A ${rOuter} ${rOuter} 0 0 1 ${x2} ${y2} L ${x3} ${y3} A ${rInner} ${rInner} 0 0 0 ${x4} ${y4} Z`} />
-                          <text x={lx} y={ly} textAnchor="middle" dominantBaseline="middle">
-                            {p.t.split(" ").map((w, wi) => (
-                              <tspan key={wi} x={lx} dy={wi === 0 ? "-0.3em" : "1.1em"}>{w}</tspan>
-                            ))}
-                          </text>
-                        </g>
-                      );
-                    })}
-                    <circle cx="180" cy="180" r="70" className="profil-corpu-center" />
-                    <text x="180" y="172" textAnchor="middle" className="profil-corpu-center-text">
-                      <tspan x="180" dy="0">Kemenkeu</tspan>
-                      <tspan x="180" dy="1.2em">Corpu</tspan>
-                    </text>
-                  </svg>
-                </div>
-                <div className="profil-corpu-panel">
-                  <p className="profil-corpu-panel-label">PILAR AKTIF</p>
-                  <h3 className="profil-corpu-panel-title">{activePilar.t}</h3>
-                  <p className="profil-corpu-panel-desc">{activePilar.d}</p>
-                  <div className="profil-corpu-tabs">
-                    {corpuPilars.map((p) => (
-                      <button key={p.key} type="button" className={`profil-corpu-tab ${pilar === p.key ? "is-active" : ""}`} onClick={() => setPilar(p.key)}>
-                        {p.t}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
+
+
 
               <div className="profil-section-intro" style={{ marginTop: "2.5rem" }}>
                 <h3 className="profil-section-title" style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>Ekosistem Pembelajaran</h3>
@@ -632,10 +575,10 @@ function ProfilPage() {
               <div className="profil-section-split profil-section-split-reverse">
                 <div className="profil-section-intro profil-section-intro-inline">
                   <p>
-                    <strong>Learning Organization (LO) Kemenkeu</strong> hadir sebagai jawaban dalam menyiapkan insan Kementerian Keuangan menghadapi era penuh disrupsi — menuntut organisasi yang <em>agile</em>, adaptif, inovatif, dan kolaboratif.
+                    <strong>Learning Organization (LO) Kemenkeu</strong> hadir sebagai jawaban dalam menyiapkan insan Kementerian Keuangan untuk menghadapi segala tantangan di masa mendatang — era penuh disrupsi yang menuntut organisasi <em>agile</em>, adaptif, inovatif, terus berubah, kolaboratif, dan saling berbagi.
                   </p>
                   <p>
-                    LO membangun budaya <strong>#KitaPemelajar</strong>: terus berubah, saling berbagi, dan tumbuh bersama. Lima disiplin Peter Senge berikut menjadi kompas transformasi pembelajaran di BPPK.
+                    LO membangun budaya <strong>#KitaPemelajar</strong> di lingkungan Kementerian Keuangan.
                   </p>
                 </div>
                 <figure className="profil-section-aside">
@@ -643,26 +586,6 @@ function ProfilPage() {
                 </figure>
               </div>
 
-              <div className="profil-lo">
-                <div className="profil-lo-hex-wrap">
-                  {disiplin.map((d, i) => (
-                    <button
-                      key={d.key}
-                      type="button"
-                      className={`profil-lo-hex hex-${i} ${disc === d.key ? "is-active" : ""}`}
-                      onMouseEnter={() => setDisc(d.key)}
-                      onClick={() => setDisc(d.key)}
-                    >
-                      <span>{d.t}</span>
-                    </button>
-                  ))}
-                </div>
-                <div className="profil-lo-panel">
-                  <p className="profil-lo-panel-label">DISIPLIN</p>
-                  <h3>{activeDisc.t}</h3>
-                  <p>{activeDisc.d}</p>
-                </div>
-              </div>
 
               <div className="profil-section-intro" style={{ marginTop: "2.5rem" }}>
                 <h3 className="profil-section-title" style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>Mengapa Learning Organization?</h3>
