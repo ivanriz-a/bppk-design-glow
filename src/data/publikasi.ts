@@ -5,12 +5,13 @@ import coverJejak from "@/assets/jejak-cover.jpg.asset.json";
 
 export type PublikasiCategory = "penelitian" | "majalah" | "buku" | "laporan";
 export type PenelitianSub = "jurnal" | "prosiding" | "snkn";
+export type LaporanSub = "tahunan" | "kinerja" | "keuangan" | "ppid";
 
 export type Publikasi = {
   id: string;
   slug: string;
   category: PublikasiCategory;
-  subCategory?: PenelitianSub;
+  subCategory?: PenelitianSub | LaporanSub;
   title: string;
   subtitle: string;
   description: string[];
@@ -32,6 +33,14 @@ export const SUB_LABEL: Record<PenelitianSub, string> = {
   prosiding: "Prosiding Kajian Akademis",
   snkn: "SNKN",
 };
+
+export const LAPORAN_SUB_LABEL: Record<LaporanSub, string> = {
+  tahunan: "Laporan Tahunan",
+  kinerja: "Laporan Kinerja",
+  keuangan: "Laporan Keuangan",
+  ppid: "Laporan PPID",
+};
+
 
 const covers = [coverJurnal.url, coverEdukasi.url, coverBuku.url, coverJejak.url];
 const pick = (i: number) => covers[i % covers.length];
