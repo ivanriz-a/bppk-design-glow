@@ -6,10 +6,13 @@ import {
   publikasiItems,
   CATEGORY_LABEL,
   SUB_LABEL,
+  LAPORAN_SUB_LABEL,
   type Publikasi,
   type PublikasiCategory,
   type PenelitianSub,
+  type LaporanSub,
 } from "@/data/publikasi";
+
 import p01 from "@/assets/jejak-p01.jpg.asset.json";
 import p02 from "@/assets/jejak-p02.jpg.asset.json";
 import p03 from "@/assets/jejak-p03.jpg.asset.json";
