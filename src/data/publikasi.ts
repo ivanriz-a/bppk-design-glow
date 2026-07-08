@@ -204,7 +204,7 @@ export const publikasiItems: Publikasi[] = [
 
   // ===== Laporan =====
   {
-    id: "l1", slug: "laporan-tahunan-2024", category: "laporan",
+    id: "l1", slug: "laporan-tahunan-2024", category: "laporan", subCategory: "tahunan",
     title: "Laporan Tahunan BPPK 2024",
     subtitle: "Kinerja & Capaian Strategis",
     description: desc("kinerja, capaian, dan tantangan BPPK sepanjang tahun 2024"),
@@ -212,7 +212,7 @@ export const publikasiItems: Publikasi[] = [
     pdfUrl: "#",
   },
   {
-    id: "l2", slug: "laporan-tahunan-2023", category: "laporan",
+    id: "l2", slug: "laporan-tahunan-2023", category: "laporan", subCategory: "tahunan",
     title: "Laporan Tahunan BPPK 2023",
     subtitle: "Konsolidasi Transformasi",
     description: desc("konsolidasi program transformasi pembelajaran tahun 2023"),
@@ -220,11 +220,44 @@ export const publikasiItems: Publikasi[] = [
     pdfUrl: "#",
   },
   {
-    id: "l3", slug: "laporan-kinerja-2023", category: "laporan",
+    id: "l3", slug: "laporan-kinerja-2023", category: "laporan", subCategory: "kinerja",
     title: "Laporan Kinerja Instansi Pemerintah 2023",
     subtitle: "LAKIN BPPK 2023",
     description: desc("laporan akuntabilitas kinerja BPPK tahun 2023"),
     cover: pick(1), year: 2024,
     pdfUrl: "#",
   },
+  {
+    id: "l4", slug: "laporan-kinerja-2022", category: "laporan", subCategory: "kinerja",
+    title: "Laporan Kinerja Instansi Pemerintah 2022",
+    subtitle: "LAKIN BPPK 2022",
+    description: desc("laporan akuntabilitas kinerja BPPK tahun 2022"),
+    cover: pick(0), year: 2023,
+    pdfUrl: "#",
+  },
+  {
+    id: "l5", slug: "laporan-keuangan-2024", category: "laporan", subCategory: "keuangan",
+    title: "Laporan Keuangan BPPK 2024",
+    subtitle: "Audited Financial Report",
+    description: desc("laporan keuangan BPPK tahun anggaran 2024"),
+    cover: pick(2), year: 2025,
+    pdfUrl: "#",
+  },
+  {
+    id: "l6", slug: "laporan-keuangan-2023", category: "laporan", subCategory: "keuangan",
+    title: "Laporan Keuangan BPPK 2023",
+    subtitle: "Audited Financial Report",
+    description: desc("laporan keuangan BPPK tahun anggaran 2023"),
+    cover: pick(3), year: 2024,
+    pdfUrl: "#",
+  },
+  {
+    id: "l7", slug: "laporan-ppid-2024", category: "laporan", subCategory: "ppid",
+    title: "Laporan Pelayanan Informasi PPID 2024",
+    subtitle: "Rekapitulasi Layanan Informasi Publik",
+    description: desc("layanan informasi publik PPID BPPK tahun 2024"),
+    cover: pick(1), year: 2025,
+    pdfUrl: "#",
+  },
 ];
+
