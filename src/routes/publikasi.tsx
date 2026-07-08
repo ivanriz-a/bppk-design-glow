@@ -6,10 +6,13 @@ import {
   publikasiItems,
   CATEGORY_LABEL,
   SUB_LABEL,
+  LAPORAN_SUB_LABEL,
   type Publikasi,
   type PublikasiCategory,
   type PenelitianSub,
+  type LaporanSub,
 } from "@/data/publikasi";
+
 import p01 from "@/assets/jejak-p01.jpg.asset.json";
 import p02 from "@/assets/jejak-p02.jpg.asset.json";
 import p03 from "@/assets/jejak-p03.jpg.asset.json";
@@ -31,6 +34,8 @@ const pdfPages = [p01, p02, p03, p04, p05, p06, p07, p08, p09, p10, p11, p12, p1
 
 const MAIN_TABS: PublikasiCategory[] = ["penelitian", "majalah", "buku", "laporan"];
 const SUB_TABS: PenelitianSub[] = ["jurnal", "prosiding", "snkn"];
+const LAPORAN_SUB_TABS: LaporanSub[] = ["tahunan", "kinerja", "keuangan", "ppid"];
+
 
 export const Route = createFileRoute("/publikasi")({
   head: () => ({
@@ -43,7 +48,7 @@ export const Route = createFileRoute("/publikasi")({
   }),
   validateSearch: (s: Record<string, unknown>) => ({
     tab: (s.tab as PublikasiCategory) || undefined,
-    sub: (s.sub as PenelitianSub) || undefined,
+    sub: (s.sub as string) || undefined,
   }),
   component: PublikasiPage,
 });
@@ -51,21 +56,31 @@ export const Route = createFileRoute("/publikasi")({
 function PublikasiPage() {
   const search = Route.useSearch();
   const [tab, setTab] = useState<PublikasiCategory>(search.tab ?? "penelitian");
-  const [sub, setSub] = useState<PenelitianSub>(search.sub ?? "jurnal");
+  const [sub, setSub] = useState<PenelitianSub>(
+    (search.sub as PenelitianSub) ?? "jurnal",
+  );
+  const [subLaporan, setSubLaporan] = useState<LaporanSub>(
+    (search.sub as LaporanSub) ?? "tahunan",
+  );
   const [active, setActive] = useState<Publikasi | null>(null);
 
   useEffect(() => {
     if (search.tab) setTab(search.tab);
-    if (search.sub) setSub(search.sub);
+    if (search.sub) {
+      if (SUB_TABS.includes(search.sub as PenelitianSub)) setSub(search.sub as PenelitianSub);
+      if (LAPORAN_SUB_TABS.includes(search.sub as LaporanSub)) setSubLaporan(search.sub as LaporanSub);
+    }
   }, [search.tab, search.sub]);
 
   const list = useMemo(() => {
     return publikasiItems.filter((p) => {
       if (p.category !== tab) return false;
       if (tab === "penelitian" && p.subCategory !== sub) return false;
+      if (tab === "laporan" && p.subCategory !== subLaporan) return false;
       return true;
     });
-  }, [tab, sub]);
+  }, [tab, sub, subLaporan]);
+
 
   return (
     <>
@@ -124,6 +139,27 @@ function PublikasiPage() {
               </div>
             </div>
           )}
+
+          {/* Sub tabs untuk Laporan */}
+          {tab === "laporan" && (
+            <div className="pub-subtabs-wrap">
+              <div className="section-tabs section-tabs-sub">
+                {LAPORAN_SUB_TABS.map((s) => (
+                  <button
+                    key={s}
+                    type="button"
+                    className={`section-tab ${subLaporan === s ? "active" : ""}`}
+                    onClick={() => setSubLaporan(s)}
+                  >
+                    {LAPORAN_SUB_LABEL[s]}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+
+
 
           {/* Grid */}
           {list.length === 0 ? (
@@ -233,7 +269,7 @@ function PublikasiModal({ item, onClose }: { item: Publikasi; onClose: () => voi
           <div className="pub-detail-body">
             <p className="pub-detail-eyebrow">
               {CATEGORY_LABEL[item.category]}
-              {item.subCategory ? ` · ${SUB_LABEL[item.subCategory]}` : ""} · {item.year}
+              {item.subCategory ? ` · ${item.category === "laporan" ? LAPORAN_SUB_LABEL[item.subCategory as LaporanSub] : SUB_LABEL[item.subCategory as PenelitianSub]}` : ""} · {item.year}
             </p>
             <h2 className="pub-detail-title">{item.title}</h2>
             <p className="pub-detail-subtitle">{item.subtitle}</p>
