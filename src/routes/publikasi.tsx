@@ -48,7 +48,7 @@ export const Route = createFileRoute("/publikasi")({
   }),
   validateSearch: (s: Record<string, unknown>) => ({
     tab: (s.tab as PublikasiCategory) || undefined,
-    sub: (s.sub as PenelitianSub) || undefined,
+    sub: (s.sub as string) || undefined,
   }),
   component: PublikasiPage,
 });
@@ -56,21 +56,31 @@ export const Route = createFileRoute("/publikasi")({
 function PublikasiPage() {
   const search = Route.useSearch();
   const [tab, setTab] = useState<PublikasiCategory>(search.tab ?? "penelitian");
-  const [sub, setSub] = useState<PenelitianSub>(search.sub ?? "jurnal");
+  const [sub, setSub] = useState<PenelitianSub>(
+    (search.sub as PenelitianSub) ?? "jurnal",
+  );
+  const [subLaporan, setSubLaporan] = useState<LaporanSub>(
+    (search.sub as LaporanSub) ?? "tahunan",
+  );
   const [active, setActive] = useState<Publikasi | null>(null);
 
   useEffect(() => {
     if (search.tab) setTab(search.tab);
-    if (search.sub) setSub(search.sub);
+    if (search.sub) {
+      if (SUB_TABS.includes(search.sub as PenelitianSub)) setSub(search.sub as PenelitianSub);
+      if (LAPORAN_SUB_TABS.includes(search.sub as LaporanSub)) setSubLaporan(search.sub as LaporanSub);
+    }
   }, [search.tab, search.sub]);
 
   const list = useMemo(() => {
     return publikasiItems.filter((p) => {
       if (p.category !== tab) return false;
       if (tab === "penelitian" && p.subCategory !== sub) return false;
+      if (tab === "laporan" && p.subCategory !== subLaporan) return false;
       return true;
     });
-  }, [tab, sub]);
+  }, [tab, sub, subLaporan]);
+
 
   return (
     <>
