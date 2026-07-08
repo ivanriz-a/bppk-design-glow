@@ -34,6 +34,8 @@ const pdfPages = [p01, p02, p03, p04, p05, p06, p07, p08, p09, p10, p11, p12, p1
 
 const MAIN_TABS: PublikasiCategory[] = ["penelitian", "majalah", "buku", "laporan"];
 const SUB_TABS: PenelitianSub[] = ["jurnal", "prosiding", "snkn"];
+const LAPORAN_SUB_TABS: LaporanSub[] = ["tahunan", "kinerja", "keuangan", "ppid"];
+
 
 export const Route = createFileRoute("/publikasi")({
   head: () => ({
