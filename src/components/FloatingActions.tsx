@@ -220,7 +220,10 @@ function FloatingContact() {
               onClick={() => setOpen(false)}
             >
               <span className="fab-contact-icon">{c.icon}</span>
-              <span>{c.label}</span>
+              <span className="fab-contact-text">
+                <span>{c.label}</span>
+                {"sub" in c && c.sub && <span className="fab-contact-sub">{c.sub}</span>}
+              </span>
             </a>
           ))}
         </div>
