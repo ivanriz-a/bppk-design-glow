@@ -140,6 +140,24 @@ function PublikasiPage() {
             </div>
           )}
 
+          {/* Sub tabs untuk Laporan */}
+          {tab === "laporan" && (
+            <div className="pub-subtabs-wrap">
+              <div className="section-tabs section-tabs-sub">
+                {LAPORAN_SUB_TABS.map((s) => (
+                  <button
+                    key={s}
+                    type="button"
+                    className={`section-tab ${subLaporan === s ? "active" : ""}`}
+                    onClick={() => setSubLaporan(s)}
+                  >
+                    {LAPORAN_SUB_LABEL[s]}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+
           {/* Grid */}
           {list.length === 0 ? (
             <p className="info-empty">Belum ada publikasi pada kategori ini.</p>
