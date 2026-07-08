@@ -269,7 +269,7 @@ function PublikasiModal({ item, onClose }: { item: Publikasi; onClose: () => voi
           <div className="pub-detail-body">
             <p className="pub-detail-eyebrow">
               {CATEGORY_LABEL[item.category]}
-              {item.subCategory ? ` · ${SUB_LABEL[item.subCategory]}` : ""} · {item.year}
+              {item.subCategory ? ` · ${item.category === "laporan" ? LAPORAN_SUB_LABEL[item.subCategory as LaporanSub] : SUB_LABEL[item.subCategory as PenelitianSub]}` : ""} · {item.year}
             </p>
             <h2 className="pub-detail-title">{item.title}</h2>
             <p className="pub-detail-subtitle">{item.subtitle}</p>
