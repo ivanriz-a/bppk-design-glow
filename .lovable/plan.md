@@ -1,36 +1,37 @@
-## Tambah Sub-tab pada kategori Laporan
+## Update Data Publikasi — pakai file yang diunggah
 
-Menambahkan baris sub-tab di bawah tab utama saat tab **Laporan** aktif, mirip pola sub-tab pada **Penelitian**.
+Reset item pada kategori **Buku**, **Majalah**, dan **Laporan** di `src/data/publikasi.ts`. Kategori **Penelitian** tidak diubah. Buku "Jejak, Karya, dan Transformasi BPPK" tetap dipertahankan (sudah ada + user re-upload PDF-nya).
 
-### Sub-tab baru
-- Laporan Tahunan
-- Laporan Kinerja
-- Laporan Keuangan
-- Laporan PPID
+### Aset baru (upload ke Lovable Assets dari `/mnt/user-uploads/`)
 
-### Perubahan file
+Buku:
+- `cover-marwanto.jpg` — Marwanto Harjowiryono: Maestro Simfoni Perbendaharaan
+- `cover-sumiyati.jpg` — Sumiyati: Srikandi Perubahan, Inspirasi bagi Perempuan
 
-**1. `src/data/publikasi.ts`**
-- Tambahkan tipe `LaporanSub = "tahunan" | "kinerja" | "keuangan" | "ppid"`.
-- Tambahkan `LAPORAN_SUB_LABEL` mapping ke label di atas.
-- Perluas tipe `Publikasi.subCategory` menjadi `PenelitianSub | LaporanSub`.
-- Isi `subCategory` pada 3 item laporan yang sudah ada:
-  - `l1` Laporan Tahunan BPPK 2024 → `tahunan`
-  - `l2` Laporan Tahunan BPPK 2023 → `tahunan`
-  - `l3` LAKIN BPPK 2023 → `kinerja`
-- Tambahkan 3 item dummy agar tiap sub-tab punya isi:
-  - Laporan Keuangan BPPK 2024 (`keuangan`)
-  - Laporan Keuangan BPPK 2023 (`keuangan`)
-  - Laporan Pelayanan Informasi PPID 2024 (`ppid`)
+Majalah (Edukasi Keuangan):
+- `edukasi-85.jpg` — Edisi 85/2026 "Riset Lebih Luas, Kebijakan Lebih Relevan"
+- `edukasi-84.jpg` — Edisi 84/2025 "Nyala Membara Semangat Jaga Keuangan Negara"
+- `edukasi-82.jpg` — Edisi 82/2024 "Kaleidoskop 2024 — BPPK Hadir untuk Negeri"
 
-**2. `src/routes/publikasi.tsx`**
-- Import `LaporanSub`, `LAPORAN_SUB_LABEL`.
-- Konstanta `LAPORAN_SUB_TABS: LaporanSub[]`.
-- State baru `subLaporan` (default `"tahunan"`), disinkronkan dari URL search param `sub` saat `tab === "laporan"` (reuse param `sub` yang sudah ada — value-nya string bebas).
-- `validateSearch`: longgarkan tipe `sub` menjadi `string | undefined` supaya menerima nilai laporan.
-- Render baris sub-tab kedua (blok `{tab === "laporan" && ...}`) dengan struktur & class yang sama seperti sub-tab penelitian (`section-tabs section-tabs-sub`).
-- `useMemo list`: saat `tab === "laporan"`, filter juga berdasarkan `p.subCategory === subLaporan`.
+Laporan:
+- `laporan-tahunan-2024.jpg` — Laporan Tahunan BPPK 2024 "Transformasi Pembelajaran Berkelanjutan"
+- `laporan-kinerja-2025.jpg` — Laporan Kinerja BPPK 2025 "Clarity in Transition"
+- `laporan-keuangan-2024.jpg` — Laporan Keuangan BPPK 2024 (Audited)
+- `laporan-ppid-2024.jpg` — Laporan Layanan Informasi Publik PPID Tingkat I 2024
+
+### Perubahan `src/data/publikasi.ts`
+
+- **Buku** → hanya 3 item: Jejak BPPK (existing), Marwanto, Sumiyati.
+- **Majalah** → hanya 3 item: Edisi 85, 84, 82.
+- **Laporan** → hanya 4 item, satu per sub-tab:
+  - tahunan → Laporan Tahunan BPPK 2024
+  - kinerja → Laporan Kinerja BPPK 2025
+  - keuangan → Laporan Keuangan BPPK 2024 (Audited)
+  - ppid → Laporan Layanan Informasi Publik PPID Tingkat I 2024
+- Judul, subtitle, tahun, dan cover mengikuti gambar. Deskripsi memakai helper `desc(...)` yang sudah ada agar gaya seragam.
+- `pdfUrl` dibiarkan `"#"` (tidak ada PDF baru yang diunggah kecuali buku Jejak).
 
 ### Catatan
-- Tidak ada perubahan styling — memakai class sub-tab yang sudah ada.
-- Item dummy laporan memakai cover generik yang sudah dipakai (`pick(...)`), konsisten dengan entri laporan lain.
+
+- Tidak ada perubahan UI/route — struktur tab & sub-tab tetap.
+- File PDF `Buku_Jejak_Karya_dan_Transformasi_BPPK.pdf` yang diunggah sama isinya dengan yang sudah dipakai flipbook; tidak perlu diproses ulang.
