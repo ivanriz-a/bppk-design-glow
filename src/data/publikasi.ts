@@ -50,7 +50,7 @@ export const LAPORAN_SUB_LABEL: Record<LaporanSub, string> = {
 };
 
 
-const covers = [coverJurnal.url, coverEdukasi.url, coverBuku.url, coverJejak.url];
+const covers = [coverJurnal.url, coverEdukasi.url, coverJejak.url];
 const pick = (i: number) => covers[i % covers.length];
 
 const desc = (topic: string) => [
