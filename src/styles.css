@@ -767,7 +767,7 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
 
 /* HERO TITLE — slightly smaller */
 .hero-title { font-size: clamp(2.3rem, 5vw, 4.4rem); letter-spacing: -1.8px; }
-.hero-title .ht-italic { letter-spacing: -1.3px; }
+.hero-title .ht-italic { letter-spacing: -1.8px; font-style: normal; font-weight: 800; }
 
 /* SERVICE LINK — readable color, smaller, pinned to bottom uniformly */
 .service-card { justify-content: space-between; }
