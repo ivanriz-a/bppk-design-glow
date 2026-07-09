@@ -1,7 +1,15 @@
-import coverBuku from "@/assets/cover-buku.png.asset.json";
 import coverJurnal from "@/assets/cover-jurnal.jpg.asset.json";
 import coverEdukasi from "@/assets/edukasi-cover.jpg.asset.json";
 import coverJejak from "@/assets/jejak-cover.jpg.asset.json";
+import coverMarwanto from "@/assets/cover-marwanto.jpg.asset.json";
+import coverSumiyati from "@/assets/cover-sumiyati.jpg.asset.json";
+import edukasi85 from "@/assets/edukasi-85.jpg.asset.json";
+import edukasi84 from "@/assets/edukasi-84.jpg.asset.json";
+import edukasi82 from "@/assets/edukasi-82.jpg.asset.json";
+import laporanTahunan2024 from "@/assets/laporan-tahunan-2024.jpg.asset.json";
+import laporanKinerja2025 from "@/assets/laporan-kinerja-2025.jpg.asset.json";
+import laporanKeuangan2024 from "@/assets/laporan-keuangan-2024.jpg.asset.json";
+import laporanPpid2024 from "@/assets/laporan-ppid-2024.jpg.asset.json";
 
 export type PublikasiCategory = "penelitian" | "majalah" | "buku" | "laporan";
 export type PenelitianSub = "jurnal" | "prosiding" | "snkn";
