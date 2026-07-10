@@ -1,15 +1,23 @@
+## Perubahan pada tab Majalah — `src/data/publikasi.ts`
 
-## Perubahan pada halaman Publikasi
+Update tiga item majalah (`m1`, `m2`, `m3`) — hanya field teks, tidak menyentuh cover / route / komponen.
 
-### 1. Tab Penelitian — semua cover pakai "Cover Jurnal" baru
-- Upload `user-uploads://Cover_Jurnal-2.jpg` ke CDN sebagai `src/assets/cover-jurnal-2.jpg.asset.json`.
-- Di `src/data/publikasi.ts`, seluruh item dengan `category: "penelitian"` (Jurnal j1–j3, Prosiding p1–p3, SNKN s1–s3) di-set `cover` ke URL cover jurnal baru tersebut — menggantikan pemakaian `pick(...)` yang saat ini memutar 3 gambar berbeda.
+### 1. `m1` — Edukasi Keuangan Edisi 85
+- `title`: "Riset Lebih Luas, Kebijakan Lebih Relevan"
+- `subtitle`: "Riset Lebih Luas, Kebijakan Lebih Relevan"
+- `meta`: "Edisi 85" (sebelumnya "ISSN 2085-4110")
 
-### 2. Buku "Jejak, Karya, dan Transformasi BPPK" — ganti cover
-- Upload `user-uploads://Buku_-_Jejak_Karya_dan_Transformasi_BPPK.png` ke CDN sebagai `src/assets/jejak-cover-baru.png.asset.json`.
-- Update item `b1` (`jejak-karya-transformasi-bppk`) agar `cover` memakai asset baru tersebut, menggantikan `coverJejak.url` yang lama.
-- Catatan: halaman flipbook internal (`jejak-p01`…`p16`) tidak diubah — hanya cover pada kartu & modal detail.
+### 2. `m2` — Edukasi Keuangan Edisi 84
+- `title`: "Nyala Membara Semangat Jaga Keuangan Negara"
+- `subtitle`: "Pelatihan Pembinaan Kesadaran Bela Negara"
+- `meta`: "Edisi 84"
 
-### Yang tidak berubah
-- Majalah, sub-tab Laporan, dan seluruh struktur tab/route tetap sama.
-- File `src/routes/publikasi.tsx` tidak perlu disentuh.
+### 3. `m3` — Edukasi Keuangan Edisi 82
+- `title`: "Kaleidoskop 2024"
+- `subtitle`: "BPPK Hadir untuk Negeri"
+- `meta`: "Edisi 82"
+
+### Catatan teknis
+- Modal detail di `src/routes/publikasi.tsx` line 276 sudah merender `item.meta` — cukup ubah nilainya di data, tidak perlu ubah komponen.
+- Kartu grid otomatis ikut update karena membaca `title`/`subtitle` yang sama.
+- Kategori lain (Penelitian, Buku, Laporan) tidak diubah.
