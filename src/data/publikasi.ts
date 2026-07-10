@@ -203,6 +203,15 @@ export const publikasiItems: Publikasi[] = [
     pdfUrl: "#",
   },
 
+  {
+    id: "b4", slug: "mardiasmo-golden-scissors", category: "buku",
+    title: "Mardiasmo",
+    subtitle: "The Man With Golden Scissors — Biografi Profesional",
+    description: desc("biografi profesional Mardiasmo, pemimpin reformasi tata kelola keuangan negara"),
+    cover: coverMardiasmo.url, year: 2023, meta: "Biografi Profesional",
+    pdfUrl: "#",
+  },
+
   // ===== Laporan =====
   {
     id: "l1", slug: "laporan-tahunan-2024", category: "laporan", subCategory: "tahunan",
@@ -210,6 +219,30 @@ export const publikasiItems: Publikasi[] = [
     subtitle: "Transformasi Pembelajaran Berkelanjutan",
     description: desc("kinerja, capaian, dan transformasi pembelajaran BPPK sepanjang tahun 2024"),
     cover: laporanTahunan2024.url, year: 2025,
+    pdfUrl: "#",
+  },
+  {
+    id: "l1b", slug: "laporan-tahunan-2023", category: "laporan", subCategory: "tahunan",
+    title: "Laporan Tahunan BPPK 2023",
+    subtitle: "Akselerasi Pembelajaran & Transformasi",
+    description: desc("kinerja dan capaian BPPK sepanjang tahun 2023"),
+    cover: laporanTahunan2023.url, year: 2024,
+    pdfUrl: "#",
+  },
+  {
+    id: "l1c", slug: "laporan-tahunan-2022", category: "laporan", subCategory: "tahunan",
+    title: "Laporan Tahunan BPPK 2022",
+    subtitle: "Membangun Kemenkeu Corporate University",
+    description: desc("kinerja dan capaian BPPK sepanjang tahun 2022"),
+    cover: laporanTahunan2022.url, year: 2023,
+    pdfUrl: "#",
+  },
+  {
+    id: "l1d", slug: "laporan-tahunan-2021", category: "laporan", subCategory: "tahunan",
+    title: "Laporan Tahunan BPPK 2021",
+    subtitle: "Adaptasi & Inovasi Pembelajaran",
+    description: desc("kinerja dan capaian BPPK sepanjang tahun 2021"),
+    cover: laporanTahunan2021.url, year: 2022,
     pdfUrl: "#",
   },
   {
@@ -221,11 +254,27 @@ export const publikasiItems: Publikasi[] = [
     pdfUrl: "#",
   },
   {
+    id: "l2b", slug: "laporan-kinerja-2024", category: "laporan", subCategory: "kinerja",
+    title: "Laporan Kinerja BPPK 2024",
+    subtitle: "Akuntabilitas Kinerja Organisasi",
+    description: desc("laporan akuntabilitas kinerja BPPK tahun 2024"),
+    cover: laporanKinerja2024.url, year: 2025,
+    pdfUrl: "#",
+  },
+  {
     id: "l3", slug: "laporan-keuangan-2024", category: "laporan", subCategory: "keuangan",
     title: "Laporan Keuangan BPPK 2024 (Audited)",
     subtitle: "Audited Financial Report",
     description: desc("laporan keuangan BPPK tahun anggaran 2024 yang telah diaudit"),
     cover: laporanKeuangan2024.url, year: 2025,
+    pdfUrl: "#",
+  },
+  {
+    id: "l3b", slug: "laporan-keuangan-2023", category: "laporan", subCategory: "keuangan",
+    title: "Laporan Keuangan BPPK 2023 (Audited)",
+    subtitle: "Audited Financial Report",
+    description: desc("laporan keuangan BPPK tahun anggaran 2023 yang telah diaudit"),
+    cover: laporanKeuangan2023.url, year: 2024,
     pdfUrl: "#",
   },
   {
@@ -236,5 +285,14 @@ export const publikasiItems: Publikasi[] = [
     cover: laporanPpid2024.url, year: 2025,
     pdfUrl: "#",
   },
+  {
+    id: "l4b", slug: "laporan-ppid-2023", category: "laporan", subCategory: "ppid",
+    title: "Laporan Layanan Informasi Publik PPID Tingkat I 2023",
+    subtitle: "Badan Pendidikan dan Pelatihan Keuangan",
+    description: desc("layanan informasi publik PPID Tingkat I BPPK tahun 2023"),
+    cover: laporanPpid2023.url, year: 2024,
+    pdfUrl: "#",
+  },
 ];
+
 
