@@ -68,7 +68,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Jurnal BPPK Vol. 17 No. 1",
     subtitle: "Kajian Keuangan Negara & Kebijakan Publik",
     description: desc("kebijakan fiskal dan tata kelola keuangan negara"),
-    cover: pick(0), year: 2025, meta: "ISSN 2085-3785",
+    cover: coverJurnal2.url, year: 2025, meta: "ISSN 2085-3785",
     pdfUrl: "#",
   },
   {
@@ -76,7 +76,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Jurnal BPPK Vol. 16 No. 2",
     subtitle: "Transformasi Digital di Sektor Publik",
     description: desc("transformasi digital pada instansi pemerintah"),
-    cover: pick(1), year: 2024, meta: "ISSN 2085-3785",
+    cover: coverJurnal2.url, year: 2024, meta: "ISSN 2085-3785",
     pdfUrl: "#",
   },
   {
@@ -84,7 +84,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Jurnal BPPK Vol. 16 No. 1",
     subtitle: "Manajemen SDM & Learning Organization",
     description: desc("pengembangan kompetensi ASN Kemenkeu"),
-    cover: pick(2), year: 2024, meta: "ISSN 2085-3785",
+    cover: coverJurnal2.url, year: 2024, meta: "ISSN 2085-3785",
     pdfUrl: "#",
   },
 
@@ -94,7 +94,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Prosiding Kajian Akademis 2025",
     subtitle: "Kumpulan Naskah Terpilih",
     description: desc("hasil kajian akademis internal BPPK tahun 2025"),
-    cover: pick(1), year: 2025,
+    cover: coverJurnal2.url, year: 2025,
     pdfUrl: "#",
   },
   {
@@ -102,7 +102,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Prosiding Kajian Akademis 2024",
     subtitle: "Kumpulan Naskah Terpilih",
     description: desc("kajian isu strategis keuangan negara"),
-    cover: pick(3), year: 2024,
+    cover: coverJurnal2.url, year: 2024,
     pdfUrl: "#",
   },
   {
@@ -110,7 +110,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Prosiding Kajian Akademis 2023",
     subtitle: "Kumpulan Naskah Terpilih",
     description: desc("hasil kajian tematik bidang keuangan publik"),
-    cover: pick(2), year: 2023,
+    cover: coverJurnal2.url, year: 2023,
     pdfUrl: "#",
   },
 
@@ -120,7 +120,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Simposium Nasional Keuangan Negara 2025",
     subtitle: "Prosiding SNKN VIII",
     description: desc("naskah terpilih Simposium Nasional Keuangan Negara"),
-    cover: pick(0), year: 2025,
+    cover: coverJurnal2.url, year: 2025,
     pdfUrl: "#",
   },
   {
@@ -128,7 +128,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Simposium Nasional Keuangan Negara 2024",
     subtitle: "Prosiding SNKN VII",
     description: desc("kajian keuangan negara dari peneliti nasional"),
-    cover: pick(1), year: 2024,
+    cover: coverJurnal2.url, year: 2024,
     pdfUrl: "#",
   },
   {
@@ -136,7 +136,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Simposium Nasional Keuangan Negara 2023",
     subtitle: "Prosiding SNKN VI",
     description: desc("hasil simposium tahunan keuangan negara"),
-    cover: pick(3), year: 2023,
+    cover: coverJurnal2.url, year: 2023,
     pdfUrl: "#",
   },
 
@@ -176,7 +176,7 @@ export const publikasiItems: Publikasi[] = [
       "Tersaji kisah transformasi kelembagaan, tokoh-tokoh penggerak, serta program-program strategis yang mengubah wajah pembelajaran Kementerian Keuangan.",
       "Cocok bagi pembaca yang ingin memahami DNA budaya belajar Kemenkeu dan komitmen investasi pada SDM menuju Indonesia Emas 2045.",
     ],
-    cover: coverJejak.url, year: 2025, meta: "ISBN 978-623-XXXX",
+    cover: coverJejakBaru.url, year: 2025, meta: "ISBN 978-623-XXXX",
     pdfUrl: "#",
   },
   {
