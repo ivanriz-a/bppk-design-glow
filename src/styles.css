@@ -3631,7 +3631,7 @@ body { color: var(--ink); font-feature-settings: "ss01","cv11"; }
 }
 
 @media (max-width: 640px) {
-  .info-detail-meta, .info-detail-tags, .info-detail-share { padding-left: 24px; padding-right: 24px; }
+  .info-detail-meta, .info-detail-byline, .info-detail-tags, .info-detail-share { padding-left: 24px; padding-right: 24px; }
   .info-detail-meta { gap: 16px; }
 }
 
