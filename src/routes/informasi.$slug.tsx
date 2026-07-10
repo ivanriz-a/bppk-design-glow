@@ -70,8 +70,7 @@ function InformasiDetailPage() {
             <span>{item.category}</span>
           </nav>
           <p className="profil-hero-eyebrow">{item.category.toUpperCase()} · {item.tag.toUpperCase()}</p>
-          <h1 className="profil-hero-title">{item.title}</h1>
-          <p className="info-detail-date">{item.date}</p>
+          <h1 className="profil-hero-title info-detail-title">{item.title}</h1>
         </div>
       </section>
 
@@ -80,25 +79,12 @@ function InformasiDetailPage() {
           <article className="info-detail-article">
             <img src={item.img} alt={item.title} className="info-detail-cover" />
 
-            <div className="info-detail-meta">
-              <span className="info-detail-meta-item">
-                <span className="info-detail-meta-label">Penulis</span>
-                <span className="info-detail-meta-value">{item.author ?? "Redaksi BPPK"}</span>
+            <div className="info-detail-byline">
+              <span className="info-detail-byline-author">{item.author ?? "Redaksi BPPK"}</span>
+              <span className="info-detail-byline-sep">·</span>
+              <span className="info-detail-byline-date">
+                {item.location ? `${item.location}, ${item.date}` : item.date}
               </span>
-              <span className="info-detail-meta-item">
-                <span className="info-detail-meta-label">Tanggal</span>
-                <span className="info-detail-meta-value">{item.date}</span>
-              </span>
-              <span className="info-detail-meta-item">
-                <span className="info-detail-meta-label">Waktu Baca</span>
-                <span className="info-detail-meta-value">{item.readingTime ?? "3 menit baca"}</span>
-              </span>
-              {item.location && (
-                <span className="info-detail-meta-item">
-                  <span className="info-detail-meta-label">Lokasi</span>
-                  <span className="info-detail-meta-value">{item.location}</span>
-                </span>
-              )}
             </div>
 
             <div className="info-detail-body">
