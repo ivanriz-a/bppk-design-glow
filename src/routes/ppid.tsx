@@ -23,11 +23,6 @@ import {
   regulasi,
   keberatanAlasan,
   sengketaTahapan,
-  statKonsolidasi,
-  statPermintaan,
-  statKeberatan,
-  statTindaklanjut,
-  statTidakDiberikan,
   type LinkItem,
 } from "@/data/ppid";
 
@@ -51,7 +46,8 @@ type SectionId =
   | "regulasi"
   | "standar-layanan"
   | "dip"
-  | "statistik";
+  | "statistik"
+  | "lainnya";
 
 const sections: { id: SectionId; num: string; label: string }[] = [
   { id: "profil", num: "01", label: "Profil PPID" },
@@ -62,6 +58,7 @@ const sections: { id: SectionId; num: string; label: string }[] = [
   { id: "standar-layanan", num: "06", label: "Standar Layanan Informasi" },
   { id: "dip", num: "07", label: "Daftar Informasi Publik" },
   { id: "statistik", num: "08", label: "Statistik" },
+  { id: "lainnya", num: "09", label: "Lainnya" },
 ];
 
 function LinkList({ items, ordered = false }: { items: LinkItem[]; ordered?: boolean }) {
