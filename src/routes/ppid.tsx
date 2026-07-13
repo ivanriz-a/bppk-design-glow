@@ -642,104 +642,23 @@ function PpidPage() {
                 <img src={stat5.url} alt="Statistik layanan informasi PPID BPPK – 5" loading="lazy" />
               </figure>
 
-              <h3 className="ppid-subhead">Konsolidasi Permintaan Informasi Tahun 2025</h3>
-              <div className="ppid-stat-grid">
-                {statKonsolidasi.map((s) => (
-                  <div key={s.label} className="ppid-stat-card">
-                    <span className="ppid-stat-value">{s.value}</span>
-                    <span className="ppid-stat-label">{s.label}</span>
-                  </div>
-                ))}
-              </div>
+            </section>
 
-              <h3 className="ppid-subhead">Jumlah Permintaan Informasi — PPID Tingkat I BPPK</h3>
-              <div className="ppid-table-wrap">
-                <table className="ppid-table">
-                  <thead>
-                    <tr>
-                      <th>Tahun</th>
-                      <th>Jumlah Permintaan</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {statPermintaan.map((s) => (
-                      <tr key={s.tahun}>
-                        <td>{s.tahun}</td>
-                        <td>{s.jumlah.toLocaleString("id-ID")}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-
-              <h3 className="ppid-subhead">Jumlah Keberatan — PPID Tingkat I BPPK</h3>
-              <div className="ppid-table-wrap">
-                <table className="ppid-table">
-                  <thead>
-                    <tr>
-                      <th>Tahun</th>
-                      <th>Jumlah Keberatan</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {statKeberatan.map((s) => (
-                      <tr key={s.tahun}>
-                        <td>{s.tahun}</td>
-                        <td>{s.jumlah}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-
-              <h3 className="ppid-subhead">Tindak Lanjut Permintaan Informasi Tahun 2025</h3>
-              <div className="ppid-table-wrap">
-                <table className="ppid-table">
-                  <thead>
-                    <tr>
-                      <th>Bulan</th>
-                      <th>Diberikan sepenuhnya</th>
-                      <th>Diberikan sebagian</th>
-                      <th>Tidak diberikan</th>
-                      <th>Tidak ditindaklanjuti</th>
-                      <th>Rata-rata waktu (hari kerja)</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {statTindaklanjut.map((s) => (
-                      <tr key={s.bulan}>
-                        <td>{s.bulan}</td>
-                        <td>{s.penuh}</td>
-                        <td>{s.sebagian}</td>
-                        <td>{s.tidak}</td>
-                        <td>{s.tdkLanjut}</td>
-                        <td>{s.rata}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-
-              <h3 className="ppid-subhead">Permintaan Informasi yang Tidak Diberikan Tahun 2025</h3>
-              <div className="ppid-table-wrap">
-                <table className="ppid-table">
-                  <thead>
-                    <tr>
-                      <th style={{ width: 60 }}>No.</th>
-                      <th>No. Pendaftaran</th>
-                      <th>Keterangan</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {statTidakDiberikan.map((s) => (
-                      <tr key={s.no}>
-                        <td>{s.no}</td>
-                        <td>{s.reg}</td>
-                        <td>{s.ket}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+            {/* 09 - LAINNYA */}
+            <section id="lainnya" className="profil-section">
+              <header className="profil-section-head">
+                <span className="profil-section-num">09</span>
+                <div>
+                  <h2 className="profil-section-title"><em>Lainnya</em></h2>
+                </div>
+              </header>
+              <div className="profil-section-intro">
+                <p>
+                  Bagian ini menyediakan ruang untuk informasi-informasi PPID lainnya yang diperlukan
+                  oleh publik. Saat ini konten sedang dalam penyiapan. Informasi terkait layanan,
+                  prosedur, atau dokumen PPID BPPK lainnya akan ditambahkan di sini seiring dengan
+                  ketersediaan dan kebutuhan penyampaian informasi publik.
+                </p>
               </div>
             </section>
           </div>
