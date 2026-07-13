@@ -508,7 +508,7 @@ function PpidPage() {
 
               <h3 className="ppid-subhead">Prosedur Permintaan Informasi</h3>
               <figure className="ppid-struktur-figure">
-                <img src={slPermintaan.url} alt="Bagan prosedur permintaan informasi publik" loading="lazy" />
+                <img src={slPermintaan.url} alt="Mekanisme permintaan informasi publik PPID Kementerian Keuangan" loading="lazy" />
               </figure>
               <div className="profil-section-intro">
                 <p>
