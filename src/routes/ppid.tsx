@@ -4,7 +4,7 @@ import { SiteNavbar, SiteFooter } from "@/components/SiteChrome";
 import profilHeroBg from "@/assets/profil-hero-bg.png.asset.json";
 import ppidStruktur from "@/assets/ppid-struktur.png.asset.json";
 import slMaklumat from "@/assets/ppid-sl-maklumat.png.asset.json";
-import slPermintaan from "@/assets/ppid-sl-permintaan.png.asset.json";
+import slPermintaan from "@/assets/bagan-mekanisme-permintaan-informasi-publik.jpg.asset.json";
 import slKeberatan from "@/assets/ppid-sl-keberatan.png.asset.json";
 import slSengketa from "@/assets/ppid-sl-sengketa.png.asset.json";
 import stat1 from "@/assets/ppid-stat-1.png.asset.json";
@@ -508,7 +508,7 @@ function PpidPage() {
 
               <h3 className="ppid-subhead">Prosedur Permintaan Informasi</h3>
               <figure className="ppid-struktur-figure">
-                <img src={slPermintaan.url} alt="Bagan prosedur permintaan informasi publik" loading="lazy" />
+                <img src={slPermintaan.url} alt="Mekanisme permintaan informasi publik PPID Kementerian Keuangan" loading="lazy" />
               </figure>
               <div className="profil-section-intro">
                 <p>
