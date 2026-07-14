@@ -216,7 +216,7 @@ export const groups: PejabatGroup[] = [
   {
     id: "pusdiklat",
     eyebrow: "Pusat Pendidikan dan Pelatihan",
-    judul: "Kepala Pusdiklat",
+    judul: "Kepala Pusat",
     deskripsi:
       "Pusdiklat dan Pusat di lingkungan BPPK menyelenggarakan pendidikan, pelatihan, sertifikasi, serta pembinaan jabatan fungsional dan penjaminan mutu sesuai bidang masing-masing.",
     items: [pkm, pap, ppjk, pbc, pkp, pjf],
