@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { SiteNavbar, SiteFooter } from "@/components/SiteChrome";
-import profilHeroBg from "@/assets/profil-hero-bg.png.asset.json";
+import profilHeroBg from "@/assets/profil-hero-bg.png";
 import {
   publikasiItems,
   CATEGORY_LABEL,
@@ -13,22 +13,22 @@ import {
   type LaporanSub,
 } from "@/data/publikasi";
 
-import p01 from "@/assets/jejak-p01.jpg.asset.json";
-import p02 from "@/assets/jejak-p02.jpg.asset.json";
-import p03 from "@/assets/jejak-p03.jpg.asset.json";
-import p04 from "@/assets/jejak-p04.jpg.asset.json";
-import p05 from "@/assets/jejak-p05.jpg.asset.json";
-import p06 from "@/assets/jejak-p06.jpg.asset.json";
-import p07 from "@/assets/jejak-p07.jpg.asset.json";
-import p08 from "@/assets/jejak-p08.jpg.asset.json";
-import p09 from "@/assets/jejak-p09.jpg.asset.json";
-import p10 from "@/assets/jejak-p10.jpg.asset.json";
-import p11 from "@/assets/jejak-p11.jpg.asset.json";
-import p12 from "@/assets/jejak-p12.jpg.asset.json";
-import p13 from "@/assets/jejak-p13.jpg.asset.json";
-import p14 from "@/assets/jejak-p14.jpg.asset.json";
-import p15 from "@/assets/jejak-p15.jpg.asset.json";
-import p16 from "@/assets/jejak-p16.jpg.asset.json";
+import p01 from "@/assets/jejak-p01.jpg";
+import p02 from "@/assets/jejak-p02.jpg";
+import p03 from "@/assets/jejak-p03.jpg";
+import p04 from "@/assets/jejak-p04.jpg";
+import p05 from "@/assets/jejak-p05.jpg";
+import p06 from "@/assets/jejak-p06.jpg";
+import p07 from "@/assets/jejak-p07.jpg";
+import p08 from "@/assets/jejak-p08.jpg";
+import p09 from "@/assets/jejak-p09.jpg";
+import p10 from "@/assets/jejak-p10.jpg";
+import p11 from "@/assets/jejak-p11.jpg";
+import p12 from "@/assets/jejak-p12.jpg";
+import p13 from "@/assets/jejak-p13.jpg";
+import p14 from "@/assets/jejak-p14.jpg";
+import p15 from "@/assets/jejak-p15.jpg";
+import p16 from "@/assets/jejak-p16.jpg";
 
 const pdfPages = [p01, p02, p03, p04, p05, p06, p07, p08, p09, p10, p11, p12, p13, p14, p15, p16].map((a) => a.url);
 
