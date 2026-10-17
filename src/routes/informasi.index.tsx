@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { SiteNavbar, SiteFooter } from "@/components/SiteChrome";
-import profilHeroBg from "@/assets/profil-hero-bg.png.asset.json";
+import profilHeroBg from "@/assets/profil-hero-bg.png";
 import { infoCategories, infoItems, type InfoCategory } from "@/data/informasi";
 
 export const Route = createFileRoute("/informasi/")({
