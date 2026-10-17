@@ -136,7 +136,7 @@ function PpidPage() {
 
       {/* HERO */}
       <section className="profil-hero profil-hero-short">
-        <div className="profil-hero-bg" style={{ backgroundImage: `url(${profilHeroBg.url})` }} />
+        <div className="profil-hero-bg" style={{ backgroundImage: `url(${profilHeroBg})` }} />
         <div className="profil-hero-overlay" />
         <div className="profil-hero-content container-bppk">
           <nav className="profil-breadcrumb" aria-label="Breadcrumb">
@@ -250,7 +250,7 @@ function PpidPage() {
 
               <h3 className="ppid-subhead">Struktur PPID Tingkat I BPPK</h3>
               <figure className="ppid-struktur-figure">
-                <img src={ppidStruktur.url} alt="Struktur PPID Tingkat I BPPK" loading="lazy" />
+                <img src={ppidStruktur} alt="Struktur PPID Tingkat I BPPK" loading="lazy" />
                 <figcaption>Struktur PPID Tingkat I Badan Pendidikan dan Pelatihan Keuangan</figcaption>
               </figure>
 
@@ -503,12 +503,12 @@ function PpidPage() {
 
               <h3 className="ppid-subhead">Maklumat Layanan</h3>
               <figure className="ppid-struktur-figure">
-                <img src={slMaklumat.url} alt="Maklumat Layanan PPID BPPK" loading="lazy" />
+                <img src={slMaklumat} alt="Maklumat Layanan PPID BPPK" loading="lazy" />
               </figure>
 
               <h3 className="ppid-subhead">Prosedur Permintaan Informasi</h3>
               <figure className="ppid-struktur-figure">
-                <img src={slPermintaan.url} alt="Mekanisme permintaan informasi publik PPID Kementerian Keuangan" loading="lazy" />
+                <img src={slPermintaan} alt="Mekanisme permintaan informasi publik PPID Kementerian Keuangan" loading="lazy" />
               </figure>
               <div className="profil-section-intro">
                 <p>
@@ -533,7 +533,7 @@ function PpidPage() {
 
               <h3 className="ppid-subhead">Prosedur Pengajuan Keberatan</h3>
               <figure className="ppid-struktur-figure">
-                <img src={slKeberatan.url} alt="Bagan prosedur pengajuan keberatan" loading="lazy" />
+                <img src={slKeberatan} alt="Bagan prosedur pengajuan keberatan" loading="lazy" />
               </figure>
               <div className="profil-section-intro">
                 <p>
@@ -571,7 +571,7 @@ function PpidPage() {
                 </p>
               </div>
               <figure className="ppid-struktur-figure">
-                <img src={slSengketa.url} alt="Bagan prosedur permohonan sengketa informasi publik" loading="lazy" />
+                <img src={slSengketa} alt="Bagan prosedur permohonan sengketa informasi publik" loading="lazy" />
               </figure>
               <ol className="profil-vm-list">
                 {sengketaTahapan.map((s, i) => (
@@ -627,19 +627,19 @@ function PpidPage() {
               </div>
 
               <figure className="ppid-struktur-figure">
-                <img src={stat1.url} alt="Statistik layanan informasi PPID BPPK – 1" loading="lazy" />
+                <img src={stat1} alt="Statistik layanan informasi PPID BPPK – 1" loading="lazy" />
               </figure>
               <figure className="ppid-struktur-figure">
-                <img src={stat2.url} alt="Statistik layanan informasi PPID BPPK – 2" loading="lazy" />
+                <img src={stat2} alt="Statistik layanan informasi PPID BPPK – 2" loading="lazy" />
               </figure>
               <figure className="ppid-struktur-figure">
-                <img src={stat3.url} alt="Statistik layanan informasi PPID BPPK – 3" loading="lazy" />
+                <img src={stat3} alt="Statistik layanan informasi PPID BPPK – 3" loading="lazy" />
               </figure>
               <figure className="ppid-struktur-figure">
-                <img src={stat4.url} alt="Statistik layanan informasi PPID BPPK – 4" loading="lazy" />
+                <img src={stat4} alt="Statistik layanan informasi PPID BPPK – 4" loading="lazy" />
               </figure>
               <figure className="ppid-struktur-figure">
-                <img src={stat5.url} alt="Statistik layanan informasi PPID BPPK – 5" loading="lazy" />
+                <img src={stat5} alt="Statistik layanan informasi PPID BPPK – 5" loading="lazy" />
               </figure>
 
             </section>

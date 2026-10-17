@@ -35,13 +35,13 @@ const sections: { id: SectionId; num: string; label: string }[] = [
 ];
 
 const milestones = [
-  { year: "1952", title: "Akademi Ajun Akuntan", desc: "Departemen Keuangan membentuk Akademi Ajun Akuntan Negara dan Akademi Ajun Akuntan Pajak untuk menyiapkan kader pimpinan tinggi pengelola keuangan negara.", img: hero1.url },
-  { year: "1959", title: "Sekolah Tinggi Ilmu Keuangan Negara", desc: "Berdasarkan SK Menkeu No. 175402/UP/X tanggal 31 Desember 1959, dibentuk STIKN dengan empat jurusan: Pajak Umum, Bea dan Cukai, Kebendaharaan Umum, dan Akuntansi.", img: hero2.url },
-  { year: "1968", title: "Institut Ilmu Keuangan Negara (IIK)", desc: "Keppres RI Nomor 167 Tahun 1968 membentuk IIK yang meleburkan STIKN, Akademi Treasury Negara (ATN), dan Akademi Dinas Pemeriksa Keuangan (ADPK).", img: hero3.url },
-  { year: "1975", title: "Lahirnya BPLK", desc: "Diresmikan melalui Keppres No. 44 Tahun 1974 dan KMK No. 405/MK/6/4/1975. Tanggal 16 April 1975 ditetapkan sebagai hari jadi BPLK.", img: edukasiCover.url },
-  { year: "1987", title: "Penguatan Balai Diklat", desc: "Melalui KMK No. 189/KMK.01/1987 dibentuk Balai Diklat di Medan, Yogyakarta, Ujung Pandang, dan Kediri.", img: bgJurnal.url },
-  { year: "2001", title: "Transformasi BPLK menjadi BPPK", desc: "Berdasarkan KMK No. 2/KMK.01/2001, BPLK berubah nama menjadi Badan Pendidikan dan Pelatihan Keuangan (BPPK).", img: bgBuku.url },
-  { year: "2023", title: "Organisasi BPPK Terkini", desc: "Berdasarkan PMK Nomor 135 Tahun 2023, BPPK terdiri dari 1 Sekretariat, 5 Pusdiklat, dan 1 Pusat Pembinaan Jabatan Fungsional dan Penjaminan Mutu.", img: hero1.url },
+  { year: "1952", title: "Akademi Ajun Akuntan", desc: "Departemen Keuangan membentuk Akademi Ajun Akuntan Negara dan Akademi Ajun Akuntan Pajak untuk menyiapkan kader pimpinan tinggi pengelola keuangan negara.", img: hero1 },
+  { year: "1959", title: "Sekolah Tinggi Ilmu Keuangan Negara", desc: "Berdasarkan SK Menkeu No. 175402/UP/X tanggal 31 Desember 1959, dibentuk STIKN dengan empat jurusan: Pajak Umum, Bea dan Cukai, Kebendaharaan Umum, dan Akuntansi.", img: hero2 },
+  { year: "1968", title: "Institut Ilmu Keuangan Negara (IIK)", desc: "Keppres RI Nomor 167 Tahun 1968 membentuk IIK yang meleburkan STIKN, Akademi Treasury Negara (ATN), dan Akademi Dinas Pemeriksa Keuangan (ADPK).", img: hero3 },
+  { year: "1975", title: "Lahirnya BPLK", desc: "Diresmikan melalui Keppres No. 44 Tahun 1974 dan KMK No. 405/MK/6/4/1975. Tanggal 16 April 1975 ditetapkan sebagai hari jadi BPLK.", img: edukasiCover },
+  { year: "1987", title: "Penguatan Balai Diklat", desc: "Melalui KMK No. 189/KMK.01/1987 dibentuk Balai Diklat di Medan, Yogyakarta, Ujung Pandang, dan Kediri.", img: bgJurnal },
+  { year: "2001", title: "Transformasi BPLK menjadi BPPK", desc: "Berdasarkan KMK No. 2/KMK.01/2001, BPLK berubah nama menjadi Badan Pendidikan dan Pelatihan Keuangan (BPPK).", img: bgBuku },
+  { year: "2023", title: "Organisasi BPPK Terkini", desc: "Berdasarkan PMK Nomor 135 Tahun 2023, BPPK terdiri dari 1 Sekretariat, 5 Pusdiklat, dan 1 Pusat Pembinaan Jabatan Fungsional dan Penjaminan Mutu.", img: hero1 },
 ];
 
 const akademiAwal = [
@@ -196,7 +196,7 @@ function ProfilPage() {
 
       {/* HERO */}
       <section className="profil-hero profil-hero-short">
-        <div className="profil-hero-bg" style={{ backgroundImage: `url(${profilHeroBg.url})` }} />
+        <div className="profil-hero-bg" style={{ backgroundImage: `url(${profilHeroBg})` }} />
         <div className="profil-hero-overlay" />
         <div className="profil-hero-content container-bppk">
           <nav className="profil-breadcrumb" aria-label="Breadcrumb">
@@ -406,7 +406,7 @@ function ProfilPage() {
               </header>
 
               <figure className="profil-section-banner">
-                <img src={edukasiCover.url} alt="Visi dan misi BPPK" loading="lazy" />
+                <img src={edukasiCover} alt="Visi dan misi BPPK" loading="lazy" />
                 <figcaption>Arah strategis pengembangan SDM keuangan negara.</figcaption>
               </figure>
 
@@ -425,7 +425,7 @@ function ProfilPage() {
                     Visi tersebut menunjukkan komitmen yang ingin dicapai oleh BPPK dalam memberikan layanan kepada pemangku kepentingan dengan memaksimalkan potensi yang ada.
                   </p>
                   <figure className="profil-vm-figure">
-                    <img src={hero2.url} alt="Ilustrasi visi BPPK" loading="lazy" />
+                    <img src={hero2} alt="Ilustrasi visi BPPK" loading="lazy" />
                   </figure>
                 </div>
 
@@ -459,7 +459,7 @@ function ProfilPage() {
 
               <div className="profil-section-split">
                 <figure className="profil-section-aside">
-                  <img src={hero3.url} alt="Tugas dan fungsi BPPK" loading="lazy" />
+                  <img src={hero3} alt="Tugas dan fungsi BPPK" loading="lazy" />
                 </figure>
                 <div className="profil-section-intro profil-section-intro-inline">
                   <p>
@@ -508,7 +508,7 @@ function ProfilPage() {
               </header>
 
               <figure className="profil-section-banner profil-section-banner-dark">
-                <img src={bgJurnal.url} alt="Kemenkeu Corporate University" loading="lazy" />
+                <img src={bgJurnal} alt="Kemenkeu Corporate University" loading="lazy" />
                 <figcaption>Ekosistem pembelajaran terintegrasi Kementerian Keuangan.</figcaption>
               </figure>
 
@@ -582,7 +582,7 @@ function ProfilPage() {
                   </p>
                 </div>
                 <figure className="profil-section-aside">
-                  <img src={coverBuku.url} alt="Learning Organization BPPK" loading="lazy" />
+                  <img src={coverBuku} alt="Learning Organization BPPK" loading="lazy" />
                 </figure>
               </div>
 

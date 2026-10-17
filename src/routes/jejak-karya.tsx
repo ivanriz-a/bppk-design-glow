@@ -24,7 +24,7 @@ import p16 from "@/assets/jejak-p16.jpg";
 const KMS_URL = "https://kms.kemenkeu.go.id/";
 const BUKU_LAIN_URL = "#";
 
-const pdfPages = [p01, p02, p03, p04, p05, p06, p07, p08, p09, p10, p11, p12, p13, p14, p15, p16].map((a) => a.url);
+const pdfPages = [p01, p02, p03, p04, p05, p06, p07, p08, p09, p10, p11, p12, p13, p14, p15, p16];
 
 export const Route = createFileRoute("/jejak-karya")({
   head: () => ({
@@ -40,7 +40,7 @@ export const Route = createFileRoute("/jejak-karya")({
         property: "og:description",
         content: "Preview flipbook buku Jejak, Karya, dan Transformasi BPPK — Rumah Belajar Kementerian Keuangan.",
       },
-      { property: "og:image", content: p01.url },
+      { property: "og:image", content: p01 },
     ],
   }),
   component: JejakKaryaPage,
@@ -82,7 +82,7 @@ function JejakKaryaPage() {
 
       {/* HERO */}
       <section className="profil-hero profil-hero-short">
-        <div className="profil-hero-bg" style={{ backgroundImage: `url(${profilHeroBg.url})` }} />
+        <div className="profil-hero-bg" style={{ backgroundImage: `url(${profilHeroBg})` }} />
         <div className="profil-hero-overlay" />
         <div className="profil-hero-content container-bppk">
           <nav className="profil-breadcrumb" aria-label="Breadcrumb">
@@ -122,7 +122,7 @@ function JejakKaryaPage() {
                 </div>
               ))}
               <div className="jejak-page-sheet jejak-back-cover">
-                <img src={p16.url} alt="" className="jejak-back-bg" />
+                <img src={p16} alt="" className="jejak-back-bg" />
                 <div className="jejak-back-overlay" />
                 <div className="jejak-back-inner">
                   <p className="jejak-back-eyebrow">Akhir Preview</p>
@@ -145,7 +145,7 @@ function JejakKaryaPage() {
             </Flipbook>
           ) : (
             <div className="jejak-flipbook-skeleton">
-              <img src={p01.url} alt="Sampul buku" />
+              <img src={p01} alt="Sampul buku" />
             </div>
           )}
 

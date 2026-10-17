@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { SiteNavbar, SiteFooter } from "@/components/SiteChrome";
-import profilHeroBg from "@/assets/profil-hero-bg.png.asset.json";
+import profilHeroBg from "@/assets/profil-hero-bg.png";
 import { getInfoBySlug, infoItems } from "@/data/informasi";
 
 export const Route = createFileRoute("/informasi/$slug")({
@@ -24,7 +24,7 @@ export const Route = createFileRoute("/informasi/$slug")({
     <>
       <SiteNavbar />
       <section className="profil-hero profil-hero-short">
-        <div className="profil-hero-bg" style={{ backgroundImage: `url(${profilHeroBg.url})` }} />
+        <div className="profil-hero-bg" style={{ backgroundImage: `url(${profilHeroBg})` }} />
         <div className="profil-hero-overlay" />
         <div className="profil-hero-content container-bppk">
           <h1 className="profil-hero-title">Artikel Tidak Ditemukan</h1>

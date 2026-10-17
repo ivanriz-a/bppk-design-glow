@@ -41,7 +41,7 @@ const heroSlides = [
     italic: "Kemenkeu PRIME",
     post: "",
     desc: "Layanan Halo BPPK dialihkan ke pusat kontak layanan Kemenkeu PRIME",
-    image: hero1.url,
+    image: hero1,
   },
   {
     eyebrow: "INTEGRITAS BPPK",
@@ -49,7 +49,7 @@ const heroSlides = [
     italic: "Gratifikasi",
     post: "Tegakkan Integritas.",
     desc: "BPPK menolak gratifikasi dalam bentuk apapun. Bersama ciptakan wilayah bebas dari korupsi.",
-    image: hero3.url,
+    image: hero3,
   },
   {
     eyebrow: "LAYANAN BPPK",
@@ -57,7 +57,7 @@ const heroSlides = [
     italic: "di BPPK tidak dipungut",
     post: "biaya/gratis",
     desc: "Segera ajukan pengaduan jika terjadi hal yang tidak sesuai.",
-    image: hero2.url,
+    image: hero2,
   },
 ];
 
@@ -133,17 +133,17 @@ type NewsTab = typeof newsTabs[number];
 const synergy: { label: string; logo?: string }[] = [
   { label: "SETJEN" },
   { label: "ITJEN" },
-  { label: "DJP", logo: logoDJP.url },
-  { label: "DJBC", logo: logoDJBC.url },
+  { label: "DJP", logo: logoDJP },
+  { label: "DJBC", logo: logoDJBC },
   { label: "DJA" },
-  { label: "DJPb", logo: logoDJPb.url },
-  { label: "DJKN", logo: logoDJKN.url },
-  { label: "DJPK", logo: logoDJPK.url },
-  { label: "DJPPR", logo: logoDJPPR.url },
+  { label: "DJPb", logo: logoDJPb },
+  { label: "DJKN", logo: logoDJKN },
+  { label: "DJPK", logo: logoDJPK },
+  { label: "DJPPR", logo: logoDJPPR },
   { label: "DJSEF" },
-  { label: "BPPK", logo: logoBPPKUnit.url },
+  { label: "BPPK", logo: logoBPPKUnit },
   { label: "DJSPSK" },
-  { label: "BaTII", logo: logoBaTII.url },
+  { label: "BaTII", logo: logoBaTII },
 ];
 const dates: Array<{ d: number; cls?: string; name?: string }> = [
   { d: 28, cls: "date-muted" }, { d: 29, cls: "date-muted" }, { d: 30, cls: "date-muted" },
@@ -393,8 +393,8 @@ function Home() {
                 ],
                 title: "Nyala Membara Semangat Jaga Keuangan Negara",
                 desc: "Majalah Edukasi Keuangan kembali hadir membawa cerita baru untuk menemani refleksi akhir tahun yang hampir saja selesai dilewati dengan setiap peran kita masing-masing.",
-                cover: edukasiCover.url,
-                halftone: edukasiHalftone.url,
+                cover: edukasiCover,
+                halftone: edukasiHalftone,
                 category: "Majalah Edukasi",
               },
               {
@@ -406,8 +406,8 @@ function Home() {
                 ],
                 title: "Evaluasi Pasca Diklat di Era Transformasi Digital",
                 desc: "Kajian akademik tentang efektivitas pelatihan, analisis kebutuhan kompetensi, dan strategi pengembangan SDM keuangan negara berbasis bukti.",
-                cover: coverJurnal.url,
-                halftone: bgJurnal.url,
+                cover: coverJurnal,
+                halftone: bgJurnal,
                 category: "Jurnal Ilmiah",
               },
               {
@@ -419,8 +419,8 @@ function Home() {
                 ],
                 title: "Jejak, Karya, dan Transformasi BPPK",
                 desc: "Badan Pendidikan dan Pelatihan Keuangan (BPPK) Kementerian Keuangan telah bertransformasi dari penyelenggara pelatihan konvensional menjadi kawah candradimuka modern.",
-                cover: coverBuku.url,
-                halftone: bgBuku.url,
+                cover: coverBuku,
+                halftone: bgBuku,
                 category: "Buku & Modul",
               },
             ];
@@ -553,14 +553,14 @@ function Home() {
           </div>
           <div className="synergy-wrapper">
             <a href="#" className="parent-area">
-              <div className="kemenkeu-logo"><img src={logoKemenkeu.url} alt="Kemenkeu" /></div>
+              <div className="kemenkeu-logo"><img src={logoKemenkeu} alt="Kemenkeu" /></div>
               <div style={{ fontSize: "0.72rem", color: "var(--text-gray)", fontWeight: 700, textAlign: "center", textTransform: "uppercase" }}>Kementerian<br />Keuangan</div>
             </a>
             <div className="scrolling-area">
               <div className="ticker">
                 {[...synergy, ...synergy].map((item, i) => (
                   <a key={i} href="#" className="ticker-item">
-                    <div className="ticker-logo"><img src={item.logo ?? logoKemenkeu.url} alt={item.label} /></div>
+                    <div className="ticker-logo"><img src={item.logo ?? logoKemenkeu} alt={item.label} /></div>
                     <span style={{ fontSize: "0.72rem", color: "#888", fontWeight: 700 }}>{item.label}</span>
                   </a>
                 ))}

@@ -1,7 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import logoPutih from "@/assets/logo-bppk-putih.png.asset.json";
-import logoFooter from "@/assets/logo-kemenkeu-bppk-putih.png.asset.json";
+import logoPutih from "@/assets/logo-bppk-putih.png";
+import logoFooter from "@/assets/logo-kemenkeu-bppk-putih.png";
 
 const KMS_URL = "https://kms.kemenkeu.go.id/";
 
@@ -36,7 +36,7 @@ export function SiteNavbar() {
     <nav className={`top-navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="nav-container">
         <Link to="/" className="nav-logo">
-          <img src={logoPutih.url} alt="BPPK Kementerian Keuangan" />
+          <img src={logoPutih} alt="BPPK Kementerian Keuangan" />
         </Link>
         <ul className="nav-links">
           <li className="nav-item">
@@ -157,7 +157,7 @@ export function SiteFooter() {
       <div className="footer-top-accent" aria-hidden="true" />
       <div className="footer-container">
         <div className="footer-brand-col">
-          <img src={logoFooter.url} alt="Logo Kemenkeu BPPK" className="footer-brand-logo" />
+          <img src={logoFooter} alt="Logo Kemenkeu BPPK" className="footer-brand-logo" />
           <h3 className="footer-brand-name">Badan Pendidikan dan Pelatihan Keuangan</h3>
           <ul className="footer-contact">
             <li>

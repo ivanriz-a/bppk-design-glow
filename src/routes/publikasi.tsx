@@ -30,7 +30,7 @@ import p14 from "@/assets/jejak-p14.jpg";
 import p15 from "@/assets/jejak-p15.jpg";
 import p16 from "@/assets/jejak-p16.jpg";
 
-const pdfPages = [p01, p02, p03, p04, p05, p06, p07, p08, p09, p10, p11, p12, p13, p14, p15, p16].map((a) => a.url);
+const pdfPages = [p01, p02, p03, p04, p05, p06, p07, p08, p09, p10, p11, p12, p13, p14, p15, p16];
 
 const MAIN_TABS: PublikasiCategory[] = ["penelitian", "majalah", "buku", "laporan"];
 const SUB_TABS: PenelitianSub[] = ["jurnal", "prosiding", "snkn"];
@@ -88,7 +88,7 @@ function PublikasiPage() {
 
       {/* HERO */}
       <section className="profil-hero profil-hero-short">
-        <div className="profil-hero-bg" style={{ backgroundImage: `url(${profilHeroBg.url})` }} />
+        <div className="profil-hero-bg" style={{ backgroundImage: `url(${profilHeroBg})` }} />
         <div className="profil-hero-overlay" />
         <div className="profil-hero-content container-bppk">
           <nav className="profil-breadcrumb" aria-label="Breadcrumb">
