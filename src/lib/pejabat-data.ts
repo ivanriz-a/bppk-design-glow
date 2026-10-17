@@ -1,13 +1,13 @@
-import fotoContoh from "@/assets/profil-dhoni.jpg.asset.json";
-import fotoDwiTeguh from "@/assets/pj-dwi-teguh-wibowo.png.asset.json";
-import fotoWahyu from "@/assets/pj-wahyu-kusuma-romadhoni.png.asset.json";
-import fotoHeni from "@/assets/pj-heni-kartikawati.png.asset.json";
-import fotoBhimantara from "@/assets/pj-bhimantara-widyajala.png.asset.json";
-import fotoEdward from "@/assets/pj-edward-hamonangan-sianipar.png.asset.json";
-import fotoMulyono from "@/assets/pj-mochamad-mulyono.png.asset.json";
-import fotoGanti from "@/assets/pj-ganti-lis-ariyadi.png.asset.json";
-import fotoNana from "@/assets/pj-nana-riana.png.asset.json";
-import fotoEvy from "@/assets/pj-evy-mulyani.png.asset.json";
+import fotoContoh from "@/assets/profil-dhoni.jpg";
+import fotoDwiTeguh from "@/assets/pj-dwi-teguh-wibowo.png";
+import fotoWahyu from "@/assets/pj-wahyu-kusuma-romadhoni.png";
+import fotoHeni from "@/assets/pj-heni-kartikawati.png";
+import fotoBhimantara from "@/assets/pj-bhimantara-widyajala.png";
+import fotoEdward from "@/assets/pj-edward-hamonangan-sianipar.png";
+import fotoMulyono from "@/assets/pj-mochamad-mulyono.png";
+import fotoGanti from "@/assets/pj-ganti-lis-ariyadi.png";
+import fotoNana from "@/assets/pj-nana-riana.png";
+import fotoEvy from "@/assets/pj-evy-mulyani.png";
 
 export type Pejabat = {
   id: string;
