@@ -1,26 +1,26 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Fragment, useEffect, useRef, useState } from "react";
 import { SiteNavbar, SiteFooter } from "@/components/SiteChrome";
-import hero1 from "@/assets/hero-1.png.asset.json";
-import hero2 from "@/assets/hero-2.png.asset.json";
-import hero3 from "@/assets/hero-3.png.asset.json";
-import logoPutih from "@/assets/logo-bppk-putih.png.asset.json";
-import logoFooter from "@/assets/logo-kemenkeu-bppk-putih.png.asset.json";
-import edukasiCover from "@/assets/edukasi-cover.jpg.asset.json";
-import edukasiHalftone from "@/assets/edukasi-halftone.png.asset.json";
-import coverJurnal from "@/assets/cover-jurnal.jpg.asset.json";
-import bgJurnal from "@/assets/background-jurnal.jpg.asset.json";
-import coverBuku from "@/assets/cover-buku.png.asset.json";
-import bgBuku from "@/assets/background-buku.jpeg.asset.json";
-import logoKemenkeu from "@/assets/logo-kemenkeu.png.asset.json";
-import logoBaTII from "@/assets/logo-BaTII.png.asset.json";
-import logoBPPKUnit from "@/assets/logo-BPPK.png.asset.json";
-import logoDJBC from "@/assets/logo-DJBC.png.asset.json";
-import logoDJKN from "@/assets/logo-DJKN.png.asset.json";
-import logoDJP from "@/assets/logo-DJP.png.asset.json";
-import logoDJPb from "@/assets/logo-DJPb.png.asset.json";
-import logoDJPK from "@/assets/logo-DJPK.png.asset.json";
-import logoDJPPR from "@/assets/logo-DJPPR.png.asset.json";
+import hero1 from "@/assets/hero-1.png";
+import hero2 from "@/assets/hero-2.png";
+import hero3 from "@/assets/hero-3.png";
+import logoPutih from "@/assets/logo-bppk-putih.png";
+import logoFooter from "@/assets/logo-kemenkeu-bppk-putih.png";
+import edukasiCover from "@/assets/edukasi-cover.jpg";
+import edukasiHalftone from "@/assets/edukasi-halftone.png";
+import coverJurnal from "@/assets/cover-jurnal.jpg";
+import bgJurnal from "@/assets/background-jurnal.jpg";
+import coverBuku from "@/assets/cover-buku.png";
+import bgBuku from "@/assets/background-buku.jpeg";
+import logoKemenkeu from "@/assets/logo-kemenkeu.png";
+import logoBaTII from "@/assets/logo-BaTII.png";
+import logoBPPKUnit from "@/assets/logo-BPPK.png";
+import logoDJBC from "@/assets/logo-DJBC.png";
+import logoDJKN from "@/assets/logo-DJKN.png";
+import logoDJP from "@/assets/logo-DJP.png";
+import logoDJPb from "@/assets/logo-DJPb.png";
+import logoDJPK from "@/assets/logo-DJPK.png";
+import logoDJPPR from "@/assets/logo-DJPPR.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
