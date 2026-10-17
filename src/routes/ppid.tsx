@@ -1,17 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { SiteNavbar, SiteFooter } from "@/components/SiteChrome";
-import profilHeroBg from "@/assets/profil-hero-bg.png.asset.json";
-import ppidStruktur from "@/assets/ppid-struktur.png.asset.json";
-import slMaklumat from "@/assets/ppid-sl-maklumat.png.asset.json";
-import slPermintaan from "@/assets/bagan-mekanisme-permintaan-informasi-publik.jpg.asset.json";
-import slKeberatan from "@/assets/ppid-sl-keberatan.png.asset.json";
-import slSengketa from "@/assets/ppid-sl-sengketa.png.asset.json";
-import stat1 from "@/assets/ppid-stat-1.png.asset.json";
-import stat2 from "@/assets/ppid-stat-2.png.asset.json";
-import stat3 from "@/assets/ppid-stat-3.png.asset.json";
-import stat4 from "@/assets/ppid-stat-4.png.asset.json";
-import stat5 from "@/assets/ppid-stat-5.png.asset.json";
+import profilHeroBg from "@/assets/profil-hero-bg.png";
+import ppidStruktur from "@/assets/ppid-struktur.png";
+import slMaklumat from "@/assets/ppid-sl-maklumat.png";
+import slPermintaan from "@/assets/bagan-mekanisme-permintaan-informasi-publik.jpg";
+import slKeberatan from "@/assets/ppid-sl-keberatan.png";
+import slSengketa from "@/assets/ppid-sl-sengketa.png";
+import stat1 from "@/assets/ppid-stat-1.png";
+import stat2 from "@/assets/ppid-stat-2.png";
+import stat3 from "@/assets/ppid-stat-3.png";
+import stat4 from "@/assets/ppid-stat-4.png";
+import stat5 from "@/assets/ppid-stat-5.png";
 import {
   ppidTugas,
   ppidWewenang,
