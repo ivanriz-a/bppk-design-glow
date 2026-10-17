@@ -38,7 +38,7 @@ const KONTAK_DEFAULT = {
 };
 
 const withDefaults = (p: Pejabat): Pejabat => ({
-  foto: fotoContoh.url,
+  foto: fotoContoh,
   ...KONTAK_DEFAULT,
   ...p,
 });
@@ -48,7 +48,7 @@ const withDefaults = (p: Pejabat): Pejabat => ({
 
 const kepala: Pejabat = withDefaults({
   id: "kepala",
-  foto: fotoDwiTeguh.url,
+  foto: fotoDwiTeguh,
   nama: "Dwi Teguh Wibowo",
   jabatan: "Plt. Kepala Badan Pendidikan dan Pelatihan Keuangan",
   unit: "Badan Pendidikan dan Pelatihan Keuangan",
@@ -63,7 +63,7 @@ const kepala: Pejabat = withDefaults({
 
 const sekretariat: Pejabat = withDefaults({
   id: "sekretariat",
-  foto: fotoWahyu.url,
+  foto: fotoWahyu,
   nama: "Wahyu Kusuma Romadhoni",
   jabatan: "Sekretaris Badan Pendidikan dan Pelatihan Keuangan",
   unit: "Sekretariat BPPK",
@@ -78,7 +78,7 @@ const sekretariat: Pejabat = withDefaults({
 
 const pkm: Pejabat = withDefaults({
   id: "pkm",
-  foto: fotoHeni.url,
+  foto: fotoHeni,
   nama: "Heni Kartikawati",
   jabatan: "Kepala Pusdiklat Kepemimpinan dan Manajemen",
   unit: "Pusdiklat Kepemimpinan dan Manajemen",
@@ -92,7 +92,7 @@ const pkm: Pejabat = withDefaults({
 
 const pap: Pejabat = withDefaults({
   id: "pap",
-  foto: fotoBhimantara.url,
+  foto: fotoBhimantara,
   nama: "Bhimantara Widyajala",
   jabatan: "Kepala Pusdiklat Anggaran dan Perbendaharaan",
   unit: "Pusdiklat Anggaran dan Perbendaharaan",
@@ -108,7 +108,7 @@ const pap: Pejabat = withDefaults({
 
 const ppjk: Pejabat = withDefaults({
   id: "ppjk",
-  foto: fotoEdward.url,
+  foto: fotoEdward,
   nama: "Edward Hamonangan Sianipar",
   jabatan: "Kepala Pusdiklat Pajak",
   unit: "Pusdiklat Pajak",
@@ -123,7 +123,7 @@ const ppjk: Pejabat = withDefaults({
 
 const pbc: Pejabat = withDefaults({
   id: "pbc",
-  foto: fotoMulyono.url,
+  foto: fotoMulyono,
   nama: "Mochamad Mulyono",
   jabatan: "Kepala Pusdiklat Bea dan Cukai",
   unit: "Pusdiklat Bea dan Cukai",
@@ -139,7 +139,7 @@ const pbc: Pejabat = withDefaults({
 
 const pkp: Pejabat = withDefaults({
   id: "pkp",
-  foto: fotoGanti.url,
+  foto: fotoGanti,
   nama: "Ganti Lis Ariyadi",
   jabatan: "Kepala Pusdiklat Keuangan Publik",
   unit: "Pusdiklat Keuangan Publik",
@@ -154,7 +154,7 @@ const pkp: Pejabat = withDefaults({
 
 const pjf: Pejabat = withDefaults({
   id: "pjf",
-  foto: fotoNana.url,
+  foto: fotoNana,
   nama: "Nana Riana",
   jabatan: "Kepala Pusat Pembinaan Jabatan Fungsional dan Penjaminan Mutu",
   unit: "Pusat Pembinaan Jabatan Fungsional dan Penjaminan Mutu",
@@ -169,7 +169,7 @@ const pjf: Pejabat = withDefaults({
 
 const pknStan: Pejabat = withDefaults({
   id: "pkn-stan",
-  foto: fotoEvy.url,
+  foto: fotoEvy,
   nama: "Evy Mulyani",
   jabatan: "Direktur Politeknik Keuangan Negara STAN",
   unit: "Politeknik Keuangan Negara STAN",

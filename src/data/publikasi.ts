@@ -59,7 +59,7 @@ export const LAPORAN_SUB_LABEL: Record<LaporanSub, string> = {
 };
 
 
-const covers = [coverJurnal.url, coverEdukasi.url, coverJejak.url];
+const covers = [coverJurnal, coverEdukasi, coverJejak];
 const pick = (i: number) => covers[i % covers.length];
 
 const desc = (topic: string) => [
@@ -75,7 +75,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Jurnal BPPK Vol. 17 No. 1",
     subtitle: "Kajian Keuangan Negara & Kebijakan Publik",
     description: desc("kebijakan fiskal dan tata kelola keuangan negara"),
-    cover: coverJurnal2.url, year: 2025, meta: "ISSN 2085-3785",
+    cover: coverJurnal2, year: 2025, meta: "ISSN 2085-3785",
     pdfUrl: "#",
   },
   {
@@ -83,7 +83,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Jurnal BPPK Vol. 16 No. 2",
     subtitle: "Transformasi Digital di Sektor Publik",
     description: desc("transformasi digital pada instansi pemerintah"),
-    cover: coverJurnal2.url, year: 2024, meta: "ISSN 2085-3785",
+    cover: coverJurnal2, year: 2024, meta: "ISSN 2085-3785",
     pdfUrl: "#",
   },
   {
@@ -91,7 +91,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Jurnal BPPK Vol. 16 No. 1",
     subtitle: "Manajemen SDM & Learning Organization",
     description: desc("pengembangan kompetensi ASN Kemenkeu"),
-    cover: coverJurnal2.url, year: 2024, meta: "ISSN 2085-3785",
+    cover: coverJurnal2, year: 2024, meta: "ISSN 2085-3785",
     pdfUrl: "#",
   },
 
@@ -101,7 +101,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Prosiding Kajian Akademis 2025",
     subtitle: "Kumpulan Naskah Terpilih",
     description: desc("hasil kajian akademis internal BPPK tahun 2025"),
-    cover: coverJurnal2.url, year: 2025,
+    cover: coverJurnal2, year: 2025,
     pdfUrl: "#",
   },
   {
@@ -109,7 +109,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Prosiding Kajian Akademis 2024",
     subtitle: "Kumpulan Naskah Terpilih",
     description: desc("kajian isu strategis keuangan negara"),
-    cover: coverJurnal2.url, year: 2024,
+    cover: coverJurnal2, year: 2024,
     pdfUrl: "#",
   },
   {
@@ -117,7 +117,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Prosiding Kajian Akademis 2023",
     subtitle: "Kumpulan Naskah Terpilih",
     description: desc("hasil kajian tematik bidang keuangan publik"),
-    cover: coverJurnal2.url, year: 2023,
+    cover: coverJurnal2, year: 2023,
     pdfUrl: "#",
   },
 
@@ -127,7 +127,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Simposium Nasional Keuangan Negara 2025",
     subtitle: "Prosiding SNKN VIII",
     description: desc("naskah terpilih Simposium Nasional Keuangan Negara"),
-    cover: coverJurnal2.url, year: 2025,
+    cover: coverJurnal2, year: 2025,
     pdfUrl: "#",
   },
   {
@@ -135,7 +135,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Simposium Nasional Keuangan Negara 2024",
     subtitle: "Prosiding SNKN VII",
     description: desc("kajian keuangan negara dari peneliti nasional"),
-    cover: coverJurnal2.url, year: 2024,
+    cover: coverJurnal2, year: 2024,
     pdfUrl: "#",
   },
   {
@@ -143,7 +143,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Simposium Nasional Keuangan Negara 2023",
     subtitle: "Prosiding SNKN VI",
     description: desc("hasil simposium tahunan keuangan negara"),
-    cover: coverJurnal2.url, year: 2023,
+    cover: coverJurnal2, year: 2023,
     pdfUrl: "#",
   },
 
@@ -153,7 +153,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Riset Lebih Luas, Kebijakan Lebih Relevan",
     subtitle: "Riset Lebih Luas, Kebijakan Lebih Relevan",
     description: desc("perluasan riset dan relevansi kebijakan publik"),
-    cover: edukasi85.url, year: 2026, meta: "Edisi 85",
+    cover: edukasi85, year: 2026, meta: "Edisi 85",
     pdfUrl: "#",
   },
   {
@@ -161,7 +161,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Nyala Membara Semangat Jaga Keuangan Negara",
     subtitle: "Pelatihan Pembinaan Kesadaran Bela Negara",
     description: desc("pelatihan pembinaan kesadaran bela negara"),
-    cover: edukasi84.url, year: 2025, meta: "Edisi 84",
+    cover: edukasi84, year: 2025, meta: "Edisi 84",
     pdfUrl: "#",
   },
   {
@@ -169,7 +169,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Kaleidoskop 2024",
     subtitle: "BPPK Hadir untuk Negeri",
     description: desc("catatan capaian dan momentum BPPK sepanjang 2024"),
-    cover: edukasi82.url, year: 2024, meta: "Edisi 82",
+    cover: edukasi82, year: 2024, meta: "Edisi 82",
     pdfUrl: "#",
   },
 
@@ -183,7 +183,7 @@ export const publikasiItems: Publikasi[] = [
       "Tersaji kisah transformasi kelembagaan, tokoh-tokoh penggerak, serta program-program strategis yang mengubah wajah pembelajaran Kementerian Keuangan.",
       "Cocok bagi pembaca yang ingin memahami DNA budaya belajar Kemenkeu dan komitmen investasi pada SDM menuju Indonesia Emas 2045.",
     ],
-    cover: coverJejakBaru.url, year: 2025, meta: "ISBN 978-623-XXXX",
+    cover: coverJejakBaru, year: 2025, meta: "ISBN 978-623-XXXX",
     pdfUrl: "#",
   },
   {
@@ -191,7 +191,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Marwanto Harjowiryono",
     subtitle: "Maestro Simfoni Perbendaharaan — Pengawal 'Die-Hard' APBN, Pendobrak Reformasi Birokrasi",
     description: desc("biografi profesional Marwanto Harjowiryono di dunia perbendaharaan negara"),
-    cover: coverMarwanto.url, year: 2024, meta: "Pengantar: Sri Mulyani Indrawati · Robert Adhi KSP",
+    cover: coverMarwanto, year: 2024, meta: "Pengantar: Sri Mulyani Indrawati · Robert Adhi KSP",
     pdfUrl: "#",
   },
   {
@@ -199,7 +199,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Sumiyati",
     subtitle: "Srikandi Perubahan, Inspirasi bagi Perempuan",
     description: desc("biografi profesional Sumiyati sebagai penggerak perubahan di Kementerian Keuangan"),
-    cover: coverSumiyati.url, year: 2024, meta: "Robert Adhi KSP",
+    cover: coverSumiyati, year: 2024, meta: "Robert Adhi KSP",
     pdfUrl: "#",
   },
 
@@ -208,7 +208,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Mardiasmo",
     subtitle: "The Man With Golden Scissors — Biografi Profesional",
     description: desc("biografi profesional Mardiasmo, pemimpin reformasi tata kelola keuangan negara"),
-    cover: coverMardiasmo.url, year: 2023, meta: "Biografi Profesional",
+    cover: coverMardiasmo, year: 2023, meta: "Biografi Profesional",
     pdfUrl: "#",
   },
 
@@ -218,7 +218,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Laporan Tahunan BPPK 2024",
     subtitle: "Transformasi Pembelajaran Berkelanjutan",
     description: desc("kinerja, capaian, dan transformasi pembelajaran BPPK sepanjang tahun 2024"),
-    cover: laporanTahunan2024.url, year: 2025,
+    cover: laporanTahunan2024, year: 2025,
     pdfUrl: "#",
   },
   {
@@ -226,7 +226,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Laporan Tahunan BPPK 2023",
     subtitle: "Akselerasi Pembelajaran & Transformasi",
     description: desc("kinerja dan capaian BPPK sepanjang tahun 2023"),
-    cover: laporanTahunan2023.url, year: 2024,
+    cover: laporanTahunan2023, year: 2024,
     pdfUrl: "#",
   },
   {
@@ -234,7 +234,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Laporan Tahunan BPPK 2022",
     subtitle: "Membangun Kemenkeu Corporate University",
     description: desc("kinerja dan capaian BPPK sepanjang tahun 2022"),
-    cover: laporanTahunan2022.url, year: 2023,
+    cover: laporanTahunan2022, year: 2023,
     pdfUrl: "#",
   },
   {
@@ -242,7 +242,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Laporan Tahunan BPPK 2021",
     subtitle: "Adaptasi & Inovasi Pembelajaran",
     description: desc("kinerja dan capaian BPPK sepanjang tahun 2021"),
-    cover: laporanTahunan2021.url, year: 2022,
+    cover: laporanTahunan2021, year: 2022,
     pdfUrl: "#",
   },
   {
@@ -250,7 +250,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Laporan Kinerja BPPK 2025",
     subtitle: "Clarity in Transition — Hadapi Transisi, Kinerja Teruji",
     description: desc("laporan akuntabilitas kinerja BPPK tahun 2025"),
-    cover: laporanKinerja2025.url, year: 2026,
+    cover: laporanKinerja2025, year: 2026,
     pdfUrl: "#",
   },
   {
@@ -258,7 +258,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Laporan Kinerja BPPK 2024",
     subtitle: "Akuntabilitas Kinerja Organisasi",
     description: desc("laporan akuntabilitas kinerja BPPK tahun 2024"),
-    cover: laporanKinerja2024.url, year: 2025,
+    cover: laporanKinerja2024, year: 2025,
     pdfUrl: "#",
   },
   {
@@ -266,7 +266,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Laporan Keuangan BPPK 2024 (Audited)",
     subtitle: "Audited Financial Report",
     description: desc("laporan keuangan BPPK tahun anggaran 2024 yang telah diaudit"),
-    cover: laporanKeuangan2024.url, year: 2025,
+    cover: laporanKeuangan2024, year: 2025,
     pdfUrl: "#",
   },
   {
@@ -274,7 +274,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Laporan Keuangan BPPK 2023 (Audited)",
     subtitle: "Audited Financial Report",
     description: desc("laporan keuangan BPPK tahun anggaran 2023 yang telah diaudit"),
-    cover: laporanKeuangan2023.url, year: 2024,
+    cover: laporanKeuangan2023, year: 2024,
     pdfUrl: "#",
   },
   {
@@ -282,7 +282,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Laporan Layanan Informasi Publik PPID Tingkat I 2024",
     subtitle: "Badan Pendidikan dan Pelatihan Keuangan",
     description: desc("layanan informasi publik PPID Tingkat I BPPK tahun 2024"),
-    cover: laporanPpid2024.url, year: 2025,
+    cover: laporanPpid2024, year: 2025,
     pdfUrl: "#",
   },
   {
@@ -290,7 +290,7 @@ export const publikasiItems: Publikasi[] = [
     title: "Laporan Layanan Informasi Publik PPID Tingkat I 2023",
     subtitle: "Badan Pendidikan dan Pelatihan Keuangan",
     description: desc("layanan informasi publik PPID Tingkat I BPPK tahun 2023"),
-    cover: laporanPpid2023.url, year: 2024,
+    cover: laporanPpid2023, year: 2024,
     pdfUrl: "#",
   },
 ];
